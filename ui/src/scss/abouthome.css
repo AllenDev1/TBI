@@ -1,0 +1,134 @@
+.aboutsection {
+	background: #fdf0e9;
+}
+
+.abouthome-content {
+	margin-left: auto;
+	margin-right: auto;
+}
+.taskdiv img {
+	margin-top: 68px;
+}
+
+.homeabout {
+	display: flex;
+	justify-content: space-between;
+
+	margin: auto;
+}
+
+.homeabout-l img {
+	margin-top: 101px;
+}
+
+.homeabout-r {
+	margin-top: 171px;
+}
+.moderntxt {
+	width: 163px;
+	height: 32px;
+}
+.abouttxt h1 {
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 32px;
+	color: #ef6d58;
+}
+
+.boasttxt h1 {
+	font-weight: 800;
+	font-size: 56px;
+	line-height: 64px;
+	letter-spacing: -1px;
+	color: black;
+	margin-top: 20px;
+	margin-bottom: 0px;
+}
+
+.aboutquotetxt {
+	margin-top: 26px;
+}
+
+.aboutquotetxt h1 {
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 32px;
+	color: #391400;
+}
+
+.moredetails {
+	display: flex;
+	justify-content: space-between;
+	width: 300px;
+	height: 48px;
+	margin-top: 56px;
+}
+
+.aboutparatxt {
+	width: 417px;
+}
+
+.aboutparatxt p {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 32px;
+	color: rgba(57, 20, 0, 0.64);
+	margin-top: 18px;
+	margin-bottom: 0px;
+}
+
+.aboutbut .btn {
+	margin-top: 34px;
+	width: 138px;
+	height: 48px;
+	background-color: white;
+	border-radius: 6px;
+	border: none;
+	font-weight: 900;
+	font-size: 14px;
+	line-height: 14px;
+	text-align: center;
+	color: #000000;
+}
+.clientinfo {
+	width: 1170px;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 240px;
+}
+.costumers {
+	width: 391px;
+	border: 1px solid #f3d1bf;
+	border-radius: 6px 0px 0px 6px;
+	padding: 48px 48px 48px 38px;
+}
+.clients {
+	width: 391px;
+	border: 1px solid #f3d1bf;
+	border-radius: 6px 0px 0px 6px;
+	padding: 48px 48px 48px 38px;
+}
+.projects {
+	width: 391px;
+	border: 1px solid #f3d1bf;
+	border-radius: 6px 0px 0px 6px;
+	padding: 48px 48px 48px 38px;
+}
+
+.clientinfo h1 {
+	font-weight: 800;
+	font-size: 40px;
+	line-height: 48px;
+	color: #391400;
+}
+.clientinfo h2 {
+	padding: 8px 0px 0px 0px;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 32px;
+	color: #391400;
+}
+.clientinfo h1,
+h2 {
+	margin: 0px;
+}

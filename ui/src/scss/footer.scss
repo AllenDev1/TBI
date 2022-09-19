@@ -1,0 +1,115 @@
+.footer-container {
+	padding-top: 84px;
+	.footer-row {
+		padding-bottom: 91px;
+		border-bottom: 2px solid #f3d1bf;
+		.footer-links-col {
+			flex-direction: column;
+			display: flex;
+			a {
+				font-style: normal;
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 32px;
+				/* or 200% */
+
+				/* Text_Dark */
+
+				color: #391400;
+				text-decoration: none;
+			}
+			a:hover {
+				text-decoration: underline;
+			}
+
+			p {
+				font-style: normal;
+				font-weight: 700;
+				font-size: 16px;
+				line-height: 32px;
+				/* identical to box height, or 200% */
+
+				letter-spacing: 3px;
+				text-transform: uppercase;
+
+				/* Text_Dark_Accent */
+
+				color: #ef6d58;
+			}
+		}
+		.social-icon-col {
+			gap: 8px;
+			display: flex;
+			justify-content: flex-end;
+			a {
+				img:hover {
+					box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+				}
+			}
+		}
+	}
+	.copy-right-row {
+		.copy-right {
+			p {
+				font-style: normal;
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 32px;
+				/* identical to box height, or 200% */
+
+				/* Text_Dark_Gray */
+
+				color: rgba(57, 20, 0, 0.64);
+			}
+		}
+		.terms-policy {
+			a {
+				font-style: normal;
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 32px;
+				/* identical to box height, or 200% */
+				text-decoration: none;
+				color: rgba(57, 20, 0, 0.64);
+			}
+			a:hover {
+				text-decoration: underline;
+			}
+			text-align: right;
+			gap: 27px;
+			display: flex;
+			justify-content: flex-end;
+		}
+	}
+}
+@media (max-width: 768px) {
+	.footer-container{
+		.footer-row{
+			justify-content: space-between;
+			.footer-icon-col,.social-icon-col {
+				width: 100%;
+			}
+			.footer-links-col{
+				justify-content: space-evenly;
+				width: auto;
+			}
+			.social-icon-col{
+				justify-content: center;
+				margin-top: 20px;
+			}
+			
+		}
+		.copy-right-row{
+			.copy-right{
+				flex: auto;
+				p{
+					align-items: center;
+					text-align: center;
+				}
+			}
+			.terms-policy{
+				justify-content: space-between;
+			}
+		}
+	}
+}

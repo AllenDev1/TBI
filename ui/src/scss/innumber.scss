@@ -1,0 +1,32 @@
+.innumber-container {
+    margin-top: 144px;
+	.inNumber-row {
+		.innumber-col {
+			border: 1px solid #f3d1bf;
+			border-radius: 6px;
+            padding: 45px;
+			h1 {
+				font-style: normal;
+				font-weight: 800;
+				font-size: 40px;
+				line-height: 48px;
+				/* identical to box height, or 120% */
+
+				/* Text_Dark */
+
+				color: #391400;
+			}
+			h2 {
+				font-style: normal;
+				font-weight: 400;
+				font-size: 20px;
+				line-height: 32px;
+				/* identical to box height, or 160% */
+
+				/* Text_Dark */
+
+				color: #391400;
+			}
+		}
+	}
+}

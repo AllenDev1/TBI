@@ -1,0 +1,146 @@
+.services-container {
+	margin-top: 76px;
+	.service-n {
+		font-style: normal;
+		font-weight: 700;
+		font-size: 16px;
+		line-height: 32px;
+		/* identical to box height, or 200% */
+
+		letter-spacing: 3px;
+		text-transform: uppercase;
+
+		/* Text_Dark_Accent */
+
+		color: #ef6d58;
+	}
+	.services-accordion {
+		margin-top: 97px;
+		.accordion {
+			background-color: transparent;
+			.accordion-item {
+				border-top: #f3d1bf solid 1px;
+				border-bottom: #f3d1bf solid 1px;
+				border-left: none;
+				border-right: none;
+				background-color: transparent;
+				.accordion-header {
+					background-color: transparent;
+
+					button {
+						background-color: transparent;
+
+						font-style: normal;
+						font-weight: 800;
+						font-size: 56px;
+						line-height: 64px;
+						/* identical to box height, or 114% */
+
+						letter-spacing: -1px;
+
+						/* Text_Dark */
+
+						color: #391400;
+						display: flex;
+						gap: 60px;
+						img {
+							width: 80px;
+							height: 80px;
+						}
+					}
+					.accordion-button:not(.collapsed) {
+						box-shadow: none;
+						background-color: transparent;
+					}
+					.accordion-button:focus {
+						box-shadow: none;
+					}
+				}
+
+				.accordion-body {
+					padding-left: 40%;
+				}
+			}
+		}
+	}
+	.make-project-awsm {
+		padding-top: 144px;
+		.how-work-h5 {
+			font-style: normal;
+			font-weight: 700;
+			font-size: 16px;
+			line-height: 32px;
+			/* identical to box height, or 200% */
+
+			letter-spacing: 3px;
+			text-transform: uppercase;
+
+			/* Text_Dark_Accent */
+
+			color: #ef6d58;
+		}
+		.project-how-we-work {
+			.how-work-col {
+				p {
+					line-height: 32px;
+				}
+			}
+			.numbering-col {
+				.num-list {
+					display: flex;
+					gap: 66px;
+					align-items: center;
+					h1 {
+						font-style: normal;
+						font-weight: 800;
+						font-size: 72px;
+					}
+					h4 {
+						font-style: normal;
+						font-weight: 700;
+						font-size: 24px;
+						line-height: 32px;
+						/* identical to box height, or 133% */
+
+						/* Text_Dark */
+
+						color: #391400;
+					}
+				}
+			}
+		}
+	}
+}
+@media (max-width: 768px) {
+
+	.services-container{
+		.services-accordion{
+			.accordion{
+				.accordion-item{
+					.accordion-header{
+						button{
+							font-size: 20px;
+							gap: 22px;
+							line-height: 40px;
+						}
+					}
+					.accordion-collapse{
+						.accordion-body{
+							padding: var(--bs-accordion-body-padding-y) var(--bs-accordion-body-padding-x);
+							
+						}
+					}
+				}
+			}
+		}
+		.make-project-awsm{
+			.project-how-we-work{
+				.numbering-col{
+					.num-list{
+						gap: 38px;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,133 @@
+.navbar-top {
+	z-index: 9900;
+	background: #28293e;
+
+	.navbar-container {
+		.mobile-nav-menu {
+			display: none;
+			justify-content: space-between;
+		}
+		.nav-links {
+			flex: none;
+			.nav-links-nav {
+				align-items: flex-end;
+				gap: 46px;
+				a {
+					font-style: normal;
+					font-weight: 500;
+					font-size: 20px;
+					line-height: 32px;
+					/* identical to box height, or 160% */
+
+					text-transform: capitalize;
+
+					color: #ffffff;
+					text-decoration: none;
+					position: relative;
+				}
+				a::after {
+					content: " ";
+					width: 0;
+					height: 3px;
+					bottom: -5px;
+					left: 50%;
+					transform: translateX(-50%);
+					background: #ffffff;
+					position: absolute;
+					transition: width 0.3s;
+				}
+				a:hover::after {
+					color: #ef6d58;
+					width: 50%;
+				}
+				.active {
+					color: #ef6d58;
+				}
+				button {
+					font-style: normal;
+					font-weight: 900;
+					font-size: 14px;
+					line-height: 14px;
+					text-align: center;
+					text-transform: uppercase;
+
+					color: #ffffff;
+					border: 1px solid rgba(255, 255, 255, 0.295743);
+					border-radius: 6px;
+					background-color: transparent;
+					padding: 16px 34.5px;
+				}
+				button:hover {
+					background: #ef6d58;
+				}
+			}
+		}
+		.main-logo {
+		}
+	}
+}
+@media (max-width: 994px) {
+	.navbar-top {
+		border: 1px solid;
+
+		border-image-source: radial-gradient(
+					54.8% 53% at 50% 50%,
+					#151515 0%,
+					rgba(21, 21, 21, 0) 100%
+				)
+				/* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+			radial-gradient(
+					60% 51.57% at 50% 50%,
+					#e7ce4a 0%,
+					rgba(227, 205, 75, 0) 100%
+				)
+				/* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+			radial-gradient(
+					69.43% 69.43% at 50% 50%,
+					#ffffff 0%,
+					rgba(255, 255, 255, 0) 100%
+				)
+				/* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+
+		border-radius: 0px 0px 16px 16px;
+		.navbar-container {
+			.main-logo {
+				img {
+					width: 100px;
+				}
+			}
+			.mobile-nav-menu {
+				display: flex;
+				justify-content: space-between;
+				width: 100%;
+				a {
+					text-decoration: none;
+					vertical-align: middle;
+					align-items: center;
+					color: #ffffff;
+					display: flex;
+					flex-direction: column;
+					gap: 9px;
+					font-style: normal;
+					font-weight: 600;
+					font-size: 8px;
+					line-height: 10px;
+					display: flex;
+					align-items: center;
+					text-transform: capitalize;
+					align-items: center;
+				}
+				.active {
+					color: #ef6d58;
+					img {
+						filter: invert(20%) sepia(53%) saturate(5658%)
+							hue-rotate(322deg) brightness(95%) contrast(97%);
+					}
+				}
+			}
+			.toggle-mobile {
+				display: none;
+			}
+		}
+	}
+}

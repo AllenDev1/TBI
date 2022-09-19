@@ -1,0 +1,22 @@
+.white-btn-nice {
+	background: #ffffff !important;
+	box-shadow: 0px 3px 9px rgba(57, 20, 0, 0.08) !important;
+	border-radius: 6px !important;
+	font-style: normal !important;
+	font-weight: 900 !important;
+	font-size: 14px !important;
+	line-height: 14px !important;
+	text-align: center !important;
+	text-transform: uppercase !important;
+
+	color: #391400 !important;
+	padding: 18px 20px !important;
+	border: none !important;
+}
+.white-btn-nice:hover {
+	background-color: #ffffff !important;
+	box-shadow: 0px 3px 9px rgba(57, 20, 0, 0.08) !important;
+	border-radius: 6px !important;
+	filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25)) !important;
+	color: #391400 !important;
+}

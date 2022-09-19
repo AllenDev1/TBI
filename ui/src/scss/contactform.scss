@@ -1,0 +1,80 @@
+.form-outter {
+	width: 464px;
+	height: 468.37px;
+	padding: 53px 48px;
+	border-radius: 16px;
+
+	border: 6px solid rgba(42, 42, 42, 0);
+
+	background: radial-gradient(
+				100% 100% at 100% 100%,
+				#d8d2d2 0%,
+				rgba(238, 227, 227, 0) 100%
+			)
+			/* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+		radial-gradient(
+				100% 100% at 100% 100%,
+				#b6e6d7 0%,
+				rgba(152, 180, 171, 0) 100%
+			)
+			/* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+		radial-gradient(
+				100% 100% at 100% 100%,
+				#ffffff 0%,
+				rgba(255, 255, 255, 0) 100%
+			)
+			/* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */,
+		linear-gradient(
+			152.97deg,
+			rgba(255, 255, 255, 0.912) 0%,
+			rgba(21, 21, 21, 0) 100%
+		);
+	h3 {
+		font-style: normal;
+		font-weight: 700;
+		font-size: 24px;
+		line-height: 32px;
+		/* identical to box height, or 133% */
+
+		color: #000;
+	}
+	input,
+	select,
+	textarea {
+		background-color: #ffffff;
+		border: 1px solid #f3d1bf;
+		border-radius: 6px;
+		font-style: normal;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 32px;
+		/* identical to box height, or 200% */
+
+		/* Text_Dark_Gray */
+
+		color: rgba(57, 20, 0, 0.64);
+		padding: 9px;
+	}
+	button {
+		background: #3f3d56;
+		border-radius: 6px;
+		font-style: normal;
+		font-weight: 900;
+		font-size: 14px;
+		line-height: 14px;
+		text-align: center;
+		text-transform: uppercase;
+
+		color: #ffffff;
+        padding: 18px 29.5px;
+        float: right;
+        border: none;
+	}
+    button:hover{
+        background-color: #3f3d56;
+        box-shadow: 0px 3px 9px rgba(57, 20, 0, 0.08) !important;
+        border-radius: 6px !important;
+        filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25)) !important;
+        color: #fff !important;
+    }
+}

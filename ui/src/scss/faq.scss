@@ -1,0 +1,141 @@
+.faq-bg {
+	background: #28293e;
+	
+	.faq-container {
+        padding-top: 232px;
+        padding-bottom: 100px;
+		.faq-text {
+			font-style: normal;
+			font-weight: 700;
+			font-size: 16px;
+			line-height: 32px;
+			/* identical to box height, or 200% */
+
+			letter-spacing: 3px;
+			text-transform: uppercase;
+
+			/* Text_Dark_Accent */
+
+			color: #ef6d58;
+		}
+		.faq-row {
+			.faq-text-col {
+				h3 {
+					font-style: normal;
+					font-weight: 800;
+					font-size: 40px;
+					line-height: 48px;
+					/* or 120% */
+
+					/* Text_Light */
+
+					color: #ffffff;
+				}
+				p {
+					font-style: normal;
+					font-weight: 400;
+					font-size: 16px;
+					line-height: 32px;
+					/* or 200% */
+
+					color: #ffffff;
+				}
+				a {
+					font-style: normal;
+					font-weight: 400;
+					font-size: 16px;
+					line-height: 32px;
+					/* identical to box height, or 200% */
+
+					/* Text_Light */
+
+					color: #ffffff;
+                    text-decoration: none;
+				}
+                a:hover{
+                    text-decoration: underline;
+                }
+			}
+			.faq-col {
+				.accordion {
+					.accordion-item {
+						background: transparent;
+						border: 1px solid #f3d1bf;
+						box-shadow: 0px 32px 64px rgba(57, 20, 0, 0.04);
+						border-radius: 6px;
+
+						.accordion-header {
+							.accordion-button {
+								font-style: normal;
+								font-weight: 700;
+								font-size: 24px;
+								line-height: 32px;
+								/* identical to box height, or 133% */
+
+								/* Text_Dark */
+								padding: 41px;
+								color: #391400;
+								background-color: #ffffff;
+								border: none;
+							}
+							.collapsed {
+								background-color: transparent;
+								font-style: normal;
+								font-weight: 700;
+								font-size: 24px;
+								line-height: 32px;
+								/* identical to box height, or 133% */
+
+								/* Text_Light */
+
+								color: #ffffff;
+							}
+							.accordion-button:not(.collapsed)::after {
+								background-image: url(../assets/down.svg);
+							}
+							.accordion-button::after {
+								background-image: url(../assets/down.svg);
+							}
+						}
+						.show {
+							background-color: #ffffff;
+						}
+						.accordion-collapse {
+							.accordion-body {
+								padding: 41px;
+								font-style: normal;
+								font-weight: 400;
+								font-size: 16px;
+								line-height: 32px;
+								/* or 200% */
+
+								/* Text_Dark_Gray */
+
+								color: rgba(57, 20, 0, 0.64);
+							}
+						}
+					}
+					.accordion-item:hover {
+						border: 1px solid #ef6d58;
+						border-radius: 6px;
+					}
+				}
+			}
+		}
+	}
+}
+@media (max-width: 768px) {
+	.faq-bg{
+		.faq-container{
+			.faq-row{
+				gap: 36px;
+				.faq-text-col{
+					width: 100%;
+				}
+				.faq-col{
+					width: 100%;
+				}
+			}
+		}
+	}
+}

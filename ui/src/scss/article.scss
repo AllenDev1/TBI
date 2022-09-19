@@ -1,0 +1,273 @@
+.article-container {
+	margin-top: 146px;
+	border-bottom: #f3d1bf solid 1px;
+	.back-towork {
+		font-style: normal;
+		font-weight: 700;
+		font-size: 12px;
+		line-height: 12px;
+		text-transform: uppercase;
+
+		/* Text_Dark */
+
+		color: #391400;
+		display: flex;
+		gap: 14px;
+		text-decoration: none;
+		width: 150px;
+	}
+	.back-towork:hover {
+		text-decoration: underline;
+	}
+	.article-sec {
+		margin-bottom: 63px;
+		.arti-row {
+			.work-title {
+				font-style: normal;
+				font-weight: 800;
+				font-size: 72px;
+				line-height: 80px;
+				/* or 111% */
+
+				letter-spacing: -2px;
+
+				color: #391400;
+			}
+			p {
+				font-style: normal;
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 32px;
+				/* or 200% */
+
+				/* Text_Dark_Gray */
+
+				color: rgba(57, 20, 0, 0.64);
+			}
+			.cato-wrok {
+				margin-top: 61px;
+				h5 {
+					font-style: normal;
+					font-weight: 400;
+					font-size: 16px;
+					line-height: 32px;
+					/* identical to box height, or 200% */
+
+					letter-spacing: 3px;
+					text-transform: uppercase;
+
+					/* Text_Dark_Accent */
+
+					color: #ef6d58;
+				}
+				.cato {
+					.cato-list {
+						font-style: normal;
+						font-weight: 400;
+						font-size: 16px;
+						line-height: 32px;
+						/* or 200% */
+
+						/* Text_Dark */
+
+						color: #391400;
+						p {
+							margin-bottom: 0%;
+						}
+					}
+				}
+				.client {
+					img {
+						width: 108px;
+						height: 32px;
+					}
+				}
+			}
+		}
+		.big-image {
+			margin: 63px 0px;
+			img {
+				width: 100%;
+				height: 726px;
+				border-radius: 4px;
+			}
+		}
+	}
+	.share-on {
+		text-align: center;
+		margin-bottom: 80px;
+		p {
+			font-style: normal;
+			font-weight: 400;
+			font-size: 14px;
+			line-height: 24px;
+			/* identical to box height, or 171% */
+
+			text-align: center;
+
+			/* Text_Dark_Gray */
+
+			color: rgba(57, 20, 0, 0.64);
+		}
+		.social-icon-col {
+			gap: 8px;
+			display: flex;
+			justify-content: center;
+		}
+	}
+}
+.related-work {
+	margin-top: 72px;
+	.relt-work {
+		font-style: normal;
+		font-weight: 700;
+		font-size: 24px;
+		line-height: 32px;
+		/* identical to box height, or 133% */
+
+		/* Text_Dark */
+
+		color: #391400;
+		margin-bottom: 39px;
+	}
+	.small-cards {
+		gap: 30px;
+		display: flex;
+		flex-wrap: wrap;
+
+		.card {
+			height: 416px;
+			border: none;
+			width: 50.1846vh;
+			max-width: 412px;
+			img {
+				height: 100%;
+				width: 100%;
+			}
+			.card-img-overlay {
+				justify-content: flex-end;
+				display: flex;
+				flex-direction: column;
+				padding: 48px;
+				.card-title {
+					button {
+						border: none;
+						font-style: normal;
+						font-weight: 400;
+						font-size: 16px;
+						line-height: 16px;
+
+						/* Text_Dark */
+
+						color: #391400;
+						padding: 11px 16px;
+
+						border-radius: 19px;
+						background-color: #ffff;
+					}
+				}
+				.card-text {
+					font-style: normal;
+					font-weight: 800;
+					font-size: 18px;
+					line-height: 40px;
+					/* identical to box height, or 114% */
+
+					letter-spacing: -1px;
+
+					/* Text_Light */
+
+					color: #ffffff;
+				}
+			}
+		}
+	}
+}
+@media (max-width: 768px) {
+	.related-work {
+		.small-cards {
+			a {
+				.card {
+					width: 100%;
+					.card-img-overlay {
+						padding: 25px;
+						.card-title {
+						}
+						p {
+						}
+					}
+				}
+			}
+		}
+	}
+	.article-container {
+		.article-sec {
+			.arti-row {
+				width: 100%;
+				.work-title {
+					font-style: normal;
+					font-weight: 800;
+					font-size: 55px;
+					line-height: 64px;
+					/* or 116% */
+
+					letter-spacing: -1px;
+
+					/* Text_Dark */
+
+					color: #391400;
+				}
+				.cato-wrok {
+					gap: 48px;
+				}
+			}
+			.body-arti-col {
+				width: 100%;
+			}
+		}
+	}
+}
+
+@media (min-width: 769px) and (max-width: 993px) {
+	.related-work {
+		.small-cards {
+			a {
+				.card {
+					width: 100%;
+					max-width: 697px;
+
+					.card-img-overlay {
+						padding: 25px;
+						.card-title {
+						}
+						p {
+						}
+					}
+				}
+			}
+		}
+	}
+}
+@media (min-width: 994px) and (max-width: 1439px) {
+	.related-work {
+		.small-cards {
+			display: flex;
+			justify-content: space-evenly;
+			gap: unset;
+			a {
+				.card {
+					width: 39.784143vh;
+					height: 350px;
+					margin-bottom: 30px;
+					.card-img-overlay {
+						padding: 25px;
+						.card-title {
+						}
+						p {
+						}
+					}
+				}
+			}
+		}
+	}
+}
