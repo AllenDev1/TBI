@@ -20,9 +20,15 @@ const Navbars = () => {
 	const listenScrollEvent = (event) => {
 		if (window.scrollY < 10) {
 			document.getElementById("navbar-top").style.filter = "none";
+			if (window.screen.width < 995) {
+				document.getElementById("main-logo").style.display = "block";
+			}
 		} else if (window.scrollY > 10) {
 			document.getElementById("navbar-top").style.filter =
 				"drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25))";
+			if (window.screen.width < 995) {
+				document.getElementById("main-logo").style.display = "none";
+			}
 		}
 	};
 
@@ -43,7 +49,11 @@ const Navbars = () => {
 					id="navbar-top"
 				>
 					<Container className="navbar-container">
-						<Navbar.Brand href="/" className="main-logo">
+						<Navbar.Brand
+							href="/"
+							className="main-logo"
+							id="main-logo"
+						>
 							<img src={Logo} alt="..." />
 						</Navbar.Brand>
 						<div className="mobile-nav-menu">

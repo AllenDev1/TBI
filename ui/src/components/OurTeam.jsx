@@ -1,36 +1,14 @@
 import axios from "axios";
-import { Buffer } from 'buffer';
+import { Buffer } from "buffer";
 import { useEffect, useState } from "react";
 import { Card, Container } from "react-bootstrap";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "../scss/ourteam.scss";
 
-const TeamCard = (props) => {
-	const { Name, Job, Image } = props;
-	let imgurl = Buffer.from(Image, "base64");
-
-	return (
-		<>
-			<Card>
-				<Card.Img
-					className="team-image"
-					variant="top"
-					src={imgurl}
-					alt="..."
-				/>
-				<Card.Body className="team-card-body">
-					<Card.Title className="team-member-name">{Name}</Card.Title>
-					<Card.Text className="team-member-work">{Job}</Card.Text>
-				</Card.Body>
-			</Card>
-		</>
-	);
-};
-
 const OurTeam = () => {
 	const [team, setTeam] = useState();
-	
+
 	const getTeam = () => {
 		const options = {
 			method: "GET",
@@ -41,7 +19,6 @@ const OurTeam = () => {
 			.request(options)
 			.then(function (response) {
 				setTeam(response.data);
-			
 			})
 			.catch(function (error) {
 				console.error(error);
@@ -99,14 +76,22 @@ const OurTeam = () => {
 					>
 						{team?.map((item, index) => {
 							return (
-								<>
-									<TeamCard
-										Name={item.Name}
-										Job={item.Job}
-										Image={item.Image}
-										key={index}
+								<Card>
+									<Card.Img
+										className="team-image"
+										variant="top"
+										src={Buffer.from(item.Image, "base64")}
+										alt="..."
 									/>
-								</>
+									<Card.Body className="team-card-body">
+										<Card.Title className="team-member-name">
+											{item.Name}
+										</Card.Title>
+										<Card.Text className="team-member-work">
+											{item.Job}
+										</Card.Text>
+									</Card.Body>
+								</Card>
 							);
 						})}
 						<></>

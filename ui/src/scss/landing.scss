@@ -139,7 +139,11 @@
 @media (max-width: 768px) {
 	.first-section {
 		.lading-cont {
+		.some-animation {
+			display: none;
+		}
 			.landind-row {
+				padding-bottom: 50px;
 				.landing-col {
 					h1 {
 						font-style: normal;
