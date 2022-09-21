@@ -4,8 +4,6 @@ import { Button, Form, Modal } from "react-bootstrap";
 import "../scss/contactform.scss";
 
 const ContactForm = () => {
-
-
 	const [show, setShow] = useState(false);
 
 	const handleClose = () => {
@@ -42,7 +40,7 @@ const ContactForm = () => {
 		<>
 			<div className="form-outter">
 				<h3 className="mb-4">Get in Touch</h3>
-				<Form onSubmit={fetchMessage}>
+				<Form onSubmit={fetchMessage} >
 					<Form.Group
 						controlId="exampleForm.ControlInput1"
 						className="mb-3"
@@ -53,7 +51,8 @@ const ContactForm = () => {
 								setName(e.target.value);
 							}}
 							type="name"
-							placeholder="Name "
+							placeholder="Name"
+							required
 						/>
 					</Form.Group>
 					<Form.Group
@@ -66,7 +65,8 @@ const ContactForm = () => {
 								setEmail(e.target.value);
 							}}
 							type="email"
-							placeholder="email adderss"
+							placeholder="Email adderss"
+							required
 						/>
 					</Form.Group>
 
@@ -82,6 +82,7 @@ const ContactForm = () => {
 							as="textarea"
 							rows={3}
 							placeholder="Message"
+							required
 						/>
 					</Form.Group>
 					<Button type="submit">SUBMIT NOW</Button>

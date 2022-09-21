@@ -28,13 +28,23 @@ app.post("/postarticle", (req, res) => {
 	const articleDescription = req.body.description;
 	const articleAuthor = req.body.author;
 	const articleClient = req.body.client;
-	const articleCatogeries = req.body.categories
+	const articleCatogeries = req.body.categories;
 
 	let query = `INSERT INTO Articles (title, content, author, Client, Categories) VALUES (?, ?, ?, ? ,?);`;
-	CONNECTION.query(query, [articleTitle, articleDescription, articleAuthor, articleClient, articleCatogeries],(err, result) => {
-		if (err) throw err;
-		res.sendStatus(200);
-	});
+	CONNECTION.query(
+		query,
+		[
+			articleTitle,
+			articleDescription,
+			articleAuthor,
+			articleClient,
+			articleCatogeries,
+		],
+		(err, result) => {
+			if (err) throw err;
+			res.sendStatus(200);
+		}
+	);
 });
 app.post("/deleteatricle", (req, res) => {
 	const articleID = req.body.id;
@@ -95,7 +105,8 @@ app.post("/blog", (req, res) => {
 		"INSERT INTO Blog_post (Title, Categories, Thumbnail, Text, Client) VALUES (?, ?, ?, ?, ?)";
 
 	CONNECTION.query(
-		query, [title, categories, thumbnail, text, client],
+		query,
+		[title, categories, thumbnail, text, client],
 		(err, result) => {
 			if (err) throw err;
 			res.sendStatus(200);
@@ -189,6 +200,25 @@ app.get("/faqlist", (req, res) => {
 		res.send(result);
 	});
 });
+
+app.post("/videosrcadd", (req, res) => {
+	const src = req.body.src;
+
+	let query = "INSERT INTO video_src (Src) VALUES (?)";
+
+	CONNECTION.query(query, [src], (err, result) => {
+		if (err) throw err;
+		res.sendStatus(200);
+	});
+});
+
+app.get("/videosrc", (req, res) =>{
+	let query = `SELECT * FROM video_src`
+	CONNECTION.query(query, (err, result) =>{
+		if(err) throw err;
+		res.send(result);
+	})
+})
 
 app.listen(port, () => {
 	console.log(`Example app listening on port ${port}`);

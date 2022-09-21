@@ -49,15 +49,14 @@
 		}
 	}
 	.small-cards {
-		gap: 30px;
+		// gap: 30px;
 		display: flex;
 		flex-wrap: wrap;
 
 		.card {
-			height: 416px;
+			height: 350px;
 			border: none;
-			width: 50.1846vh;
-			max-width: 412px;
+
 			img {
 				height: 100%;
 				width: 100%;
@@ -152,7 +151,6 @@
 			a {
 				.card {
 					width: 100%;
-					max-width: 697px;
 
 					.card-img-overlay {
 						padding: 25px;
@@ -169,14 +167,9 @@
 @media (min-width: 994px) and (max-width: 1439px) {
 	.work-container {
 		.small-cards {
-			display: flex;
-			justify-content: space-evenly;
-			gap: unset;
 			a {
 				.card {
-					width: 39.784143vh;
-					height: 350px;
-					margin-bottom: 30px;
+					// margin-bottom: 30px;
 					.card-img-overlay {
 						padding: 25px;
 						.card-title {

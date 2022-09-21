@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Buffer } from "buffer";
 import { useEffect, useState } from "react";
-import { Button, Card, Container } from "react-bootstrap";
+import { Button, Card, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import da from "../components/datafiles/datafiles.json";
 import Footer from "../components/Footer";
@@ -48,7 +48,7 @@ const ArticlesCard = (props) => {
 		</Link>
 	);
 };
-const blogsPerRow = 2;
+const blogsPerRow = 12;
 
 const Works = () => {
 	const [next, setNext] = useState(blogsPerRow);
@@ -113,7 +113,7 @@ const Works = () => {
 						);
 					})}
 				</div>  */}
-				<div className="small-cards">
+				<Row xs={1} md={4} className="small-cards g-4">
 					{blogs?.slice(0, next)?.map((item, index) => {
 						return (
 							<ArticlesCard
@@ -125,7 +125,7 @@ const Works = () => {
 							/>
 						);
 					})}
-				</div>
+				</Row>
 				<div className="load-more-work-btn">
 					{next < blogs?.length && WhiteBtn(da.work_btn, loadMore)}
 				</div>

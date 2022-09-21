@@ -40,6 +40,7 @@ const Email = () => {
 									onChange={(e) => {
 										setEmail(e.target.value);
 									}}
+									required
 								/>
 								<Button type="submit">
 									Subscribe <img src={sendicon} alt="..." />

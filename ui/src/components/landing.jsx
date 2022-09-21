@@ -12,6 +12,7 @@ import img4 from "../assets/_company website 5/Vector-1.svg";
 import img5 from "../assets/_company website 5/Vector-2.svg";
 import img6 from "../assets/_company website 5/Vector.svg";
 import { useNavigate } from "react-router-dom";
+import Spline from "@splinetool/react-spline";
 
 const Landing = () => {
 	let navigate = useNavigate();
@@ -41,6 +42,13 @@ const Landing = () => {
 							</div>
 						</Col>
 						<Col className="landing-col1">
+							{/* <iframe
+								src="https://my.spline.design/untitled-7bddc76bd69a8a74a80325c0ea835ede/"
+								frameBorder="0"
+								width="100%"
+								height="100%"
+							/> */}
+
 							<img src={Landimg} alt=".." />
 						</Col>
 					</Row>

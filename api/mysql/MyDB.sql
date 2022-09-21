@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Generation Time: Sep 19, 2022 at 10:24 AM
+-- Generation Time: Sep 21, 2022 at 12:02 PM
 -- Server version: 8.0.29
 -- PHP Version: 8.0.21
 
@@ -120,6 +120,17 @@ CREATE TABLE `Testimonials` (
   `Rating` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `video_src`
+--
+
+CREATE TABLE `video_src` (
+  `ID` int NOT NULL,
+  `Src` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 --
 -- Indexes for dumped tables
 --
@@ -168,6 +179,12 @@ ALTER TABLE `Testimonials`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indexes for table `video_src`
+--
+ALTER TABLE `video_src`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -211,6 +228,12 @@ ALTER TABLE `Teams_Table`
 -- AUTO_INCREMENT for table `Testimonials`
 --
 ALTER TABLE `Testimonials`
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `video_src`
+--
+ALTER TABLE `video_src`
   MODIFY `ID` int NOT NULL AUTO_INCREMENT;
 COMMIT;
 
