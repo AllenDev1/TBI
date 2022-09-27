@@ -10,6 +10,7 @@ import Testimonials from "../components/Testimonials";
 import TopFooterCard from "../components/TopFooterCard";
 import "../scss/about scss/about.scss";
 import datas from "../components/datafiles/datafiles";
+import KeyFun from "../components/Fun/KeyFun";
 
 export const heroHeading = (heading, desc) => {
 	return (
@@ -55,6 +56,7 @@ const About = () => {
 			<OurTeam />
 			<Testimonials />
 			<Faq />
+			<KeyFun />
 			<TopFooterCard />
 			<Footer />
 		</>
