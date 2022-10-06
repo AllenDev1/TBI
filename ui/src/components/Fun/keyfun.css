@@ -220,3 +220,8 @@
 		transform: translate(0);
 	}
 }
+@media (max-width: 768px) {
+	.background-key-change{
+		display: none;
+	}
+}
