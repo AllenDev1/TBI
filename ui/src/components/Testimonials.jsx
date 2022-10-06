@@ -50,7 +50,7 @@ const Testimonials = () => {
 						onSelect={handleSelect}
 					>
 					
-
+{/* 
 						{testimonials?.map((item) => {
 							return (
 								<Carousel.Item
@@ -67,7 +67,7 @@ const Testimonials = () => {
 								</Carousel.Item>
 								
 							);
-						})}
+						})} */}
 					</Carousel>
 				</Container>
 			</div>

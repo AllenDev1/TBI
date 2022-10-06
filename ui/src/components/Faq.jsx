@@ -51,7 +51,7 @@ const Faq = () => {
 						</Col>
 						<Col className="faq-col" xs={10} md={7}>
 							<Accordion defaultActiveKey="1" flush={false}>
-								{faqss?.map(( item, index ) => {
+								{/* {faqss?.map(( item, index ) => {
 									return (
 										<>
 											<FAQS
@@ -62,7 +62,7 @@ const Faq = () => {
 											/>
 										</>
 									);
-								})}
+								})} */}
 							</Accordion>
 						</Col>
 					</Row>
