@@ -74,7 +74,7 @@ const OurTeam = () => {
 						dotListClass="custom-dot-list-style"
 						itemClass="carousel-item-padding-40-px"
 					>
-						{team?.map((item, index) => {
+						{/* {team?.map((item, index) => {
 							return (
 								<Card>
 									<Card.Img
@@ -93,7 +93,7 @@ const OurTeam = () => {
 									</Card.Body>
 								</Card>
 							);
-						})}
+						})} */}
 						<></>
 					</Carousel>
 				</Container>
