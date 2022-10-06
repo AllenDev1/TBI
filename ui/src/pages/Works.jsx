@@ -114,7 +114,7 @@ const Works = () => {
 					})}
 				</div>  */}
 				<Row xs={1} md={4} className="small-cards g-4">
-					{blogs?.slice(0, next)?.map((item, index) => {
+					{/* {blogs?.slice(0, next)?.map((item, index) => {
 						return (
 							<ArticlesCard
 								Title={item.Title}
@@ -124,7 +124,7 @@ const Works = () => {
 								ID={item.ID}
 							/>
 						);
-					})}
+					})} */}
 				</Row>
 				<div className="load-more-work-btn">
 					{next < blogs?.length && WhiteBtn(da.work_btn, loadMore)}
