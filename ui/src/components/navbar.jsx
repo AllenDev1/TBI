@@ -21,7 +21,7 @@ const Navbars = () => {
 		if (window.scrollY < 10) {
 			document.getElementById("navbar-top").style.filter = "none";
 			if (window.screen.width < 995) {
-				document.getElementById("main-logo").style.display = "block";
+				document.getElementById("main-logo").style.display = "none";
 			}
 		} else if (window.scrollY > 10) {
 			document.getElementById("navbar-top").style.filter =
@@ -54,7 +54,7 @@ const Navbars = () => {
 							className="main-logo"
 							id="main-logo"
 						>
-							<img src={Logo} alt="..." />
+							<img src={Logo} alt="..." id="mainLogoImage" />
 						</Navbar.Brand>
 						<div className="mobile-nav-menu">
 							<NavLink
