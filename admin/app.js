@@ -3,8 +3,9 @@ const AdminJSExpress = require('@adminjs/express')
 const express = require('express')
 const Connect = require('connect-pg-simple')
 const session = require('express-session')
+const mysql = require("mysql");
 
-const PORT = 3002
+const PORT = 3000
 
 const DEFAULT_ADMIN = {
   email: 'admin@example.com',
@@ -26,11 +27,11 @@ const start = async () => {
   const ConnectSession = Connect(session)
   const sessionStore = new ConnectSession({
     conObject: {
-      connectionString: 'postgres://adminjs:adminjs@localhost:3000/adminjs',
+      connectionString: 'postgres://adminjs:adminjs@localhost:5435/adminjs',
       ssl: process.env.NODE_ENV === 'production',
     },
     tableName: 'session',
-    createTableIfMissing: true
+    createTableIfMissing: true,
   })
 
   const adminRouter = AdminJSExpress.buildAuthenticatedRouter(
