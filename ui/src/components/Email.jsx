@@ -11,7 +11,7 @@ const Email = () => {
 	const postEmail = () => {
 		const options = {
 			method: "POST",
-			url: "/mail",
+			url: "/api/newsletter/",
 			headers: { "Content-Type": "application/json" },
 			data: { email: email },
 		};

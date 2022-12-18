@@ -1,11 +1,10 @@
+import Spline from "@splinetool/react-spline";
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import bitmap from "../../assets/Bitmap.svg";
+import { Col, Container, Row } from "react-bootstrap";
 import bitmap1 from "../../assets/Bitmap-1.svg";
 import bitmap2 from "../../assets/Bitmap-2.svg";
 import bitmap3 from "../../assets/Bitmap-3.svg";
-import video from "../../assets/video.mp4";
-import Spline from "@splinetool/react-spline";
+import bitmap from "../../assets/Bitmap.svg";
 
 const AboutVideo = () => {
 	return (
@@ -13,13 +12,7 @@ const AboutVideo = () => {
 			<Container className="about-body">
 				<Row className="about-image-row">
 					<Col className="about-image-video">
-						{/* <video  controls>
-							<source
-								src={video}
-								type="video/mp4"
-							/>
-
-						</video> */}
+						
 
 						<Spline
 							className="spline"

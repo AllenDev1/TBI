@@ -41,7 +41,7 @@ const Navbars = () => {
 		<>
 			{["sm"].map((expand) => (
 				<Navbar
-					fixed="top"
+					fixed={window.screen.width > 995 ? "top" : "bottom"}
 					collapseOnSelect
 					expand="lg"
 					variant="dark"

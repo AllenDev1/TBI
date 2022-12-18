@@ -12,7 +12,7 @@ const OurTeam = () => {
 	const getTeam = () => {
 		const options = {
 			method: "GET",
-			url: "/addteamlist",
+			url: "/api/team/",
 		};
 
 		axios
@@ -74,26 +74,26 @@ const OurTeam = () => {
 						dotListClass="custom-dot-list-style"
 						itemClass="carousel-item-padding-40-px"
 					>
-						{/* {team?.map((item, index) => {
+						{team?.map((item, index) => {
 							return (
-								<Card>
+								<Card key={index}>
 									<Card.Img
 										className="team-image"
 										variant="top"
-										src={Buffer.from(item.Image, "base64")}
+										src={Buffer.from(item.image, "base64")}
 										alt="..."
 									/>
 									<Card.Body className="team-card-body">
 										<Card.Title className="team-member-name">
-											{item.Name}
+											{item.name}
 										</Card.Title>
 										<Card.Text className="team-member-work">
-											{item.Job}
+											{item.position}
 										</Card.Text>
 									</Card.Body>
 								</Card>
 							);
-						})} */}
+						})}
 						<></>
 					</Carousel>
 				</Container>

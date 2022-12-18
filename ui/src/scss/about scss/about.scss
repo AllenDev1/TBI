@@ -81,14 +81,14 @@
 		margin-top: 113px;
 		padding: 0%;
 		.about-image-video {
-			video{
+			video {
 				width: 750px;
 				height: 500px;
 			}
-			.spline{
+			.spline {
 				width: 100% !important;
 				height: 100% !important;
-				border-radius:4px ;
+				border-radius: 4px;
 			}
 		}
 		.about-image-group {
@@ -113,13 +113,18 @@ body {
 }
 
 @media (max-width: 768px) {
+	.background-darkblue-color-about {
+		.about-heading-container {
+			margin-top: 0px;
+		}
+	}
 	.about-body {
 		.about-body {
 			margin-top: 20px;
 			.about-image-row {
 				margin-top: 0%;
 				.about-image-video {
-					video{
+					video {
 						width: 100%;
 						height: auto;
 					}

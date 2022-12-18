@@ -5,19 +5,18 @@ import "../scss/faq.scss";
 import axios from "axios";
 
 const FAQS = (props) => {
-	const { Title, Answers, index } = props;
-	
+	const { question, answer, index } = props;
+
 	return (
 		<>
 			<Accordion.Item eventKey={index}>
-				<Accordion.Header>{Title}</Accordion.Header>
-				<Accordion.Body>{Answers}</Accordion.Body>
+				<Accordion.Header>{question}</Accordion.Header>
+				<Accordion.Body>{answer}</Accordion.Body>
 			</Accordion.Item>
 		</>
 	);
 };
 const Faq = () => {
-	
 	const [faqss, setFaqss] = useState();
 
 	useEffect(() => {
@@ -25,14 +24,16 @@ const Faq = () => {
 	}, []);
 
 	const fetchFaqs = () => {
-		const options = {method: 'GET', url: '/faqlist'};
+		const options = { method: "GET", url: "/api/faq/" };
 
-		axios.request(options).then(function (response) {
-		  setFaqss(response.data)
-		  
-		}).catch(function (error) {
-		  console.error(error);
-		});
+		axios
+			.request(options)
+			.then(function (response) {
+				setFaqss(response.data);
+			})
+			.catch(function (error) {
+				console.error(error);
+			});
 	};
 	return (
 		<>
@@ -51,18 +52,18 @@ const Faq = () => {
 						</Col>
 						<Col className="faq-col" xs={10} md={7}>
 							<Accordion defaultActiveKey="1" flush={false}>
-								{/* {faqss?.map(( item, index ) => {
+								{faqss?.map((item, index) => {
 									return (
 										<>
 											<FAQS
-												Title={item.Title}
-												Answers={item.Answers}
+												question={item.question}
+												answer={item.answer}
 												index={index}
 												key={index}
 											/>
 										</>
 									);
-								})} */}
+								})}
 							</Accordion>
 						</Col>
 					</Row>

@@ -21,7 +21,7 @@ const ContactForm = () => {
 
 		const options = {
 			method: "POST",
-			url: "/postmessage",
+			url: "/api/message/",
 			headers: { "Content-Type": "application/json" },
 			data: { name: name, email: email, message: message },
 		};
@@ -40,7 +40,7 @@ const ContactForm = () => {
 		<>
 			<div className="form-outter">
 				<h3 className="mb-4">Get in Touch</h3>
-				<Form onSubmit={fetchMessage} >
+				<Form onSubmit={fetchMessage}>
 					<Form.Group
 						controlId="exampleForm.ControlInput1"
 						className="mb-3"

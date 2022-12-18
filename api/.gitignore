@@ -7,10 +7,11 @@
 
 # testing
 /coverage
-
+database.sqlite
 # production
 /build
-
+.env
+sessions.db
 # misc
 .DS_Store
 .env.local

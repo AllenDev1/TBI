@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Carousel, Container } from "react-bootstrap";
+import { Buffer } from "buffer";
 import "../scss/Testimonials.scss";
-
 
 const Testimonials = () => {
 	const [testimonials, setTestimonials] = useState();
@@ -21,7 +21,7 @@ const Testimonials = () => {
 	const fetchTestimonials = () => {
 		const options = {
 			method: "GET",
-			url: "/testimonialslist",
+			url: "/api/testimonials/",
 		};
 
 		axios
@@ -49,25 +49,26 @@ const Testimonials = () => {
 						activeIndex={activeCIndex}
 						onSelect={handleSelect}
 					>
-					
-{/* 
-						{testimonials?.map((item) => {
+						{testimonials?.map((item, index) => {
 							return (
 								<Carousel.Item
-									className={
-										"testi-carousel-items"
-									}
+									className={"testi-carousel-items"}
+									key={index}
 								>
 									<Carousel.Caption>
-										<p>{item.Comment}</p>
+										<p>
+											{Buffer.from(
+												item.text,
+												"ascii"
+											).toString()}
+										</p>
 
-										<h3>{item.Name}</h3>
-										<p>{item.User_info}</p>
+										<h3>{item.name}</h3>
+										<p>{item.position}</p>
 									</Carousel.Caption>
 								</Carousel.Item>
-								
 							);
-						})} */}
+						})}
 					</Carousel>
 				</Container>
 			</div>
