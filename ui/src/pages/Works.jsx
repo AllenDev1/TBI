@@ -19,7 +19,7 @@ const ArticlesCard = (props) => {
 	return (
 		<Link to={"/article/" + id + "/" + convertToSlug(title)}>
 			<Card className="bg-dark text-white">
-				<Card.Img src={imgurl} alt="Card image" />
+				<Card.Img src={imgurl} alt={title} />
 				<Card.ImgOverlay>
 					<Card.Title>
 						<Button>{categories}</Button>
@@ -68,7 +68,7 @@ const Works = () => {
 			{heroHeading(da.work_heading, da.work_dec)}
 			<Container className="work-container">
 				<Row xs={1} md={4} className="small-cards g-4">
-					{/* {blogs?.slice(0, next).map((blog, idx) => {
+					{blogs?.slice(0, next).map((blog, idx) => {
 						return (
 							<ArticlesCard
 								key={idx}
@@ -79,7 +79,7 @@ const Works = () => {
 
 							/>
 						);
-					})} */}
+					})}
 				</Row>
 				<div className="load-more-work-btn">
 					{next < blogs?.length && WhiteBtn(da.work_btn, loadMore)}

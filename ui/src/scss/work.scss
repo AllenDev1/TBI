@@ -56,6 +56,8 @@
 		.card {
 			height: 350px;
 			border: none;
+			transition: 0.9s;
+			opacity: 1;
 
 			img {
 				height: 100%;
@@ -101,6 +103,8 @@
 		}
 		.card:hover {
 			img {
+				// delay 0.5s
+				transition: 0.5s;
 				opacity: 0.32;
 			}
 		}

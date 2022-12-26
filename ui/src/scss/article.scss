@@ -21,6 +21,12 @@
 	}
 	.article-sec {
 		margin-bottom: 63px;
+		img {
+			width: 100%;
+			height: 500px;
+			object-fit: cover;
+			padding: 20px;
+		}
 		.arti-row {
 			.work-title {
 				font-style: normal;

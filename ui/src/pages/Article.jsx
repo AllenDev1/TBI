@@ -176,6 +176,11 @@ const ArticleBlog = (props) => {
 	let imgurl = Buffer.from(image, "base64");
 	let desc = Buffer.from(text, "ascii").toString();
 
+	const formatDate = (createdAt) => {
+		const options = { year: "numeric", month: "long", day: "numeric" };
+		return new Date(createdAt).toLocaleDateString(undefined, options);
+	};
+
 	return (
 		<>
 			<Row className="article-sec">
@@ -196,13 +201,13 @@ const ArticleBlog = (props) => {
 							<h5>Client</h5>
 							<h1>{client}</h1>
 							<h5>Date</h5>
-							<p>{createdAt}</p>
+							<p>{formatDate(createdAt)}</p>
 						</Col>
 					</Row>
 				</Col>
 				<Col></Col>
 				<div className="big-image">
-					<img src={imgurl} alt="..." />
+					<img src={imgurl} alt={title} />
 				</div>
 
 				<Col></Col>

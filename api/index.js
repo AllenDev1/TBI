@@ -1,5 +1,7 @@
+require('dotenv').config()
+
 const express = require("express");
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 const cors = require("cors");
 
 // const { CONNECTION } = require("./src/config/dbConnection");
@@ -11,22 +13,25 @@ const Contact_form_routes = require("./routes/contactForm.routes");
 const Testimonials_routes = require("./routes/testimonials.routes");
 const Video_src_routes = require("./routes/videoSrc.routes");
 
+const path = require ("path")
 const sequelize = require("./datebase/sequelize");
 const startAdmin = require("./admin/app");
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 
 const morganBody = require("morgan-body");
-// morganBody(app);
+morganBody(app);
 
 sequelize.sync({});
 
 startAdmin(app);
+
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(cors({ origin: true, credentials: true }));
 

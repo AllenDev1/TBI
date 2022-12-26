@@ -49,7 +49,7 @@ const Testimonials = () => {
 						activeIndex={activeCIndex}
 						onSelect={handleSelect}
 					>
-						{/* {testimonials?.map((item, index) => {
+						{testimonials?.map((item, index) => {
 							return (
 								<Carousel.Item
 									className={"testi-carousel-items"}
@@ -68,7 +68,7 @@ const Testimonials = () => {
 									</Carousel.Caption>
 								</Carousel.Item>
 							);
-						})} */}
+						})}
 					</Carousel>
 				</Container>
 			</div>

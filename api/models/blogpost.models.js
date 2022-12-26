@@ -27,10 +27,11 @@ const BlogPost = sequelize.define(
 			allowNull: false,
 		},
 		text: {
-			type: Sequelize.BLOB,
+			type: Sequelize.STRING,
 			allowNull: false,
 		},
 	},
+
 	{
 		timestamps: true,
 	}

@@ -4,6 +4,7 @@ const express = require("express");
 const session = require("express-session");
 const sqlite = require("better-sqlite3");
 
+
 const {
 	blogpost,
 	contactfrom,
@@ -13,6 +14,7 @@ const {
 	teams,
 	videosrc,
 	sequelize,
+	blogResourceOptions,
 } = require("../models/index.models");
 
 const AdminJSSequelize = require("@adminjs/sequelize");
@@ -20,8 +22,8 @@ const AdminJSSequelize = require("@adminjs/sequelize");
 const PORT = 5000;
 
 const DEFAULT_ADMIN = {
-	email: "admin@admin", // LOAD FROM PROCESS.env
-	password: "password", // LOAD FROM PROCESS.env
+	email: process.env.ADMIN_EMAIL, // LOAD FROM PROCESS.env
+	password: process.env.ADMIN_PASSWORD, // LOAD FROM PROCESS.env
 };
 
 const authenticate = async (email, password) => {
@@ -47,8 +49,12 @@ const start = async (app) => {
 			logo: "TBI",
 			withMadeWithLove: false,
 		},
+
+		resources: [
+			{ resource: blogpost, options: blogResourceOptions },
+			
+		],
 	});
-    console.log("admin says hi")
 
 	const SqliteStore = require("better-sqlite3-session-store")(session);
 	const db = new sqlite("sessions.db", { verbose: console.log });
