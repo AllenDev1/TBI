@@ -67,9 +67,11 @@
 		}
 	}
 }
+
 @media (max-width: 994px) {
 	.navbar-top {
 		border: 1px solid;
+		margin: 0.5rem;
 
 		border-image-source: radial-gradient(
 					54.8% 53% at 50% 50%,
@@ -90,7 +92,7 @@
 				)
 				/* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
 
-		border-radius: 0px;
+		border-radius: 10px;
 		.navbar-container {
 			.main-logo {
 				img {
@@ -118,7 +120,7 @@
 					align-items: center;
 					text-transform: capitalize;
 					align-items: center;
-					img{
+					img {
 						width: 25px;
 					}
 				}
