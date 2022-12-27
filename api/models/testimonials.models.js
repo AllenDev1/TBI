@@ -23,7 +23,7 @@ const Testimonial = sequelize.define(
             allowNull: true,
         },
         text: {
-            type: Sequelize.STRING,
+            type: Sequelize.TEXT,
             allowNull: false,
         },
     },

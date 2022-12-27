@@ -19,7 +19,7 @@ const ContactForm = sequelize.define(
             allowNull: false,
         },
         message: {
-            type: Sequelize.STRING,
+            type: Sequelize.TEXT,
             allowNull: false,
         },
     },
