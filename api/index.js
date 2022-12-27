@@ -1,4 +1,4 @@
-require('dotenv').config()
+require("dotenv").config();
 
 const express = require("express");
 // const bodyParser = require("body-parser");
@@ -13,7 +13,7 @@ const Contact_form_routes = require("./routes/contactForm.routes");
 const Testimonials_routes = require("./routes/testimonials.routes");
 const Video_src_routes = require("./routes/videoSrc.routes");
 
-const path = require ("path")
+const path = require("path");
 const sequelize = require("./datebase/sequelize");
 const startAdmin = require("./admin/app");
 const app = express();
@@ -31,8 +31,6 @@ sequelize.sync({});
 
 startAdmin(app);
 
-app.use(express.static(path.join(__dirname, '../public')));
-
 app.use(cors({ origin: true, credentials: true }));
 
 app.get("/", (req, res) => {
@@ -46,6 +44,16 @@ app.use("/api/team", Team_routes);
 app.use("/api/message", Contact_form_routes);
 app.use("/api/testimonials", Testimonials_routes);
 app.use("/api/videosrc", Video_src_routes);
+
+
+// Serve static files
+app.use(express.static(path.join(__dirname, "public")));
+
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
+app.get("/*", (req, res) => {
+	res.sendFile(path.join(__dirname, "public/index.html"));
+});
 
 app.listen(port, () => {
 	console.log(`Example app listening on port ${port}`);
