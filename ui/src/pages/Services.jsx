@@ -118,7 +118,7 @@ const Services = () => {
 					</Row>
 				</div>
 				<TopFooterCard />
-				<Footer />
+				
 			</Container>
 		</>
 	);

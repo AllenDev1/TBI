@@ -8,17 +8,21 @@ import "../scss/email.scss";
 const Email = () => {
 	const [email, setEmail] = useState();
 
-	const postEmail = () => {
+	const postEmail = (e) => {
+		e.preventDefault();
 		const options = {
 			method: "POST",
-			url: "/api/newsletter/",
+			url: "/api/newsletter",
 			headers: { "Content-Type": "application/json" },
 			data: { email: email },
 		};
 
 		axios
 			.request(options)
-			.then(function (response) {})
+			.then(function (response) {
+				alert("Thank you for subscribing!");
+				window.location.reload(false);
+			})
 			.catch(function (error) {
 				console.error(error);
 			});

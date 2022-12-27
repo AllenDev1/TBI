@@ -1,15 +1,14 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import Navbars from "../components/navbar";
-import { heroHeading } from "./About";
-import da from "../components/datafiles/datafiles.json";
-import "../scss/contact.scss";
-import ContactForm from "../components/ContactForm";
+import { Col, Container, Row } from "react-bootstrap";
 import email from "../assets/Group 183.svg";
 import phone from "../assets/Group 184.svg";
 import address from "../assets/Group 185.svg";
+import ContactForm from "../components/ContactForm";
+import da from "../components/datafiles/datafiles.json";
 import Faq from "../components/Faq";
-import Footer from "../components/Footer";
+import Navbars from "../components/navbar";
+import "../scss/contact.scss";
+import { heroHeading } from "./About";
 
 const Contact = () => {
 	return (
@@ -52,7 +51,7 @@ const Contact = () => {
 				</Row>
 			</Container>
             <Faq />
-            <Footer />
+           
 		</>
 	);
 };

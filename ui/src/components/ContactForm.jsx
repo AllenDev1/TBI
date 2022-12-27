@@ -21,7 +21,7 @@ const ContactForm = () => {
 
 		const options = {
 			method: "POST",
-			url: "/api/message/",
+			url: "/api/message",
 			headers: { "Content-Type": "application/json" },
 			data: { name: name, email: email, message: message },
 		};
@@ -87,13 +87,15 @@ const ContactForm = () => {
 					</Form.Group>
 					<Button type="submit">SUBMIT NOW</Button>
 				</Form>
-				<Modal show={show} onHide={handleClose}>
+				<Modal
+					show={show}
+					onHide={handleClose}
+					className="submitted-zindex"
+				>
 					<Modal.Header closeButton>
 						<Modal.Title>Submitted !</Modal.Title>
 					</Modal.Header>
-					<Modal.Body>
-						Your Message has been Sent successfully.
-					</Modal.Body>
+					<Modal.Body>We have received your message.</Modal.Body>
 				</Modal>
 			</div>
 		</>

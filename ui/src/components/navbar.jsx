@@ -41,6 +41,7 @@ const Navbars = () => {
 					variant="dark"
 					className="navbar-top"
 					id="navbar-top"
+					key="nav"
 				>
 					<Container className="navbar-container">
 						<Navbar.Brand

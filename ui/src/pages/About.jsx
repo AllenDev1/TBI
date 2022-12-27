@@ -60,7 +60,7 @@ const About = () => {
 			<Faq />
 			<KeyFun />
 			<TopFooterCard />
-			<Footer />
+		
 		</>
 	);
 };

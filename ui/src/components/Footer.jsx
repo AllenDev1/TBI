@@ -49,11 +49,11 @@ const Footer = () => {
 				</Row>
 				<Row className="copy-right-row">
 					<Col className="copy-right">
-						<p>Copyright © 2022 The Brilliant Ideas. All Rights Reserved.</p>
+						<p>Copyright © 2022 The Brilliant Ideas.</p>
 					</Col>
 					<Col className="terms-policy">
-						<a href="/">Terms of Use</a>
-						<a href="/">Privacy Policy</a>
+						<a href="/terms">Terms of Use</a>
+						<a href="/privacy-policy">Privacy Policy</a>
 					</Col>
 				</Row>
 			</Container>

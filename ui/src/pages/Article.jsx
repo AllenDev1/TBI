@@ -172,7 +172,7 @@ const Article = () => {
 				</div>
 			</Container> */}
 			<TopFooterCard />
-			<Footer />
+		
 		</>
 	);
 };

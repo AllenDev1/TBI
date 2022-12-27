@@ -1,18 +1,16 @@
 import React from "react";
-import Navbar from "../components/navbar";
-import "../scss/landing.css";
-import { Container, Button, Col, Row, Stack } from "react-bootstrap";
+import { Button, Col, Container, Row, Stack } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
 import Landimg from "../assets/img1.svg";
-import "../scss/landing.scss";
-import { Link } from "react-router-dom";
 import img1 from "../assets/_company website 5/carbon_code.svg";
 import img2 from "../assets/_company website 5/clarity_qr-code-line.svg";
 import img3 from "../assets/_company website 5/fa-solid_file-code.svg";
 import img4 from "../assets/_company website 5/Vector-1.svg";
 import img5 from "../assets/_company website 5/Vector-2.svg";
 import img6 from "../assets/_company website 5/Vector.svg";
-import { useNavigate } from "react-router-dom";
-import Spline from "@splinetool/react-spline";
+import Navbar from "../components/navbar";
+import "../scss/landing.css";
+import "../scss/landing.scss";
 
 const Landing = () => {
 	let navigate = useNavigate();

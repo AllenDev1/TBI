@@ -14,7 +14,7 @@ const Home = () => {
 			<Email />
 
 			<TopFooterCard />
-			<Footer />
+			
 		</>
 	);
 };

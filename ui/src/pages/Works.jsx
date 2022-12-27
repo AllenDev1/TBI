@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { Button, Card, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import da from "../components/datafiles/datafiles.json";
-import Footer from "../components/Footer";
 import Navbars from "../components/navbar";
 import TopFooterCard from "../components/TopFooterCard";
 import { WhiteBtn } from "../components/WhiteBtn";
@@ -54,7 +53,6 @@ const Works = () => {
 		axios
 			.request(options)
 			.then(function (response) {
-				console.log(response.data);
 				setBlogs(response.data);
 			})
 			.catch(function (error) {
@@ -68,24 +66,22 @@ const Works = () => {
 			{heroHeading(da.work_heading, da.work_dec)}
 			<Container className="work-container">
 				<Row xs={1} md={4} className="small-cards">
-						{blogs?.slice(0, next).map((blog, idx) => {
-							return (
-								<ArticlesCard
-									key={idx}
-									image={blog.image}
-									title={blog.title}
-									categories={blog.categories}
-									id={blog.id}
-
-								/>
-							);
-						})}
+					{blogs?.slice(0, next).map((blog, idx) => {
+						return (
+							<ArticlesCard
+								key={idx}
+								image={blog.image}
+								title={blog.title}
+								categories={blog.categories}
+								id={blog.id}
+							/>
+						);
+					})}
 				</Row>
 				<div className="load-more-work-btn">
 					{next < blogs?.length && WhiteBtn(da.work_btn, loadMore)}
 				</div>
 				<TopFooterCard />
-				<Footer />
 			</Container>
 		</>
 	);

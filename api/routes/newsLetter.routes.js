@@ -1,19 +1,21 @@
-const router = require("express").Router();
-
-const NewsLetter = require("../models/newsLetters.models");
+const express = require("express");
+const router = express.Router();
+const  NewsLetter  = require("../models/newsLetters.models");
 
 //create a new newsletter
 router.post("/", async (req, res) => {
 	const { email } = req.body;
+
 	try {
 		const newsLetter = await NewsLetter.create({
 			email,
 		});
-		res.status(201).json(newsLetter);
+		res.status(201).json({ newsLetter });
 	} catch (error) {
-		res.status(500).json(error);
+		res.status(500).json({ error: error.message });
 	}
 });
+
 
 //get all newsletters
 router.get("/", async (req, res) => {
