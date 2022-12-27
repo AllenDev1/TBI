@@ -20,21 +20,15 @@ const Navbars = () => {
 	const listenScrollEvent = (event) => {
 		if (window.scrollY < 10) {
 			document.getElementById("navbar-top").style.filter = "none";
-			if (window.screen.width < 994) {
-				document.getElementById("main-logo").style.display = "none";
-			}
 		} else if (window.scrollY > 10) {
 			document.getElementById("navbar-top").style.filter =
 				"drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25))";
-			if (window.screen.width < 994) {
-				document.getElementById("main-logo").style.display = "none";
-			}
 		}
 	};
 
 	useEffect(() => {
-		// window.addEventListener("scroll", listenScrollEvent);
-		// return () => window.removeEventListener("scroll", listenScrollEvent);
+		window.addEventListener("scroll", listenScrollEvent);
+		return () => window.removeEventListener("scroll", listenScrollEvent);
 	}, []);
 
 	return (

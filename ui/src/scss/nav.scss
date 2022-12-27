@@ -70,6 +70,13 @@
 		}
 	}
 }
+@media (max-width: 574px) {
+	.navbar-top {
+		.navbar-container {
+			margin: 0.5rem;
+		}
+	}
+}
 
 @media (max-width: 994px) {
 	.first-section .lading-cont {
@@ -118,7 +125,6 @@
 			background: #28293e;
 			padding: 0.5rem;
 			border-radius: 10px;
-			// margin: 0.5rem;
 
 			.main-logo {
 				img {
