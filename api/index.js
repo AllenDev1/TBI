@@ -15,7 +15,7 @@ const Video_src_routes = require("./routes/videoSrc.routes");
 
 const path = require("path");
 const sequelize = require("./datebase/sequelize");
-const startAdmin = require("./admin/app");
+const startAdmin = require("./Admin/app");
 const app = express();
 const port = process.env.PORT || 3001;
 // parse application/x-www-form-urlencoded
