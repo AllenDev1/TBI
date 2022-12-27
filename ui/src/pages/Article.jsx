@@ -89,13 +89,22 @@ const Article = () => {
 				<div className="share-on">
 					<p>Share on</p>
 					<Col className="social-icon-col">
-						<a href="/">
+						<a
+							href="https://www.linkedin.com/company/the-brilliant-ideas/"
+							target="_blank"
+						>
 							<img src={soc1} alt=".." />
 						</a>
-						<a href="/">
+						<a
+							href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`}
+							target="_blank"
+						>
 							<img src={soc2} alt=".." />
 						</a>
-						<a href="/">
+						<a
+							href={`https://twitter.com/intent/tweet?text=${window.location.href}`}
+							target="_blank"
+						>
 							<img src={soc3} alt=".." />
 						</a>
 						<a href="/">
@@ -185,6 +194,7 @@ const ArticleBlog = (props) => {
 		<>
 			<Row className="article-sec">
 				<Col></Col>
+
 				<Col xs={6} className="arti-row">
 					<h1 className="work-title">{title}</h1>
 
@@ -206,16 +216,12 @@ const ArticleBlog = (props) => {
 					</Row>
 				</Col>
 				<Col></Col>
+
 				<div className="big-image">
-					<img src={imgurl} alt={title} />
+					{/* <img src={imgurl} alt={title} /> */}
 				</div>
 
-				<Col></Col>
-
-				<Col xs={6} className="body-arti-col">
-					{ReactHtmlParser(desc)}
-				</Col>
-				<Col></Col>
+				<Col className="body-arti-col">{ReactHtmlParser(desc)}</Col>
 			</Row>
 		</>
 	);

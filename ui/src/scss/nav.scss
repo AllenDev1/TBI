@@ -1,6 +1,9 @@
 .navbar-top {
 	z-index: 9900;
 	background: #28293e;
+	position: fixed !important;
+	width: 100%;
+	top: 0;
 
 	.navbar-container {
 		.mobile-nav-menu {
@@ -69,9 +72,27 @@
 }
 
 @media (max-width: 994px) {
+	.first-section .lading-cont {
+		padding-top: 20px !important;
+	}
+
+	.background-darkblue-color-about .about-heading-container {
+		margin-top: 0px !important;
+	}
+
+	.article-container {
+		margin-top: 0px !important;
+		padding-top: 20px;
+	}
+
 	.navbar-top {
-		border: 1px solid;
-		margin: 0.5rem;
+		padding: 0%;
+		border: 0;
+		margin: 0;
+		position: fixed;
+		top: auto !important;
+		bottom: 0 !important;
+		background: none;
 
 		border-image-source: radial-gradient(
 					54.8% 53% at 50% 50%,
@@ -94,6 +115,11 @@
 
 		border-radius: 10px;
 		.navbar-container {
+			background: #28293e;
+			padding: 0.5rem;
+			border-radius: 10px;
+			margin: 0.5rem;
+
 			.main-logo {
 				img {
 					width: 100px;
