@@ -33,10 +33,6 @@ startAdmin(app);
 
 app.use(cors({ origin: true, credentials: true }));
 
-app.get("/", (req, res) => {
-	res.send("Hello World!");
-});
-
 app.use("/api/blog", Blog_post_routes);
 app.use("/api/faq", Faq_routes);
 app.use("/api/newsletter", NewsLetter_routes);
