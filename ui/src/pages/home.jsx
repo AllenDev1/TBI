@@ -1,9 +1,8 @@
 import React from "react";
-import Landing from "../components/landing";
 import Abouthome from "../components/abouthome";
 import Email from "../components/Email";
+import Landing from "../components/landing";
 import TopFooterCard from "../components/TopFooterCard";
-import Footer from "../components/Footer";
 
 const Home = () => {
 	return (
@@ -11,10 +10,10 @@ const Home = () => {
 			<Landing />
 
 			<Abouthome />
+
 			<Email />
 
 			<TopFooterCard />
-			
 		</>
 	);
 };

@@ -1,16 +1,14 @@
-import { Container, Col, Row } from "react-bootstrap";
-
+import { Col, Container, Row } from "react-bootstrap";
 import AboutVideo from "../components/About/AboutVideo";
 import FreturesAbout from "../components/About/FreturesAbout";
+import datas from "../components/datafiles/datafiles";
 import Faq from "../components/Faq";
-import Footer from "../components/Footer";
+import KeyFun from "../components/Fun/KeyFun";
 import InNumber from "../components/InNumber";
 import Navbar from "../components/navbar";
 import OurTeam from "../components/OurTeam";
 import Testimonials from "../components/Testimonials";
 import TopFooterCard from "../components/TopFooterCard";
-import datas from "../components/datafiles/datafiles";
-import KeyFun from "../components/Fun/KeyFun";
 
 import "../scss/about scss/about.scss";
 

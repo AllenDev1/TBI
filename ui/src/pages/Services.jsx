@@ -26,16 +26,26 @@ const Services = () => {
 								<img src={dev} alt="" /> Development
 							</Accordion.Header>
 							<Accordion.Body>
-								Lorem ipsum dolor sit amet, consectetur
-								adipiscing elit, sed do eiusmod tempor
-								incididunt ut labore et dolore magna aliqua. Ut
-								enim ad minim veniam, quis nostrud exercitation
-								ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. Duis aute irure dolor in
-								reprehenderit in voluptate velit esse cillum
-								dolore eu fugiat nulla pariatur. Excepteur sint
-								occaecat cupidatat non proident, sunt in culpa
-								qui officia deserunt mollit anim id est laborum.
+								The Brilliant Ideas is a leading provider of web
+								and app development services for businesses and
+								organizations. Our team of experienced
+								developers specializes in creating innovative
+								solutions that meet the unique needs of our
+								clients. We offer a range of development
+								services, including website design and
+								development, app development, and custom web and
+								app solutions. Our development services are
+								designed to be SEO-friendly, ensuring that your
+								website or app is optimized for search engines
+								and easily discoverable by your target audience.
+								We use the latest technologies and best
+								practices to build websites and apps that are
+								fast, responsive, and user-friendly. If you're
+								looking to improve your online presence and
+								drive results through web and app development,
+								contact The Brilliant Ideas today to learn more
+								about how we can help your business succeed
+								online.
 							</Accordion.Body>
 						</Accordion.Item>
 						<Accordion.Item eventKey="2">
@@ -43,16 +53,28 @@ const Services = () => {
 								<img src={design} alt="" /> Design
 							</Accordion.Header>
 							<Accordion.Body>
-								Lorem ipsum dolor sit amet, consectetur
-								adipiscing elit, sed do eiusmod tempor
-								incididunt ut labore et dolore magna aliqua. Ut
-								enim ad minim veniam, quis nostrud exercitation
-								ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. Duis aute irure dolor in
-								reprehenderit in voluptate velit esse cillum
-								dolore eu fugiat nulla pariatur. Excepteur sint
-								occaecat cupidatat non proident, sunt in culpa
-								qui officia deserunt mollit anim id est laborum.
+								The Brilliant Ideas is a full-service design
+								agency, providing a range of services to help
+								businesses and organizations succeed online. Our
+								team of experienced designers has a passion for
+								creating visually stunning and user-friendly
+								designs that engage and convert your target
+								audience. Our design services include website
+								design, graphic design, and branding and
+								identity design. We work closely with our
+								clients to understand their needs and develop
+								custom solutions that align with their brand and
+								messaging. Our design services are SEO-friendly,
+								ensuring that your website or marketing
+								materials are optimized for search engines and
+								easily discoverable by your target audience. We
+								use the latest design trends and techniques to
+								create visually appealing designs that drive
+								results. If you're looking to improve your
+								online presence and drive results through
+								professional design services, contact The
+								Brilliant Ideas today to learn more about how we
+								can help your business succeed online
 							</Accordion.Body>
 						</Accordion.Item>
 						<Accordion.Item eventKey="1">
@@ -60,16 +82,28 @@ const Services = () => {
 								<img src={camera} alt="" /> Photography
 							</Accordion.Header>
 							<Accordion.Body>
-								Lorem ipsum dolor sit amet, consectetur
-								adipiscing elit, sed do eiusmod tempor
-								incididunt ut labore et dolore magna aliqua. Ut
-								enim ad minim veniam, quis nostrud exercitation
-								ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. Duis aute irure dolor in
-								reprehenderit in voluptate velit esse cillum
-								dolore eu fugiat nulla pariatur. Excepteur sint
-								occaecat cupidatat non proident, sunt in culpa
-								qui officia deserunt mollit anim id est laborum.
+								The Brilliant Ideas is a professional
+								photography company, specializing in capturing
+								and editing high-quality images for a range of
+								purposes. Our team of experienced photographers
+								has a passion for creating stunning visual
+								content that tells a story and engages your
+								audience. We offer a range of photography
+								services, including corporate and event
+								photography, product photography, and portrait
+								and lifestyle photography. We work closely with
+								our clients to understand their needs and
+								develop custom solutions that align with their
+								branding and messaging. Our photography services
+								are designed to elevate your brand and help you
+								stand out in the digital world. We use the
+								latest equipment and techniques to create
+								beautiful, high-quality images that capture the
+								attention of your target audience. If you're
+								looking to elevate your brand with professional
+								photography services, contact The Brilliant
+								Ideas today to learn more about how we can help
+								your business succeed online.
 							</Accordion.Body>
 						</Accordion.Item>
 
@@ -78,16 +112,29 @@ const Services = () => {
 								<img src={digMAr} alt="" /> Digital Marketing
 							</Accordion.Header>
 							<Accordion.Body>
-								Lorem ipsum dolor sit amet, consectetur
-								adipiscing elit, sed do eiusmod tempor
-								incididunt ut labore et dolore magna aliqua. Ut
-								enim ad minim veniam, quis nostrud exercitation
-								ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. Duis aute irure dolor in
-								reprehenderit in voluptate velit esse cillum
-								dolore eu fugiat nulla pariatur. Excepteur sint
-								occaecat cupidatat non proident, sunt in culpa
-								qui officia deserunt mollit anim id est laborum.
+								The Brilliant Ideas is a full-service digital
+								marketing agency, providing a range of services
+								to help businesses and organizations succeed
+								online. Our team of experienced marketers has a
+								passion for creating innovative campaigns that
+								drive results and engage your target audience.
+								Our digital marketing services include search
+								engine optimization (SEO), pay-per-click (PPC)
+								advertising, social media marketing, email
+								marketing, and content marketing. We work
+								closely with our clients to understand their
+								needs and develop custom solutions that align
+								with their branding and messaging. Our digital
+								marketing services are designed to drive
+								traffic, increase leads, and boost conversions
+								for your business. We use the latest
+								technologies and best practices to create
+								campaigns that are targeted, effective, and
+								measurable. If you're looking to improve your
+								online presence and drive results through
+								digital marketing, contact The Brilliant Ideas
+								today to learn more about how we can help your
+								business succeed online.
 							</Accordion.Body>
 						</Accordion.Item>
 					</Accordion>
@@ -105,20 +152,19 @@ const Services = () => {
 						</Col>
 						<Col className="numbering-col">
 							<div className="num-list">
-								<h1>1</h1> <h4>Full service range including</h4>
+								<h1>1</h1> <h4>Bringing your brilliant ideas to life online</h4>
 							</div>
 							<div className="num-list">
 								<h1>2</h1>{" "}
-								<h4>Technical skills, design, business</h4>
+								<h4>Transforming your digital vision into reality</h4>
 							</div>
 							<div className="num-list">
-								<h1>3</h1> <h4>Themselves in the merchant's</h4>
+								<h1>3</h1> <h4>Innovative web, app, and marketing solutions</h4>
 							</div>
 						</Col>
 					</Row>
 				</div>
 				<TopFooterCard />
-				
 			</Container>
 		</>
 	);
