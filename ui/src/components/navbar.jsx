@@ -27,6 +27,15 @@ const Navbars = () => {
 	};
 
 	useEffect(() => {
+		try {
+			if (window.location.pathname === "/contact") {
+				document.getElementById(
+					"nav-contact-btn"
+				).style.backgroundColor = "#ef6d58";
+			}
+		} catch (error) {
+			console.error(error);
+		}
 		window.addEventListener("scroll", listenScrollEvent);
 		return () => window.removeEventListener("scroll", listenScrollEvent);
 	}, []);
@@ -154,6 +163,7 @@ const Navbars = () => {
 											let path = `/contact`;
 											navigate(path);
 										}}
+										id="nav-contact-btn"
 									>
 										Contact
 									</Button>
