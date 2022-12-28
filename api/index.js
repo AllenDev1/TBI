@@ -18,6 +18,8 @@ const sequelize = require("./datebase/sequelize");
 const startAdmin = require("./Admin/app");
 const app = express();
 const port = process.env.PORT || 3001;
+startAdmin(app);
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -29,7 +31,6 @@ morganBody(app);
 
 sequelize.sync({});
 
-startAdmin(app);
 
 app.use(cors({ origin: true, credentials: true }));
 
