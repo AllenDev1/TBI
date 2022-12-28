@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Buffer } from "buffer";
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Card, Button, CardGroup } from "react-bootstrap";
 import ReactHtmlParser from "react-html-parser";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import soc1 from "../assets/Group 148.svg";
@@ -9,7 +9,6 @@ import soc2 from "../assets/Group 170.svg";
 import soc3 from "../assets/Group 171.svg";
 import soc4 from "../assets/Group 172.svg";
 import path from "../assets/Path.svg";
-import Footer from "../components/Footer";
 import Navbars from "../components/navbar";
 import TopFooterCard from "../components/TopFooterCard";
 import "../scss/article.scss";
@@ -45,6 +44,7 @@ const Article = () => {
 			.request(options)
 			.then(function (response) {
 				setArticles(response.data);
+				console.log(response.data);
 			})
 			.catch(function (error) {
 				console.error(error);
@@ -113,66 +113,42 @@ const Article = () => {
 					</Col>
 				</div>
 			</Container>
-			{/* <Container className="related-work">
+			<Container className="related-work">
 				<h5 className="relt-work">Related Projects</h5>
-				<div className="small-cards">
-					<Link to="#">
-						<Card className="bg-dark text-white">
-							<Card.Img
-								src="https://ichef.bbci.co.uk/images/ic/960x960/p08634k6.jpg"
-								alt="Card image"
-							/>
-							<Card.ImgOverlay>
-								<Card.Title>
-									<Button>Design</Button>
-								</Card.Title>
-								<Card.Text>
-									This is a wider card with supporting text
-									below
-								</Card.Text>
-							</Card.ImgOverlay>
-						</Card>
-					</Link>
-					<Link to="#">
-						<Card className="bg-dark text-white">
-							<Card.Img
-								src="https://ichef.bbci.co.uk/images/ic/960x960/p08634k6.jpg"
-								alt="Card image"
-							/>
-							<Card.ImgOverlay>
-								<Card.Title>
-									<Button>Design</Button>
-								</Card.Title>
-								<Card.Text>
-									This is a wider card with supporting text
-									below
-								</Card.Text>
-							</Card.ImgOverlay>
-						</Card>
-					</Link>
-					<Link to="#">
-						<Card className="bg-dark text-white">
-							<Card.Img
-								src="https://ichef.bbci.co.uk/images/ic/960x960/p08634k6.jpg"
-								alt="Card image"
-							/>
-							<Card.ImgOverlay>
-								<Card.Title>
-									<Button>Design</Button>
-								</Card.Title>
-								<Card.Text>
-									This is a wider card with supporting text
-									below as a natural lead-in to additional
-									content. This content is a little bit
-									longer.
-								</Card.Text>
-							</Card.ImgOverlay>
-						</Card>
-					</Link>
-				</div>
-			</Container> */}
+
+				<Row xs={1} md={4} className="g-4">
+					{articles?.slice(0.4).map((_, idx) => {
+						return (
+							<Link
+								to={
+									"/article/" +
+									_.id +
+									"/" +
+									convertToSlug(_.title)
+								}
+								onClick={() => window.scrollTo(0, 0)}
+								className="related-projects-cards"
+							>
+								<Card className="bg-dark text-white">
+									<Card.Img
+										src={Buffer.from(_.image, "base64")}
+										alt={_.title}
+									/>
+									<Card.ImgOverlay>
+										<Card.Title>
+											<Button>{_.categories}</Button>
+										</Card.Title>
+										<Card.Text className=" text-truncate">
+											{_.title}
+										</Card.Text>
+									</Card.ImgOverlay>
+								</Card>
+							</Link>
+						);
+					})}
+				</Row>
+			</Container>
 			<TopFooterCard />
-		
 		</>
 	);
 };

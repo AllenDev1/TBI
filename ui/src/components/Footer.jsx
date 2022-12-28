@@ -33,7 +33,7 @@ const Footer = () => {
 						<a href="/work">See More</a>
 					</Col>
 					<Col className="social-icon-col">
-						<a href="/">
+						<a href="https://www.linkedin.com/company/the-brilliant-ideas/" target="_blank">
 							<img src={soc1} alt=".." />
 						</a>
 						<a href="/">

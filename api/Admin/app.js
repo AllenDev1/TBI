@@ -4,7 +4,6 @@ const express = require("express");
 const session = require("express-session");
 const sqlite = require("better-sqlite3");
 
-
 const {
 	blogpost,
 	contactfrom,
@@ -51,10 +50,13 @@ const start = async (app) => {
 		},
 
 		resources: [
-			{ resource: blogpost, options: blogResourceOptions },
-			
+			{
+				resource: blogpost,
+				options: blogResourceOptions,
+			},
 		],
 	});
+
 
 	const SqliteStore = require("better-sqlite3-session-store")(session);
 	const db = new sqlite("sessions.db", { verbose: console.log });

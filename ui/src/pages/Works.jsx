@@ -20,10 +20,10 @@ const ArticlesCard = (props) => {
 			<Card className="bg-dark text-white">
 				<Card.Img src={imgurl} alt={title} />
 				<Card.ImgOverlay>
-					<Card.Title>
-						<Button>{categories}</Button>
+					<Card.Title >
+						<Button >{categories}</Button>
 					</Card.Title>
-					<Card.Text>{title}</Card.Text>
+					<Card.Text className=" text-truncate">{title}</Card.Text>
 				</Card.ImgOverlay>
 			</Card>
 		</Link>

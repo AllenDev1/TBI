@@ -136,27 +136,17 @@
 		color: #391400;
 		margin-bottom: 39px;
 	}
-	.small-cards {
-		gap: 30px;
-		display: flex;
-		flex-wrap: wrap;
-
+	.related-projects-cards {
 		.card {
-			height: 416px;
-			border: none;
-			width: 50.1846vh;
-			max-width: 412px;
+			height: 300px;
 			img {
 				height: 100%;
 				width: 100%;
 			}
 			.card-img-overlay {
-				justify-content: flex-end;
-				display: flex;
-				flex-direction: column;
-				padding: 48px;
+				top: auto;
 				.card-title {
-					button {
+					.btn {
 						border: none;
 						font-style: normal;
 						font-weight: 400;
@@ -173,39 +163,21 @@
 					}
 				}
 				.card-text {
-					font-style: normal;
-					font-weight: 800;
-					font-size: 18px;
-					line-height: 40px;
-					/* identical to box height, or 114% */
-
-					letter-spacing: -1px;
-
-					/* Text_Light */
-
-					color: #ffffff;
+					text-shadow: 2px 2px #212529;
 				}
+			}
+		}
+		.card:hover {
+			img {
+				// delay 0.5s
+				transition: 0.5s;
+				opacity: 0.32;
 			}
 		}
 	}
 }
 @media (max-width: 768px) {
-	.related-work {
-		.small-cards {
-			a {
-				.card {
-					width: 100%;
-					.card-img-overlay {
-						padding: 25px;
-						.card-title {
-						}
-						p {
-						}
-					}
-				}
-			}
-		}
-	}
+	
 	.article-container {
 		.article-sec {
 			.arti-row {
@@ -234,46 +206,59 @@
 	}
 }
 
-@media (min-width: 769px) and (max-width: 993px) {
+@media (min-width: 768px) and (max-width: 993px) {
 	.related-work {
-		.small-cards {
-			a {
-				.card {
-					width: 100%;
-					max-width: 697px;
+		margin-top: 72px;
+		.relt-work {
+			font-style: normal;
+			font-weight: 700;
+			font-size: 24px;
+			line-height: 32px;
+			/* identical to box height, or 133% */
 
-					.card-img-overlay {
-						padding: 25px;
-						.card-title {
-						}
-						p {
+			/* Text_Dark */
+
+			color: #391400;
+			margin-bottom: 39px;
+		}
+		.related-projects-cards {
+			.card {
+				height: 200px;
+				img {
+					height: 100%;
+					width: 100%;
+				}
+				.card-img-overlay {
+					.card-title {
+						.btn {
+							border: none;
+							font-style: normal;
+							font-weight: 400;
+							font-size: 16px;
+							line-height: 16px;
+
+							/* Text_Dark */
+
+							color: #391400;
+							padding: 11px 16px;
+
+							border-radius: 19px;
+							background-color: #ffff;
 						}
 					}
+					.card-text {
+						text-shadow: 2px 2px #212529;
+					}
+				}
+			}
+			.card:hover {
+				img {
+					// delay 0.5s
+					transition: 0.5s;
+					opacity: 0.32;
 				}
 			}
 		}
 	}
 }
-@media (min-width: 994px) and (max-width: 1439px) {
-	.related-work {
-		.small-cards {
-			display: flex;
-			justify-content: space-evenly;
-			gap: unset;
-			a {
-				.card {
-					width: 39.784143vh;
-					height: 350px;
-					margin-bottom: 30px;
-					.card-img-overlay {
-						padding: 25px;
-						.card-title {
-						}
-						p {
-						}
-					}
-				}
-			}
-		}
-	}
-}
+

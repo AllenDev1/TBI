@@ -7,13 +7,12 @@ const teams = require("./teams.models");
 const videosrc = require("./videoSrc.models");
 const sequelize = require("../datebase/sequelize");
 
+// custom options for the blogpost resource quill editor
 const blogResourceOptions = {
 	properties: {
 		text: {
 			type: "richtext",
-			custom: {
-				
-			},
+			
 		},
 	},
 };
