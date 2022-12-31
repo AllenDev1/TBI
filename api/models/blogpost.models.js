@@ -23,7 +23,7 @@ const BlogPost = sequelize.define(
 			allowNull: false,
 		},
 		image: {
-			type: Sequelize.BLOB,
+			type: Sequelize.STRING,
 			allowNull: false,
 		},
 		text: {

@@ -19,7 +19,7 @@ const Testimonial = sequelize.define(
             allowNull: true,
         },
         image: {
-            type: Sequelize.BLOB,
+            type: Sequelize.STRING,
             allowNull: true,
         },
         text: {

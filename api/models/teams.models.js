@@ -19,11 +19,11 @@ const Team = sequelize.define(
             allowNull: false,
         },
         image: {
-            type: Sequelize.BLOB,
+            type: Sequelize.STRING,
             allowNull: false,
         },
         description: {
-            type: Sequelize.BLOB,
+            type: Sequelize.STRING,
             allowNull: false,
         },
     },
