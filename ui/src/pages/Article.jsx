@@ -44,7 +44,6 @@ const Article = () => {
 			.request(options)
 			.then(function (response) {
 				setArticles(response.data);
-				console.log(response.data);
 			})
 			.catch(function (error) {
 				console.error(error);
@@ -197,7 +196,12 @@ const ArticleBlog = (props) => {
 					{/* <img src={imgurl} alt={title} /> */}
 				</div>
 
-				<Col className="body-arti-col">{ReactHtmlParser(desc)}</Col>
+				<Col className="body-arti-col">
+				{ReactHtmlParser(desc)}
+
+				{/* {desc} */}
+
+				</Col>
 			</Row>
 		</>
 	);
