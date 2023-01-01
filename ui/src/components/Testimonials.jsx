@@ -56,12 +56,7 @@ const Testimonials = () => {
 									key={index}
 								>
 									<Carousel.Caption>
-										<p>
-											{Buffer.from(
-												item.text,
-												"ascii"
-											).toString()}
-										</p>
+										<p>{item.text}</p>
 
 										<h3>{item.name}</h3>
 										<p>{item.position}</p>

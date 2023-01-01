@@ -129,10 +129,7 @@ const Article = () => {
 								className="related-projects-cards"
 							>
 								<Card className="bg-dark text-white">
-									<Card.Img
-										src={Buffer.from(_.image, "base64")}
-										alt={_.title}
-									/>
+									<Card.Img src={_.image} alt={_.title} />
 									<Card.ImgOverlay>
 										<Card.Title>
 											<Button>{_.categories}</Button>
@@ -157,7 +154,6 @@ export default Article;
 const ArticleBlog = (props) => {
 	const { title, categories, image, createdAt, text, client } = props;
 
-	let imgurl = Buffer.from(image, "base64");
 	let desc = Buffer.from(text, "ascii").toString();
 
 	const formatDate = (createdAt) => {
@@ -197,10 +193,9 @@ const ArticleBlog = (props) => {
 				</div>
 
 				<Col className="body-arti-col">
-				{ReactHtmlParser(desc)}
+					{ReactHtmlParser(desc)}
 
-				{/* {desc} */}
-
+					{/* {desc} */}
 				</Col>
 			</Row>
 		</>

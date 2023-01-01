@@ -13,15 +13,14 @@ import { convertToSlug } from "./Article";
 
 const ArticlesCard = (props) => {
 	const { image, title, categories, id } = props;
-	let imgurl = Buffer.from(image, "base64");
 
 	return (
 		<Link to={"/article/" + id + "/" + convertToSlug(title)}>
 			<Card className="bg-dark text-white">
-				<Card.Img src={imgurl} alt={title} />
+				<Card.Img src={image} alt={title} />
 				<Card.ImgOverlay>
-					<Card.Title >
-						<Button >{categories}</Button>
+					<Card.Title>
+						<Button>{categories}</Button>
 					</Card.Title>
 					<Card.Text className=" text-truncate">{title}</Card.Text>
 				</Card.ImgOverlay>

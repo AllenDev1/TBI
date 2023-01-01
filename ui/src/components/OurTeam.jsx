@@ -80,7 +80,7 @@ const OurTeam = () => {
 									<Card.Img
 										className="team-image"
 										variant="top"
-										src={Buffer.from(item.image, "base64")}
+										src={item.image}
 										alt="..."
 									/>
 									<Card.Body className="team-card-body">
