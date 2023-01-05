@@ -3,6 +3,11 @@
 	.footer-row {
 		padding-bottom: 91px;
 		border-bottom: 2px solid #f3d1bf;
+		.footer-icon-col{
+			img{
+				width: 200px;
+			}
+		}
 		.footer-links-col {
 			flex-direction: column;
 			display: flex;

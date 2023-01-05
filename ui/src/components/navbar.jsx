@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import Logo from "../assets/logo.svg";
+import Logo from "../assets/naryan logo only.png";
 import "../scss/nav.scss";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import home from "../assets/_company website/home.svg";

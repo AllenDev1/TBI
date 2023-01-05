@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Col, Row } from "react-bootstrap";
 import "../scss/footer.scss";
-import logo from "../assets/My project-1 2.svg";
+import logo from "../assets/orange color.png";
 import soc1 from "../assets/Group 148.svg";
 import soc2 from "../assets/Group 170.svg";
 import soc3 from "../assets/Group 171.svg";
