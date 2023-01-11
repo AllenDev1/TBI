@@ -64,7 +64,7 @@ const Works = () => {
 			<Navbars />
 			{heroHeading(da.work_heading, da.work_dec)}
 			<Container className="work-container">
-				<Row xs={1} md={4} className="small-cards">
+				<Row xs={2} md={4} className="small-cards">
 					{blogs?.slice(0, next).map((blog, idx) => {
 						return (
 							<ArticlesCard
