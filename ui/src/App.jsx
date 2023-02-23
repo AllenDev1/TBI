@@ -10,7 +10,6 @@ import Home from "./pages/home";
 import Services from "./pages/Services";
 import Works from "./pages/Works";
 
-
 function App() {
 	return (
 		<>
