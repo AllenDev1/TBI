@@ -38,7 +38,7 @@ const Article = () => {
 	}, [article_id, article_title_slug, articles]);
 
 	const fetchArticles = () => {
-		const options = { method: "GET", url: "/api/blog/" };
+		const options = { method: "GET", url: "/api/works/" };
 
 		axios
 			.request(options)

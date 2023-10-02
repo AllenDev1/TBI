@@ -45,7 +45,7 @@ const Works = () => {
 	const fetchArticles = () => {
 		const options = {
 			method: "GET",
-			url: "/api/blog/",
+			url: "/api/works/",
 		};
 
 		axios

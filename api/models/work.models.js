@@ -1,8 +1,8 @@
 const Sequelize = require("sequelize");
 const sequelize = require("../datebase/sequelize");
 
-const BlogPost = sequelize.define(
-	"blogpost",
+const Work = sequelize.define(
+	"work",
 	{
 		id: {
 			type: Sequelize.INTEGER,
@@ -14,7 +14,7 @@ const BlogPost = sequelize.define(
 			type: Sequelize.STRING,
 			allowNull: false,
 		},
-		postedBy: {
+		client: {
 			type: Sequelize.STRING,
 			allowNull: false,
 		},
@@ -31,10 +31,9 @@ const BlogPost = sequelize.define(
 			allowNull: false,
 		},
 	},
-
 	{
 		timestamps: true,
 	}
 );
 
-module.exports = BlogPost;
+module.exports = Work;

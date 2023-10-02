@@ -1,23 +1,24 @@
 const express = require("express");
 const router = express.Router();
 
-const BlogPost = require("../models/blogpost.models");
+const Work = require("../models/work.models");
 
-//get all blog posts
+//get all works
 router.get("/", async (req, res) => {
 	try {
-		const blogPosts = await BlogPost.findAll();
-		res.status(200).json(blogPosts);
+		const works = await Work.findAll();
+		res.status(200).json(works);
 	} catch (error) {
 		res.status(500).json(error);
 	}
 });
 
-//get a blog post by id
+//get a work by id
+
 router.get("/:id", async (req, res) => {
 	try {
-		const blogPost = await BlogPost.findByPk(req.params.id);
-		res.status(200).json(blogPost);
+		const work = await Work.findByPk(req.params.id);
+		res.status(200).json(work);
 	} catch (error) {
 		res.status(500).json(error);
 	}

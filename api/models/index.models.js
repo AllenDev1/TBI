@@ -6,16 +6,7 @@ const testimonials = require("./testimonials.models");
 const teams = require("./teams.models");
 const videosrc = require("./videoSrc.models");
 const sequelize = require("../datebase/sequelize");
-
-// custom options for the blogpost resource quill editor
-const blogResourceOptions = {
-	properties: {
-		text: {
-			type: "richtext",
-			
-		},
-	},
-};
+const work = require("./work.models");
 
 module.exports = {
 	blogpost,
@@ -26,5 +17,5 @@ module.exports = {
 	teams,
 	videosrc,
 	sequelize,
-	blogResourceOptions,
+	work,
 };

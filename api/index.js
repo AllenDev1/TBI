@@ -12,6 +12,8 @@ const Team_routes = require("./routes/teams.routes");
 const Contact_form_routes = require("./routes/contactForm.routes");
 const Testimonials_routes = require("./routes/testimonials.routes");
 const Video_src_routes = require("./routes/videoSrc.routes");
+const Work_routes = require("./routes/work.routes");
+
 
 const path = require("path");
 const sequelize = require("./datebase/sequelize");
@@ -41,6 +43,7 @@ app.use("/api/team", Team_routes);
 app.use("/api/message", Contact_form_routes);
 app.use("/api/testimonials", Testimonials_routes);
 app.use("/api/videosrc", Video_src_routes);
+app.use("/api/works", Work_routes)
 
 
 // Serve static files
