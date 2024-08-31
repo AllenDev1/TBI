@@ -1,3 +1,4 @@
+// work.model.js
 const Sequelize = require("sequelize");
 const sequelize = require("../datebase/sequelize");
 
@@ -14,24 +15,35 @@ const Work = sequelize.define(
 			type: Sequelize.STRING,
 			allowNull: false,
 		},
-		client: {
-			type: Sequelize.STRING,
-			allowNull: false,
-		},
 		categories: {
 			type: Sequelize.STRING,
 			allowNull: false,
 		},
 		image: {
 			type: Sequelize.STRING,
-			allowNull: false,
+			// allowNull: false,
 		},
-		text: {
+		concept: {
 			type: Sequelize.TEXT,
 			allowNull: false,
 		},
+		description: {
+			type: Sequelize.TEXT,
+			// allowNull: false,
+		},
+		creditName: {
+			type: Sequelize.STRING, // Assuming the name is a string
+			// allowNull: false,
+			field: "credit_name", // to define the column name in database
+		},
+		creditEmail: {
+			type: Sequelize.STRING, // Assuming email is a string
+			// allowNull: false,
+			field: "credit_email", // to define the column name in database
+		},
 	},
 	{
+		underscored: true,
 		timestamps: true,
 	}
 );

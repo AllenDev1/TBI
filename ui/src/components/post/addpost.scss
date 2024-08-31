@@ -1,0 +1,32 @@
+.addpost {
+	margin-top: 8rem;
+	h3 {
+		text-align: center;
+		text-transform: uppercase;
+	}
+	.add-post-form {
+		border: 1px solid #ef6d58;
+		border-radius: 1rem;
+		padding: 1rem;
+	}
+	.credit-name {
+		// padding-bottom: 3rem;
+        .col{
+
+        }
+		border-bottom: 1px solid #ef6d58;
+        padding: 2rem 0;
+
+	}
+	.credit-others-h {
+		border-top: 1px solid #ef6d58;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	.submit-button {
+		display: flex;
+		width: 50%;
+		text-align: center;
+		justify-content: center;
+	}
+}

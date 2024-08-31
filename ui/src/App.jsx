@@ -9,6 +9,9 @@ import Contact from "./pages/Contact";
 import Home from "./pages/home";
 import Services from "./pages/Services";
 import Works from "./pages/Works";
+import Blog from "./pages/Blog";
+import Login from "./components/login/Login";
+import AddPost from "./components/post/AddPost";
 
 function App() {
 	return (
@@ -18,6 +21,8 @@ function App() {
 					<Route exact path="/" element={<Home />} />
 					<Route exact path="/home" element={<Home />} />
 
+					<Route path="/login" element={<Login />} />
+
 					<Route path="/about" element={<About />} />
 
 					<Route path="/services" element={<Services />} />
@@ -25,6 +30,11 @@ function App() {
 
 					<Route path="/works" element={<Works />} />
 					<Route path="/work" element={<Works />} />
+
+					<Route path="/blogs" element={<Blog />} />
+					<Route path="/blog" element={<Blog />} />
+					
+					<Route path="/add-post" element={<AddPost />} />
 
 					<Route
 						path="article/:article_id/:article_title_slug"

@@ -97,14 +97,23 @@ const Navbars = () => {
 								<img src={about} alt="..." />
 								About
 							</NavLink>
+
 							<NavLink
-								to="/contact"
+								to="/blog"
+								claasName={({ isActive }) =>
+									isActive ? "active" : ""
+								}
+							>
+								Blog
+							</NavLink>
+							<NavLink
+								to="/login"
 								className={({ isActive }) =>
 									isActive ? "active" : ""
 								}
 							>
 								<img src={contact} alt="..." />
-								Contact
+								Login
 							</NavLink>
 						</div>
 						<Navbar.Toggle
@@ -158,14 +167,31 @@ const Navbars = () => {
 									>
 										About
 									</NavLink>
+
+									{/* <NavLink
+										to="/blog"
+										claasName={({ isActive }) =>
+											isActive ? "active" : ""
+										}
+									>
+										Blog
+									</NavLink> */}
+									<NavLink
+										to="/add-post"
+										claasName={({ isActive }) =>
+											isActive ? "active" : ""
+										}
+									>
+										Add Your Idea
+									</NavLink>
 									<Button
 										onClick={() => {
-											let path = `/contact`;
+											let path = `/login`;
 											navigate(path);
 										}}
 										id="nav-contact-btn"
 									>
-										Contact
+										Login
 									</Button>
 								</Nav>
 							</Offcanvas.Body>

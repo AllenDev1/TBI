@@ -1,0 +1,36 @@
+.login-container {
+	// margin-top: 7rem;
+
+	@media (max-width: 768px) {
+		width: 100%;
+		height: 100%;
+		padding: 5rem 2rem;
+	}
+
+	form {
+	}
+}
+.dream-pitching {
+	margin-top: 7rem;
+	text-align: center;
+	font-weight: 600;
+	color: #4caf50; /* Green color to symbolize growth */
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Shadow effect for depth */
+	letter-spacing: 2px; /* Spacing between letters for clarity */
+	font-size: 2.5rem; /* Larger font size for emphasis */
+	font-family: "Arial", sans-serif; /* Clear, readable font */
+	background-image: linear-gradient(
+		to right,
+		#ef6d58,
+		#ef6d58
+	); /* Gradient background to add vibrancy */
+	-webkit-background-clip: text; /* Clip text to background gradient */
+	background-clip: text; /* Clip text to background gradient */
+	-webkit-text-fill-color: transparent; /* Hide text fill color */
+	text-transform: uppercase;
+	transition: color 0.3s ease-in-out; /* Smooth color transition */
+}
+
+.dream-pitching:hover {
+	color: #ef6d58; /* Change color on hover to attract attention */
+}

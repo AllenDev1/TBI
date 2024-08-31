@@ -7,6 +7,11 @@ const teams = require("./teams.models");
 const videosrc = require("./videoSrc.models");
 const sequelize = require("../datebase/sequelize");
 const work = require("./work.models");
+const User = require("./user.model");
+
+// Define association with Work model
+User.hasMany(work); // Each user can have many works
+work.belongsTo(User)
 
 module.exports = {
 	blogpost,
@@ -18,4 +23,5 @@ module.exports = {
 	videosrc,
 	sequelize,
 	work,
+	User,
 };
