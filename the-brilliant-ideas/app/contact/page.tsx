@@ -284,7 +284,6 @@ export default function ContactPage() {
                     type="submit"
                     variant="primary"
                     className={`w-full ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
-                    onClick={isSubmitting ? (e) => e.preventDefault() : undefined}
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>

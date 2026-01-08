@@ -887,6 +887,25 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             />
           </div>
 
+          {/* Top Ad - After Featured Image */}
+          <div className="mb-12">
+            <div className="neu rounded-3xl p-6 bg-white">
+              <ins
+                className="adsbygoogle"
+                style={{ display: 'block', textAlign: 'center' }}
+                data-ad-client="ca-pub-1949655614307812"
+                data-ad-slot="1111111111"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+              <script
+                dangerouslySetInnerHTML={{
+                  __html: '(adsbygoogle = window.adsbygoogle || []).push({});',
+                }}
+              />
+            </div>
+          </div>
+
           {/* Content */}
           <div
             className="prose prose-lg max-w-none
@@ -899,6 +918,25 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
               prose-a:text-orange-primary prose-a:no-underline hover:prose-a:underline"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
+
+          {/* Bottom Ad - After Content */}
+          <div className="mt-12">
+            <div className="neu rounded-3xl p-6 bg-white">
+              <ins
+                className="adsbygoogle"
+                style={{ display: 'block' }}
+                data-ad-client="ca-pub-1949655614307812"
+                data-ad-slot="2222222222"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+              <script
+                dangerouslySetInnerHTML={{
+                  __html: '(adsbygoogle = window.adsbygoogle || []).push({});',
+                }}
+              />
+            </div>
+          </div>
 
           {/* Tags */}
           {post.keywords && (

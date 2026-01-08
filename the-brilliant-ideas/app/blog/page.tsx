@@ -239,63 +239,104 @@ export default function BlogPage() {
             />
           </div>
 
+          {/* Google AdSense Display Ad */}
+          <div className="mb-12 animate-fade-in-up">
+            <div className="neu rounded-3xl p-6 bg-white">
+              <ins
+                className="adsbygoogle"
+                style={{ display: 'block' }}
+                data-ad-client="ca-pub-1949655614307812"
+                data-ad-slot="1234567890"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+              ></ins>
+              <script
+                dangerouslySetInnerHTML={{
+                  __html: '(adsbygoogle = window.adsbygoogle || []).push({});',
+                }}
+              />
+            </div>
+          </div>
+
           {/* Blog Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogPosts.map((post, index) => (
-              <Link
-                key={post.slug}
-                href={`/blog/${post.slug}`}
-                className="group animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <GlassCard className="h-full flex flex-col hover:scale-105 transition-all duration-500">
-                  {/* Image */}
-                  <div className="relative h-48 rounded-2xl overflow-hidden mb-4">
-                    <Image
-                      src={post.image}
-                      alt={post.title}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    {/* Category Badge */}
-                    <div className="absolute top-4 left-4 neu px-4 py-2 rounded-full">
-                      <span className="text-xs font-semibold text-orange-primary">
-                        {post.category}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex-1 flex flex-col">
-                    <h3 className="text-xl font-bold mb-3 text-heading group-hover:text-orange-primary transition-colors duration-300 line-clamp-2">
-                      {post.title}
-                    </h3>
-
-                    <p className="text-body text-sm mb-4 line-clamp-3 flex-1">
-                      {post.excerpt}
-                    </p>
-
-                    {/* Meta Info */}
-                    <div className="flex items-center justify-between pt-4 border-t border-gray-200">
-                      <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center text-white text-xs font-bold">
-                          {post.author.split(' ').map(n => n[0]).join('')}
-                        </div>
-                        <span className="text-xs text-gray-600 font-medium">{post.author}</span>
+              <React.Fragment key={post.slug}>
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="group animate-fade-in-up"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <GlassCard className="h-full flex flex-col hover:scale-105 transition-all duration-500">
+                    {/* Image */}
+                    <div className="relative h-48 rounded-2xl overflow-hidden mb-4">
+                      <Image
+                        src={post.image}
+                        alt={post.title}
+                        fill
+                        className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      {/* Category Badge */}
+                      <div className="absolute top-4 left-4 neu px-4 py-2 rounded-full">
+                        <span className="text-xs font-semibold text-orange-primary">
+                          {post.category}
+                        </span>
                       </div>
-                      <span className="text-xs text-gray-500">{post.readTime}</span>
                     </div>
 
-                    <time className="text-xs text-gray-500 mt-2" dateTime={post.date}>
-                      {new Date(post.date).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric'
-                      })}
-                    </time>
+                    {/* Content */}
+                    <div className="flex-1 flex flex-col">
+                      <h3 className="text-xl font-bold mb-3 text-heading group-hover:text-orange-primary transition-colors duration-300 line-clamp-2">
+                        {post.title}
+                      </h3>
+
+                      <p className="text-body text-sm mb-4 line-clamp-3 flex-1">
+                        {post.excerpt}
+                      </p>
+
+                      {/* Meta Info */}
+                      <div className="flex items-center justify-between pt-4 border-t border-gray-200">
+                        <div className="flex items-center gap-2">
+                          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-orange-400 to-orange-600 flex items-center justify-center text-white text-xs font-bold">
+                            {post.author.split(' ').map(n => n[0]).join('')}
+                          </div>
+                          <span className="text-xs text-gray-600 font-medium">{post.author}</span>
+                        </div>
+                        <span className="text-xs text-gray-500">{post.readTime}</span>
+                      </div>
+
+                      <time className="text-xs text-gray-500 mt-2" dateTime={post.date}>
+                        {new Date(post.date).toLocaleDateString('en-US', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric'
+                        })}
+                      </time>
+                    </div>
+                  </GlassCard>
+                </Link>
+
+                {/* In-feed Ad after 6th post */}
+                {index === 5 && (
+                  <div className="md:col-span-2 lg:col-span-3 animate-fade-in-up">
+                    <div className="neu rounded-3xl p-6 bg-white">
+                      <ins
+                        className="adsbygoogle"
+                        style={{ display: 'block' }}
+                        data-ad-client="ca-pub-1949655614307812"
+                        data-ad-slot="9876543210"
+                        data-ad-format="fluid"
+                        data-ad-layout-key="-6t+ed+2i-1n-4w"
+                      ></ins>
+                      <script
+                        dangerouslySetInnerHTML={{
+                          __html: '(adsbygoogle = window.adsbygoogle || []).push({});',
+                        }}
+                      />
+                    </div>
                   </div>
-                </GlassCard>
-              </Link>
+                )}
+              </React.Fragment>
             ))}
           </div>
 
