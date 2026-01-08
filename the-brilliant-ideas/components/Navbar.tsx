@@ -60,24 +60,24 @@ export default function Navbar() {
 
       {/* Mobile Menu Button - Bottom Right */}
       <button
-        className="lg:hidden fixed bottom-8 right-8 z-50 w-14 h-14 rounded-full neu flex items-center justify-center hover:scale-105 transition-all shadow-xl"
+        className="lg:hidden fixed bottom-8 right-8 z-50 w-14 h-14 rounded-full neu hover:scale-105 transition-all shadow-xl flex items-center justify-center"
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         aria-label="Toggle menu"
       >
-        <div className="w-6 h-5 flex flex-col justify-between">
+        <div className="w-5 h-5 relative">
           <span
-            className={`w-full h-0.5 bg-gray-700 rounded-full transition-all duration-300 ${
-              isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''
+            className={`block absolute left-0 w-full h-0.5 bg-gray-700 rounded-full transition-all duration-300 ${
+              isMobileMenuOpen ? 'top-1/2 -translate-y-1/2 rotate-45' : 'top-0'
             }`}
           ></span>
           <span
-            className={`w-full h-0.5 bg-gray-700 rounded-full transition-all duration-300 ${
+            className={`block absolute left-0 w-full h-0.5 bg-gray-700 rounded-full transition-all duration-300 top-1/2 -translate-y-1/2 ${
               isMobileMenuOpen ? 'opacity-0' : 'opacity-100'
             }`}
           ></span>
           <span
-            className={`w-full h-0.5 bg-gray-700 rounded-full transition-all duration-300 ${
-              isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
+            className={`block absolute left-0 w-full h-0.5 bg-gray-700 rounded-full transition-all duration-300 ${
+              isMobileMenuOpen ? 'top-1/2 -translate-y-1/2 -rotate-45' : 'bottom-0'
             }`}
           ></span>
         </div>

@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -34,16 +33,23 @@ export default function ScrollToTop() {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-24 right-24 lg:right-8 z-40 w-20 h-20 hover:scale-110 active:scale-95 transition-all duration-300 group"
+          className="fixed bottom-24 right-8 md:bottom-8 z-30 w-14 h-14 rounded-full neu neu-hover flex items-center justify-center text-gray-700 hover:text-orange-primary transition-all duration-300"
           aria-label="Scroll to top"
         >
-          <Image
-            src="/tbi-mascot/move-to-top.png"
-            alt="Scroll to top"
-            width={80}
-            height={80}
-            className="object-contain drop-shadow-2xl group-hover:scale-110 transition-transform duration-300"
-          />
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M5 10l7-7m0 0l7 7m-7-7v18"
+            />
+          </svg>
         </button>
       )}
     </>

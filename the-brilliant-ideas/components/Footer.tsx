@@ -11,44 +11,40 @@ export default function Footer() {
       { name: 'Services', href: '/services' },
       { name: 'Contact', href: '/contact' },
     ],
-    Services: [
-      { name: 'Branding', href: '/services#branding' },
-      { name: 'Web Design', href: '/services#web-design' },
-      { name: 'Development', href: '/services#development' },
-      { name: 'Strategy', href: '/services#strategy' },
-    ],
     Social: [
-      { name: 'LinkedIn', href: 'https://linkedin.com' },
-      { name: 'Instagram', href: 'https://instagram.com' },
-      { name: 'Twitter', href: 'https://twitter.com' },
-      { name: 'Dribbble', href: 'https://dribbble.com' },
+      { name: 'LinkedIn', href: 'https://www.linkedin.com/company/89926801/' },
+      { name: 'Instagram', href: 'https://www.instagram.com/the_brilliant_ideas/' },
+      { name: 'Twitter', href: 'https://x.com/Allendev01' },
+      { name: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61566978404584' },
     ],
   };
 
   return (
-    <footer className="neu mt-32 py-12">
+    <footer className="mt-32 py-16 bg-gray-50">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          {/* Brand */}
-          <div>
-            <Link href="/" className="text-2xl font-bold text-gradient inline-block mb-4">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+          {/* Brand Section - Larger */}
+          <div className="md:col-span-1">
+            <Link href="/" className="text-3xl font-bold text-gradient inline-block mb-4 hover:scale-105 transition-transform duration-300">
               The Brilliant Ideas
             </Link>
-            <p className="text-body text-sm">
+            <p className="text-body text-sm leading-relaxed max-w-xs">
               Crafting brilliant digital experiences for forward-thinking brands.
             </p>
           </div>
 
-          {/* Footer Links */}
-          {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category}>
-              <h3 className="text-heading font-semibold mb-4">{category}</h3>
-              <ul className="space-y-2">
-                {links.map((link) => (
+          {/* Links Grid */}
+          <div className="md:col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-8">
+            {/* Company Links */}
+            <div>
+              <h3 className="text-heading font-bold mb-4 text-lg">Company</h3>
+              <ul className="space-y-3">
+                {footerLinks.Company.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="text-body hover:text-orange-primary transition-colors duration-300 text-sm"
+                      className="text-body hover:text-orange-primary transition-colors duration-300 text-sm inline-block hover:translate-x-1 transition-transform"
                     >
                       {link.name}
                     </Link>
@@ -56,11 +52,45 @@ export default function Footer() {
                 ))}
               </ul>
             </div>
-          ))}
+
+            {/* Social Links */}
+            <div>
+              <h3 className="text-heading font-bold mb-4 text-lg">Social</h3>
+              <ul className="space-y-3">
+                {footerLinks.Social.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-body hover:text-orange-primary transition-colors duration-300 text-sm inline-block hover:translate-x-1 transition-transform"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact Info */}
+            <div>
+              <h3 className="text-heading font-bold mb-4 text-lg">Get In Touch</h3>
+              <div className="space-y-3 text-sm text-body">
+                <p>Biratnagar, Nepal</p>
+                <p>Kathmandu, Nepal</p>
+                <Link
+                  href="/contact"
+                  className="inline-block mt-4 px-6 py-2 rounded-full neu text-orange-primary font-semibold hover:scale-105 transition-transform duration-300"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-gray-300 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-muted text-sm">
             © {currentYear} The Brilliant Ideas. All rights reserved.
           </p>

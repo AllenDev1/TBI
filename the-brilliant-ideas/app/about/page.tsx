@@ -8,10 +8,10 @@ import Image from 'next/image';
 
 export default function AboutPage() {
   const stats = [
-    { number: '150+', label: 'Projects Completed' },
-    { number: '50+', label: 'Happy Clients' },
-    { number: '12+', label: 'Years Experience' },
-    { number: '98%', label: 'Client Satisfaction' },
+    { number: '24/7', label: 'Support Available' },
+    { number: '100%', label: 'Client Satisfaction' },
+    { number: '50+', label: 'Technologies Mastered' },
+    { number: '∞', label: 'Creative Solutions' },
   ];
 
   const team = [
@@ -183,12 +183,12 @@ export default function AboutPage() {
                   className="animate-fade-in-scale"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <GlassCard className="text-center group hover:scale-110 transition-all duration-500">
-                    <div className="text-4xl md:text-5xl font-bold text-gradient mb-2 group-hover:scale-110 transition-transform duration-300">
+                  <div className="neu-inset rounded-3xl p-8 text-center">
+                    <div className="text-4xl md:text-5xl font-bold text-gradient mb-2">
                       {stat.number}
                     </div>
                     <p className="text-body font-medium">{stat.label}</p>
-                  </GlassCard>
+                  </div>
                 </div>
               ))}
             </div>
