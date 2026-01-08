@@ -1,11 +1,21 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import axios from 'axios';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SectionHeading from '@/components/SectionHeading';
 import GlassCard from '@/components/GlassCard';
 import Button from '@/components/Button';
+
+// Declare grecaptcha type
+declare global {
+  interface Window {
+    grecaptcha: any;
+    onRecaptchaLoad?: () => void;
+    onRecaptchaSuccess?: (token: string) => void;
+  }
+}
 
 interface FormData {
   name: string;
@@ -20,7 +30,13 @@ interface FormErrors {
   name?: string;
   email?: string;
   message?: string;
+  recaptcha?: string;
+  general?: string;
 }
+
+// API Configuration
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api/v1';
+const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || '6LctrgEsAAAAAKzHMJib7r8fgm7aSzWU2Bxx-lQp';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState<FormData>({
@@ -35,6 +51,8 @@ export default function ContactPage() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [recaptchaToken, setRecaptchaToken] = useState('');
+  const [recaptchaWidgetId, setRecaptchaWidgetId] = useState<number | null>(null);
 
   const validateEmail = (email: string) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -62,6 +80,83 @@ export default function ContactPage() {
     return Object.keys(newErrors).length === 0;
   };
 
+  // Render reCAPTCHA
+  const renderRecaptcha = useCallback(() => {
+    console.log('🔵 renderRecaptcha called');
+    console.log('🔑 RECAPTCHA_SITE_KEY:', RECAPTCHA_SITE_KEY);
+    console.log('🌍 window.grecaptcha:', typeof window !== 'undefined' ? window.grecaptcha : 'window undefined');
+
+    if (typeof window !== 'undefined' && window.grecaptcha && window.grecaptcha.render) {
+      const container = document.getElementById('recaptcha-container');
+      console.log('📦 Container found:', !!container);
+      console.log('👶 Container has children:', container?.hasChildNodes());
+
+      if (container && !container.hasChildNodes()) {
+        try {
+          console.log('✅ Rendering reCAPTCHA widget...');
+          const widgetId = window.grecaptcha.render('recaptcha-container', {
+            sitekey: RECAPTCHA_SITE_KEY,
+            callback: (token: string) => {
+              console.log('✅ Token received:', token.substring(0, 20) + '...');
+              setRecaptchaToken(token);
+            },
+            theme: 'light',
+          });
+          console.log('✅ Widget rendered with ID:', widgetId);
+          setRecaptchaWidgetId(widgetId);
+        } catch (error) {
+          console.error('❌ Error rendering reCAPTCHA:', error);
+        }
+      }
+    } else {
+      console.log('❌ grecaptcha not ready');
+    }
+  }, []);
+
+  // Load reCAPTCHA v2 script with explicit render
+  useEffect(() => {
+    console.log('🚀 useEffect triggered');
+    if (typeof window === 'undefined') {
+      console.log('⚠️ Window is undefined');
+      return;
+    }
+
+    // Check if already loaded
+    if (window.grecaptcha && window.grecaptcha.render) {
+      console.log('✅ grecaptcha already loaded');
+      renderRecaptcha();
+      return;
+    }
+
+    // Check if script exists
+    const existingScript = document.querySelector('script[src*="recaptcha/api.js"]');
+    if (existingScript) {
+      console.log('📜 Script already exists in DOM');
+      window.onRecaptchaLoad = renderRecaptcha;
+      return;
+    }
+
+    // Load script
+    console.log('📥 Loading reCAPTCHA script...');
+    window.onRecaptchaLoad = renderRecaptcha;
+    const script = document.createElement('script');
+    script.src = 'https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit';
+    script.async = true;
+    script.defer = true;
+    script.onload = () => console.log('✅ Script loaded successfully');
+    script.onerror = () => console.error('❌ Script failed to load');
+    document.head.appendChild(script);
+    console.log('📜 Script tag added to head');
+  }, [renderRecaptcha]);
+
+  // Reset reCAPTCHA after submission
+  const resetRecaptcha = () => {
+    if (typeof window !== 'undefined' && window.grecaptcha && recaptchaWidgetId !== null) {
+      window.grecaptcha.reset(recaptchaWidgetId);
+      setRecaptchaToken('');
+    }
+  };
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -79,27 +174,57 @@ export default function ContactPage() {
       return;
     }
 
+    // Check if reCAPTCHA is completed
+    if (!recaptchaToken) {
+      setErrors({ recaptcha: 'Please complete the reCAPTCHA verification' });
+      return;
+    }
+
     setIsSubmitting(true);
+    setErrors({});
 
-    // Simulate form submission (replace with actual API call)
-    setTimeout(() => {
-      console.log('Form submitted:', formData);
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        service: '',
-        budget: '',
-        message: '',
+    try {
+      // Submit to backend API
+      const response = await axios.post(`${API_BASE_URL}/tbi-contact`, {
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        serviceInterested: formData.service,
+        projectBudget: formData.budget,
+        message: formData.message,
+        recaptchaToken,
       });
 
-      // Reset success message after 5 seconds
-      setTimeout(() => setIsSubmitted(false), 5000);
-    }, 1500);
+      if (response.data.success) {
+        setIsSubmitted(true);
+
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          service: '',
+          budget: '',
+          message: '',
+        });
+
+        // Reset reCAPTCHA
+        resetRecaptcha();
+
+        // Reset success message after 5 seconds
+        setTimeout(() => setIsSubmitted(false), 5000);
+      }
+    } catch (error: any) {
+      console.error('Form submission error:', error);
+
+      const errorMessage = error.response?.data?.message || 'Failed to send message. Please try again.';
+      setErrors({ general: errorMessage });
+
+      // Reset reCAPTCHA on error
+      resetRecaptcha();
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -145,9 +270,34 @@ export default function ContactPage() {
             <div className="lg:col-span-2 animate-slide-in-left">
               <GlassCard className="p-8 md:p-10">
                 {isSubmitted && (
-                  <div className="mb-6 p-4 rounded-lg neu-inset">
-                    <p className="font-semibold text-heading">Thank you for reaching out!</p>
-                    <p className="text-sm mt-1 text-body">We'll get back to you within 24 hours.</p>
+                  <div className="mb-6 p-5 rounded-2xl bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 shadow-sm animate-fade-in">
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 mt-0.5">
+                        <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="font-bold text-green-900 text-lg">Message Sent Successfully! ✓</p>
+                        <p className="text-sm mt-1 text-green-700">Thank you for reaching out. We'll get back to you within 24 hours.</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {errors.general && (
+                  <div className="mb-6 p-5 rounded-2xl bg-gradient-to-r from-red-50 to-rose-50 border-2 border-red-200 shadow-sm animate-fade-in">
+                    <div className="flex items-start gap-3">
+                      <div className="flex-shrink-0 mt-0.5">
+                        <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="font-bold text-red-900 text-lg">Oops! Something went wrong</p>
+                        <p className="text-sm mt-1 text-red-700">{errors.general}</p>
+                      </div>
+                    </div>
                   </div>
                 )}
 
@@ -155,7 +305,10 @@ export default function ContactPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Name */}
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium mb-2 text-heading">
+                      <label htmlFor="name" className="block text-sm font-semibold mb-2 text-heading flex items-center gap-2">
+                        <svg className="w-4 h-4 text-orange-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
                         Name *
                       </label>
                       <input
@@ -164,19 +317,27 @@ export default function ContactPage() {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        className={`w-full px-4 py-3 rounded-lg neu-inset text-body bg-white focus:outline-none focus:ring-2 focus:ring-orange-primary transition-all ${
+                        className={`w-full px-4 py-3 rounded-xl neu-inset text-body bg-white focus:outline-none focus:ring-2 focus:ring-orange-primary transition-all ${
                           errors.name ? 'ring-2 ring-red-500' : ''
                         }`}
                         placeholder="John Doe"
                       />
                       {errors.name && (
-                        <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                        <p className="text-red-500 text-xs mt-1.5 flex items-center gap-1">
+                          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                          </svg>
+                          {errors.name}
+                        </p>
                       )}
                     </div>
 
                     {/* Email */}
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium mb-2 text-heading">
+                      <label htmlFor="email" className="block text-sm font-semibold mb-2 text-heading flex items-center gap-2">
+                        <svg className="w-4 h-4 text-orange-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
                         Email *
                       </label>
                       <input
@@ -185,13 +346,18 @@ export default function ContactPage() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        className={`w-full px-4 py-3 rounded-lg neu-inset text-body bg-white focus:outline-none focus:ring-2 focus:ring-orange-primary transition-all ${
+                        className={`w-full px-4 py-3 rounded-xl neu-inset text-body bg-white focus:outline-none focus:ring-2 focus:ring-orange-primary transition-all ${
                           errors.email ? 'ring-2 ring-red-500' : ''
                         }`}
                         placeholder="john@example.com"
                       />
                       {errors.email && (
-                        <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                        <p className="text-red-500 text-xs mt-1.5 flex items-center gap-1">
+                          <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                          </svg>
+                          {errors.email}
+                        </p>
                       )}
                     </div>
                   </div>
@@ -279,14 +445,58 @@ export default function ContactPage() {
                     )}
                   </div>
 
+                  {/* reCAPTCHA */}
+                  <div className="space-y-2">
+                    <div className="flex justify-center">
+                      <div id="recaptcha-container" className="transform hover:scale-105 transition-transform duration-200" />
+                    </div>
+                    {errors.recaptcha && (
+                      <div className="flex items-center justify-center gap-2 text-red-600 text-sm">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                        <span>{errors.recaptcha}</span>
+                      </div>
+                    )}
+                    <p className="text-xs text-center text-gray-500">
+                      Protected by reCAPTCHA to prevent spam
+                    </p>
+                  </div>
+
                   {/* Submit Button */}
-                  <Button
-                    type="submit"
-                    variant="primary"
-                    className={`w-full ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
-                  >
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
-                  </Button>
+                  <div className="pt-2">
+                    <Button
+                      type="submit"
+                      variant="primary"
+                      disabled={isSubmitting}
+                      className={`w-full relative ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:shadow-xl'}`}
+                    >
+                      {isSubmitting ? (
+                        <span className="flex items-center justify-center gap-3">
+                          <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          <span>Sending your message...</span>
+                        </span>
+                      ) : (
+                        <span className="flex items-center justify-center gap-2">
+                          <span>Send Message</span>
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                          </svg>
+                        </span>
+                      )}
+                    </Button>
+                  </div>
+
+                  {/* Privacy Notice */}
+                  <p className="text-xs text-center text-gray-500 -mt-2">
+                    By submitting this form, you agree to our{' '}
+                    <a href="/privacy" className="text-orange-primary hover:underline">Privacy Policy</a>
+                    {' '}and{' '}
+                    <a href="/terms" className="text-orange-primary hover:underline">Terms of Service</a>.
+                  </p>
                 </form>
               </GlassCard>
             </div>
