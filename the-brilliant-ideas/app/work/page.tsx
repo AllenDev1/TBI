@@ -1,11 +1,46 @@
 import React from 'react';
+import type { Metadata } from "next";
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SectionHeading from '@/components/SectionHeading';
 import Image from 'next/image';
 import Link from 'next/link';
 
+export const metadata: Metadata = {
+  title: "Our Work - Portfolio & Case Studies | The Brilliant Ideas",
+  description: "Explore our portfolio of successful digital projects including PixeryHub, JESTHA, NepaliNest, and The Brilliant Canvas. View our web design, mobile app development, and branding work for clients across Nepal.",
+  alternates: {
+    canonical: 'https://thebrilliantideas.com/work',
+  },
+  openGraph: {
+    title: "Portfolio - Creative Digital Projects by The Brilliant Ideas",
+    description: "Explore our portfolio of successful digital projects including web design, mobile apps, branding, and e-commerce solutions.",
+    url: "https://thebrilliantideas.com/work",
+    type: "website",
+  },
+};
+
 export default function WorkPage() {
+  // Breadcrumb schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://thebrilliantideas.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Work",
+        "item": "https://thebrilliantideas.com/work"
+      }
+    ]
+  };
+
   const projects = [
     {
       slug: 'pixeryhub',
@@ -44,6 +79,10 @@ export default function WorkPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Navbar />
 
       <main className="pt-32 pb-24 px-4 md:px-6 relative overflow-hidden">

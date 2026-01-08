@@ -1,11 +1,120 @@
 import React from 'react';
+import type { Metadata } from "next";
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SectionHeading from '@/components/SectionHeading';
 import GlassCard from '@/components/GlassCard';
 import Button from '@/components/Button';
 
+export const metadata: Metadata = {
+  title: "Our Services - Web Design, Development & Branding | Nepal",
+  description: "Professional digital services including web design, web development, mobile app development, branding, UI/UX design, and digital strategy. Transform your business with The Brilliant Ideas in Nepal.",
+  alternates: {
+    canonical: 'https://thebrilliantideas.com/services',
+  },
+  openGraph: {
+    title: "Digital Services - Web, Mobile, Branding | The Brilliant Ideas",
+    description: "Professional web design, development, mobile apps, branding, and digital strategy services in Nepal.",
+    url: "https://thebrilliantideas.com/services",
+    type: "website",
+  },
+};
+
 export default function ServicesPage() {
+  // Service schema for structured data
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "Service",
+        "name": "Branding & Identity",
+        "provider": {
+          "@type": "Organization",
+          "name": "The Brilliant Ideas"
+        },
+        "description": "We craft distinctive brand identities that capture the essence of your business and resonate with your target audience.",
+        "serviceType": "Branding",
+        "areaServed": "Nepal"
+      },
+      {
+        "@type": "Service",
+        "name": "Web Design",
+        "provider": {
+          "@type": "Organization",
+          "name": "The Brilliant Ideas"
+        },
+        "description": "Beautiful, user-centric designs that combine stunning aesthetics with intuitive functionality for exceptional digital experiences.",
+        "serviceType": "Web Design",
+        "areaServed": "Nepal"
+      },
+      {
+        "@type": "Service",
+        "name": "Web Development",
+        "provider": {
+          "@type": "Organization",
+          "name": "The Brilliant Ideas"
+        },
+        "description": "Robust, scalable solutions built with cutting-edge technologies, best practices, and a focus on performance and security.",
+        "serviceType": "Development",
+        "areaServed": "Nepal"
+      },
+      {
+        "@type": "Service",
+        "name": "Motion Design",
+        "provider": {
+          "@type": "Organization",
+          "name": "The Brilliant Ideas"
+        },
+        "description": "Engaging animations and interactive experiences that bring your digital presence to life and captivate your audience.",
+        "serviceType": "Motion Design",
+        "areaServed": "Nepal"
+      },
+      {
+        "@type": "Service",
+        "name": "Digital Strategy",
+        "provider": {
+          "@type": "Organization",
+          "name": "The Brilliant Ideas"
+        },
+        "description": "Data-driven strategies that align with your business goals, ensuring measurable results and sustainable growth.",
+        "serviceType": "Digital Strategy",
+        "areaServed": "Nepal"
+      },
+      {
+        "@type": "Service",
+        "name": "Digital Marketing",
+        "provider": {
+          "@type": "Organization",
+          "name": "The Brilliant Ideas"
+        },
+        "description": "Comprehensive marketing solutions designed to amplify your brand, reach your target audience, and drive conversions.",
+        "serviceType": "Digital Marketing",
+        "areaServed": "Nepal"
+      }
+    ]
+  };
+
+  // Breadcrumb schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://thebrilliantideas.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://thebrilliantideas.com/services"
+      }
+    ]
+  };
+
   const services = [
     {
       id: 'branding',
@@ -116,6 +225,14 @@ export default function ServicesPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Navbar />
 
       <main className="pt-32 pb-24 px-4 md:px-6 relative overflow-hidden">

@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from "next";
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SectionHeading from '@/components/SectionHeading';
@@ -6,7 +7,41 @@ import GlassCard from '@/components/GlassCard';
 import Button from '@/components/Button';
 import Image from 'next/image';
 
+export const metadata: Metadata = {
+  title: "About Us - Meet Our Team | The Brilliant Ideas Nepal",
+  description: "Learn about The Brilliant Ideas, a leading digital agency in Nepal. Meet our expert team of designers, developers, and strategists based in Biratnagar and Kathmandu. Discover our values, approach, and commitment to excellence.",
+  alternates: {
+    canonical: 'https://thebrilliantideas.com/about',
+  },
+  openGraph: {
+    title: "About The Brilliant Ideas - Digital Agency Team Nepal",
+    description: "Meet our expert team of designers, developers, and strategists. Learn about our values, approach, and commitment to digital excellence in Nepal.",
+    url: "https://thebrilliantideas.com/about",
+    type: "website",
+  },
+};
+
 export default function AboutPage() {
+  // Breadcrumb schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://thebrilliantideas.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About",
+        "item": "https://thebrilliantideas.com/about"
+      }
+    ]
+  };
+
   const stats = [
     { number: '24/7', label: 'Support Available' },
     { number: '100%', label: 'Client Satisfaction' },
@@ -125,6 +160,10 @@ export default function AboutPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Navbar />
 
       <main className="pt-32 pb-24 px-4 md:px-6 relative overflow-hidden">

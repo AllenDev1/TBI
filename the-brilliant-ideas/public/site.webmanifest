@@ -1,0 +1,24 @@
+{
+  "name": "The Brilliant Ideas",
+  "short_name": "TBI",
+  "description": "Premier digital agency in Nepal specializing in web design, mobile app development, branding, and digital marketing",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#F97316",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": [
+    "business",
+    "technology",
+    "design"
+  ],
+  "lang": "en-US",
+  "dir": "ltr"
+}
