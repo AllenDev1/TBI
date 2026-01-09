@@ -114,6 +114,17 @@ export default function AboutPage() {
       }
     },
     {
+      name: 'Ujjwal Dev',
+      role: 'Graphic Designer',
+      image: '/team/ujjwal.jpeg',
+      bio: 'Creating stunning visuals and brand identities.',
+      social: {
+        instagram: 'https://www.instagram.com/ujjwaldev02/',
+        facebook: 'https://www.facebook.com/ujjwal.dev.161?mibextid=LQQJ4d',
+        linkedin: 'https://www.linkedin.com/in/ujjwal-dev-214725199/',
+      }
+    },
+    {
       name: 'Sukhchandra Sharma',
       role: 'Full Stack Developer',
       image: '/team/sukhisir.jpg',
@@ -136,14 +147,13 @@ export default function AboutPage() {
       }
     },
     {
-      name: 'Ujjwal Dev',
-      role: 'Graphic Designer',
-      image: '/team/ujjwal.jpeg',
-      bio: 'Creating stunning visuals and brand identities.',
+      name: 'Rupesh Khadka',
+      role: 'Frontend Developer',
+      image: '/team/rupesh.jpg',
+      bio: 'Building engaging user interfaces with modern frontend technologies.',
       social: {
-        instagram: 'https://www.instagram.com/ujjwaldev02/',
-        facebook: 'https://www.facebook.com/ujjwal.dev.161?mibextid=LQQJ4d',
-        linkedin: 'https://www.linkedin.com/in/ujjwal-dev-214725199/',
+        linkedin: 'https://www.linkedin.com/in/rupesh-khadka-131229234/',
+        github: 'https://github.com/Rupesh-cell/',
       }
     },
   ];
