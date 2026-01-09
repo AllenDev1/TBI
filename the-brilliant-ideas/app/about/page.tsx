@@ -95,6 +95,25 @@ export default function AboutPage() {
       }
     },
     {
+      name: 'Rajiv Sah',
+      role: 'Marketing Manager',
+      image: '/team/rajiv.jpg',
+      bio: 'Driving marketing strategies and brand growth.',
+      social: {
+        instagram: 'https://www.instagram.com/rajiv.sah.9469/',
+      }
+    },
+    {
+      name: 'Yana Chaudhary',
+      role: 'Social Media Manager',
+      image: '/team/yana.jpg',
+      bio: 'Managing social presence and engaging with our community.',
+      social: {
+        instagram: 'https://www.instagram.com/that_kid_yana/',
+        linkedin: 'https://www.linkedin.com/in/yana-chaudhary/',
+      }
+    },
+    {
       name: 'Sukhchandra Sharma',
       role: 'Full Stack Developer',
       image: '/team/sukhisir.jpg',
@@ -125,16 +144,6 @@ export default function AboutPage() {
         instagram: 'https://www.instagram.com/ujjwaldev02/',
         facebook: 'https://www.facebook.com/ujjwal.dev.161?mibextid=LQQJ4d',
         linkedin: 'https://www.linkedin.com/in/ujjwal-dev-214725199/',
-      }
-    },
-    {
-      name: 'Yana Chaudhary',
-      role: 'Social Media Manager',
-      image: '/team/yana.jpg',
-      bio: 'Managing social presence and engaging with our community.',
-      social: {
-        instagram: 'https://www.instagram.com/that_kid_yana/',
-        linkedin: 'https://www.linkedin.com/in/yana-chaudhary/',
       }
     },
   ];
@@ -269,25 +278,27 @@ export default function AboutPage() {
               subtitle="The talented individuals behind our creative excellence and technical expertise."
             />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-items-center">
-              {team.map((member, index) => (
-                <div
-                  key={member.name}
-                  className="animate-fade-in-up w-full max-w-sm"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <GlassCard className="text-center group hover:scale-105 transition-all duration-500 h-full">
-                    <div className="relative w-40 h-40 mx-auto mb-4 rounded-2xl overflow-hidden neu group-hover:shadow-[12px_12px_24px_#d1d9e6,-12px_-12px_24px_#ffffff] transition-shadow duration-500">
-                      <Image
-                        src={member.image}
-                        alt={member.name}
-                        fill
-                        className="object-cover object-top group-hover:scale-110 transition-transform duration-500"
-                        sizes="160px"
-                      />
-                    </div>
-                    <h3 className="text-xl font-bold mb-1 text-heading group-hover:text-orange-primary transition-colors duration-300">{member.name}</h3>
-                    <p className="text-orange-primary mb-3 text-sm font-semibold">{member.role}</p>
-                    <p className="text-body text-sm leading-relaxed mb-4">{member.bio}</p>
+              {team.map((member, index) => {
+                const isScooby = member.name === 'Scooby';
+                return (
+                  <div
+                    key={member.name}
+                    className={`animate-fade-in-up w-full ${isScooby ? 'sm:col-span-2 lg:col-span-3 xl:col-span-4 max-w-2xl' : 'max-w-sm'}`}
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                  >
+                    <GlassCard className={`text-center group hover:scale-105 transition-all duration-500 h-full ${isScooby ? 'p-8' : ''}`}>
+                      <div className={`relative ${isScooby ? 'w-64 h-64' : 'w-40 h-40'} mx-auto mb-4 rounded-2xl overflow-hidden neu group-hover:shadow-[12px_12px_24px_#d1d9e6,-12px_-12px_24px_#ffffff] transition-shadow duration-500`}>
+                        <Image
+                          src={member.image}
+                          alt={member.name}
+                          fill
+                          className="object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                          sizes={isScooby ? "256px" : "160px"}
+                        />
+                      </div>
+                      <h3 className={`${isScooby ? 'text-3xl' : 'text-xl'} font-bold mb-1 text-heading group-hover:text-orange-primary transition-colors duration-300`}>{member.name}</h3>
+                      <p className={`text-orange-primary mb-3 ${isScooby ? 'text-lg' : 'text-sm'} font-semibold`}>{member.role}</p>
+                      <p className={`text-body ${isScooby ? 'text-base' : 'text-sm'} leading-relaxed mb-4`}>{member.bio}</p>
                     {member.social && (
                       <div className="flex justify-center gap-3 mt-4">
                         {member.social.linkedin && (
@@ -317,9 +328,10 @@ export default function AboutPage() {
                         )}
                       </div>
                     )}
-                  </GlassCard>
-                </div>
-              ))}
+                    </GlassCard>
+                  </div>
+                );
+              })}
             </div>
           </section>
 

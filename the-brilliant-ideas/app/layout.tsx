@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import ScrollToTop from "@/components/ScrollToTop";
+import LoadingScreen from "@/components/LoadingScreen";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -131,6 +132,7 @@ export default function RootLayout({
         <meta name="google-adsense-account" content="ca-pub-1949655614307812" />
       </head>
       <body className={`${inter.variable} antialiased`}>
+        <LoadingScreen />
         {children}
         <ScrollToTop />
       </body>

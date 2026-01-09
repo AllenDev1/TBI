@@ -82,48 +82,34 @@ export default function ContactPage() {
 
   // Render reCAPTCHA
   const renderRecaptcha = useCallback(() => {
-    console.log('🔵 renderRecaptcha called');
-    console.log('🔑 RECAPTCHA_SITE_KEY:', RECAPTCHA_SITE_KEY);
-    console.log('🌍 window.grecaptcha:', typeof window !== 'undefined' ? window.grecaptcha : 'window undefined');
-
     if (typeof window !== 'undefined' && window.grecaptcha && window.grecaptcha.render) {
       const container = document.getElementById('recaptcha-container');
-      console.log('📦 Container found:', !!container);
-      console.log('👶 Container has children:', container?.hasChildNodes());
 
       if (container && !container.hasChildNodes()) {
         try {
-          console.log('✅ Rendering reCAPTCHA widget...');
           const widgetId = window.grecaptcha.render('recaptcha-container', {
             sitekey: RECAPTCHA_SITE_KEY,
             callback: (token: string) => {
-              console.log('✅ Token received:', token.substring(0, 20) + '...');
               setRecaptchaToken(token);
             },
             theme: 'light',
           });
-          console.log('✅ Widget rendered with ID:', widgetId);
           setRecaptchaWidgetId(widgetId);
         } catch (error) {
-          console.error('❌ Error rendering reCAPTCHA:', error);
+          console.error('Error rendering reCAPTCHA:', error);
         }
       }
-    } else {
-      console.log('❌ grecaptcha not ready');
     }
   }, []);
 
   // Load reCAPTCHA v2 script with explicit render
   useEffect(() => {
-    console.log('🚀 useEffect triggered');
     if (typeof window === 'undefined') {
-      console.log('⚠️ Window is undefined');
       return;
     }
 
     // Check if already loaded
     if (window.grecaptcha && window.grecaptcha.render) {
-      console.log('✅ grecaptcha already loaded');
       renderRecaptcha();
       return;
     }
@@ -131,22 +117,18 @@ export default function ContactPage() {
     // Check if script exists
     const existingScript = document.querySelector('script[src*="recaptcha/api.js"]');
     if (existingScript) {
-      console.log('📜 Script already exists in DOM');
       window.onRecaptchaLoad = renderRecaptcha;
       return;
     }
 
     // Load script
-    console.log('📥 Loading reCAPTCHA script...');
     window.onRecaptchaLoad = renderRecaptcha;
     const script = document.createElement('script');
     script.src = 'https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit';
     script.async = true;
     script.defer = true;
-    script.onload = () => console.log('✅ Script loaded successfully');
-    script.onerror = () => console.error('❌ Script failed to load');
+    script.onerror = () => console.error('Failed to load reCAPTCHA script');
     document.head.appendChild(script);
-    console.log('📜 Script tag added to head');
   }, [renderRecaptcha]);
 
   // Reset reCAPTCHA after submission

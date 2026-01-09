@@ -1,10 +1,12 @@
-import React from 'react';
-import { Metadata } from 'next';
+'use client';
+
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Button from '@/components/Button';
+import SectionHeading from '@/components/SectionHeading';
 
 interface Project {
   slug: string;
@@ -20,6 +22,7 @@ interface Project {
   results?: string[];
   technologies?: string[];
   gallery?: string[];
+  video?: string;
 }
 
 const projects: Record<string, Project> = {
@@ -32,6 +35,7 @@ const projects: Record<string, Project> = {
     date: 'December 2024',
     client: 'Internal Project',
     duration: '4 months',
+    video: '/works/pixeryhub/789615515.760498_pixeryhub_compressed.mp4',
     challenge: 'Limited access to high-quality, inspiring digital backgrounds and the lack of a unified platform offering both premium wallpapers and complementary digital tools without registration barriers.',
     solution: 'Developed a cross-platform application featuring free unlimited downloads of 4K/HD wallpapers, animated/live wallpapers, and integrated digital tools including image/video compression and QR code generation. Implemented daily content updates across 12+ categories with dark/light mode support and one-click downloads.',
     results: [
@@ -106,57 +110,47 @@ const projects: Record<string, Project> = {
   }
 };
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const { slug } = await params;
-  const project = projects[slug];
+export default function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const [project, setProject] = React.useState<Project | null>(null);
 
-  if (!project) {
-    return {
-      title: 'Project Not Found - The Brilliant Ideas',
+  useEffect(() => {
+    params.then((resolvedParams) => {
+      setProject(projects[resolvedParams.slug] || null);
+    });
+  }, [params]);
+
+  useEffect(() => {
+    if (!project) return;
+
+    const handleScroll = () => {
+      const scrolled = window.scrollY;
+      const windowHeight = window.innerHeight;
+
+      // Simple fade in for sections
+      const sections = document.querySelectorAll('.fade-section');
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < windowHeight * 0.85) {
+          section.classList.add('visible');
+        }
+      });
     };
-  }
 
-  return {
-    title: `${project.title} - Case Study | The Brilliant Ideas`,
-    description: project.description,
-    keywords: [...project.tags, project.title, 'case study', 'portfolio', 'Nepal', 'digital agency'],
-    openGraph: {
-      title: `${project.title} - Case Study`,
-      description: project.description,
-      images: [project.image],
-      type: 'website',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `${project.title} - Case Study`,
-      description: project.description,
-      images: [project.image],
-    },
-  };
-}
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
 
-export async function generateStaticParams() {
-  return Object.keys(projects).map((slug) => ({
-    slug: slug,
-  }));
-}
-
-export default async function ProjectDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const project = projects[slug];
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [project]);
 
   if (!project) {
     return (
       <>
         <Navbar />
-        <main className="pt-32 pb-24 px-4 md:px-6">
-          <div className="container mx-auto text-center">
-            <h1 className="text-4xl font-bold mb-4 text-heading">Project Not Found</h1>
-            <p className="text-body mb-8">The project you're looking for doesn't exist.</p>
-            <Button variant="primary" href="/work">Back to Work</Button>
+        <main className="min-h-screen flex items-center justify-center px-4 bg-[#ecf0f3]">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold mb-4 text-gray-800">Loading...</h1>
           </div>
         </main>
-        <Footer />
       </>
     );
   }
@@ -165,127 +159,154 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
     <>
       <Navbar />
 
+      {/* Hero Section */}
       <main className="pt-32 pb-24 px-4 md:px-6 relative overflow-hidden">
-        {/* Decorative Background */}
+        {/* Decorative Neumorphic Background Elements */}
         <div className="absolute top-20 right-10 w-96 h-96 rounded-full bg-white shadow-[8px_8px_16px_#d1d9e6,-8px_-8px_16px_#ffffff] animate-pulse-slow pointer-events-none"></div>
         <div className="absolute bottom-40 left-10 w-80 h-80 rounded-full bg-white shadow-[6px_6px_12px_#d1d9e6,-6px_-6px_12px_#ffffff] animate-float pointer-events-none"></div>
 
-        <div className="container mx-auto max-w-6xl relative z-10">
-          {/* Breadcrumb */}
-          <nav className="mb-8 animate-fade-in-up">
-            <ol className="flex items-center gap-2 text-sm text-body">
-              <li><Link href="/" className="hover:text-orange-primary transition-colors">Home</Link></li>
-              <li>/</li>
-              <li><Link href="/work" className="hover:text-orange-primary transition-colors">Work</Link></li>
-              <li>/</li>
-              <li className="text-heading font-medium">{project.title}</li>
-            </ol>
-          </nav>
+        <div className="container mx-auto relative z-10">
+          {/* Header */}
+          <div className="animate-fade-in-up mb-8">
+            <SectionHeading
+              title={project.title}
+              subtitle={project.description}
+            />
+          </div>
 
-          {/* Hero Section */}
-          <div className="mb-16 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-            <div className="flex flex-wrap items-center gap-4 mb-6">
+          {/* Tags & Meta Info */}
+          <div className="flex flex-col items-center gap-6 mb-16">
+            <div className="flex flex-wrap items-center justify-center gap-3">
               {project.tags.map((tag) => (
-                <span key={tag} className="px-4 py-2 text-sm font-medium rounded-xl text-orange-primary neu-inset">
+                <span key={tag} className="neu px-5 py-2 rounded-full text-sm font-semibold text-orange-primary">
                   {tag}
                 </span>
               ))}
-              <span className="text-sm text-muted">{project.date}</span>
             </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-heading">
-              {project.title}
-            </h1>
-            <p className="text-xl md:text-2xl text-body leading-relaxed max-w-4xl">
-              {project.description}
-            </p>
+
+            <div className="flex flex-wrap items-center justify-center gap-8">
+              {project.client && (
+                <div>
+                  <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Client</p>
+                  <p className="text-base font-semibold text-gray-800">{project.client}</p>
+                </div>
+              )}
+              {project.duration && (
+                <div>
+                  <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Duration</p>
+                  <p className="text-base font-semibold text-gray-800">{project.duration}</p>
+                </div>
+              )}
+              <div>
+                <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Year</p>
+                <p className="text-base font-semibold text-gray-800">{project.date}</p>
+              </div>
+            </div>
           </div>
 
           {/* Hero Image */}
-          <div className="mb-20 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+          <section className="fade-section mb-12">
             <div className="neu rounded-3xl overflow-hidden">
-              <div className="relative h-96 md:h-[600px] bg-gradient-to-br from-gray-50 to-gray-100">
+              <div className="relative h-[500px] md:h-[700px] bg-gradient-to-br from-gray-50 to-gray-100">
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-contain p-8"
+                  className="object-contain p-8 md:p-12"
                   priority
                 />
               </div>
             </div>
-          </div>
+          </section>
 
-          {/* Project Info Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-            {project.client && (
-              <div className="neu p-6 rounded-2xl">
-                <h3 className="text-sm font-semibold text-orange-primary uppercase tracking-wider mb-2">Client</h3>
-                <p className="text-heading font-medium">{project.client}</p>
+          {/* Video Section */}
+          {project.video && (
+            <section className="fade-section mb-12">
+              <h2 className="text-3xl md:text-5xl font-black text-gray-800 text-center mb-8">
+                See it in action
+              </h2>
+
+              <div className="neu rounded-3xl overflow-hidden">
+                <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 md:p-8">
+                  <video
+                    className="w-full h-auto rounded-2xl"
+                    controls
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  >
+                    <source src={project.video} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
               </div>
-            )}
-            {project.duration && (
-              <div className="neu p-6 rounded-2xl">
-                <h3 className="text-sm font-semibold text-orange-primary uppercase tracking-wider mb-2">Duration</h3>
-                <p className="text-heading font-medium">{project.duration}</p>
-              </div>
-            )}
-            {project.technologies && (
-              <div className="neu p-6 rounded-2xl">
-                <h3 className="text-sm font-semibold text-orange-primary uppercase tracking-wider mb-2">Technologies</h3>
-                <p className="text-heading font-medium">{project.technologies.slice(0, 2).join(', ')}</p>
-              </div>
-            )}
-          </div>
+            </section>
+          )}
 
           {/* Challenge & Solution */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
-            {project.challenge && (
-              <div className="animate-slide-in-left">
-                <h2 className="text-3xl font-bold mb-6 text-heading">The Challenge</h2>
-                <div className="neu p-8 rounded-2xl">
-                  <p className="text-body leading-relaxed text-lg">
-                    {project.challenge}
-                  </p>
+          <section className="fade-section mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {project.challenge && (
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-black text-gray-800 mb-4">
+                    The Challenge
+                  </h2>
+                  <div className="neu rounded-2xl p-6">
+                    <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+                      {project.challenge}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            )}
-            {project.solution && (
-              <div className="animate-slide-in-right">
-                <h2 className="text-3xl font-bold mb-6 text-heading">Our Solution</h2>
-                <div className="neu p-8 rounded-2xl">
-                  <p className="text-body leading-relaxed text-lg">
-                    {project.solution}
-                  </p>
+              )}
+              {project.solution && (
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-black text-gray-800 mb-4">
+                    Our Solution
+                  </h2>
+                  <div className="neu rounded-2xl p-6">
+                    <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+                      {project.solution}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
+          </section>
 
           {/* Results */}
           {project.results && project.results.length > 0 && (
-            <div className="mb-20 animate-fade-in-up">
-              <h2 className="text-3xl font-bold mb-8 text-heading text-center">Results & Impact</h2>
+            <section className="fade-section mb-12">
+              <h2 className="text-3xl md:text-5xl font-black text-gray-800 text-center mb-8">
+                Results
+              </h2>
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {project.results.map((result, index) => (
-                  <div key={index} className="neu p-6 rounded-2xl flex items-start gap-4">
-                    <div className="w-8 h-8 rounded-full bg-orange-primary flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                      ✓
+                  <div key={index} className="neu rounded-2xl p-6 flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-orange-primary to-orange-glow flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
+                      {index + 1}
                     </div>
-                    <p className="text-body leading-relaxed">{result}</p>
+                    <p className="text-base text-gray-700 leading-relaxed">
+                      {result}
+                    </p>
                   </div>
                 ))}
               </div>
-            </div>
+            </section>
           )}
 
           {/* Gallery */}
           {project.gallery && project.gallery.length > 1 && (
-            <div className="mb-20 animate-fade-in-up">
-              <h2 className="text-3xl font-bold mb-8 text-heading text-center">Project Gallery</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <section className="fade-section mb-12">
+              <h2 className="text-3xl md:text-5xl font-black text-gray-800 text-center mb-8">
+                Gallery
+              </h2>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {project.gallery.slice(1).map((img, index) => (
                   <div key={index} className="neu rounded-2xl overflow-hidden">
-                    <div className="relative h-80 bg-gradient-to-br from-gray-50 to-gray-100">
+                    <div className="relative h-[300px] md:h-[400px] bg-gradient-to-br from-gray-50 to-gray-100">
                       <Image
                         src={img}
                         alt={`${project.title} - Image ${index + 2}`}
@@ -296,30 +317,33 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                   </div>
                 ))}
               </div>
-            </div>
+            </section>
           )}
 
           {/* Technologies */}
           {project.technologies && project.technologies.length > 0 && (
-            <div className="mb-20 animate-fade-in-up">
-              <h2 className="text-3xl font-bold mb-8 text-heading text-center">Technologies Used</h2>
-              <div className="flex flex-wrap justify-center gap-4">
+            <section className="fade-section mb-12">
+              <h2 className="text-3xl md:text-5xl font-black text-gray-800 text-center mb-8">
+                Technologies
+              </h2>
+
+              <div className="flex flex-wrap justify-center gap-3">
                 {project.technologies.map((tech) => (
-                  <div key={tech} className="neu px-6 py-4 rounded-xl">
-                    <span className="text-heading font-medium">{tech}</span>
+                  <div key={tech} className="neu px-6 py-3 rounded-xl">
+                    <span className="text-base font-semibold text-gray-800">{tech}</span>
                   </div>
                 ))}
               </div>
-            </div>
+            </section>
           )}
 
           {/* CTA */}
-          <div className="neu rounded-3xl p-12 md:p-16 text-center animate-fade-in-up">
+          <div className="neu rounded-3xl p-12 md:p-16 text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-heading">
-              Have a Project in Mind?
+              Ready to Get Started?
             </h2>
-            <p className="text-xl text-body mb-8 max-w-2xl mx-auto leading-relaxed">
-              Let's create something brilliant together. Get in touch to discuss your next project.
+            <p className="text-xl text-body mb-8 max-w-2xl mx-auto">
+              Let's discuss your project and explore how we can help you achieve your digital goals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="primary" href="/contact">
@@ -334,6 +358,19 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
       </main>
 
       <Footer />
+
+      <style jsx global>{`
+        .fade-section {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-section.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      `}</style>
     </>
   );
 }

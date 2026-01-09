@@ -18,12 +18,12 @@ export default function Navbar() {
   return (
     <>
       {/* Bottom Dock Navigation */}
-      <nav className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 hidden lg:block">
-        <div className="neu px-6 py-4 rounded-[32px] backdrop-blur-xl">
-          <div className="flex items-center gap-2">
+      <nav className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 hidden lg:block max-w-[95vw]">
+        <div className="neu px-4 py-3 rounded-[32px] backdrop-blur-xl">
+          <div className="flex items-center gap-1 flex-nowrap">
             {/* Logo */}
-            <Link href="/" className="relative group mr-4">
-              <span className="text-xl font-black tracking-tight">
+            <Link href="/" className="relative group mr-2">
+              <span className="text-lg font-black tracking-tight whitespace-nowrap">
                 <span className="text-gray-800 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-orange-glow group-hover:to-orange-primary transition-all duration-300">
                   The Brilliant
                 </span>
@@ -31,14 +31,14 @@ export default function Navbar() {
               </span>
             </Link>
 
-            <div className="w-px h-8 bg-gray-300 mx-2"></div>
+            <div className="w-px h-8 bg-gray-300 mx-1"></div>
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`relative px-6 py-3 rounded-2xl font-medium text-sm transition-all duration-300 ${
+                  className={`relative px-3 py-2 rounded-2xl font-medium text-sm transition-all duration-300 whitespace-nowrap ${
                     isActive
                       ? 'neu-inset text-orange-primary scale-95'
                       : 'text-gray-700 hover:text-orange-primary hover:scale-105'
@@ -51,7 +51,7 @@ export default function Navbar() {
 
             <Link
               href="/contact"
-              className="ml-2 px-6 py-3 bg-gradient-to-r from-orange-primary to-orange-glow rounded-2xl font-semibold text-white shadow-lg hover:shadow-orange-glow/50 hover:scale-105 transition-all duration-300"
+              className="ml-1 px-5 py-2 bg-gradient-to-r from-orange-primary to-orange-glow rounded-2xl font-semibold text-white shadow-lg hover:shadow-orange-glow/50 hover:scale-105 transition-all duration-300 whitespace-nowrap flex-shrink-0 text-sm"
             >
               Let&apos;s Talk
             </Link>
@@ -91,6 +91,17 @@ export default function Navbar() {
         }`}
       >
         <div className="neu rounded-3xl p-6 space-y-2 min-w-[200px]">
+          <Link
+            href="/"
+            className={`block px-5 py-3 rounded-xl font-medium transition-all duration-300 text-center ${
+              pathname === '/'
+                ? 'neu-inset text-orange-primary'
+                : 'text-gray-700 hover:text-orange-primary hover:neu-inset'
+            }`}
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            Home
+          </Link>
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -110,7 +121,7 @@ export default function Navbar() {
           })}
           <Link
             href="/contact"
-            className="block mt-4 px-6 py-3 bg-gradient-to-r from-orange-primary to-orange-glow rounded-xl font-semibold text-white text-center hover:shadow-lg hover:shadow-orange-glow/50 transition-all"
+            className="block mt-4 px-6 py-3 bg-gradient-to-r from-orange-primary to-orange-glow rounded-xl font-semibold text-white text-center hover:shadow-lg hover:shadow-orange-glow/50 transition-all whitespace-nowrap"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Let&apos;s Talk
