@@ -46,7 +46,7 @@ export default function AdSense({
   // Show placeholder in development
   if (process.env.NODE_ENV !== 'production') {
     return (
-      <div className="neu rounded-3xl p-6 bg-white">
+      <div className="neu rounded-3xl p-6 bg-white overflow-hidden">
         <div className="bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
           <p className="text-gray-500 text-sm font-medium">
             📢 AdSense Ad Placeholder
@@ -63,16 +63,22 @@ export default function AdSense({
   }
 
   return (
-    <div className="neu rounded-3xl p-6 bg-white">
-      <ins
-        className="adsbygoogle"
-        style={style}
-        data-ad-client="ca-pub-1949655614307812"
-        data-ad-slot={adSlot}
-        data-ad-format={adFormat}
-        data-full-width-responsive={fullWidthResponsive}
-        {...(adLayout && { 'data-ad-layout-key': adLayout })}
-      />
+    <div className="neu rounded-3xl p-6 bg-white overflow-hidden">
+      <div className="min-h-[100px] max-w-full">
+        <ins
+          className="adsbygoogle"
+          style={{
+            ...style,
+            maxWidth: '100%',
+            overflow: 'hidden'
+          }}
+          data-ad-client="ca-pub-1949655614307812"
+          data-ad-slot={adSlot}
+          data-ad-format={adFormat}
+          data-full-width-responsive={fullWidthResponsive}
+          {...(adLayout && { 'data-ad-layout-key': adLayout })}
+        />
+      </div>
     </div>
   );
 }

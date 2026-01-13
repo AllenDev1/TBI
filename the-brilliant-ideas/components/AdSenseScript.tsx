@@ -1,22 +1,38 @@
 'use client';
 
 import { useEffect } from 'react';
-import Script from 'next/script';
 
 export default function AdSenseScript() {
-  // Only load in production
-  if (process.env.NODE_ENV !== 'production') {
-    return null;
-  }
+  useEffect(() => {
+    // Only load in production
+    if (process.env.NODE_ENV !== 'production') {
+      return;
+    }
 
-  return (
-    <>
-      <Script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1949655614307812"
-        crossOrigin="anonymous"
-        strategy="afterInteractive"
-      />
-    </>
-  );
+    // Check if script already exists
+    const existingScript = document.querySelector(
+      'script[src*="adsbygoogle.js"]'
+    );
+
+    if (existingScript) {
+      return;
+    }
+
+    // Create and append script manually to avoid Next.js Script attributes
+    const script = document.createElement('script');
+    script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1949655614307812';
+    script.async = true;
+    script.crossOrigin = 'anonymous';
+
+    document.body.appendChild(script);
+
+    // Cleanup function
+    return () => {
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
+      }
+    };
+  }, []);
+
+  return null;
 }

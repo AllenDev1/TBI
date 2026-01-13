@@ -290,3 +290,30 @@ body {
 .animation-delay-400 {
   animation-delay: 0.4s;
 }
+
+/* AdSense Styling - Ensure ads don't break UI */
+.adsbygoogle {
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+/* Ensure ad container respects neumorphic design */
+ins.adsbygoogle[data-ad-status="filled"] {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+/* Prevent layout shift when ads load */
+.adsbygoogle[data-ad-status="unfilled"] {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile responsiveness for ads */
+@media (max-width: 768px) {
+  .adsbygoogle {
+    max-height: 600px;
+  }
+}
