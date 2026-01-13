@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SectionHeading from '@/components/SectionHeading';
 import GlassCard from '@/components/GlassCard';
+import AdSense from '@/components/AdSense';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -241,21 +242,7 @@ export default function BlogPage() {
 
           {/* Google AdSense Display Ad */}
           <div className="mb-12 animate-fade-in-up">
-            <div className="neu rounded-3xl p-6 bg-white">
-              <ins
-                className="adsbygoogle"
-                style={{ display: 'block' }}
-                data-ad-client="ca-pub-1949655614307812"
-                data-ad-slot="1234567890"
-                data-ad-format="auto"
-                data-full-width-responsive="true"
-              ></ins>
-              <script
-                dangerouslySetInnerHTML={{
-                  __html: '(adsbygoogle = window.adsbygoogle || []).push({});',
-                }}
-              />
-            </div>
+            <AdSense adSlot="9923263415" />
           </div>
 
           {/* Blog Grid */}
@@ -319,21 +306,11 @@ export default function BlogPage() {
                 {/* In-feed Ad after 6th post */}
                 {index === 5 && (
                   <div className="md:col-span-2 lg:col-span-3 animate-fade-in-up">
-                    <div className="neu rounded-3xl p-6 bg-white">
-                      <ins
-                        className="adsbygoogle"
-                        style={{ display: 'block' }}
-                        data-ad-client="ca-pub-1949655614307812"
-                        data-ad-slot="9876543210"
-                        data-ad-format="fluid"
-                        data-ad-layout-key="-6t+ed+2i-1n-4w"
-                      ></ins>
-                      <script
-                        dangerouslySetInnerHTML={{
-                          __html: '(adsbygoogle = window.adsbygoogle || []).push({});',
-                        }}
-                      />
-                    </div>
+                    <AdSense
+                      adSlot="9348548342"
+                      adFormat="fluid"
+                      adLayout="-6t+ed+2i-1n-4w"
+                    />
                   </div>
                 )}
               </React.Fragment>

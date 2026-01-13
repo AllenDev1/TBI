@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import ScrollToTop from "@/components/ScrollToTop";
 import LoadingScreen from "@/components/LoadingScreen";
+import AdSenseScript from "@/components/AdSenseScript";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -123,18 +124,14 @@ export default function RootLayout({
           }}
         />
 
-        {/* Google AdSense */}
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1949655614307812"
-          crossOrigin="anonymous"
-        ></script>
+        {/* Google AdSense Meta Tag */}
         <meta name="google-adsense-account" content="ca-pub-1949655614307812" />
       </head>
       <body className={`${inter.variable} antialiased`}>
         <LoadingScreen />
         {children}
         <ScrollToTop />
+        <AdSenseScript />
       </body>
     </html>
   );
