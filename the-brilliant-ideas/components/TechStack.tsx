@@ -98,41 +98,33 @@ export default function TechStack() {
 
   // Define card sizes for bento box layout
   const cardSizes = [
-    'lg:col-span-2 lg:row-span-2', // Frontend - large
-    'lg:col-span-1', // Backend
-    'lg:col-span-1', // Mobile
-    'lg:col-span-2', // Cloud & DevOps - wide
-    'lg:col-span-1', // Design & Tools
-    'lg:col-span-1', // Database
-    'lg:col-span-1', // CMS & E-commerce
-    'lg:col-span-1', // Testing & Quality
+    'sm:col-span-2 lg:col-span-2', // Frontend - wide
+    'sm:col-span-1 lg:col-span-1', // Backend
+    'sm:col-span-1 lg:col-span-1', // Mobile
+    'sm:col-span-2 lg:col-span-2', // Cloud & DevOps - wide
+    'sm:col-span-1 lg:col-span-1', // Design & Tools
+    'sm:col-span-1 lg:col-span-1', // Database
+    'sm:col-span-2 lg:col-span-2', // CMS & E-commerce - full width
+    'sm:col-span-2 lg:col-span-2', // Testing & Quality - full width
   ];
 
   const gradients = [
-    'from-blue-50 via-white to-cyan-50',
-    'from-purple-50 via-white to-pink-50',
-    'from-orange-50 via-white to-yellow-50',
-    'from-green-50 via-white to-emerald-50',
-    'from-pink-50 via-white to-rose-50',
-    'from-indigo-50 via-white to-purple-50',
-    'from-teal-50 via-white to-cyan-50',
-    'from-red-50 via-white to-orange-50',
+    'from-gray-50 via-white to-gray-50/50',
+    'from-white via-gray-50 to-white',
+    'from-gray-50 via-white to-gray-50/50',
+    'from-white via-gray-50 to-white',
+    'from-gray-50 via-white to-gray-50/50',
+    'from-white via-gray-50 to-white',
+    'from-gray-50 via-white to-gray-50/50',
+    'from-white via-gray-50 to-white',
   ];
 
   return (
     <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-gradient-to-b from-white via-gray-50 to-white">
-      {/* Animated Background Orbs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-gradient-to-r from-orange-200/30 to-pink-200/30 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute top-1/2 -right-20 w-96 h-96 bg-gradient-to-r from-blue-200/30 to-purple-200/30 rounded-full blur-3xl animate-pulse-slow"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-64 h-64 bg-gradient-to-r from-green-200/30 to-teal-200/30 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-      </div>
-
-      {/* Grid Pattern Overlay */}
-      <div className="absolute inset-0 opacity-[0.02]" style={{
-        backgroundImage: 'linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)',
-        backgroundSize: '50px 50px'
-      }}></div>
+      {/* Decorative Neomorphic Background Elements */}
+      <div className="absolute top-20 right-10 w-80 h-80 sm:w-96 sm:h-96 rounded-full bg-white shadow-[8px_8px_16px_#d1d9e6,-8px_-8px_16px_#ffffff] animate-pulse-slow pointer-events-none opacity-50"></div>
+      <div className="absolute bottom-40 left-10 w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-white shadow-[6px_6px_12px_#d1d9e6,-6px_-6px_12px_#ffffff] animate-float pointer-events-none opacity-50"></div>
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full bg-white shadow-[6px_6px_12px_#d1d9e6,-6px_-6px_12px_#ffffff] animate-float pointer-events-none opacity-30" style={{ animationDelay: '1s' }}></div>
 
       <div className="container mx-auto relative z-10 max-w-7xl">
         <div className="animate-fade-in-up mb-8 sm:mb-12 md:mb-16 text-center">
@@ -147,34 +139,24 @@ export default function TechStack() {
           {technologies.map((tech, categoryIndex) => (
             <div
               key={tech.category}
-              className={`${cardSizes[categoryIndex]} group relative overflow-hidden rounded-3xl bg-gradient-to-br ${gradients[categoryIndex]} p-6 sm:p-8 transition-all duration-500 hover:shadow-2xl active:scale-[0.98] sm:hover:scale-[1.02] animate-fade-in-up border border-white/50`}
+              className={`${cardSizes[categoryIndex]} group relative rounded-3xl bg-gray-50 p-6 sm:p-8 transition-all duration-500 neu hover:shadow-xl active:scale-[0.98] animate-fade-in-up`}
               style={{
-                animationDelay: `${categoryIndex * 0.1}s`,
-                boxShadow: '0 8px 32px rgba(0,0,0,0.08)'
+                animationDelay: `${categoryIndex * 0.1}s`
               }}
             >
-              {/* Gradient Overlay on Hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-
-              {/* Decorative Corner Element */}
-              <div className="absolute -top-12 -right-12 w-32 h-32 bg-gradient-to-br from-orange-400/20 to-pink-400/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
-
               <div className="relative z-10">
                 {/* Category Header */}
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-pink-500 rounded-xl blur-sm opacity-50 group-hover:opacity-100 transition-opacity"></div>
-                    <div className="relative bg-gradient-to-r from-orange-500 to-pink-500 p-2 rounded-xl">
-                      <div className="w-5 h-5 bg-white rounded" style={{
-                        maskImage: 'radial-gradient(circle, transparent 30%, black 30%)',
-                        WebkitMaskImage: 'radial-gradient(circle, transparent 30%, black 30%)'
-                      }}></div>
-                    </div>
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 shadow-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-5 h-5 bg-white rounded" style={{
+                      maskImage: 'radial-gradient(circle, transparent 30%, black 30%)',
+                      WebkitMaskImage: 'radial-gradient(circle, transparent 30%, black 30%)'
+                    }}></div>
                   </div>
-                  <h3 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-800">
                     {tech.category}
                   </h3>
-                  <div className="ml-auto text-xs font-semibold text-gray-400 bg-white/60 px-3 py-1 rounded-full">
+                  <div className="ml-auto text-xs font-semibold text-gray-500 neu-inset px-3 py-1 rounded-full">
                     {tech.items.length}
                   </div>
                 </div>
@@ -186,29 +168,20 @@ export default function TechStack() {
                     return (
                       <div
                         key={item.name}
-                        className="group/tech relative flex items-center gap-2 px-3 py-2 rounded-xl bg-white/80 backdrop-blur-sm shadow-sm hover:shadow-md active:scale-95 sm:hover:scale-105 transition-all duration-300 border border-gray-100/50"
+                        className="group/tech flex items-center gap-2 px-3 py-2 rounded-xl bg-white shadow-[inset_2px_2px_5px_#d1d9e6,inset_-2px_-2px_5px_#ffffff] hover:shadow-[2px_2px_5px_#d1d9e6,-2px_-2px_5px_#ffffff] active:scale-95 transition-all duration-300"
                         style={{
                           animationDelay: `${(categoryIndex * 0.1) + (itemIndex * 0.03)}s`
                         }}
                       >
-                        {/* Icon with glow effect */}
-                        <div className="relative flex-shrink-0">
-                          <div
-                            className="absolute inset-0 rounded-lg blur-md opacity-0 group-hover/tech:opacity-60 transition-opacity duration-300"
-                            style={{ backgroundColor: item.color }}
-                          ></div>
-                          <div className="relative group-hover/tech:rotate-12 transition-transform duration-300">
-                            <Logo className="w-5 h-5" color={item.color} />
-                          </div>
+                        {/* Icon */}
+                        <div className="flex-shrink-0 group-hover/tech:scale-110 transition-transform duration-300">
+                          <Logo className="w-5 h-5" color={item.color} />
                         </div>
 
                         {/* Tech name */}
-                        <span className="text-sm font-medium text-gray-700 group-hover/tech:text-gray-900 transition-colors whitespace-nowrap">
+                        <span className="text-sm font-medium text-gray-700 group-hover/tech:text-orange-600 transition-colors whitespace-nowrap">
                           {item.name}
                         </span>
-
-                        {/* Shine effect on hover */}
-                        <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-200%] group-hover/tech:translate-x-[200%] transition-transform duration-700"></div>
                       </div>
                     );
                   })}
@@ -221,24 +194,19 @@ export default function TechStack() {
         {/* Bottom Stats - Enhanced */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mt-12 sm:mt-16 md:mt-20 animate-fade-in-up" style={{ animationDelay: '0.8s' }}>
           {[
-            { value: '50+', label: 'Technologies', gradient: 'from-blue-500 to-cyan-500', icon: '⚡' },
-            { value: '8', label: 'Categories', gradient: 'from-purple-500 to-pink-500', icon: '📦' },
-            { value: '100%', label: 'Modern Stack', gradient: 'from-orange-500 to-red-500', icon: '🚀' },
-            { value: '∞', label: 'Possibilities', gradient: 'from-green-500 to-emerald-500', icon: '✨' }
+            { value: '50+', label: 'Technologies' },
+            { value: '8', label: 'Categories' },
+            { value: '100%', label: 'Modern Stack' },
+            { value: '∞', label: 'Possibilities' }
           ].map((stat, idx) => (
             <div
               key={idx}
-              className="relative group text-center p-6 rounded-2xl bg-white overflow-hidden hover:shadow-xl active:scale-95 sm:hover:scale-105 transition-all duration-300"
-              style={{ boxShadow: '0 4px 20px rgba(0,0,0,0.06)' }}
+              className="text-center p-6 rounded-2xl bg-gray-50 neu hover:shadow-xl active:scale-95 sm:hover:scale-105 transition-all duration-300"
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
-              <div className="relative z-10">
-                <div className="text-3xl mb-2 group-hover:scale-110 transition-transform duration-300">{stat.icon}</div>
-                <div className={`text-3xl sm:text-4xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}>
-                  {stat.value}
-                </div>
-                <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
+              <div className="text-3xl sm:text-4xl font-bold text-gradient mb-2">
+                {stat.value}
               </div>
+              <div className="text-sm text-gray-600 font-medium">{stat.label}</div>
             </div>
           ))}
         </div>
