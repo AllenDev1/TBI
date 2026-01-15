@@ -26,8 +26,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12 mb-8 sm:mb-10 md:mb-12">
           {/* Brand Section - Larger */}
           <div className="md:col-span-1 text-center md:text-left">
-            <Link href="/" className="text-2xl sm:text-3xl font-bold text-gradient inline-block mb-3 sm:mb-4 hover:scale-105 transition-transform duration-300">
-              The Brilliant Ideas
+            <Link href="/" className="inline-block mb-3 sm:mb-4 hover:scale-105 transition-transform duration-300 group">
+              <span className="text-2xl sm:text-3xl font-black tracking-tight">
+                <span className="text-gray-800">The Brilliant</span>
+                <span className="text-gradient ml-1">Ideas</span>
+              </span>
             </Link>
             <p className="text-body text-sm sm:text-base leading-relaxed max-w-xs mx-auto md:mx-0">
               Crafting brilliant digital experiences for forward-thinking brands.

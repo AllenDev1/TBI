@@ -6,6 +6,9 @@ import Services from '@/components/Services';
 import CursorGlow from '@/components/CursorGlow';
 import FAQSchema from '@/components/FAQSchema';
 import CTASection from '@/components/CTASection';
+import TechStack from '@/components/TechStack';
+import ProcessTimeline from '@/components/ProcessTimeline';
+import Testimonials from '@/components/Testimonials';
 
 export const metadata: Metadata = {
   title: "Home - Digital Agency Nepal | Web & Mobile App Development",
@@ -176,6 +179,9 @@ export default function HomePage() {
       <CursorGlow />
       <Hero />
       <Services />
+      <TechStack />
+      <ProcessTimeline />
+      <Testimonials />
       <CTASection />
       <Footer />
     </>

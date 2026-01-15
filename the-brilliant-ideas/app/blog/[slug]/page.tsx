@@ -2,6 +2,7 @@ import React from 'react';
 import type { Metadata } from "next";
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import CursorGlow from '@/components/CursorGlow';
 import AdSense from '@/components/AdSense';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -771,27 +772,39 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     "@type": "BlogPosting",
     "headline": post.title,
     "description": post.excerpt,
-    "image": post.image,
+    "image": {
+      "@type": "ImageObject",
+      "url": post.image,
+      "width": 1200,
+      "height": 630
+    },
     "datePublished": post.date,
     "dateModified": post.date,
     "author": {
       "@type": "Person",
       "name": post.author,
-      "jobTitle": post.authorRole
+      "jobTitle": post.authorRole,
+      "url": "https://thebrilliantideas.com/about"
     },
     "publisher": {
       "@type": "Organization",
       "name": "The Brilliant Ideas",
+      "url": "https://thebrilliantideas.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://thebrilliantideas.com/logo.png"
+        "url": "https://thebrilliantideas.com/logo.png",
+        "width": 600,
+        "height": 60
       }
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": `https://thebrilliantideas.com/blog/${post.slug}`
     },
-    "keywords": post.keywords?.join(', ')
+    "keywords": post.keywords?.join(', '),
+    "articleSection": post.category,
+    "inLanguage": "en-US",
+    "wordCount": post.content?.split(/\s+/).length || 0
   };
 
   // Breadcrumb schema
@@ -826,6 +839,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
       />
+      <CursorGlow />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}

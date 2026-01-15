@@ -29,6 +29,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  // Work/Portfolio projects
+  const workProjects = [
+    { slug: 'pixeryhub', date: '2024-12-01' },
+    { slug: 'jestha', date: '2023-04-01' },
+    { slug: 'nepalinest', date: '2021-04-01' },
+    { slug: 'the-brilliant-canvas', date: '2022-04-01' },
+  ];
+
+  const workUrls = workProjects.map(project => ({
+    url: `${baseUrl}/work/${project.slug}`,
+    lastModified: new Date(project.date),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
+
+  // Process pages
+  const processPages = [
+    'discovery',
+    'strategy',
+    'design',
+    'development',
+    'testing',
+    'launch',
+  ];
+
+  const processUrls = processPages.map(page => ({
+    url: `${baseUrl}/process/${page}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }));
+
   return [
     {
       url: baseUrl,
@@ -61,6 +93,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     ...blogUrls,
+    ...workUrls,
+    ...processUrls,
     {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),

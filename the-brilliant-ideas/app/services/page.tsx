@@ -2,6 +2,7 @@ import React from 'react';
 import type { Metadata } from "next";
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import CursorGlow from '@/components/CursorGlow';
 import SectionHeading from '@/components/SectionHeading';
 import GlassCard from '@/components/GlassCard';
 import Button from '@/components/Button';
@@ -229,6 +230,7 @@ export default function ServicesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
+      <CursorGlow />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}

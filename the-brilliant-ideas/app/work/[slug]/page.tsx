@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import CursorGlow from '@/components/CursorGlow';
 import Button from '@/components/Button';
 import SectionHeading from '@/components/SectionHeading';
 
@@ -158,6 +159,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
   return (
     <>
       <Navbar />
+      <CursorGlow />
 
       {/* Hero Section */}
       <main className="pt-32 pb-24 px-4 md:px-6 relative overflow-hidden">

@@ -53,8 +53,6 @@ export const metadata: Metadata = {
     description: "Premier digital agency in Nepal specializing in cutting-edge web design, mobile app development, branding, and digital marketing. Transform your business with innovative solutions.",
     images: [
       {
-        // TODO: Create og-image.jpg (1200x630px) in /public folder
-        // Recommended: Include logo, tagline, and brand colors
         url: "/og-image.jpg",
         width: 1200,
         height: 630,

@@ -2,6 +2,7 @@ import React from 'react';
 import type { Metadata } from "next";
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import CursorGlow from '@/components/CursorGlow';
 import SectionHeading from '@/components/SectionHeading';
 import GlassCard from '@/components/GlassCard';
 import Button from '@/components/Button';
@@ -184,6 +185,7 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <Navbar />
+      <CursorGlow />
 
       <main className="pt-32 pb-24 px-4 md:px-6 relative overflow-hidden">
         {/* Decorative Neumorphic Background Elements */}
