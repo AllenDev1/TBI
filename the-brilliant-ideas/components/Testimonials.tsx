@@ -54,16 +54,9 @@ export default function Testimonials() {
   return (
     <section className="py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-5 md:px-6 relative overflow-hidden bg-gradient-to-b from-gray-50 to-white">
       {/* Decorative Neomorphic Background Elements */}
-      <div className="absolute top-10 sm:top-16 md:top-20 -right-20 sm:right-5 md:right-10 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full bg-white shadow-[8px_8px_16px_#d1d9e6,-8px_-8px_16px_#ffffff] animate-pulse-slow pointer-events-none opacity-40"></div>
-      <div className="absolute bottom-20 sm:bottom-32 md:bottom-40 -left-20 sm:left-5 md:left-10 w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full bg-white shadow-[6px_6px_12px_#d1d9e6,-6px_-6px_12px_#ffffff] animate-float pointer-events-none opacity-40"></div>
-
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-0 w-full h-full" style={{
-          backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(0,0,0,0.15) 1px, transparent 0)',
-          backgroundSize: '40px 40px'
-        }}></div>
-      </div>
+      <div className="absolute top-20 right-10 w-80 h-80 sm:w-96 sm:h-96 rounded-full bg-white shadow-[8px_8px_16px_#d1d9e6,-8px_-8px_16px_#ffffff] animate-pulse-slow pointer-events-none opacity-50"></div>
+      <div className="absolute bottom-40 left-10 w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-white shadow-[6px_6px_12px_#d1d9e6,-6px_-6px_12px_#ffffff] animate-float pointer-events-none opacity-50"></div>
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full bg-white shadow-[6px_6px_12px_#d1d9e6,-6px_-6px_12px_#ffffff] animate-float pointer-events-none opacity-30" style={{ animationDelay: '1s' }}></div>
 
       <div className="container mx-auto relative z-10">
         <div className="animate-fade-in-up mb-10 sm:mb-12 md:mb-16 text-center">
@@ -81,51 +74,44 @@ export default function Testimonials() {
                 <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
                 <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
               </svg>
-              <div className="text-left">
-                <div className="flex items-center gap-1 sm:gap-1.5">
-                  <span className="text-xl sm:text-2xl font-bold text-gray-800">5.0</span>
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <svg key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
+              <div className="flex items-center gap-1 sm:gap-1.5">
+                <span className="text-xl sm:text-2xl font-bold text-gray-800">4.5</span>
+                <div className="flex gap-0.5">
+                  {[...Array(4)].map((_, i) => (
+                    <svg key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                  <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                    <defs>
+                      <clipPath id="half-star">
+                        <rect x="0" y="0" width="10" height="20" />
+                      </clipPath>
+                    </defs>
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" clipPath="url(#half-star)" />
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" fill="none" stroke="currentColor" strokeWidth="0.5" />
+                  </svg>
                 </div>
-                <div className="text-[10px] sm:text-xs text-gray-600">Based on 4 reviews</div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Masonry-style Layout with Alternating Sizes */}
+        {/* Testimonials Grid */}
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className={`${
-                  index === 0 ? 'lg:col-span-2 lg:row-span-2' :
-                  index === 1 ? 'lg:col-span-2' :
-                  index === 2 ? 'lg:col-span-2' :
-                  'lg:col-span-2'
-                } group relative`}
+                className="group relative"
               >
-                <div className={`h-full rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-7 lg:p-8 bg-gradient-to-br transition-all duration-500 active:scale-[0.98] sm:hover:scale-[1.02] ${
-                  index === 0 ? 'from-orange-50 via-white to-orange-50/50 shadow-xl' :
-                  index === 1 ? 'from-blue-50 via-white to-blue-50/50 shadow-lg' :
-                  index === 2 ? 'from-purple-50 via-white to-purple-50/50 shadow-lg' :
-                  'from-pink-50 via-white to-pink-50/50 shadow-lg'
-                } hover:shadow-2xl`}>
+                <div className="h-full rounded-2xl sm:rounded-3xl p-5 sm:p-6 bg-gray-50 neu transition-all duration-500 active:scale-[0.98] sm:hover:scale-[1.02] hover:shadow-xl"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
 
                   {/* Quote Icon */}
-                  <div className={`absolute top-4 sm:top-5 md:top-6 right-4 sm:right-5 md:right-6 opacity-10 ${
-                    index === 0 ? 'text-orange-500' :
-                    index === 1 ? 'text-blue-500' :
-                    index === 2 ? 'text-purple-500' :
-                    'text-pink-500'
-                  }`}>
-                    <svg className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20" fill="currentColor" viewBox="0 0 24 24">
+                  <div className="absolute top-4 sm:top-5 right-4 sm:right-5 opacity-10 text-orange-500">
+                    <svg className="w-12 h-12 sm:w-14 sm:h-14" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
                     </svg>
                   </div>
@@ -134,27 +120,22 @@ export default function Testimonials() {
                     {/* Header */}
                     <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
                       {/* Avatar */}
-                      <div className="flex-shrink-0">
-                        <svg className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 ${
-                          index === 0 ? 'text-orange-400' :
-                          index === 1 ? 'text-blue-400' :
-                          index === 2 ? 'text-purple-400' :
-                          'text-pink-400'
-                        }`} fill="currentColor" viewBox="0 0 20 20">
+                      <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full neu flex items-center justify-center">
+                        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
                         </svg>
                       </div>
 
                       <div className="flex-1 min-w-0">
-                        <div className="font-bold text-base sm:text-lg md:text-xl text-gray-800 mb-0.5 sm:mb-1 truncate">
+                        <div className="font-bold text-base sm:text-lg text-gray-800 mb-0.5 sm:mb-1 truncate">
                           {testimonial.name}
                         </div>
-                        <div className="text-xs sm:text-sm text-gray-600 mb-1.5 sm:mb-2 truncate">
+                        <div className="text-xs sm:text-sm text-gray-600 mb-2 truncate">
                           {testimonial.role}
                         </div>
 
                         {/* Rating */}
-                        <div className="flex items-center gap-1.5 sm:gap-2">
+                        <div className="flex items-center gap-1.5">
                           <div className="flex gap-0.5">
                             {[...Array(testimonial.rating)].map((_, i) => (
                               <svg key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -163,41 +144,32 @@ export default function Testimonials() {
                             ))}
                           </div>
                           {testimonial.verified && (
-                            <div className="flex items-center gap-1">
-                              <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                              </svg>
-                            </div>
+                            <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                            </svg>
                           )}
                         </div>
                       </div>
                     </div>
 
                     {/* Review Text */}
-                    <p className={`text-gray-700 leading-relaxed mb-3 sm:mb-4 flex-1 ${
-                      index === 0 ? 'text-sm sm:text-base md:text-lg' : 'text-xs sm:text-sm md:text-base'
-                    }`}>
+                    <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-4 flex-1">
                       "{testimonial.text}"
                     </p>
 
                     {/* Footer */}
-                    <div className="flex items-center justify-between gap-2 pt-3 sm:pt-4 border-t border-gray-200/50">
-                      <div className={`inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 md:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-medium ${
-                        index === 0 ? 'bg-orange-100 text-orange-700' :
-                        index === 1 ? 'bg-blue-100 text-blue-700' :
-                        index === 2 ? 'bg-purple-100 text-purple-700' :
-                        'bg-pink-100 text-pink-700'
-                      }`}>
-                        <span>✓</span>
-                        <span className="truncate">{testimonial.highlight}</span>
+                    <div className="flex items-center justify-between gap-2 pt-3 border-t border-gray-200/50 mt-auto">
+                      <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium neu-inset bg-white">
+                        <span className="text-orange-600">✓</span>
+                        <span className="truncate text-gray-700">{testimonial.highlight}</span>
                       </div>
 
                       {testimonial.date && (
-                        <div className="text-[10px] sm:text-xs text-gray-500 flex items-center gap-1 flex-shrink-0">
-                          <svg className="w-2.5 h-2.5 sm:w-3 sm:h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="text-xs text-gray-500 flex items-center gap-1 flex-shrink-0 whitespace-nowrap">
+                          <svg className="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
-                          <span className="hidden sm:inline">{testimonial.date}</span>
+                          <span>{testimonial.date}</span>
                         </div>
                       )}
                     </div>
