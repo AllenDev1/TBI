@@ -257,27 +257,6 @@ export default function DiscoveryPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16 px-4 md:px-6 bg-gradient-to-br from-gray-900 to-gray-800">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Start Your Discovery Process?
-          </h2>
-          <p className="text-xl text-gray-300 mb-8">
-            Let's uncover the insights that will drive your project's success.
-          </p>
-          <a
-            href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-br from-orange-400 to-orange-600 text-white font-semibold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
-          >
-            Get Started
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
-        </div>
-      </section>
-
       <Footer />
     </>
   );

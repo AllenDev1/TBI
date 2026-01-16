@@ -4,6 +4,7 @@ import "./globals.css";
 import ScrollToTop from "@/components/ScrollToTop";
 import LoadingScreen from "@/components/LoadingScreen";
 import AdSenseScript from "@/components/AdSenseScript";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -126,6 +127,7 @@ export default function RootLayout({
         <meta name="google-adsense-account" content="ca-pub-1949655614307812" />
       </head>
       <body className={`${inter.variable} antialiased`}>
+        <SmoothScroll />
         <LoadingScreen />
         {children}
         <ScrollToTop />
