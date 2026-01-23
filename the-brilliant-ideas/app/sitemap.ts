@@ -37,11 +37,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { slug: 'the-brilliant-canvas', date: '2022-04-01' },
   ];
 
+  // Special project pages (not under /work/)
+  const specialProjects = [
+    { slug: 'brilliant-chess', date: '2025-01-23' },
+  ];
+
   const workUrls = workProjects.map(project => ({
     url: `${baseUrl}/work/${project.slug}`,
     lastModified: new Date(project.date),
     changeFrequency: 'monthly' as const,
     priority: 0.8,
+  }));
+
+  const specialProjectUrls = specialProjects.map(project => ({
+    url: `${baseUrl}/${project.slug}`,
+    lastModified: new Date(project.date),
+    changeFrequency: 'weekly' as const,
+    priority: 0.9,
   }));
 
   // Process pages
@@ -94,6 +106,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...blogUrls,
     ...workUrls,
+    ...specialProjectUrls,
     ...processUrls,
     {
       url: `${baseUrl}/contact`,

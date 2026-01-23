@@ -239,8 +239,16 @@ export default function ChessFeatures() {
                         <div className="relative aspect-[9/19.5] w-40 sm:w-32 md:w-40 lg:w-48 xl:w-56">
                           <img
                             src={`/works/chess/${screen.num}.png`}
-                            alt={screen.title}
+                            alt={
+                              screen.num === 1
+                                ? "The Brilliant Chess gameplay screenshot showing clean chess board interface with piece positions"
+                                : screen.num === 2
+                                ? "The Brilliant Chess game mode selection screen with Online, Local, and Bluetooth options"
+                                : "The Brilliant Chess live gameplay screenshot showing real-time move synchronization"
+                            }
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                            loading="lazy"
+                            decoding="async"
                           />
 
                           {/* Overlay gradient on hover */}
