@@ -19,6 +19,15 @@ export default function WorkPage() {
       date: 'December 2024',
     },
     {
+      slug: 'brilliant-chess',
+      title: 'The Brilliant Chess',
+      tagline: 'Master the game, your way',
+      description: 'A fully-featured chess game with online multiplayer, local play, and Bluetooth connectivity.',
+      image: '/works/chess/1.png',
+      tags: ['Mobile App', 'Game', 'Multiplayer'],
+      date: 'January 2025',
+    },
+    {
       slug: 'jestha',
       title: 'JESTHA',
       tagline: "Nepal's voice of freedom",
@@ -167,7 +176,7 @@ export default function WorkPage() {
 
                   {/* CTA */}
                   <div className="pt-4 sm:pt-5 md:pt-6">
-                    <Link href={`/work/${project.slug}`}>
+                    <Link href={project.slug === 'brilliant-chess' ? '/brilliant-chess' : `/work/${project.slug}`}>
                       <div className="group inline-flex items-center gap-2 sm:gap-2.5 md:gap-3 px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-xl sm:rounded-2xl bg-gradient-to-r from-orange-primary to-orange-glow text-white font-semibold text-base sm:text-lg shadow-xl hover:shadow-2xl active:scale-95 sm:hover:scale-105 transition-all duration-300">
                         <span>View Project</span>
                         <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -180,26 +189,74 @@ export default function WorkPage() {
 
                 {/* Image */}
                 <div className={`${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'} mt-8 lg:mt-0`}>
-                  <Link href={`/work/${project.slug}`}>
-                    <div className="group relative">
-                      {/* Neumorphic Frame */}
-                      <div className="neu rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 active:scale-[0.98] sm:hover:scale-[1.02] transition-all duration-700">
-                        <div className="neu-inset rounded-xl sm:rounded-2xl overflow-hidden bg-gradient-to-br from-gray-50 to-white p-4 sm:p-6 md:p-8">
-                          <div className="relative aspect-[4/3] w-full">
-                            <Image
-                              src={project.image}
-                              alt={project.title}
-                              fill
-                              className="object-contain group-hover:scale-105 transition-transform duration-1000"
-                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
-                              priority={index === 0}
-                            />
-                          </div>
-                        </div>
-                      </div>
+                  <Link href={project.slug === 'brilliant-chess' ? '/brilliant-chess' : `/work/${project.slug}`}>
+                    <div className="group relative overflow-visible py-8 sm:py-12">
+                      {/* Special handling for chess project - show 3 mobile frames */}
+                      {project.slug === 'brilliant-chess' ? (
+                        <div className="flex justify-center items-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 px-4 sm:px-6 md:px-8">
+                          {[1, 2, 3].map((num, idx) => (
+                            <div
+                              key={num}
+                              className={`relative transition-all duration-700 ${
+                                idx === 1
+                                  ? 'scale-100 z-10'
+                                  : 'scale-85 sm:scale-90 opacity-80'
+                              } group-hover:scale-95 group-hover:opacity-100`}
+                              style={{
+                                transform: idx === 0
+                                  ? 'rotate(-5deg)'
+                                  : idx === 2
+                                  ? 'rotate(5deg)'
+                                  : 'rotate(0deg)'
+                              }}
+                            >
+                              {/* Mobile Frame */}
+                              <div className="rounded-[1.2rem] sm:rounded-[1.8rem] md:rounded-[2.2rem] p-1.5 sm:p-2 md:p-2.5 bg-black shadow-xl sm:shadow-2xl">
+                                {/* Screen */}
+                                <div className="rounded-[1rem] sm:rounded-[1.5rem] md:rounded-[2rem] overflow-hidden bg-black">
+                                  <div className="relative aspect-[9/19.5] w-20 sm:w-32 md:w-40 lg:w-44">
+                                    <Image
+                                      src={`/works/chess/${num}.png`}
+                                      alt={`${project.title} Screenshot ${num}`}
+                                      fill
+                                      className="object-cover group-hover:scale-105 transition-transform duration-1000"
+                                      sizes="(max-width: 640px) 80px, (max-width: 768px) 130px, 180px"
+                                      priority={index === 0}
+                                    />
+                                  </div>
+                                </div>
+                                {/* Notch */}
+                                <div className="absolute top-2 sm:top-3 md:top-4 left-1/2 -translate-x-1/2 w-10 sm:w-14 md:w-18 lg:w-20 h-2.5 sm:h-3.5 md:h-4 bg-black rounded-full"></div>
 
-                      {/* Gradient Glow */}
-                      <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-orange-primary to-orange-glow opacity-0 group-hover:opacity-20 blur-2xl sm:blur-3xl transition-opacity duration-700 -z-10"></div>
+                                {/* Side buttons */}
+                                <div className="absolute -right-0.5 top-12 sm:top-16 md:top-20 w-0.5 h-6 sm:h-8 md:h-10 bg-gray-700 rounded-l-sm"></div>
+                                <div className="absolute -right-0.5 top-20 sm:top-26 md:top-32 w-0.5 h-8 sm:h-10 md:h-12 bg-gray-700 rounded-l-sm"></div>
+                                <div className="absolute -left-0.5 top-14 sm:top-20 md:top-24 w-0.5 h-5 sm:h-6 md:h-7 bg-gray-700 rounded-r-sm"></div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        // Default layout for other projects
+                        <>
+                          <div className="neu rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 active:scale-[0.98] sm:hover:scale-[1.02] transition-all duration-700">
+                            <div className="neu-inset rounded-xl sm:rounded-2xl overflow-hidden bg-gradient-to-br from-gray-50 to-white p-4 sm:p-6 md:p-8">
+                              <div className="relative aspect-[4/3] w-full">
+                                <Image
+                                  src={project.image}
+                                  alt={project.title}
+                                  fill
+                                  className="object-contain group-hover:scale-105 transition-transform duration-1000"
+                                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
+                                  priority={index === 0}
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          {/* Gradient Glow */}
+                          <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-orange-primary to-orange-glow opacity-0 group-hover:opacity-20 blur-2xl sm:blur-3xl transition-opacity duration-700 -z-10"></div>
+                        </>
+                      )}
                     </div>
                   </Link>
                 </div>
