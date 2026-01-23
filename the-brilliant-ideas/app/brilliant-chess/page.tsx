@@ -104,7 +104,6 @@ export default function BrilliantChessPage() {
       <CursorGlow />
       <ChessHero />
       <ChessFeatures />
-      <ChessGameModes />
       <ChessCTA />
       <Footer />
     </>
