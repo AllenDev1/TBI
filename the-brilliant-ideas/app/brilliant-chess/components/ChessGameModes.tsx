@@ -1,5 +1,7 @@
 'use client';
 
+import { useState } from 'react';
+
 const gameModes = [
   {
     title: "Online Multiplayer",
@@ -55,6 +57,8 @@ const gameModes = [
 ];
 
 export default function ChessGameModes() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
     <section className="py-32 bg-gradient-to-b from-white via-[#fafafa] to-white relative overflow-hidden">
       {/* Top fade from previous section */}
@@ -107,12 +111,16 @@ export default function ChessGameModes() {
               <div
                 key={index}
                 className="group relative"
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
               >
                 {/* Subtle outer glow on hover */}
                 <div className={`absolute -inset-1 sm:-inset-2 bg-gradient-to-br ${mode.gradient} opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-300 rounded-2xl sm:rounded-3xl pointer-events-none`} />
 
                 {/* Main card with neumorphic effect */}
-                <div className="relative neu p-6 sm:p-8 md:p-10 h-full flex flex-col">
+                <div className={`relative neu p-6 sm:p-8 md:p-10 h-full flex flex-col transition-all duration-500 cursor-pointer ${
+                  hoveredIndex === index ? 'scale-105 shadow-2xl' : ''
+                }`}>
                   {/* Gradient accent bar - subtle */}
                   <div className={`absolute top-0 left-0 right-0 h-0.5 sm:h-1 bg-gradient-to-r ${mode.gradient} rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
 

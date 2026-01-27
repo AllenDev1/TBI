@@ -119,6 +119,48 @@ export default function ChessFeatures() {
             ))}
           </div>
 
+          {/* Stats Section */}
+          <div className="mt-12 sm:mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 px-4">
+            {[
+              { label: 'Chess Rules', value: '100%', icon: (
+                <svg className="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              )},
+              { label: 'Game Modes', value: '3', icon: (
+                <svg className="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              )},
+              { label: 'Download Cost', value: '$0', icon: (
+                <svg className="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              )},
+              { label: 'Platforms', value: '2', icon: (
+                <svg className="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+              )}
+            ].map((stat, idx) => (
+              <div
+                key={idx}
+                className="neu p-6 md:p-8 text-center group hover:scale-105 transition-all duration-500 cursor-pointer"
+              >
+                <div className="text-orange-600 mb-3 group-hover:scale-110 transition-transform duration-300">
+                  {stat.icon}
+                </div>
+                <div className="text-2xl md:text-3xl lg:text-4xl font-black text-gradient mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-xs md:text-sm text-gray-600 font-semibold uppercase tracking-wider">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+
           {/* Chess Rules Highlight */}
           <div className="mt-12 sm:mt-16 md:mt-20 lg:mt-24 neu p-6 sm:p-8 md:p-12 lg:p-16 bg-gradient-to-br from-white to-gray-50/50 mx-4">
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">

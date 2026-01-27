@@ -108,6 +108,25 @@ const projects: Record<string, Project> = {
     ],
     technologies: ['Three.js', 'React', 'Node.js', 'WebGL', 'Blender'],
     gallery: ['/works/tbc/tbc1.png', '/works/tbc/TBC2.png', '/works/tbc/tbc3.png', '/works/tbc/tbc4.png']
+  },
+  'chess': {
+    slug: 'chess',
+    title: 'Chess',
+    description: 'Interactive chess platform with engaging gameplay and modern design.',
+    image: '/chess/promo.mp4',
+    tags: ['Game', 'Web App', 'Interactive'],
+    date: 'January 2025',
+    video: '/chess/promo.mp4',
+    challenge: 'Creating an engaging and intuitive chess platform that appeals to both beginners and experienced players.',
+    solution: 'Developed a modern chess platform with smooth animations, intuitive controls, and an engaging user experience.',
+    results: [
+      'Launched interactive chess platform',
+      'Implemented smooth gameplay mechanics',
+      'Created intuitive user interface',
+      'Enhanced player engagement'
+    ],
+    technologies: ['React', 'Next.js', 'TypeScript', 'Chess Logic'],
+    gallery: ['/chess/promo.mp4']
   }
 };
 
