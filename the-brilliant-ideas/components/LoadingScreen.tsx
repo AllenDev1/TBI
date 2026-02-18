@@ -1,18 +1,22 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function LoadingScreen() {
   const [isLoading, setIsLoading] = useState(true);
+  const pathname = usePathname();
 
   useEffect(() => {
-    // Simulate loading time (you can adjust this or tie it to actual page load)
+    // Show loading screen on route change
+    setIsLoading(true);
+
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1500);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [pathname]);
 
   if (!isLoading) return null;
 
