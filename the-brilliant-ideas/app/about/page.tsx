@@ -64,7 +64,7 @@ export default function AboutPage() {
       name: 'Narayan Dev',
       role: 'Founder / CEO',
       image: '/team/narayan.jpg',
-      bio: 'Leading our creative vision with 15+ years in brand design and strategy.',
+      bio: 'Leading our creative vision in brand design and strategy.',
       social: {
         linkedin: 'https://www.linkedin.com/in/narayan-dev',
         instagram: 'https://www.instagram.com/allend3v/',
