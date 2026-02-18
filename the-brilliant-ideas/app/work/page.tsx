@@ -17,6 +17,8 @@ export default function WorkPage() {
       image: '/works/pixeryhub/image1.png',
       tags: ['Mobile App', 'Web App', 'Design Tools'],
       date: 'December 2024',
+      externalLink: 'https://pixeryhub.com/',
+      appLink: 'https://play.google.com/store/apps/details?id=com.pixeryhub.app',
     },
     {
       slug: 'brilliant-chess',
@@ -35,6 +37,7 @@ export default function WorkPage() {
       image: '/works/Jestha.png',
       tags: ['Development', 'Mobile App'],
       date: 'April 2023',
+      externalLink: 'https://jestha.com/',
     },
     {
       slug: 'nepalinest',
@@ -44,6 +47,7 @@ export default function WorkPage() {
       image: '/works/nn/nn1.png',
       tags: ['Design', 'E-commerce'],
       date: 'April 2021',
+      externalLink: 'https://www.nepalinest.com/',
     },
     {
       slug: 'the-brilliant-canvas',
@@ -53,6 +57,7 @@ export default function WorkPage() {
       image: '/works/tbc/tbc1.png',
       tags: ['Design', '3D Design'],
       date: 'April 2022',
+      externalLink: 'https://thebrilliantcanvas.netlify.app/',
     },
   ];
 
@@ -175,15 +180,43 @@ export default function WorkPage() {
                   </div>
 
                   {/* CTA */}
-                  <div className="pt-4 sm:pt-5 md:pt-6">
+                  <div className="pt-4 sm:pt-5 md:pt-6 flex flex-wrap gap-3 sm:gap-4">
                     <Link href={project.slug === 'brilliant-chess' ? '/brilliant-chess' : `/work/${project.slug}`}>
                       <div className="group inline-flex items-center gap-2 sm:gap-2.5 md:gap-3 px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-xl sm:rounded-2xl bg-gradient-to-r from-orange-primary to-orange-glow text-white font-semibold text-base sm:text-lg shadow-xl hover:shadow-2xl active:scale-95 sm:hover:scale-105 transition-all duration-300">
-                        <span>View Project</span>
+                        <span>View Details</span>
                         <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
                       </div>
                     </Link>
+
+                    {project.externalLink && (
+                      <a
+                        href={project.externalLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group inline-flex items-center gap-2 sm:gap-2.5 md:gap-3 px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-xl sm:rounded-2xl neu text-gray-800 font-semibold text-base sm:text-lg hover:shadow-xl active:scale-95 sm:hover:scale-105 transition-all duration-300"
+                      >
+                        <span>Visit Live Site</span>
+                        <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                    )}
+
+                    {project.appLink && (
+                      <a
+                        href={project.appLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group inline-flex items-center gap-2 sm:gap-2.5 md:gap-3 px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-xl sm:rounded-2xl neu text-gray-800 font-semibold text-base sm:text-lg hover:shadow-xl active:scale-95 sm:hover:scale-105 transition-all duration-300"
+                      >
+                        <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626c.566.328.566 1.159 0 1.486l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z"/>
+                        </svg>
+                        <span>Get App</span>
+                      </a>
+                    )}
                   </div>
                 </div>
 

@@ -24,6 +24,8 @@ interface Project {
   technologies?: string[];
   gallery?: string[];
   video?: string;
+  externalLink?: string;
+  appLink?: string;
 }
 
 const projects: Record<string, Project> = {
@@ -47,7 +49,9 @@ const projects: Record<string, Project> = {
       'Integrated multiple complementary tools (compression, QR generator)'
     ],
     technologies: ['React Native', 'Node.js', 'Responsive Design', 'Cross-platform Development', 'Dark/Light Mode', 'Image Optimization'],
-    gallery: ['/works/pixeryhub/image1.png', '/works/pixeryhub/image2.png', '/works/pixeryhub/image3.png', '/works/pixeryhub/image4.png']
+    gallery: ['/works/pixeryhub/image1.png', '/works/pixeryhub/image2.png', '/works/pixeryhub/image3.png', '/works/pixeryhub/image4.png'],
+    externalLink: 'https://pixeryhub.com/',
+    appLink: 'https://play.google.com/store/apps/details?id=com.pixeryhub.app',
   },
   'jestha': {
     slug: 'jestha',
@@ -67,7 +71,8 @@ const projects: Record<string, Project> = {
       'Built dynamic and interactive online community'
     ],
     technologies: ['React Native', 'Node.js', 'MongoDB', 'Firebase', 'AWS'],
-    gallery: ['/works/Jestha.png', '/works/whiteLogo-j.png', '/works/jestha-m.png', '/works/j1.png', '/works/j2.png']
+    gallery: ['/works/Jestha.png', '/works/whiteLogo-j.png', '/works/jestha-m.png', '/works/j1.png', '/works/j2.png'],
+    externalLink: 'https://jestha.com/',
   },
   'nepalinest': {
     slug: 'nepalinest',
@@ -87,7 +92,8 @@ const projects: Record<string, Project> = {
       'Became go-to eCommerce site for Nepalese consumers'
     ],
     technologies: ['React', 'Node.js', 'MySQL', 'Payment Gateway', 'AWS'],
-    gallery: ['/works/nn/nn1.png', '/works/nn/nn2.png', '/works/nn/nn3.png', '/works/nn/nn4.png']
+    gallery: ['/works/nn/nn1.png', '/works/nn/nn2.png', '/works/nn/nn3.png', '/works/nn/nn4.png'],
+    externalLink: 'https://www.nepalinest.com/',
   },
   'the-brilliant-canvas': {
     slug: 'the-brilliant-canvas',
@@ -107,7 +113,8 @@ const projects: Record<string, Project> = {
       'Revolutionized custom t-shirt design experience'
     ],
     technologies: ['Three.js', 'React', 'Node.js', 'WebGL', 'Blender'],
-    gallery: ['/works/tbc/tbc1.png', '/works/tbc/TBC2.png', '/works/tbc/tbc3.png', '/works/tbc/tbc4.png']
+    gallery: ['/works/tbc/tbc1.png', '/works/tbc/TBC2.png', '/works/tbc/tbc3.png', '/works/tbc/tbc4.png'],
+    externalLink: 'https://thebrilliantcanvas.netlify.app/',
   },
   'chess': {
     slug: 'chess',
@@ -223,6 +230,38 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ slug: 
                 <p className="text-base font-semibold text-gray-800">{project.date}</p>
               </div>
             </div>
+
+            {/* Project Links */}
+            {(project.externalLink || project.appLink) && (
+              <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
+                {project.externalLink && (
+                  <a
+                    href={project.externalLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl bg-gradient-to-r from-orange-primary to-orange-glow text-white font-semibold text-lg shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300"
+                  >
+                    <span>Visit Website</span>
+                    <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                )}
+                {project.appLink && (
+                  <a
+                    href={project.appLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-2xl neu text-gray-800 font-semibold text-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300"
+                  >
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626c.566.328.566 1.159 0 1.486l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z"/>
+                    </svg>
+                    <span>Get App</span>
+                  </a>
+                )}
+              </div>
+            )}
           </div>
 
           {/* Hero Image */}
