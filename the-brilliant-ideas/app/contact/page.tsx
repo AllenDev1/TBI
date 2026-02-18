@@ -687,9 +687,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <div className="-mt-16 sm:-mt-24 md:-mt-32">
-        <Footer />
-      </div>
+      <Footer />
     </>
   );
 }
