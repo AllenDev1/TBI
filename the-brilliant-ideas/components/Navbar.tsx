@@ -1,133 +1,132 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { PrayerFlagStrip } from '@/components/NepalArt';
 
-export default function Navbar() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+const LINKS = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/services', label: 'Services' },
+  { href: '/work', label: 'Work' },
+  { href: '/contact', label: 'Contact' },
+];
+
+export default function Navbar({ theme = 'light' }: { theme?: 'light' | 'dark' }) {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
-  const navLinks = [
-    { name: 'Work', href: '/work' },
-    { name: 'Services', href: '/services' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'About', href: '/about' },
-  ];
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  // dark = floating over a dark cinematic hero, before any scroll
+  const dark = theme === 'dark' && !scrolled && !open;
 
   return (
-    <>
-      {/* Bottom Dock Navigation */}
-      <nav className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 hidden lg:block max-w-[95vw]">
-        <div className="neu px-4 py-3 rounded-[32px] backdrop-blur-xl">
-          <div className="flex items-center gap-1 flex-nowrap">
-            {/* Logo */}
-            <Link href="/" className="relative group mr-2">
-              <span className="text-lg font-black tracking-tight whitespace-nowrap">
-                <span className="text-gray-800 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-orange-glow group-hover:to-orange-primary transition-all duration-300">
-                  The Brilliant
-                </span>
-                <span className="text-gradient ml-1">Ideas</span>
-              </span>
-            </Link>
+    <header className="fixed inset-x-0 top-0 z-50">
+      <PrayerFlagStrip />
+      <nav
+        className={`transition-all duration-300 ${
+          scrolled || open ? 'bg-paper/95 shadow-[0_2px_20px_rgba(32,48,60,0.08)]' : 'bg-transparent'
+        }`}
+        aria-label="Main navigation"
+      >
+        <div className="container-site flex h-16 items-center justify-between sm:h-[72px]">
+          <Link href="/" className="flex items-center gap-2.5" aria-label="The Brilliant Ideas — home">
+            <Image
+              src={dark ? '/white-logo.png' : '/logo-mark.png'}
+              alt="The Brilliant Ideas logo"
+              width={36}
+              height={43}
+              priority
+            />
+            <span className={`hidden font-display text-lg font-bold sm:block ${dark ? 'text-white' : 'text-ink'}`}>
+              The Brilliant Ideas
+            </span>
+          </Link>
 
-            <div className="w-px h-8 bg-gray-300 mx-1"></div>
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
+          {/* Desktop links */}
+          <ul className="hidden items-center gap-1 md:flex">
+            {LINKS.map((link) => {
+              const active = pathname === link.href;
               return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className={`relative px-3 py-2 rounded-2xl font-medium text-sm transition-all duration-300 whitespace-nowrap ${
-                    isActive
-                      ? 'neu-inset text-orange-primary scale-95'
-                      : 'text-gray-700 hover:text-orange-primary hover:scale-105'
-                  }`}
-                >
-                  {link.name}
-                </Link>
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-200 ${
+                      active
+                        ? dark
+                          ? 'bg-white/15 text-white'
+                          : 'bg-sunrise-faint text-sunrise-deep'
+                        : dark
+                          ? 'text-white/75 hover:text-white'
+                          : 'text-ink-soft hover:text-sunrise-deep'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
               );
             })}
+            <li className="ml-3">
+              <Link href="/contact" className="btn-primary !px-5 !py-2.5 text-sm">
+                Start a Project
+              </Link>
+            </li>
+          </ul>
 
-            <Link
-              href="/contact"
-              className="ml-1 px-5 py-2 bg-gradient-to-r from-orange-primary to-orange-glow rounded-2xl font-semibold text-white shadow-lg hover:shadow-orange-glow/50 hover:scale-105 transition-all duration-300 whitespace-nowrap flex-shrink-0 text-sm"
-            >
-              Let&apos;s Talk
+          {/* Mobile toggle */}
+          <button
+            type="button"
+            className={`flex h-10 w-10 items-center justify-center rounded-full md:hidden ${dark ? 'text-white' : 'text-ink'}`}
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-label={open ? 'Close menu' : 'Open menu'}
+          >
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              {open ? (
+                <path strokeLinecap="round" d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" d="M4 7h16M4 12h16M4 17h16" />
+              )}
+            </svg>
+          </button>
+        </div>
+
+        {/* Mobile menu */}
+        {open && (
+          <div className="border-t border-ink/5 bg-paper px-5 pb-6 pt-3 md:hidden">
+            <ul className="space-y-1">
+              {LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`block rounded-xl px-4 py-3 font-semibold ${
+                      pathname === link.href ? 'bg-sunrise-faint text-sunrise-deep' : 'text-ink'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <Link href="/contact" className="btn-primary mt-4 w-full">
+              Start a Project
             </Link>
           </div>
-        </div>
+        )}
       </nav>
-
-      {/* Mobile Menu Button - Bottom Right */}
-      <button
-        className="lg:hidden fixed bottom-8 right-8 z-50 w-14 h-14 rounded-full neu hover:scale-105 transition-all shadow-xl flex items-center justify-center"
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        aria-label="Toggle menu"
-      >
-        <div className="w-5 h-5 relative">
-          <span
-            className={`block absolute left-0 w-full h-0.5 bg-gray-700 rounded-full transition-all duration-300 ${
-              isMobileMenuOpen ? 'top-1/2 -translate-y-1/2 rotate-45' : 'top-0'
-            }`}
-          ></span>
-          <span
-            className={`block absolute left-0 w-full h-0.5 bg-gray-700 rounded-full transition-all duration-300 top-1/2 -translate-y-1/2 ${
-              isMobileMenuOpen ? 'opacity-0' : 'opacity-100'
-            }`}
-          ></span>
-          <span
-            className={`block absolute left-0 w-full h-0.5 bg-gray-700 rounded-full transition-all duration-300 ${
-              isMobileMenuOpen ? 'top-1/2 -translate-y-1/2 -rotate-45' : 'bottom-0'
-            }`}
-          ></span>
-        </div>
-      </button>
-
-      {/* Mobile Menu */}
-      <div
-        className={`lg:hidden fixed bottom-28 right-8 z-40 transition-all duration-500 ${
-          isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
-        }`}
-      >
-        <div className="neu rounded-3xl p-6 space-y-2 min-w-[200px]">
-          <Link
-            href="/"
-            className={`block px-5 py-3 rounded-xl font-medium transition-all duration-300 text-center ${
-              pathname === '/'
-                ? 'neu-inset text-orange-primary'
-                : 'text-gray-700 hover:text-orange-primary hover:neu-inset'
-            }`}
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Home
-          </Link>
-          {navLinks.map((link) => {
-            const isActive = pathname === link.href;
-            return (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={`block px-5 py-3 rounded-xl font-medium transition-all duration-300 text-center ${
-                  isActive
-                    ? 'neu-inset text-orange-primary'
-                    : 'text-gray-700 hover:text-orange-primary hover:neu-inset'
-                }`}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
-            );
-          })}
-          <Link
-            href="/contact"
-            className="block mt-4 px-6 py-3 bg-gradient-to-r from-orange-primary to-orange-glow rounded-xl font-semibold text-white text-center hover:shadow-lg hover:shadow-orange-glow/50 transition-all whitespace-nowrap"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Let&apos;s Talk
-          </Link>
-        </div>
-      </div>
-    </>
+    </header>
   );
 }

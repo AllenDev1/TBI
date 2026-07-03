@@ -1,72 +1,69 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import ScrollToTop from "@/components/ScrollToTop";
-import LoadingScreen from "@/components/LoadingScreen";
-import AdSenseScript from "@/components/AdSenseScript";
-import SmoothScroll from "@/components/SmoothScroll";
+import type { Metadata } from 'next';
+import { Fraunces, Inter } from 'next/font/google';
+import Script from 'next/script';
+import './globals.css';
+import SmoothScroll from '@/components/SmoothScroll';
+import { SITE } from '@/lib/site';
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  variable: '--font-display',
+  display: 'swap',
+});
 
 const inter = Inter({
-  subsets: ["latin"],
-  variable: '--font-geist-sans',
-  display: 'swap', // Optimize font loading for better performance
+  subsets: ['latin'],
+  variable: '--font-body',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://thebrilliantideas.com'),
+  metadataBase: new URL(SITE.url),
   title: {
-    default: "The Brilliant Ideas - Leading Digital Agency in Nepal | Web Design & Development",
-    template: "%s | The Brilliant Ideas"
+    default: 'The Brilliant Ideas — Web, App & Software Agency in Nepal',
+    template: '%s | The Brilliant Ideas',
   },
-  description: "Premier digital agency in Nepal specializing in cutting-edge web design, mobile app development, branding, and digital marketing. Transform your business with innovative solutions from Biratnagar and Kathmandu.",
+  description: SITE.description,
   keywords: [
-    "digital agency Nepal",
-    "web design Nepal",
-    "web development Nepal",
-    "mobile app development Nepal",
-    "branding agency Nepal",
-    "UI/UX design Nepal",
-    "digital marketing Nepal",
-    "software development Nepal",
-    "Biratnagar web design",
-    "Kathmandu digital agency",
-    "Nepal tech agency",
-    "creative agency Nepal",
-    "e-commerce development Nepal",
-    "React development Nepal",
-    "Next.js development Nepal",
-    "custom web applications Nepal"
+    'digital agency Nepal',
+    'web design Nepal',
+    'web development Nepal',
+    'mobile app development Nepal',
+    'software company Nepal',
+    'branding agency Nepal',
+    'UI/UX design Nepal',
+    'SEO Nepal',
+    'Biratnagar web design',
+    'Kathmandu digital agency',
+    'Next.js development Nepal',
+    'e-commerce development Nepal',
   ],
-  authors: [{ name: "The Brilliant Ideas", url: "https://thebrilliantideas.com" }],
-  creator: "The Brilliant Ideas",
-  publisher: "The Brilliant Ideas",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
+  authors: [{ name: SITE.name, url: SITE.url }],
+  creator: SITE.name,
+  publisher: SITE.name,
+  formatDetection: { email: false, address: false, telephone: false },
   openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://thebrilliantideas.com",
-    siteName: "The Brilliant Ideas",
-    title: "The Brilliant Ideas - Leading Digital Agency in Nepal",
-    description: "Premier digital agency in Nepal specializing in cutting-edge web design, mobile app development, branding, and digital marketing. Transform your business with innovative solutions.",
+    type: 'website',
+    locale: 'en_US',
+    url: SITE.url,
+    siteName: SITE.name,
+    title: 'The Brilliant Ideas — Web, App & Software Agency in Nepal',
+    description: SITE.description,
     images: [
       {
-        url: "/og-image.jpg",
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: "The Brilliant Ideas - Digital Agency Nepal",
+        alt: 'The Brilliant Ideas — Digital Agency from Nepal',
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "The Brilliant Ideas - Leading Digital Agency in Nepal",
-    description: "Premier digital agency in Nepal specializing in cutting-edge web design, mobile app development, branding, and digital marketing.",
-    creator: "@Allendev01",
-    images: ["/og-image.jpg"],
+    card: 'summary_large_image',
+    title: 'The Brilliant Ideas — Web, App & Software Agency in Nepal',
+    description: SITE.description,
+    creator: '@Allendev01',
+    images: ['/og-image.jpg'],
   },
   robots: {
     index: true,
@@ -85,16 +82,42 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   manifest: '/site.webmanifest',
-  alternates: {
-    canonical: 'https://thebrilliantideas.com',
+};
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${SITE.url}/#organization`,
+  name: SITE.name,
+  url: SITE.url,
+  logo: `${SITE.url}/logo.svg`,
+  image: `${SITE.url}/og-image.jpg`,
+  description: SITE.description,
+  email: SITE.email,
+  telephone: SITE.phone,
+  address: SITE.offices.map((office) => ({
+    '@type': 'PostalAddress',
+    addressLocality: office.city,
+    streetAddress: office.address,
+    addressCountry: 'NP',
+  })),
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: SITE.phone,
+    email: SITE.email,
+    contactType: 'customer service',
+    availableLanguage: ['English', 'Nepali'],
   },
-  verification: {
-    // TODO: Replace with actual Google Search Console verification code
-    // Get your verification code from: https://search.google.com/search-console
-    google: 'your-google-verification-code',
-    // yandex: 'your-yandex-verification-code',
-    // bing: 'your-bing-verification-code',
-  },
+  sameAs: Object.values(SITE.social),
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${SITE.url}/#website`,
+  url: SITE.url,
+  name: SITE.name,
+  publisher: { '@id': `${SITE.url}/#organization` },
 };
 
 export default function RootLayout({
@@ -105,47 +128,41 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <meta name="google-adsense-account" content="ca-pub-1949655614307812" />
+      </head>
+      <body className={`${fraunces.variable} ${inter.variable} font-body`}>
+        <SmoothScroll />
+        {children}
 
         {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-BSN1533EQ4"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-BSN1533EQ4');
-            `,
-          }}
-        />
-
-        {/* Google AdSense Meta Tag */}
-        <meta name="google-adsense-account" content="ca-pub-1949655614307812" />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-BSN1533EQ4" strategy="afterInteractive" />
+        <Script id="ga-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-BSN1533EQ4');
+          `}
+        </Script>
 
         {/* Microsoft Clarity */}
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-              })(window, document, "clarity", "script", "vj5zjfq98f");
-            `,
-          }}
-        />
-      </head>
-      <body className={`${inter.variable} antialiased`}>
-        <SmoothScroll />
-        <LoadingScreen />
-        {children}
-        <ScrollToTop />
-        <AdSenseScript />
+        <Script id="ms-clarity" strategy="afterInteractive">
+          {`
+            (function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "vj5zjfq98f");
+          `}
+        </Script>
       </body>
     </html>
   );

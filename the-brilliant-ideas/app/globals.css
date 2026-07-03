@@ -2,343 +2,91 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --bg-light: #ffffff;
-  --shadow-dark: #d1d9e6;
-  --shadow-light: #ffffff;
-  --text-primary: #2c3e50;
-  --text-secondary: #7f8c8d;
-  --orange-primary: #F97316;
-  --orange-glow: #FDBA74;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  overflow-x: hidden;
-}
-
-html.lenis, html.lenis body {
-  height: auto;
-}
-
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-smooth iframe {
-  pointer-events: none;
-}
-
-body {
-  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: var(--bg-light);
-  color: var(--text-primary);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-@layer utilities {
-  /* Typography */
-  .text-heading {
-    color: #1f2937; /* gray-800 */
+@layer base {
+  html {
+    scroll-behavior: smooth;
   }
 
-  .text-subheading {
-    color: #374151; /* gray-700 */
+  body {
+    @apply bg-paper text-ink font-body antialiased;
   }
 
-  .text-body {
-    color: #4b5563; /* gray-600 */
+  ::selection {
+    @apply bg-sunrise/20 text-sunrise-deep;
   }
 
-  .text-muted {
-    color: #6b7280; /* gray-500 */
+  h1, h2, h3, h4 {
+    @apply font-display;
+    text-wrap: balance;
   }
 
-  /* Neumorphism */
-  .neu {
-    background: var(--bg-light);
-    box-shadow: 9px 9px 16px var(--shadow-dark),
-                -9px -9px 16px var(--shadow-light);
-    border-radius: 16px;
-  }
-
-  .neu-inset {
-    background: var(--bg-light);
-    box-shadow: inset 4px 4px 8px var(--shadow-dark),
-                inset -4px -4px 8px var(--shadow-light);
-    border-radius: 16px;
-  }
-
-  .neu-hover {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .neu-hover:hover {
-    box-shadow: 12px 12px 20px var(--shadow-dark),
-                -12px -12px 20px var(--shadow-light);
-    transform: translateY(-2px);
-  }
-
-  .orange-glow {
-    box-shadow: 0 0 20px rgba(253, 186, 116, 0.4), 0 0 40px rgba(249, 115, 22, 0.2);
-  }
-
-  .orange-glow-hover {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .orange-glow-hover:hover {
-    box-shadow: 0 0 30px rgba(253, 186, 116, 0.6), 0 0 60px rgba(249, 115, 22, 0.3);
-    transform: translateY(-2px);
-  }
-
-  .text-gradient {
-    background: linear-gradient(135deg, #FDBA74 0%, #F97316 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .bg-neu-light {
-    background: var(--bg-light);
+  p {
+    text-wrap: pretty;
   }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-light);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #F97316 0%, #FDBA74 100%);
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #FDBA74 0%, #F97316 100%);
-}
-
-/* Focus states for accessibility */
-*:focus-visible {
-  outline: 2px solid var(--orange-primary);
-  outline-offset: 2px;
-}
-
-/* Scroll indicator animation */
-@keyframes scroll-down {
-  0% {
-    transform: translateY(0);
-    opacity: 1;
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
   }
-  100% {
-    transform: translateY(12px);
+
+  /* Chapter marker — the storytelling section label */
+  .chapter {
+    @apply flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-sunrise-deep;
+  }
+
+  .chapter::before {
+    content: '';
+    @apply block h-px w-10 bg-sunrise;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-sunrise px-7 py-3.5 font-body text-base font-semibold text-white shadow-[0_4px_14px_rgba(249,115,22,0.35)] transition-all duration-300 hover:bg-sunrise-deep hover:shadow-[0_6px_20px_rgba(249,115,22,0.45)] active:scale-95;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-ink/15 bg-transparent px-7 py-3.5 font-body text-base font-semibold text-ink transition-all duration-300 hover:border-sunrise hover:text-sunrise-deep active:scale-95;
+  }
+
+  /* Scroll reveal (driven by components/Reveal.tsx) */
+  .reveal {
     opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
   }
-}
 
-.animate-scroll-down {
-  animation: scroll-down 1.5s ease-in-out infinite;
-}
-
-@keyframes bounce-slow {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.animate-bounce-slow {
-  animation: bounce-slow 2s ease-in-out infinite;
-}
-
-/* Service Card Animations */
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
+  .reveal.revealed {
     opacity: 1;
     transform: translateY(0);
   }
-}
 
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0) translateX(0);
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
   }
-  50% {
-    transform: translateY(-20px) translateX(10px);
+
+  /* Soft paper glow behind text that sits near the journey ribbon */
+  .halo {
+    position: relative;
   }
-}
 
-@keyframes floatDelay {
-  0%, 100% {
-    transform: translateY(0) translateX(0);
+  .halo::before {
+    content: '';
+    position: absolute;
+    inset: -2.5rem;
+    background: radial-gradient(ellipse at center, rgba(250, 246, 239, 0.96) 45%, rgba(250, 246, 239, 0) 75%);
+    z-index: -1;
   }
-  50% {
-    transform: translateY(20px) translateX(-10px);
+
+  /* Prayer-flag strip — five colours of the wind horse */
+  .prayer-flags {
+    @apply flex h-1.5 w-full;
   }
-}
 
-@keyframes pulseSlow {
-  0%, 100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.5;
-    transform: scale(1.05);
-  }
-}
-
-@keyframes gradient {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-.animate-slide-in-left {
-  animation: slideInLeft 0.6s ease-out forwards;
-}
-
-.animate-slide-in-right {
-  animation: slideInRight 0.6s ease-out forwards;
-}
-
-.animate-scale-in {
-  animation: scaleIn 0.6s ease-out forwards;
-}
-
-.animate-fade-in-scale {
-  animation: fadeInScale 0.6s ease-out forwards;
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out forwards;
-  opacity: 0;
-}
-
-.animate-float {
-  animation: float 8s ease-in-out infinite;
-}
-
-.animate-float-delay {
-  animation: floatDelay 10s ease-in-out infinite;
-}
-
-.animate-pulse-slow {
-  animation: pulseSlow 6s ease-in-out infinite;
-}
-
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient 3s ease infinite;
-}
-
-.animation-delay-200 {
-  animation-delay: 0.2s;
-}
-
-.animation-delay-400 {
-  animation-delay: 0.4s;
-}
-
-/* AdSense Styling - Ensure ads don't break UI */
-.adsbygoogle {
-  max-width: 100% !important;
-  overflow: hidden !important;
-}
-
-/* Ensure ad container respects neumorphic design */
-ins.adsbygoogle[data-ad-status="filled"] {
-  border-radius: 1rem;
-  overflow: hidden;
-}
-
-/* Prevent layout shift when ads load */
-.adsbygoogle[data-ad-status="unfilled"] {
-  min-height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Mobile responsiveness for ads */
-@media (max-width: 768px) {
-  .adsbygoogle {
-    max-height: 600px;
+  .prayer-flags > span {
+    @apply block h-full flex-1;
   }
 }

@@ -1,400 +1,167 @@
 import React from 'react';
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import CursorGlow from '@/components/CursorGlow';
-import SectionHeading from '@/components/SectionHeading';
-import GlassCard from '@/components/GlassCard';
-import Button from '@/components/Button';
+import Reveal from '@/components/Reveal';
+import TiltCard from '@/components/TiltCard';
+import { Ridge, PrayerFlagLine } from '@/components/NepalArt';
+import { SITE, SERVICES } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: "Our Services - Web Design, Development & Branding | Nepal",
-  description: "Professional digital services including web design, web development, mobile app development, branding, UI/UX design, and digital strategy. Transform your business with The Brilliant Ideas in Nepal.",
-  alternates: {
-    canonical: 'https://thebrilliantideas.com/services',
-  },
+  title: 'Services — Web, Apps, Branding & SEO',
+  description:
+    'Web design and development, mobile apps, branding, UI/UX, digital marketing, and custom software — full-service digital agency services from Nepal by The Brilliant Ideas.',
+  alternates: { canonical: `${SITE.url}/services` },
   openGraph: {
-    title: "Digital Services - Web, Mobile, Branding | The Brilliant Ideas",
-    description: "Professional web design, development, mobile apps, branding, and digital strategy services in Nepal.",
-    url: "https://thebrilliantideas.com/services",
-    type: "website",
+    title: 'Services | The Brilliant Ideas',
+    description:
+      'Web design and development, mobile apps, branding, UI/UX, digital marketing, and custom software from Nepal.',
+    url: `${SITE.url}/services`,
+    type: 'website',
   },
 };
 
+const PROCESS = [
+  { step: 'Discovery', text: 'We listen first. Your goals, your users, your market — the map is drawn before the trek begins.' },
+  { step: 'Strategy', text: 'We chart the route: scope, milestones, technology choices, and a plan you can hold us to.' },
+  { step: 'Design', text: 'Wireframes become interfaces. Every screen is crafted, reviewed, and refined with you.' },
+  { step: 'Development', text: 'Clean, modern code — built for speed, security, and search engines from day one.' },
+  { step: 'Testing', text: 'Every path is walked before launch. Devices, browsers, edge cases — nothing is left to luck.' },
+  { step: 'Launch & Beyond', text: 'We plant the flag together, then stay on as your guide for growth and support.' },
+];
+
+const servicesSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: SERVICES.map((service, i) => ({
+    '@type': 'Service',
+    position: i + 1,
+    name: service.title,
+    description: service.short,
+    provider: { '@id': `${SITE.url}/#organization` },
+    areaServed: 'Nepal',
+  })),
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.url },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: `${SITE.url}/services` },
+  ],
+};
+
 export default function ServicesPage() {
-  // Service schema for structured data
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "itemListElement": [
-      {
-        "@type": "Service",
-        "name": "Branding & Identity",
-        "provider": {
-          "@type": "Organization",
-          "name": "The Brilliant Ideas"
-        },
-        "description": "We craft distinctive brand identities that capture the essence of your business and resonate with your target audience.",
-        "serviceType": "Branding",
-        "areaServed": "Nepal"
-      },
-      {
-        "@type": "Service",
-        "name": "Web Design",
-        "provider": {
-          "@type": "Organization",
-          "name": "The Brilliant Ideas"
-        },
-        "description": "Beautiful, user-centric designs that combine stunning aesthetics with intuitive functionality for exceptional digital experiences.",
-        "serviceType": "Web Design",
-        "areaServed": "Nepal"
-      },
-      {
-        "@type": "Service",
-        "name": "Web Development",
-        "provider": {
-          "@type": "Organization",
-          "name": "The Brilliant Ideas"
-        },
-        "description": "Robust, scalable solutions built with cutting-edge technologies, best practices, and a focus on performance and security.",
-        "serviceType": "Development",
-        "areaServed": "Nepal"
-      },
-      {
-        "@type": "Service",
-        "name": "Motion Design",
-        "provider": {
-          "@type": "Organization",
-          "name": "The Brilliant Ideas"
-        },
-        "description": "Engaging animations and interactive experiences that bring your digital presence to life and captivate your audience.",
-        "serviceType": "Motion Design",
-        "areaServed": "Nepal"
-      },
-      {
-        "@type": "Service",
-        "name": "Digital Strategy",
-        "provider": {
-          "@type": "Organization",
-          "name": "The Brilliant Ideas"
-        },
-        "description": "Data-driven strategies that align with your business goals, ensuring measurable results and sustainable growth.",
-        "serviceType": "Digital Strategy",
-        "areaServed": "Nepal"
-      },
-      {
-        "@type": "Service",
-        "name": "Digital Marketing",
-        "provider": {
-          "@type": "Organization",
-          "name": "The Brilliant Ideas"
-        },
-        "description": "Comprehensive marketing solutions designed to amplify your brand, reach your target audience, and drive conversions.",
-        "serviceType": "Digital Marketing",
-        "areaServed": "Nepal"
-      }
-    ]
-  };
-
-  // Breadcrumb schema
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://thebrilliantideas.com"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Services",
-        "item": "https://thebrilliantideas.com/services"
-      }
-    ]
-  };
-
-  const services = [
-    {
-      id: 'branding',
-      title: 'Branding & Identity',
-      description: 'We craft distinctive brand identities that capture the essence of your business and resonate with your target audience.',
-      features: [
-        'Brand Strategy & Positioning',
-        'Logo Design & Visual Identity',
-        'Brand Guidelines & Style Guides',
-        'Brand Messaging & Voice',
-        'Packaging Design',
-        'Brand Collateral',
-      ],
-    },
-    {
-      id: 'web-design',
-      title: 'Web Design',
-      description: 'Beautiful, user-centric designs that combine stunning aesthetics with intuitive functionality for exceptional digital experiences.',
-      features: [
-        'UI/UX Design',
-        'Responsive Web Design',
-        'Interactive Prototypes',
-        'Design Systems',
-        'User Research & Testing',
-        'Wireframing & Mockups',
-      ],
-    },
-    {
-      id: 'development',
-      title: 'Development',
-      description: 'Robust, scalable solutions built with cutting-edge technologies, best practices, and a focus on performance and security.',
-      features: [
-        'Custom Web Applications',
-        'E-commerce Development',
-        'CMS Integration',
-        'API Development',
-        'Progressive Web Apps',
-        'Performance Optimization',
-      ],
-    },
-    {
-      id: 'motion',
-      title: 'Motion Design',
-      description: 'Engaging animations and interactive experiences that bring your digital presence to life and captivate your audience.',
-      features: [
-        'Animation & Motion Graphics',
-        'Micro-interactions',
-        'Video Production',
-        'Interactive Experiences',
-        'Motion Branding',
-        '3D Visualization',
-      ],
-    },
-    {
-      id: 'strategy',
-      title: 'Digital Strategy',
-      description: 'Data-driven strategies that align with your business goals, ensuring measurable results and sustainable growth.',
-      features: [
-        'Digital Transformation',
-        'Customer Journey Mapping',
-        'Content Strategy',
-        'Analytics & Insights',
-        'Conversion Optimization',
-        'Growth Strategy',
-      ],
-    },
-    {
-      id: 'marketing',
-      title: 'Digital Marketing',
-      description: 'Comprehensive marketing solutions designed to amplify your brand, reach your target audience, and drive conversions.',
-      features: [
-        'SEO & SEM',
-        'Social Media Marketing',
-        'Content Marketing',
-        'Email Marketing',
-        'Paid Advertising',
-        'Marketing Automation',
-      ],
-    },
-  ];
-
-  const process = [
-    {
-      phase: 'Discovery',
-      description: 'We start by understanding your business, goals, challenges, and target audience through comprehensive research and analysis.',
-    },
-    {
-      phase: 'Strategy',
-      description: 'Based on insights, we develop a tailored strategy that aligns with your objectives and positions you for success.',
-    },
-    {
-      phase: 'Design',
-      description: 'Our creative team brings the strategy to life with stunning designs that capture your brand essence and engage users.',
-    },
-    {
-      phase: 'Development',
-      description: 'We build robust, scalable solutions using the latest technologies and best practices in web development.',
-    },
-    {
-      phase: 'Testing',
-      description: 'Rigorous testing ensures everything works flawlessly across devices, browsers, and real-world scenarios.',
-    },
-    {
-      phase: 'Launch',
-      description: 'We ensure a smooth launch and provide ongoing support to keep your digital presence thriving and evolving.',
-    },
-  ];
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-      />
-      <CursorGlow />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <Navbar />
 
-      <main className="pt-32 pb-24 px-4 md:px-6 relative overflow-hidden">
-        {/* Decorative Neumorphic Background Elements */}
-        <div className="absolute top-20 right-10 w-96 h-96 rounded-full bg-white shadow-[8px_8px_16px_#d1d9e6,-8px_-8px_16px_#ffffff] animate-pulse-slow pointer-events-none"></div>
-        <div className="absolute bottom-40 left-10 w-80 h-80 rounded-full bg-white shadow-[6px_6px_12px_#d1d9e6,-6px_-6px_12px_#ffffff] animate-float pointer-events-none"></div>
-
-        <div className="container mx-auto relative z-10">
-          {/* Header */}
-          <div className="animate-fade-in-up">
-            <SectionHeading
-              title="Our Services"
-              subtitle="End-to-end digital solutions tailored to your unique needs and business goals."
-            />
-          </div>
-
-          {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
-            {services.map((service, index) => (
-              <GlassCard
-                key={service.id}
-                className={`flex flex-col group hover:scale-105 transition-all duration-500 ${
-                  index % 3 === 0 ? 'animate-slide-in-left' :
-                  index % 3 === 1 ? 'animate-fade-in-scale' :
-                  'animate-slide-in-right'
-                }`}
-                style={{ animationDelay: `${index * 0.1}s`, opacity: 0 }}
-              >
-                <div className="relative mb-4">
-                  <div className="absolute -top-4 -left-4 text-7xl font-bold text-orange-primary opacity-10 select-none">
-                    {String(index + 1).padStart(2, '0')}
-                  </div>
-                  <h3 className="text-2xl font-bold mb-3 text-heading relative z-10 group-hover:text-orange-primary transition-colors duration-300" id={service.id}>
-                    {service.title}
-                  </h3>
-                </div>
-                <p className="text-body mb-6 flex-grow leading-relaxed">
-                  {service.description}
+      <main className="pt-28 sm:pt-32">
+        {/* Header */}
+        <section className="container-site pb-16 sm:pb-20">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_1fr]">
+            <div className="text-center lg:text-left">
+              <Reveal>
+                <p className="chapter justify-center lg:justify-start">What We Do</p>
+                <h1 className="mx-auto mt-4 max-w-3xl font-display text-4xl font-black text-ink sm:text-6xl lg:mx-0">
+                  Ideas take
+                  <span className="block italic text-laligurans">flight here.</span>
+                </h1>
+                <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink-soft lg:mx-0">
+                  From the first sketch of a logo to a full software platform — everything your
+                  business needs, under one roof in Nepal.
                 </p>
-                <div className="space-y-3 border-t border-gray-200 pt-4">
-                  <h4 className="text-sm font-semibold text-orange-primary uppercase tracking-wider">What We Offer</h4>
-                  <ul className="space-y-2">
-                    {service.features.map((feature, fIndex) => (
-                      <li
-                        key={feature}
-                        className="flex items-start gap-3 text-sm text-body group-hover:translate-x-1 transition-transform duration-300"
-                        style={{ transitionDelay: `${fIndex * 50}ms` }}
-                      >
-                        <span className="text-orange-primary mt-0.5 text-base">→</span>
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+              </Reveal>
+            </div>
+            <Reveal delay={150} className="flex justify-center lg:justify-end">
+              <Image
+                src="/image-story/img4.png"
+                alt="A danphe in flight, its wings carrying the stupas, temples, and mountains of Nepal"
+                width={1114}
+                height={1412}
+                priority
+                className="h-auto w-full max-w-[460px]"
+              />
+            </Reveal>
+          </div>
+        </section>
+
+        {/* Services */}
+        <section className="bg-himal-snow pb-20">
+          <Ridge fill="#EEF3F7" className="-mt-px h-14 -translate-y-full sm:h-20" />
+          <div className="container-site grid gap-6 pt-14 sm:grid-cols-2 lg:grid-cols-3">
+            {SERVICES.map((service, i) => (
+              <Reveal key={service.slug} delay={(i % 3) * 90} as="article" className="h-full">
+                <TiltCard max={10} className="h-full">
+                <div className="flex h-full flex-col rounded-3xl border border-ink/5 bg-white p-8 shadow-[0_6px_24px_rgba(32,48,60,0.05)] transition-shadow duration-300 hover:shadow-[0_20px_48px_rgba(32,48,60,0.14)]">
+                  <span className="font-display text-4xl font-black text-sunrise/25">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <h2 className="mt-3 font-display text-2xl font-bold text-ink">{service.title}</h2>
+                  <p className="mt-3 flex-1 leading-relaxed text-ink-soft">{service.short}</p>
+                  <p className="mt-5 border-t border-dashed border-ink/10 pt-4 text-sm italic text-ink-faint">
+                    {service.story}
+                  </p>
                 </div>
-              </GlassCard>
+                </TiltCard>
+              </Reveal>
             ))}
           </div>
+        </section>
 
-          {/* Process Section */}
-          <section className="mb-24">
-            <SectionHeading
-              title="How We Work"
-              subtitle="Our proven process ensures exceptional results at every stage of your project."
-            />
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {process.map((step, index) => (
-                <div
-                  key={step.phase}
-                  className="animate-fade-in-up"
-                  style={{ animationDelay: `${index * 0.15}s` }}
-                >
-                  <GlassCard className="group hover:scale-105 transition-all duration-500 h-full">
-                    <div className="relative">
-                      <div className="text-6xl font-bold text-gradient mb-3 group-hover:scale-110 transition-transform duration-500">
-                        {String(index + 1).padStart(2, '0')}
-                      </div>
-                    </div>
-                    <h3 className="text-xl font-bold mb-2 text-heading group-hover:text-orange-primary transition-colors duration-300">{step.phase}</h3>
-                    <p className="text-body text-sm leading-relaxed">{step.description}</p>
-                  </GlassCard>
-                </div>
+        {/* Process */}
+        <section className="bg-paper pb-20">
+          <Ridge fill="#FAF6EF" className="-mt-px h-14 -translate-y-full sm:h-20" />
+          <div className="container-site pt-14">
+            <Reveal className="max-w-2xl">
+              <p className="chapter">How We Work</p>
+              <h2 className="mt-4 font-display text-3xl font-black text-ink sm:text-4xl">
+                The route we take, every time
+              </h2>
+              <p className="mt-4 text-lg leading-relaxed text-ink-soft">
+                Like any good expedition, a project succeeds on preparation. This is the path we
+                walk with every client.
+              </p>
+            </Reveal>
+
+            <ol className="relative mt-12 space-y-8 border-l-2 border-dashed border-sunrise/30 pl-8 sm:pl-10">
+              {PROCESS.map((phase, i) => (
+                <Reveal key={phase.step} delay={i * 80} as="li">
+                  <div className="relative">
+                    <span className="absolute -left-[46px] top-1 flex h-7 w-7 items-center justify-center rounded-full bg-sunrise text-xs font-bold text-white sm:-left-[54px]">
+                      {i + 1}
+                    </span>
+                    <h3 className="font-display text-xl font-bold text-ink">{phase.step}</h3>
+                    <p className="mt-1.5 max-w-2xl leading-relaxed text-ink-soft">{phase.text}</p>
+                  </div>
+                </Reveal>
               ))}
-            </div>
-          </section>
-
-          {/* Why Choose Us */}
-          <section className="mb-24">
-            <SectionHeading
-              title="Why Choose Us"
-              subtitle="What sets us apart and makes us the right partner for your digital success."
-            />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <GlassCard className="group hover:scale-105 transition-all duration-500 animate-slide-in-left">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-2xl neu flex items-center justify-center text-orange-primary font-bold text-xl group-hover:scale-110 transition-transform duration-300">
-                    01
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold mb-4 text-heading group-hover:text-orange-primary transition-colors duration-300">Expert Team</h3>
-                    <p className="text-body leading-relaxed">
-                      Our multidisciplinary team brings together decades of combined experience in design, development, and digital strategy.
-                    </p>
-                  </div>
-                </div>
-              </GlassCard>
-              <GlassCard className="group hover:scale-105 transition-all duration-500 animate-slide-in-right" style={{ animationDelay: '0.1s' }}>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-2xl neu flex items-center justify-center text-orange-primary font-bold text-xl group-hover:scale-110 transition-transform duration-300">
-                    02
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold mb-4 text-heading group-hover:text-orange-primary transition-colors duration-300">Proven Results</h3>
-                    <p className="text-body leading-relaxed">
-                      We've helped dozens of companies achieve their digital goals with measurable improvements in engagement and conversions.
-                    </p>
-                  </div>
-                </div>
-              </GlassCard>
-              <GlassCard className="group hover:scale-105 transition-all duration-500 animate-slide-in-left" style={{ animationDelay: '0.2s' }}>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-2xl neu flex items-center justify-center text-orange-primary font-bold text-xl group-hover:scale-110 transition-transform duration-300">
-                    03
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold mb-4 text-heading group-hover:text-orange-primary transition-colors duration-300">Agile Approach</h3>
-                    <p className="text-body leading-relaxed">
-                      We work in iterative sprints, ensuring flexibility, transparency, and the ability to adapt to your evolving needs.
-                    </p>
-                  </div>
-                </div>
-              </GlassCard>
-              <GlassCard className="group hover:scale-105 transition-all duration-500 animate-slide-in-right" style={{ animationDelay: '0.3s' }}>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-2xl neu flex items-center justify-center text-orange-primary font-bold text-xl group-hover:scale-110 transition-transform duration-300">
-                    04
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold mb-4 text-heading group-hover:text-orange-primary transition-colors duration-300">Long-term Partnership</h3>
-                    <p className="text-body leading-relaxed">
-                      We're not just vendors—we're partners invested in your long-term success with ongoing support and optimization.
-                    </p>
-                  </div>
-                </div>
-              </GlassCard>
-            </div>
-          </section>
-
-          {/* CTA */}
-          <div className="neu rounded-3xl p-12 md:p-16 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-heading">
-              Ready to Get Started?
-            </h2>
-            <p className="text-xl text-body mb-8 max-w-2xl mx-auto">
-              Let's discuss your project and explore how we can help you achieve your digital goals.
-            </p>
-            <Button variant="primary" href="/contact">
-              Schedule a Consultation
-            </Button>
+            </ol>
           </div>
-        </div>
+        </section>
+
+        {/* CTA */}
+        <section className="bg-paper-warm py-20 text-center">
+          <div className="container-site">
+            <Reveal>
+              <PrayerFlagLine className="mx-auto w-56" />
+              <h2 className="mx-auto mt-6 max-w-2xl font-display text-3xl font-black text-ink sm:text-4xl">
+                Not sure which trail fits your idea?
+              </h2>
+              <p className="mx-auto mt-4 max-w-xl text-lg text-ink-soft">
+                Tell us where you want to go — we&rsquo;ll recommend the route, free of charge.
+              </p>
+              <Link href="/contact" className="btn-primary mt-8">
+                Talk to Us
+              </Link>
+            </Reveal>
+          </div>
+        </section>
       </main>
 
       <Footer />
