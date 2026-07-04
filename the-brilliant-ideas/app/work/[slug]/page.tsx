@@ -93,15 +93,15 @@ export default async function ProjectPage({ params }: Props) {
         </section>
 
         {/* Story + links */}
-        <section className="bg-himal-snow pb-16">
-          <Ridge fill="#EEF3F7" className="-mt-px h-14 -translate-y-full sm:h-20" />
+        <section className="bg-paper-warm pb-16">
+          <Ridge fill="#F4EEE3" className="-mt-px h-14 -translate-y-full sm:h-20" />
           <div className="container-site grid gap-10 pt-12 lg:grid-cols-[1.6fr_1fr]">
             <Reveal>
               <h2 className="font-display text-2xl font-bold text-ink">The story</h2>
               <p className="mt-4 text-lg leading-relaxed text-ink-soft">{project.longDescription}</p>
             </Reveal>
             <Reveal delay={120}>
-              <div className="rounded-3xl bg-white p-7 shadow-[0_6px_24px_rgba(32,48,60,0.06)]">
+              <div className="rounded-3xl border border-ink/10 bg-paper p-7">
                 <h2 className="font-display text-lg font-bold text-ink">Visit the project</h2>
                 <div className="mt-4 flex flex-col gap-3">
                   {project.externalLink && (
@@ -129,7 +129,7 @@ export default async function ProjectPage({ params }: Props) {
         </section>
 
         {/* Gallery — screenshots get added here */}
-        <section className="bg-himal-snow pb-16">
+        <section className="bg-paper-warm pb-16">
           <div className="container-site">
             <Reveal>
               <h2 className="font-display text-2xl font-bold text-ink">In pictures</h2>
@@ -137,7 +137,7 @@ export default async function ProjectPage({ params }: Props) {
             <div className="mt-6 grid gap-6 sm:grid-cols-2">
               {project.gallery.map((src, i) => (
                 <Reveal key={src} delay={(i % 2) * 100} as="figure">
-                  <div className="overflow-hidden rounded-2xl bg-white p-4 shadow-[0_6px_24px_rgba(32,48,60,0.06)]">
+                  <div className="overflow-hidden rounded-2xl border border-ink/10 bg-paper p-4">
                     <div className="relative aspect-[4/3]">
                       <Image
                         src={src}
@@ -153,7 +153,7 @@ export default async function ProjectPage({ params }: Props) {
             </div>
             {project.video && (
               <Reveal className="mt-8">
-                <div className="overflow-hidden rounded-2xl bg-white p-4 shadow-[0_6px_24px_rgba(32,48,60,0.06)]">
+                <div className="overflow-hidden rounded-2xl border border-ink/10 bg-paper p-4">
                   <video controls preload="metadata" className="mx-auto max-h-[70vh] w-auto rounded-xl">
                     <source src={project.video} type="video/mp4" />
                     Your browser does not support the video tag.
@@ -166,7 +166,7 @@ export default async function ProjectPage({ params }: Props) {
 
         {/* More work */}
         <section className="bg-paper pb-16">
-          <Ridge fill="#FAF6EF" className="-mt-px h-14 -translate-y-full sm:h-20" />
+          <Ridge fill="#FBF9F5" className="-mt-px h-14 -translate-y-full sm:h-20" />
           <div className="container-site pt-12">
             <Reveal>
               <h2 className="font-display text-2xl font-bold text-ink">More from the expedition log</h2>
@@ -176,7 +176,7 @@ export default async function ProjectPage({ params }: Props) {
                 <Reveal key={other.slug} delay={i * 100} as="article">
                   <Link
                     href={`/work/${other.slug}`}
-                    className="group flex h-full flex-col rounded-3xl bg-white p-6 shadow-[0_6px_24px_rgba(32,48,60,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(32,48,60,0.10)]"
+                    className="group flex h-full flex-col rounded-3xl border border-ink/10 bg-paper p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(34,48,58,0.10)]"
                   >
                     <div className="relative aspect-[16/9] overflow-hidden rounded-2xl bg-paper-warm">
                       <Image

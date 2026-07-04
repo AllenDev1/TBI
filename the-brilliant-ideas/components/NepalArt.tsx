@@ -65,7 +65,7 @@ export function Danphe({ className = '' }: { className?: string }) {
       {/* head + crest */}
       <circle cx="74" cy="28" r="6.5" fill="#164C6F" />
       <path d="M76 22 C 78 17, 82 15, 84 16 C 81 18, 80 21, 79 23 Z" fill="#2E9E7E" />
-      <circle cx="76.5" cy="27" r="1.2" fill="#FAF6EF" />
+      <circle cx="76.5" cy="27" r="1.2" fill="#FFFFFF" />
       {/* beak */}
       <path d="M80 29 L 87 31 L 80 32.5 Z" fill="#C2570C" />
       {/* chestnut tail feathers */}
@@ -165,7 +165,7 @@ export function Rhino({ className = '' }: { className?: string }) {
 
 export function Ridge({
   className = '',
-  fill = '#FAF6EF',
+  fill = '#FBF9F5',
   flip = false,
 }: {
   className?: string;

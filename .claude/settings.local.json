@@ -6,9 +6,39 @@
       "Bash(git push:*)",
       "Bash(cat:*)",
       "Bash(npm install:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(curl -s -o /tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad/home.html -w \"%{http_code}\" http://localhost:3000/)",
+      "Read(//tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad/**)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/)",
+      "Skill(artifact-design)",
+      "Skill(artifact-design:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/services)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/about)",
+      "Bash(python3 -c \"import PIL, numpy; from PIL import Image; print\\('Pillow', PIL.__version__, '| numpy', numpy.__version__\\)\")",
+      "Bash(echo \"exit: $?\")",
+      "Bash(python3 -m pip install --quiet --disable-pip-version-check Pillow numpy)",
+      "Bash(python3 -c \"import PIL, numpy; print\\('ok', PIL.__version__, numpy.__version__\\)\")",
+      "Bash(python3 -m venv /private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad/venv)",
+      "Bash(/private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad/venv/bin/pip install *)",
+      "Bash(/private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad/venv/bin/python /private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad/rmbg.py '/Applications/Documents/Documents/Github/TBI/the-brilliant-ideas/public/image-story/ChatGPT Image Jul 5, 2026, 12_24_27 AM.png' /Applications/Documents/Documents/Github/TBI/the-brilliant-ideas/public/image-story/prayer-wheel.png 26)",
+      "Bash(/private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad/venv/bin/python /private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad/rmbg.py /Applications/Documents/Documents/Github/TBI/the-brilliant-ideas/public/image-story/47ff62941bdc1e3c61913a2f922a5bff.jpg /Applications/Documents/Documents/Github/TBI/the-brilliant-ideas/public/image-story/glass-lotus.png 22)",
+      "Bash(/private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad/venv/bin/python /private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad/rmbg.py /Applications/Documents/Documents/Github/TBI/the-brilliant-ideas/public/image-story/b80b11f368f772ad6e6b8d8244f15af3.jpg /Applications/Documents/Documents/Github/TBI/the-brilliant-ideas/public/image-story/guanyin-hand.png 30)",
+      "Bash(/private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad/venv/bin/python /private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad/rmbg.py '/Applications/Documents/Documents/Github/TBI/the-brilliant-ideas/public/image-story/ChatGPT Image Jul 5, 2026, 12_24_27 AM.png' /Applications/Documents/Documents/Github/TBI/the-brilliant-ideas/public/image-story/prayer-wheel.png 34)",
+      "Bash(/private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad/venv/bin/python /private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad/rmbg.py /Applications/Documents/Documents/Github/TBI/the-brilliant-ideas/public/image-story/47ff62941bdc1e3c61913a2f922a5bff.jpg /Applications/Documents/Documents/Github/TBI/the-brilliant-ideas/public/image-story/glass-lotus.png 40)",
+      "Bash(/private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad/venv/bin/python - /Applications/Documents/Documents/Github/TBI/the-brilliant-ideas/public/image-story /private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad)",
+      "Bash(/private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad/venv/bin/python /private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad/rmbg.py /Applications/Documents/Documents/Github/TBI/the-brilliant-ideas/public/image-story/b80b11f368f772ad6e6b8d8244f15af3.jpg /Applications/Documents/Documents/Github/TBI/the-brilliant-ideas/public/image-story/guanyin-hand.png 30 fill)",
+      "Bash(rm -f \"ChatGPT Image Jul 5\"*.png && echo \"cleaned. remaining PNGs:\" && ls -1 *.png | sort)",
+      "Bash(timeout 120 npm run lint)",
+      "Bash(npm run *)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 --window-size=1440,3400 --screenshot=/private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad/shots/home-tall.png http://localhost:3000/)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 --window-size=1440,2600 --screenshot=/private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad/shots/services-tall.png http://localhost:3000/services)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 --window-size=1440,1500 --screenshot=/private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad/shots/work.png http://localhost:3000/work)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 --window-size=1440,1600 --screenshot=/private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad/shots/chess.png http://localhost:3000/work/brilliant-chess)"
     ],
     "deny": [],
-    "ask": []
+    "ask": [],
+    "additionalDirectories": [
+      "/Applications/Documents/Documents/Github/TBI/the-brilliant-ideas/public/image-story"
+    ]
   }
 }

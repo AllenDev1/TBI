@@ -29,9 +29,9 @@ export default function HomePage() {
         <p className="sr-only">{SITE.description}</p>
 
         {/* ═══════ HERO — the lantern on the laligurans branch ═══════ */}
-        <section className="relative min-h-[min(92vh,980px)]">
+        <section className="relative min-h-[min(92vh,980px)] overflow-hidden">
           <div className="container-site grid min-h-[min(92vh,980px)] items-center gap-6 pb-16 pt-28 lg:grid-cols-[1.1fr_1fr] lg:gap-10 lg:pt-20">
-            <div className="order-2 lg:order-1">
+            <div className="order-2 lg:relative lg:z-10 lg:order-1">
               <Reveal>
                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ink-faint">
                   The Brilliant Ideas · Digital Agency · Nepal
@@ -39,8 +39,8 @@ export default function HomePage() {
               </Reveal>
               <Reveal delay={150}>
                 <h1 className="mt-6 font-display text-4xl font-black leading-[1.04] text-ink sm:text-6xl xl:text-7xl">
-                  Brilliant ideas,
-                  <span className="block italic text-laligurans">quietly crafted.</span>
+                  Brilliant ideas,{' '}
+                  <span className="italic text-laligurans">quietly crafted.</span>
                 </h1>
               </Reveal>
               <Reveal delay={300}>
@@ -60,8 +60,9 @@ export default function HomePage() {
               </Reveal>
             </div>
 
-            {/* the lantern hangs from the top of the page and sways */}
-            <div className="order-1 -mt-6 flex justify-center lg:order-2 lg:mt-0 lg:justify-end">
+            {/* the lantern hangs from the top of the page and sways —
+                flipped so the branch grows in from, and off, the right edge of the screen */}
+            <div className="pointer-events-none order-1 -mt-6 flex justify-center lg:absolute lg:inset-y-0 lg:right-0 lg:mt-0 lg:items-center lg:justify-end">
               <ParallaxLayer speed={0.06}>
                 <div className="origin-top animate-pendulum motion-reduce:animate-none">
                   <Image
@@ -70,7 +71,7 @@ export default function HomePage() {
                     width={1023}
                     height={1537}
                     priority
-                    className="h-[52vh] max-h-[440px] w-auto sm:h-[62vh] sm:max-h-[560px] lg:h-[80vh] lg:max-h-[800px]"
+                    className="h-[52vh] max-h-[440px] w-auto -scale-x-100 sm:h-[62vh] sm:max-h-[560px] lg:h-[104vh] lg:max-h-[1120px]"
                   />
                 </div>
               </ParallaxLayer>
@@ -79,21 +80,21 @@ export default function HomePage() {
         </section>
 
         {/* ═══════ THE JOURNEY — the silk road ═══════ */}
-        <section className="relative py-24 sm:py-32">
-          <div className="container-site grid items-center gap-10 lg:grid-cols-2 lg:gap-6">
-            <Reveal className="flex justify-center lg:justify-start">
+        <section className="relative overflow-hidden py-24 sm:py-32 lg:py-0">
+          <div className="container-site grid items-center gap-10 lg:min-h-[92vh] lg:grid-cols-2 lg:gap-6">
+            <Reveal className="pointer-events-none flex justify-center lg:absolute lg:inset-y-0 lg:left-0 lg:z-0 lg:items-center lg:justify-start">
               <ParallaxLayer speed={0.03}>
                 <Image
-                  src="/image-story/img1.png"
-                  alt="A white silk ribbon flowing like a river, carrying scenes of Nepal — stupas, temples, mountains, and bridges"
-                  width={1023}
-                  height={1537}
-                  className="h-[64vh] max-h-[540px] w-auto sm:h-[80vh] sm:max-h-[780px]"
+                  src="/image-story/mountain-path.png"
+                  alt="A watercolor of a stone Himalayan footpath winding past a small stupa and prayer flags toward a misty snow peak"
+                  width={1122}
+                  height={1402}
+                  className="h-[64vh] max-h-[540px] w-auto sm:h-[80vh] sm:max-h-[780px] lg:h-[98vh] lg:max-h-[1040px]"
                 />
               </ParallaxLayer>
             </Reveal>
 
-            <div className="text-center lg:pr-8 lg:text-left">
+            <div className="relative z-10 text-center lg:col-start-2 lg:pr-8 lg:text-left">
               <Reveal>
                 <h2 className="font-display text-4xl font-black leading-[1.06] text-ink sm:text-5xl xl:text-6xl">
                   Every project
@@ -126,9 +127,9 @@ export default function HomePage() {
         </section>
 
         {/* ═══════ THE CRAFT — the temple roof ═══════ */}
-        <section className="relative py-24 sm:py-32">
-          <div className="container-site grid items-center gap-10 lg:grid-cols-2 lg:gap-6">
-            <div className="text-center lg:order-2 lg:pl-8 lg:text-left">
+        <section className="relative overflow-hidden py-24 sm:py-32 lg:py-0">
+          <div className="container-site grid items-center gap-10 lg:min-h-[92vh] lg:grid-cols-2 lg:gap-6">
+            <div className="relative z-10 text-center lg:col-start-1 lg:pr-8 lg:text-left">
               <Reveal>
                 <h2 className="font-display text-4xl font-black leading-[1.06] text-ink sm:text-5xl xl:text-6xl">
                   Crafted
@@ -141,14 +142,14 @@ export default function HomePage() {
                 </p>
               </Reveal>
             </div>
-            <Reveal delay={100} className="flex justify-center lg:order-1 lg:justify-start">
+            <Reveal delay={100} className="pointer-events-none flex justify-center lg:absolute lg:inset-y-0 lg:right-0 lg:z-0 lg:items-center lg:justify-end">
               <ParallaxLayer speed={0.03}>
                 <Image
-                  src="/image-story/img2.png"
-                  alt="A bronze dragon and prayer bell on a carved temple roof, with snow peaks and Kathmandu's temples behind"
-                  width={1086}
-                  height={1448}
-                  className="h-[60vh] max-h-[520px] w-auto sm:h-[76vh] sm:max-h-[740px]"
+                  src="/image-story/prayer-wheel.png"
+                  alt="A watercolor of a brass Nepali prayer wheel in a carved wooden shrine, strung with weathered prayer flags"
+                  width={1122}
+                  height={1402}
+                  className="h-[60vh] max-h-[520px] w-auto sm:h-[76vh] sm:max-h-[740px] lg:h-[96vh] lg:max-h-[1010px]"
                 />
               </ParallaxLayer>
             </Reveal>
@@ -253,6 +254,15 @@ export default function HomePage() {
         {/* ═══════ BEGIN ═══════ */}
         <section className="py-28 sm:py-40">
           <div className="container-site text-center">
+            <Reveal className="mb-10 flex justify-center sm:mb-12">
+              <Image
+                src="/image-story/begin-story.png"
+                alt="A lone trekker beneath a line of prayer flags, watching the sun rise over the Himalaya"
+                width={1122}
+                height={1402}
+                className="h-auto w-full max-w-xl"
+              />
+            </Reveal>
             <Reveal>
               <h2 className="mx-auto max-w-3xl font-display text-4xl font-black leading-[1.06] text-ink sm:text-6xl">
                 Let&rsquo;s begin

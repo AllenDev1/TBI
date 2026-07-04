@@ -9,32 +9,40 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Warm paper background — the canvas of the story
+        // Warm paper — the canvas of the story (never clinical white)
         paper: {
-          DEFAULT: '#FAF6EF',
-          warm: '#F5EFE3',
-          deep: '#EFE7D7',
+          DEFAULT: '#FBF9F5',
+          warm: '#F4EEE3',
+          deep: '#EBE2D2',
         },
-        // Deep Himalayan night ink for text
+        // Warm Himalayan-night ink — softened, never pure black
         ink: {
-          DEFAULT: '#20303C',
-          soft: '#48606F',
-          faint: '#7A8B96',
+          DEFAULT: '#22303A',
+          soft: '#55656F',
+          faint: '#8B897F',
         },
-        // Brand orange — the sunrise over the peaks
+        // The single warm accent — laligurans madder (Nepal's rhododendron).
+        // Used as punctuation: one accent moment per screen.
+        madder: {
+          DEFAULT: '#A62B44',
+          bright: '#C0374F',
+          deep: '#8B2038',
+          faint: '#F6E9EC',
+        },
+        // Legacy accent names kept as aliases so existing markup stays valid —
+        // both now resolve to the one madder accent (one-accent discipline).
         sunrise: {
-          DEFAULT: '#F97316',
-          bright: '#FB923C',
-          deep: '#C2570C',
-          faint: '#FFF1E5',
+          DEFAULT: '#A62B44',
+          bright: '#C0374F',
+          deep: '#8B2038',
+          faint: '#F6E9EC',
         },
-        // Laligurans — Nepal's national flower (rhododendron)
         laligurans: {
-          DEFAULT: '#C9354E',
-          deep: '#9E2440',
-          faint: '#FBEAED',
+          DEFAULT: '#A62B44',
+          deep: '#8B2038',
+          faint: '#F6E9EC',
         },
-        // Himal — cool mountain blues
+        // Supporting tones — illustration & storytelling only, never UI.
         himal: {
           DEFAULT: '#5C7387',
           mist: '#B9C7D2',

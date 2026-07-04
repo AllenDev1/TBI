@@ -1,154 +1,161 @@
-# The Brilliant Ideas - Digital Agency Website
+# The Brilliant Ideas — Digital Agency Website
 
-A modern, premium creative agency website built with Next.js, TypeScript, and Tailwind CSS, featuring an orangy glassmorphism aesthetic.
+The marketing site for **The Brilliant Ideas**, a digital agency from Nepal building
+websites, mobile apps, brands, and software products. Built with Next.js, TypeScript,
+and Tailwind CSS around a "Himalayan storytelling" aesthetic — a warm paper canvas,
+hand-drawn Nepali artwork, and gentle scroll-driven motion.
 
 ## Features
 
-✨ **Modern Design**
-- Orangy glassmorphism/liquid glass aesthetic
-- Warm dark gradient background
-- Smooth animations and transitions
-- Responsive mobile-first design
+🎨 **Design & storytelling**
+- Light "paper" canvas with Himalayan-ink text and a sunrise-orange / laligurans (rhododendron) accent palette
+- Hand-drawn SVG artwork of Nepali motifs — the danphe bird, a one-horned rhino, mountain ridges
+- Scroll-driven storytelling: a swaying lantern, a silk-road journey trail, parallax layers, and reveal-on-scroll sections
+- `prefers-reduced-motion` respected throughout
 
-🎨 **Pages Included**
-- **Home** - Hero, services, featured work, process, testimonials, and CTA
-- **Work** - Portfolio showcase with filterable project cards
-- **Services** - Detailed service offerings with process breakdown
-- **About** - Team, values, stats, and company story
-- **Contact** - Contact form with validation and contact information
+🖼️ **Pages**
+- **Home** — hero, the journey, the craft, selected work, the crew, and a closing CTA
+- **Work** — portfolio listing, with a dynamic `work/[slug]` detail page per project
+- **Services** — service offerings and how-we-work process
+- **About** — team, values, and company story
+- **Contact** — validated contact form with reCAPTCHA and budget/service pickers
+- **Privacy**, **Terms**, and a custom **404**
 
-🛠️ **Technical Features**
-- Next.js 15+ with App Router
-- TypeScript for type safety
-- Tailwind CSS for styling
-- Reusable components (Button, GlassCard, Navbar, Footer, etc.)
-- Semantic HTML and accessibility features
-- SEO optimized
+🛠️ **Technical**
+- **Next.js 16** (App Router) + **React 19** + **TypeScript**
+- **Tailwind CSS 3** with a custom theme (`tailwind.config.ts`)
+- **Lenis** smooth scrolling and **Three.js** animated hero starfield (lazy-loaded)
+- **Fraunces** (display) + **Inter** (body) via `next/font`
+- SEO: `sitemap.ts`, `robots.ts`, JSON-LD Organization + WebSite schema, OpenGraph & Twitter cards
+- Google Analytics + Microsoft Clarity, Google reCAPTCHA v2, `axios`-based form submission
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ installed
-- npm or yarn package manager
+- Node.js 18+
+- npm
 
 ### Installation
 
-1. Navigate to the project directory:
 ```bash
 cd the-brilliant-ideas
-```
-
-2. Install dependencies:
-```bash
 npm install
 ```
 
-3. Run the development server:
+### Environment variables
+
+Copy the example env file and fill in your values:
+
+```bash
+cp .env.local.example .env.local
+```
+
+| Variable | Purpose |
+| --- | --- |
+| `NEXT_PUBLIC_API_URL` | Base URL of the backend API that receives contact-form submissions (`POST {API_URL}/tbi-contact`) |
+| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` | Google reCAPTCHA v2 site key for the contact form |
+
+### Development
+
 ```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+Open [http://localhost:3000](http://localhost:3000).
+
+### Other scripts
+
+```bash
+npm run build   # production build
+npm start       # serve the production build
+npm run lint    # run ESLint (next lint)
+```
 
 ## Project Structure
 
 ```
 the-brilliant-ideas/
-├── app/                    # Next.js app directory
-│   ├── about/             # About page
-│   ├── contact/           # Contact page with form
-│   ├── services/          # Services page
-│   ├── work/              # Portfolio page
-│   ├── globals.css        # Global styles and glassmorphism utilities
-│   ├── layout.tsx         # Root layout
-│   └── page.tsx           # Home page
-├── components/            # Reusable components
-│   ├── Button.tsx         # Button component (primary, glass, outline)
-│   ├── Footer.tsx         # Footer with links
-│   ├── GlassCard.tsx      # Glassmorphism card component
-│   ├── Navbar.tsx         # Navigation bar
-│   ├── ProjectCard.tsx    # Project showcase card
-│   ├── SectionHeading.tsx # Section heading component
-│   └── TestimonialCard.tsx# Testimonial card
-├── public/                # Static assets
-├── next.config.ts         # Next.js configuration
-├── tailwind.config.ts     # Tailwind CSS configuration
-└── tsconfig.json          # TypeScript configuration
+├── app/                    # Next.js App Router
+│   ├── about/              # About page
+│   ├── contact/            # Contact page
+│   ├── services/           # Services page
+│   ├── work/               # Portfolio listing
+│   │   └── [slug]/         # Dynamic project detail page
+│   ├── privacy/            # Privacy policy
+│   ├── terms/              # Terms
+│   ├── globals.css         # Global styles + utilities
+│   ├── layout.tsx          # Root layout (fonts, metadata, schema, analytics)
+│   ├── page.tsx            # Home page
+│   ├── not-found.tsx       # Custom 404
+│   ├── sitemap.ts          # Generated sitemap
+│   └── robots.ts           # Generated robots.txt
+├── components/             # Reusable components
+│   ├── Navbar.tsx          # Navigation bar
+│   ├── Footer.tsx          # Footer with links & social
+│   ├── ContactForm.tsx     # Validated contact form + reCAPTCHA
+│   ├── HeroStars.tsx       # Three.js starfield
+│   ├── HeroStarsLazy.tsx   # Lazy loader for the starfield
+│   ├── JourneyTrail.tsx    # SVG journey/trail illustration
+│   ├── NepalArt.tsx        # Hand-drawn SVG art (Danphe, Rhino, Ridge…)
+│   ├── StoryScene.tsx      # Scroll storytelling scene
+│   ├── ParallaxLayer.tsx   # Parallax wrapper
+│   ├── Reveal.tsx          # Reveal-on-scroll wrapper
+│   ├── TiltCard.tsx        # Pointer-tilt card
+│   └── SmoothScroll.tsx    # Lenis smooth scroll setup
+├── lib/                    # Content & config (edit these to change copy)
+│   ├── site.ts             # Site metadata, contact info, services
+│   ├── projects.ts         # Portfolio projects
+│   └── team.ts             # Team members
+├── public/                 # Static assets (images, artwork, works, team…)
+├── next.config.ts
+├── tailwind.config.ts
+└── tsconfig.json
 ```
 
 ## Customization
 
-### Colors
-
-The orange accent colors are defined in `tailwind.config.ts`:
-- Primary: `#F97316`
-- Glow: `#FDBA74`
-
-The dark background gradients are defined in CSS variables in `app/globals.css`:
-- `--bg-gradient-start: #120E0B`
-- `--bg-gradient-mid: #1C140E`
-- `--bg-gradient-end: #0F0A07`
-
-### Components
-
-All reusable components are in the `components/` directory:
-- **Button** - Three variants: primary (orange), glass, and outline
-- **GlassCard** - Glassmorphism effect with optional hover animation
-- **Navbar** - Responsive navigation with mobile menu
-- **Footer** - Footer with links and social media
-- **ProjectCard** - Card for portfolio items
-- **TestimonialCard** - Card for client testimonials
-- **SectionHeading** - Consistent section headings
-
 ### Content
 
-Replace the placeholder content in each page:
-1. Update company information in `components/Footer.tsx`
-2. Replace project images and descriptions in portfolio pages
-3. Update team members in `app/about/page.tsx`
-4. Customize service offerings in `app/services/page.tsx`
-5. Update contact information in `app/contact/page.tsx`
+Most copy lives in `lib/` — no need to touch page markup for routine updates:
+- **Company info, contact details, and service list** → `lib/site.ts`
+- **Portfolio projects** (title, images, links, tags) → `lib/projects.ts`
+- **Team members** → `lib/team.ts`
+
+### Theme
+
+Colors, fonts, and animations are defined in `tailwind.config.ts`. The palette is named
+after the concept:
+
+- `paper` — the light canvas background (`DEFAULT` / `warm` / `deep`)
+- `ink` — Himalayan-night text (`DEFAULT` / `soft` / `faint`)
+- `sunrise` — brand orange (`#F97316` and variants)
+- `laligurans` — rhododendron red, Nepal's national flower
+- `himal` — cool mountain blues · `forest` — Terai greens
+
+Global utilities and base styles (button classes, section helpers, image glow) live in
+`app/globals.css`.
 
 ### Images
 
-The project uses Unsplash placeholder images. Replace them with your own:
-1. Add images to the `public/` directory
-2. Update image paths in components and pages
-3. Or use a CMS/CDN for dynamic image management
-
-## Build for Production
-
-```bash
-npm run build
-npm start
-```
+Static assets live under `public/` — `works/` for portfolio media, `team/` for headshots,
+`image-story/` for the illustrated scenes. Update the paths referenced in `lib/projects.ts`
+and `lib/team.ts` when you add new ones.
 
 ## Deployment
 
-This project can be deployed to:
-- **Vercel** (recommended for Next.js)
-- **Netlify**
-- **AWS Amplify**
-- Any Node.js hosting provider
+Optimized for **Vercel** (recommended for Next.js), but deployable to any Node.js host
+(Netlify, AWS Amplify, etc.).
 
-### Vercel Deployment
-
-1. Push your code to GitHub
-2. Import project in Vercel
-3. Deploy with default settings
+1. Push to GitHub
+2. Import the project in Vercel
+3. Add the environment variables above
+4. Deploy
 
 ## Browser Support
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## License
-
-This project is created for The Brilliant Ideas digital agency.
+Latest Chrome, Firefox, Safari, and Edge.
 
 ## Contact
 
-For questions or support, reach out at hello@thebrilliantideas.com
+For questions, reach out at `info@thebrilliantideas.com`.

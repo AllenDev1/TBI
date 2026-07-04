@@ -55,15 +55,15 @@ export default function WorkPage() {
         </section>
 
         {/* Projects */}
-        <section className="bg-himal-snow pb-20">
-          <Ridge fill="#EEF3F7" className="-mt-px h-14 -translate-y-full sm:h-20" />
+        <section className="bg-paper-warm pb-20">
+          <Ridge fill="#F4EEE3" className="-mt-px h-14 -translate-y-full sm:h-20" />
           <div className="container-site space-y-10 pt-14">
             {PROJECTS.map((project, i) => (
               <Reveal key={project.slug} as="article">
                 <TiltCard max={3} scale={1.005}>
                 <Link
                   href={`/work/${project.slug}`}
-                  className={`group grid items-center gap-8 rounded-3xl bg-white p-6 shadow-[0_10px_36px_rgba(32,48,60,0.06)] transition-all duration-300 hover:shadow-[0_18px_50px_rgba(32,48,60,0.12)] sm:p-9 lg:grid-cols-2 lg:gap-14 ${
+                  className={`group grid items-center gap-8 rounded-3xl border border-ink/10 bg-paper p-6 transition-all duration-300 hover:shadow-[0_16px_40px_rgba(34,48,58,0.10)] sm:p-9 lg:grid-cols-2 lg:gap-14 ${
                     i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''
                   }`}
                 >

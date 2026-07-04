@@ -170,7 +170,7 @@ export default function JourneyTrail() {
           <path
             d={d}
             fill="none"
-            stroke="#FAF6EF"
+            stroke="#FFFFFF"
             strokeOpacity="0.45"
             strokeWidth="3"
             strokeDasharray="1 14"
@@ -190,7 +190,7 @@ export default function JourneyTrail() {
           {/* milestone stones at each bend */}
           {WAYPOINTS.slice(1, -1).map(([fx, fy], i) => (
             <g key={i}>
-              <circle cx={fx * w} cy={fy * h} r="10" fill="#FAF6EF" stroke="#F97316" strokeWidth="3.5" />
+              <circle cx={fx * w} cy={fy * h} r="10" fill="#FFFFFF" stroke="#F97316" strokeWidth="3.5" />
               <circle cx={fx * w} cy={fy * h} r="3" fill="#C2570C" />
             </g>
           ))}
@@ -199,7 +199,7 @@ export default function JourneyTrail() {
           <g transform={`translate(${(0.5 * w).toFixed(1)}, ${(0.975 * h).toFixed(1)})`}>
             <line x1="0" y1="0" x2="0" y2="-48" stroke="#5B4632" strokeWidth="4" strokeLinecap="round" />
             <path d="M2 -48 L 36 -39 L 2 -29 Z" fill="#C9354E" />
-            <circle cx="0" cy="0" r="7" fill="#F97316" stroke="#FAF6EF" strokeWidth="3" />
+            <circle cx="0" cy="0" r="7" fill="#F97316" stroke="#FFFFFF" strokeWidth="3" />
           </g>
 
           {/* the danphe rides the trail */}
@@ -213,7 +213,7 @@ export default function JourneyTrail() {
               <path d="M38 30 C 48 24, 60 24, 66 29 C 58 27, 46 28, 38 30 Z" fill="#2E9E7E" />
               <circle cx="74" cy="28" r="6.5" fill="#164C6F" />
               <path d="M76 22 C 78 17, 82 15, 84 16 C 81 18, 80 21, 79 23 Z" fill="#2E9E7E" />
-              <circle cx="76.5" cy="27" r="1.2" fill="#FAF6EF" />
+              <circle cx="76.5" cy="27" r="1.2" fill="#FFFFFF" />
               <path d="M80 29 L 87 31 L 80 32.5 Z" fill="#C2570C" />
               <path d="M32 36 C 20 30, 10 30, 2 36 C 12 38, 20 40, 30 41 Z" fill="#B4551F" />
               <path d="M33 40 C 22 38, 12 40, 6 46 C 16 46, 24 45, 32 44 Z" fill="#8F3E14" />

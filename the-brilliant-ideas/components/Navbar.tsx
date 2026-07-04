@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { PrayerFlagStrip } from '@/components/NepalArt';
 
 const LINKS = [
   { href: '/', label: 'Home' },
@@ -35,7 +34,6 @@ export default function Navbar({ theme = 'light' }: { theme?: 'light' | 'dark' }
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      <PrayerFlagStrip />
       <nav
         className={`transition-all duration-300 ${
           scrolled || open ? 'bg-paper/95 shadow-[0_2px_20px_rgba(32,48,60,0.08)]' : 'bg-transparent'

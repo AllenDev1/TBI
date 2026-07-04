@@ -23,6 +23,20 @@
   p {
     text-wrap: pretty;
   }
+
+  /* Visible keyboard focus — madder ring on the warm ground */
+  :focus-visible {
+    outline: 2px solid #A62B44;
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  /* Inputs carry their own focus treatment; don't double up */
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: none;
+  }
 }
 
 @layer components {
@@ -40,12 +54,13 @@
     @apply block h-px w-10 bg-sunrise;
   }
 
+  /* Flat, quiet, tactile — no glow. Fill is reserved for the primary action. */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-sunrise px-7 py-3.5 font-body text-base font-semibold text-white shadow-[0_4px_14px_rgba(249,115,22,0.35)] transition-all duration-300 hover:bg-sunrise-deep hover:shadow-[0_6px_20px_rgba(249,115,22,0.45)] active:scale-95;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-madder px-7 py-3.5 font-body text-base font-semibold text-paper transition-colors duration-300 hover:bg-madder-deep active:scale-[0.98];
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-ink/15 bg-transparent px-7 py-3.5 font-body text-base font-semibold text-ink transition-all duration-300 hover:border-sunrise hover:text-sunrise-deep active:scale-95;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink/20 bg-transparent px-7 py-3.5 font-body text-base font-semibold text-ink transition-colors duration-300 hover:border-ink active:scale-[0.98];
   }
 
   /* Scroll reveal (driven by components/Reveal.tsx) */
@@ -77,7 +92,7 @@
     content: '';
     position: absolute;
     inset: -2.5rem;
-    background: radial-gradient(ellipse at center, rgba(250, 246, 239, 0.96) 45%, rgba(250, 246, 239, 0) 75%);
+    background: radial-gradient(ellipse at center, rgba(251, 249, 245, 0.96) 45%, rgba(251, 249, 245, 0) 75%);
     z-index: -1;
   }
 

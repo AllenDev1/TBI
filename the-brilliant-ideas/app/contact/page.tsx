@@ -85,11 +85,11 @@ export default function ContactPage() {
         </section>
 
         {/* Form + info */}
-        <section className="bg-himal-snow pb-20">
-          <Ridge fill="#EEF3F7" className="-mt-px h-14 -translate-y-full sm:h-20" />
+        <section className="bg-paper-warm pb-20">
+          <Ridge fill="#F4EEE3" className="-mt-px h-14 -translate-y-full sm:h-20" />
           <div className="container-site grid gap-10 pt-14 lg:grid-cols-[1.5fr_1fr]">
             <Reveal>
-              <div className="rounded-3xl bg-white p-7 shadow-[0_10px_36px_rgba(32,48,60,0.06)] sm:p-10">
+              <div className="rounded-3xl border border-ink/10 bg-paper p-7 sm:p-10">
                 <h2 className="font-display text-2xl font-bold text-ink">Send us a message</h2>
                 <p className="mt-1.5 text-ink-soft">We reply within one business day.</p>
                 <div className="mt-7">
@@ -101,13 +101,13 @@ export default function ContactPage() {
             <Reveal delay={140}>
               <div className="space-y-5">
                 <Image
-                  src="/image-story/img6.png"
-                  alt="A watercolor Buddha meditating beneath a Bodhi tree — Shanti: peace is not outside, it is within you"
-                  width={1054}
-                  height={1492}
+                  src="/image-story/lantern-doorway.png"
+                  alt="A brass lantern glowing beside an open, carved wooden doorway at dusk — an invitation inward"
+                  width={1122}
+                  height={1402}
                   className="mx-auto h-auto w-full max-w-[380px]"
                 />
-                <div className="rounded-3xl bg-white p-7 shadow-[0_6px_24px_rgba(32,48,60,0.06)]">
+                <div className="rounded-3xl border border-ink/10 bg-paper p-7">
                   <h2 className="font-display text-lg font-bold text-ink">Reach us directly</h2>
                   <ul className="mt-4 space-y-3 text-ink-soft">
                     <li>
@@ -124,7 +124,7 @@ export default function ContactPage() {
                 </div>
 
                 {SITE.offices.map((office) => (
-                  <div key={office.city} className="rounded-3xl bg-white p-7 shadow-[0_6px_24px_rgba(32,48,60,0.06)]">
+                  <div key={office.city} className="rounded-3xl border border-ink/10 bg-paper p-7">
                     <h2 className="font-display text-lg font-bold text-ink">{office.city} Basecamp</h2>
                     <p className="mt-2 text-ink-soft">
                       {office.address}, {office.city}, {office.country}
@@ -132,7 +132,7 @@ export default function ContactPage() {
                   </div>
                 ))}
 
-                <div className="rounded-3xl bg-forest-faint p-7">
+                <div className="rounded-3xl border border-ink/10 bg-paper p-7">
                   <h2 className="font-display text-lg font-bold text-ink">Office hours</h2>
                   <p className="mt-2 text-ink-soft">
                     Sunday – Friday, 10:00 AM – 6:00 PM (NPT)

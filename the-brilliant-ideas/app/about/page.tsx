@@ -85,8 +85,8 @@ export default function AboutPage() {
         </section>
 
         {/* Story */}
-        <section className="bg-forest-faint pb-20">
-          <Ridge fill="#E8F2EC" className="-mt-px h-14 -translate-y-full sm:h-20" />
+        <section className="bg-paper-warm pb-20">
+          <Ridge fill="#F4EEE3" className="-mt-px h-14 -translate-y-full sm:h-20" />
           <div className="container-site grid items-center gap-12 pt-14 lg:grid-cols-2 lg:gap-20">
             <Reveal>
               <h2 className="font-display text-3xl font-black text-ink sm:text-4xl">
@@ -111,11 +111,11 @@ export default function AboutPage() {
             </Reveal>
             <Reveal delay={150}>
               <Image
-                src="/image-story/img5.png"
-                alt="A one-horned rhino of Chitwan carrying the temples, stupas, waterfalls, and mountains of Nepal on its back"
-                width={1122}
-                height={1402}
-                className="mx-auto h-auto w-full max-w-[540px]"
+                src="/image-story/guanyin-hand.png"
+                alt="A serene figure cradled within a hand forming a mudra — a fine ink engraving of stillness and craft"
+                width={736}
+                height={1217}
+                className="mx-auto h-auto w-full max-w-[420px]"
               />
             </Reveal>
           </div>
@@ -123,7 +123,7 @@ export default function AboutPage() {
 
         {/* Values */}
         <section className="bg-paper pb-20">
-          <Ridge fill="#FAF6EF" className="-mt-px h-14 -translate-y-full sm:h-20" />
+          <Ridge fill="#FBF9F5" className="-mt-px h-14 -translate-y-full sm:h-20" />
           <div className="container-site pt-14">
             <Reveal className="max-w-2xl">
               <p className="chapter">What We Live By</p>
@@ -134,7 +134,7 @@ export default function AboutPage() {
             <div className="mt-10 grid gap-6 md:grid-cols-2">
               {VALUES.map((value, i) => (
                 <Reveal key={value.title} delay={i * 90} as="article">
-                  <div className="h-full rounded-3xl border border-ink/5 bg-white p-7 shadow-[0_6px_24px_rgba(32,48,60,0.05)]">
+                  <div className="h-full rounded-3xl border border-ink/10 bg-paper p-7">
                     <p className="text-xs font-bold uppercase tracking-[0.2em] text-laligurans">
                       {value.subtitle}
                     </p>
@@ -148,8 +148,8 @@ export default function AboutPage() {
         </section>
 
         {/* Team */}
-        <section className="bg-himal-snow pb-20">
-          <Ridge fill="#EEF3F7" className="-mt-px h-14 -translate-y-full sm:h-20" />
+        <section className="bg-paper-warm pb-20">
+          <Ridge fill="#F4EEE3" className="-mt-px h-14 -translate-y-full sm:h-20" />
           <div className="container-site pt-14">
             <Reveal className="max-w-2xl">
               <p className="chapter">The Basecamp Crew</p>
@@ -165,7 +165,7 @@ export default function AboutPage() {
               {TEAM.map((member, i) => (
                 <Reveal key={member.name} delay={(i % 3) * 90} as="figure" className="h-full">
                   <TiltCard max={8} className="h-full">
-                  <div className="group h-full overflow-hidden rounded-3xl bg-white shadow-[0_6px_24px_rgba(32,48,60,0.06)] transition-shadow duration-300 hover:shadow-[0_20px_48px_rgba(32,48,60,0.14)]">
+                  <div className="group h-full overflow-hidden rounded-3xl border border-ink/10 bg-paper transition-shadow duration-300 hover:shadow-[0_16px_40px_rgba(34,48,58,0.10)]">
                     <div className="relative aspect-[4/3.4] overflow-hidden">
                       <Image
                         src={member.image}
@@ -217,7 +217,7 @@ export default function AboutPage() {
 
             {/* Scooby, the mascot */}
             <Reveal className="mt-12">
-              <div className="mx-auto flex max-w-2xl flex-col items-center gap-6 rounded-3xl bg-white p-8 text-center shadow-[0_10px_36px_rgba(32,48,60,0.08)] sm:flex-row sm:text-left">
+              <div className="mx-auto flex max-w-2xl flex-col items-center gap-6 rounded-3xl border border-ink/10 bg-paper p-8 text-center sm:flex-row sm:text-left">
                 <div className="relative h-36 w-36 flex-shrink-0 overflow-hidden rounded-3xl">
                   <Image
                     src={MASCOT.image}

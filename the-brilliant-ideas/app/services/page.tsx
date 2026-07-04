@@ -80,31 +80,37 @@ export default function ServicesPage() {
             </div>
             <Reveal delay={150} className="flex justify-center lg:justify-end">
               <Image
-                src="/image-story/img4.png"
-                alt="A danphe in flight, its wings carrying the stupas, temples, and mountains of Nepal"
-                width={1114}
-                height={1412}
+                src="/image-story/danphe-flight.png"
+                alt="A danphe, the Himalayan monal, in flight with its wings spread"
+                width={1536}
+                height={1024}
                 priority
-                className="h-auto w-full max-w-[460px]"
+                className="h-auto w-full max-w-[520px]"
               />
             </Reveal>
           </div>
         </section>
 
         {/* Services */}
-        <section className="bg-himal-snow pb-20">
-          <Ridge fill="#EEF3F7" className="-mt-px h-14 -translate-y-full sm:h-20" />
+        <section className="bg-paper-warm pb-20">
+          <Ridge fill="#F4EEE3" className="-mt-px h-14 -translate-y-full sm:h-20" />
           <div className="container-site grid gap-6 pt-14 sm:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((service, i) => (
               <Reveal key={service.slug} delay={(i % 3) * 90} as="article" className="h-full">
-                <TiltCard max={10} className="h-full">
-                <div className="flex h-full flex-col rounded-3xl border border-ink/5 bg-white p-8 shadow-[0_6px_24px_rgba(32,48,60,0.05)] transition-shadow duration-300 hover:shadow-[0_20px_48px_rgba(32,48,60,0.14)]">
-                  <span className="font-display text-4xl font-black text-sunrise/25">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <h2 className="mt-3 font-display text-2xl font-bold text-ink">{service.title}</h2>
+                <TiltCard max={6} className="h-full">
+                <div className="flex h-full flex-col rounded-3xl border border-ink/10 bg-paper p-8">
+                  <div className="mb-5 flex h-32 items-end justify-center">
+                    <Image
+                      src={service.image}
+                      alt={service.alt}
+                      width={320}
+                      height={320}
+                      className="h-full w-auto object-contain"
+                    />
+                  </div>
+                  <h2 className="font-display text-2xl font-bold text-ink">{service.title}</h2>
                   <p className="mt-3 flex-1 leading-relaxed text-ink-soft">{service.short}</p>
-                  <p className="mt-5 border-t border-dashed border-ink/10 pt-4 text-sm italic text-ink-faint">
+                  <p className="mt-5 border-t border-ink/10 pt-4 text-sm italic text-ink-faint">
                     {service.story}
                   </p>
                 </div>
@@ -116,7 +122,7 @@ export default function ServicesPage() {
 
         {/* Process */}
         <section className="bg-paper pb-20">
-          <Ridge fill="#FAF6EF" className="-mt-px h-14 -translate-y-full sm:h-20" />
+          <Ridge fill="#FBF9F5" className="-mt-px h-14 -translate-y-full sm:h-20" />
           <div className="container-site pt-14">
             <Reveal className="max-w-2xl">
               <p className="chapter">How We Work</p>
