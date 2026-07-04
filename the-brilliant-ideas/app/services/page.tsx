@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Reveal from '@/components/Reveal';
-import TiltCard from '@/components/TiltCard';
 import { Ridge, PrayerFlagLine } from '@/components/NepalArt';
 import { SITE, SERVICES } from '@/lib/site';
 
@@ -94,29 +93,52 @@ export default function ServicesPage() {
         {/* Services */}
         <section className="bg-paper-warm pb-20">
           <Ridge fill="#F4EEE3" className="-mt-px h-14 -translate-y-full sm:h-20" />
-          <div className="container-site grid gap-6 pt-14 sm:grid-cols-2 lg:grid-cols-3">
-            {SERVICES.map((service, i) => (
-              <Reveal key={service.slug} delay={(i % 3) * 90} as="article" className="h-full">
-                <TiltCard max={6} className="h-full">
-                <div className="flex h-full flex-col rounded-3xl border border-ink/10 bg-paper p-8">
-                  <div className="mb-5 flex h-32 items-end justify-center">
-                    <Image
-                      src={service.image}
-                      alt={service.alt}
-                      width={320}
-                      height={320}
-                      className="h-full w-auto object-contain"
-                    />
+          <div className="container-site space-y-16 pt-14 sm:space-y-24">
+            {SERVICES.map((service, i) => {
+              const flip = i % 2 === 1;
+              return (
+                <Reveal
+                  key={service.slug}
+                  as="article"
+                  className="grid items-center gap-8 sm:grid-cols-2 sm:gap-14"
+                >
+                  <div
+                    className={`flex justify-center ${
+                      flip ? 'sm:order-2 sm:justify-start' : 'sm:justify-end'
+                    }`}
+                  >
+                    <div className="relative aspect-[4/5] w-full max-w-[280px] sm:max-w-[380px] lg:max-w-[440px]">
+                      <Image
+                        src={service.image}
+                        alt={service.alt}
+                        fill
+                        className="object-contain object-center"
+                        sizes="(max-width: 640px) 80vw, (max-width: 1024px) 40vw, 440px"
+                      />
+                    </div>
                   </div>
-                  <h2 className="font-display text-2xl font-bold text-ink">{service.title}</h2>
-                  <p className="mt-3 flex-1 leading-relaxed text-ink-soft">{service.short}</p>
-                  <p className="mt-5 border-t border-ink/10 pt-4 text-sm italic text-ink-faint">
-                    {service.story}
-                  </p>
-                </div>
-                </TiltCard>
-              </Reveal>
-            ))}
+                  <div className={`text-center sm:text-left ${flip ? 'sm:order-1 sm:text-right' : ''}`}>
+                    <h2 className="font-display text-3xl font-bold text-ink sm:text-4xl">
+                      {service.title}
+                    </h2>
+                    <p
+                      className={`mx-auto mt-4 max-w-md text-lg leading-relaxed text-ink-soft ${
+                        flip ? 'sm:ml-auto sm:mr-0' : 'sm:mx-0'
+                      }`}
+                    >
+                      {service.short}
+                    </p>
+                    <p
+                      className={`mx-auto mt-4 max-w-md text-sm italic text-ink-faint ${
+                        flip ? 'sm:ml-auto sm:mr-0' : 'sm:mx-0'
+                      }`}
+                    >
+                      {service.story}
+                    </p>
+                  </div>
+                </Reveal>
+              );
+            })}
           </div>
         </section>
 
@@ -135,18 +157,45 @@ export default function ServicesPage() {
               </p>
             </Reveal>
 
-            <ol className="relative mt-12 space-y-8 border-l-2 border-dashed border-sunrise/30 pl-8 sm:pl-10">
-              {PROCESS.map((phase, i) => (
-                <Reveal key={phase.step} delay={i * 80} as="li">
-                  <div className="relative">
-                    <span className="absolute -left-[46px] top-1 flex h-7 w-7 items-center justify-center rounded-full bg-sunrise text-xs font-bold text-white sm:-left-[54px]">
+            {/* The trek route — the silk trail runs down the centre,
+                the milestones make camp on alternating sides. */}
+            <ol className="mt-14 grid items-center gap-x-6 gap-y-10 md:grid-cols-[1fr_clamp(260px,32vw,440px)_1fr] md:gap-x-8 md:gap-y-4">
+              {/* the winding silk route */}
+              <li
+                className="hidden md:block md:h-full"
+                style={{ gridColumn: '2', gridRow: '1 / span 3' }}
+                aria-hidden="true"
+              >
+                <Image
+                  src="/image-story/img1.png"
+                  alt=""
+                  width={1023}
+                  height={1537}
+                  className="h-full w-full object-cover object-center"
+                />
+              </li>
+
+              {PROCESS.map((phase, i) => {
+                const left = i % 2 === 0;
+                return (
+                  <Reveal
+                    key={phase.step}
+                    delay={i * 60}
+                    as="li"
+                    className={`flex flex-col ${
+                      left
+                        ? 'md:col-start-1 md:items-end md:text-right'
+                        : 'md:col-start-3 md:items-start md:text-left'
+                    }`}
+                  >
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-madder font-display text-sm font-bold text-paper">
                       {i + 1}
                     </span>
-                    <h3 className="font-display text-xl font-bold text-ink">{phase.step}</h3>
-                    <p className="mt-1.5 max-w-2xl leading-relaxed text-ink-soft">{phase.text}</p>
-                  </div>
-                </Reveal>
-              ))}
+                    <h3 className="mt-3 font-display text-xl font-bold text-ink">{phase.step}</h3>
+                    <p className="mt-1.5 max-w-xs leading-relaxed text-ink-soft">{phase.text}</p>
+                  </Reveal>
+                );
+              })}
             </ol>
           </div>
         </section>

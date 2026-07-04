@@ -28,24 +28,28 @@ const VALUES = [
   {
     title: 'Steady as the Rhino',
     subtitle: 'Reliability',
+    image: '/image-story/img5.png',
     description:
       'The one-horned rhino of Chitwan moves with unstoppable purpose. So do we — deadlines kept, promises delivered, no surprises.',
   },
   {
     title: 'Bright as the Laligurans',
     subtitle: 'Creativity',
+    image: '/image-story/laligurans-bloom.png',
     description:
       'In spring, whole hillsides bloom red with rhododendron. Our work is made to stand out the same way — impossible to miss.',
   },
   {
     title: 'Bold as the Danphe',
     subtitle: 'Innovation',
+    image: '/image-story/danphe-nepal.png',
     description:
       'The Himalayan monal wears every colour without fear. We embrace new technologies and daring ideas just as freely.',
   },
   {
     title: 'Honest as the Mountains',
     subtitle: 'Integrity',
+    image: '/image-story/mountain-path.png',
     description:
       'The Himalayas do not pretend. We are transparent about scope, cost, and timelines — with our clients and with each other.',
   },
@@ -131,18 +135,46 @@ export default function AboutPage() {
                 Values borrowed from the land itself
               </h2>
             </Reveal>
-            <div className="mt-10 grid gap-6 md:grid-cols-2">
-              {VALUES.map((value, i) => (
-                <Reveal key={value.title} delay={i * 90} as="article">
-                  <div className="h-full rounded-3xl border border-ink/10 bg-paper p-7">
-                    <p className="text-xs font-bold uppercase tracking-[0.2em] text-laligurans">
-                      {value.subtitle}
-                    </p>
-                    <h3 className="mt-2 font-display text-2xl font-bold text-ink">{value.title}</h3>
-                    <p className="mt-3 leading-relaxed text-ink-soft">{value.description}</p>
-                  </div>
-                </Reveal>
-              ))}
+            <div className="mt-12 space-y-14 sm:space-y-20">
+              {VALUES.map((value, i) => {
+                const flip = i % 2 === 1;
+                return (
+                  <Reveal
+                    key={value.title}
+                    as="article"
+                    className="grid items-center gap-8 sm:grid-cols-2 sm:gap-12"
+                  >
+                    <div
+                      className={`flex justify-center ${
+                        flip ? 'sm:order-2 sm:justify-start' : 'sm:justify-end'
+                      }`}
+                    >
+                      <Image
+                        src={value.image}
+                        alt={value.title}
+                        width={1122}
+                        height={1402}
+                        className="h-auto w-full max-w-[340px] object-contain sm:max-w-[420px] lg:max-w-[480px]"
+                      />
+                    </div>
+                    <div className={`text-center sm:text-left ${flip ? 'sm:order-1 sm:text-right' : ''}`}>
+                      <p className="text-xs font-bold uppercase tracking-[0.2em] text-laligurans">
+                        {value.subtitle}
+                      </p>
+                      <h3 className="mt-2 font-display text-2xl font-bold text-ink sm:text-3xl">
+                        {value.title}
+                      </h3>
+                      <p
+                        className={`mx-auto mt-4 max-w-md leading-relaxed text-ink-soft ${
+                          flip ? 'sm:ml-auto sm:mr-0' : 'sm:mx-0'
+                        }`}
+                      >
+                        {value.description}
+                      </p>
+                    </div>
+                  </Reveal>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -151,15 +183,26 @@ export default function AboutPage() {
         <section className="bg-paper-warm pb-20">
           <Ridge fill="#F4EEE3" className="-mt-px h-14 -translate-y-full sm:h-20" />
           <div className="container-site pt-14">
-            <Reveal className="max-w-2xl">
-              <p className="chapter">The Basecamp Crew</p>
-              <h2 className="mt-4 font-display text-3xl font-black text-ink sm:text-4xl">
-                Meet the team
-              </h2>
-              <p className="mt-4 text-lg leading-relaxed text-ink-soft">
-                The designers, developers, and strategists who carry every project to its summit.
-              </p>
-            </Reveal>
+            <div className="grid items-center gap-8 lg:grid-cols-[1fr_1fr]">
+              <Reveal className="max-w-2xl">
+                <p className="chapter">The Basecamp Crew</p>
+                <h2 className="mt-4 font-display text-3xl font-black text-ink sm:text-4xl">
+                  Meet the team
+                </h2>
+                <p className="mt-4 text-lg leading-relaxed text-ink-soft">
+                  The designers, developers, and strategists who carry every project to its summit.
+                </p>
+              </Reveal>
+              <Reveal delay={120} className="flex justify-center lg:justify-end">
+                <Image
+                  src="/image-story/basecamp.png"
+                  alt="A small crew resting at a Himalayan basecamp — tents, a campfire, and prayer flags beneath misty peaks"
+                  width={1122}
+                  height={1402}
+                  className="h-auto w-full max-w-md"
+                />
+              </Reveal>
+            </div>
 
             <div className="mt-12 grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
               {TEAM.map((member, i) => (
