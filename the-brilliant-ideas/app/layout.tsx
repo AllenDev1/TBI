@@ -3,6 +3,7 @@ import { Fraunces, Inter } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
 import SmoothScroll from '@/components/SmoothScroll';
+import ScrollTop from '@/components/ScrollTop';
 import { SITE } from '@/lib/site';
 
 const fraunces = Fraunces({
@@ -20,7 +21,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: 'The Brilliant Ideas — Web, App & Software Agency in Nepal',
+    default: 'The Brilliant Ideas: Web, App & Software Agency in Nepal',
     template: '%s | The Brilliant Ideas',
   },
   description: SITE.description,
@@ -47,20 +48,20 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: SITE.url,
     siteName: SITE.name,
-    title: 'The Brilliant Ideas — Web, App & Software Agency in Nepal',
+    title: 'The Brilliant Ideas: Web, App & Software Agency in Nepal',
     description: SITE.description,
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'The Brilliant Ideas — Digital Agency from Nepal',
+        alt: 'The Brilliant Ideas, Digital Agency from Nepal',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'The Brilliant Ideas — Web, App & Software Agency in Nepal',
+    title: 'The Brilliant Ideas: Web, App & Software Agency in Nepal',
     description: SITE.description,
     creator: '@Allendev01',
     images: ['/og-image.jpg'],
@@ -94,7 +95,6 @@ const organizationSchema = {
   image: `${SITE.url}/og-image.jpg`,
   description: SITE.description,
   email: SITE.email,
-  telephone: SITE.phone,
   address: SITE.offices.map((office) => ({
     '@type': 'PostalAddress',
     addressLocality: office.city,
@@ -103,7 +103,6 @@ const organizationSchema = {
   })),
   contactPoint: {
     '@type': 'ContactPoint',
-    telephone: SITE.phone,
     email: SITE.email,
     contactType: 'customer service',
     availableLanguage: ['English', 'Nepali'],
@@ -141,6 +140,7 @@ export default function RootLayout({
       <body className={`${fraunces.variable} ${inter.variable} font-body`}>
         <SmoothScroll />
         {children}
+        <ScrollTop />
 
         {/* Google Analytics */}
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-BSN1533EQ4" strategy="afterInteractive" />

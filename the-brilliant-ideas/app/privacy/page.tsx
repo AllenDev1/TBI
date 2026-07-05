@@ -73,7 +73,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="font-display text-2xl font-bold text-ink">Contact</h2>
             <p className="mt-3">
-              Questions about this policy? Reach us at {SITE.email} or {SITE.phone}. Our offices are
+              Questions about this policy? Reach us at {SITE.email}. Our offices are
               in Biratnagar and Kathmandu, Nepal.
             </p>
           </section>

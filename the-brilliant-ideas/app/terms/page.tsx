@@ -31,8 +31,8 @@ export default function TermsPage() {
           <section>
             <h2 className="font-display text-2xl font-bold text-ink">Intellectual property</h2>
             <p className="mt-3">
-              All content on this site — including text, graphics, logos, illustrations, and
-              project imagery — is the property of The Brilliant Ideas or its clients and is
+              All content on this site, including text, graphics, logos, illustrations, and
+              project imagery, is the property of The Brilliant Ideas or its clients and is
               protected by applicable copyright and trademark law. You may not reproduce it without
               written permission.
             </p>

@@ -5,8 +5,6 @@ export const SITE = {
   description:
     'The Brilliant Ideas is a digital agency from Nepal building websites, mobile apps, brands, and software products. From Biratnagar and Kathmandu, we turn bold ideas into digital experiences that reach the summit.',
   email: 'info@thebrilliantideas.com',
-  phone: '+977 9814767895',
-  phoneHref: 'tel:+9779814767895',
   offices: [
     { city: 'Biratnagar', address: 'Hattkhola, Milanchok', country: 'Nepal' },
     { city: 'Kathmandu', address: 'Battishputtali, Rammandir Marga', country: 'Nepal' },
@@ -24,14 +22,14 @@ export const SERVICES = [
     slug: 'web-design-development',
     title: 'Web Design & Development',
     short: 'Fast, beautiful websites and web apps built with modern tools like Next.js and React.',
-    story: 'Every trek needs a trailhead. Your website is where every customer journey begins — we make sure it is unforgettable.',
+    story: 'Every trek needs a trailhead. Your website is where every customer journey begins, and we make sure it is unforgettable.',
     image: '/image-story/prayer-wheel.png',
     alt: 'A brass Nepali prayer wheel in a carved shrine, strung with prayer flags',
   },
   {
     slug: 'mobile-apps',
     title: 'Mobile App Development',
-    short: 'Native-quality Android and iOS apps — from chess games to social platforms.',
+    short: 'Native-quality Android and iOS apps, from chess games to social platforms.',
     story: 'Ideas that travel in every pocket, from the Terai plains to the high passes.',
     image: '/image-story/singing-bowl.png',
     alt: 'A brass singing bowl and mala beads held in cupped hands',
@@ -64,8 +62,8 @@ export const SERVICES = [
     slug: 'software-development',
     title: 'Custom Software',
     short: 'APIs, dashboards, e-commerce, and business systems built to scale.',
-    story: 'Strong foundations, like the mountains themselves — built to stand for ages.',
+    story: 'Strong foundations, like the mountains themselves, built to stand for ages.',
     image: '/image-story/temple-lion.png',
-    alt: 'A carved stone temple corbel — a guardian lion bracket',
+    alt: 'A carved stone temple corbel, a guardian lion bracket',
   },
 ];

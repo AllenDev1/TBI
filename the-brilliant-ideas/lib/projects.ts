@@ -25,7 +25,7 @@ export const PROJECTS: Project[] = [
     description:
       'A fully-featured chess game with online multiplayer, local play, and Bluetooth connectivity.',
     longDescription:
-      'The Brilliant Chess is our own product — a polished mobile chess experience built from the ground up. Play online against friends, pass-and-play locally, or connect over Bluetooth when there is no internet at all. Designed for everyone from casual players to club regulars.',
+      'The Brilliant Chess is our own product, a polished mobile chess experience built from the ground up. Play online against friends, pass-and-play locally, or connect over Bluetooth when there is no internet at all. Designed for everyone from casual players to club regulars.',
     image: '/works/chess/1.png',
     gallery: ['/works/chess/1.png', '/works/chess/2.png', '/works/chess/3.png'],
     tags: ['Mobile App', 'Game', 'Multiplayer'],
@@ -41,7 +41,7 @@ export const PROJECTS: Project[] = [
     description:
       'A platform offering free 4K/HD wallpapers, live backgrounds, and digital creative tools.',
     longDescription:
-      'PixeryHub brings free 4K and HD wallpapers, live backgrounds, and handy digital tools to a global audience — available on the web and as an Android app on the Play Store.',
+      'PixeryHub brings free 4K and HD wallpapers, live backgrounds, and handy digital tools to a global audience, available on the web and as an Android app on the Play Store.',
     image: '/works/pixeryhub/image1.png',
     gallery: [
       '/works/pixeryhub/image1.png',
@@ -62,7 +62,7 @@ export const PROJECTS: Project[] = [
     description:
       "Nepal's social media app designed to promote open dialogue and free expression.",
     longDescription:
-      'JESTHA is a social platform made for Nepal — a space for open dialogue, community, and free expression, built to handle real scale with a smooth mobile-first experience.',
+      'JESTHA is a social platform made for Nepal, a space for open dialogue, community, and free expression, built to handle real scale with a smooth mobile-first experience.',
     image: '/works/Jestha.png',
     gallery: ['/works/Jestha.png', '/works/j1.png', '/works/j2.png', '/works/jestha-m.png'],
     tags: ['Mobile App', 'Social Platform'],
@@ -77,7 +77,7 @@ export const PROJECTS: Project[] = [
     description:
       'An eCommerce platform offering a diverse marketplace for new and used products in Nepal.',
     longDescription:
-      'NepaliNest is a marketplace built for Nepali buyers and sellers — new and used products, simple listings, and a shopping experience designed around local needs.',
+      'NepaliNest is a marketplace built for Nepali buyers and sellers, with new and used products, simple listings, and a shopping experience designed around local needs.',
     image: '/works/nn/nn1.png',
     gallery: ['/works/nn/nn1.png', '/works/nn/nn2.png', '/works/nn/nn3.png', '/works/nn/nn4.png'],
     tags: ['E-commerce', 'Web App'],
@@ -92,7 +92,7 @@ export const PROJECTS: Project[] = [
     description:
       'A t-shirt design studio with immersive 3D visualization powered by Three.js.',
     longDescription:
-      'The Brilliant Canvas lets anyone design a t-shirt and see it in real time on an interactive 3D model — drag, rotate, recolor, and export, all in the browser.',
+      'The Brilliant Canvas lets anyone design a t-shirt and see it in real time on an interactive 3D model. Drag, rotate, recolor, and export, all in the browser.',
     image: '/works/tbc/tbc1.png',
     gallery: ['/works/tbc/tbc1.png', '/works/tbc/TBC2.png', '/works/tbc/tbc3.png', '/works/tbc/tbc4.png'],
     tags: ['3D Design', 'Web App'],

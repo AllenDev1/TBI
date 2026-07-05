@@ -11,12 +11,12 @@ import { SITE } from '@/lib/site';
 import { TEAM, MASCOT } from '@/lib/team';
 
 export const metadata: Metadata = {
-  title: 'About Us — Our Story & Team',
+  title: 'About Us: Our Story & Team',
   description:
-    'Meet The Brilliant Ideas — a digital agency from Biratnagar and Kathmandu, Nepal. Our story, our values, and the team of designers, developers, and strategists behind our work.',
+    'Meet The Brilliant Ideas, a digital agency from Biratnagar and Kathmandu, Nepal. Our story, our values, and the team of designers, developers, and strategists behind our work.',
   alternates: { canonical: `${SITE.url}/about` },
   openGraph: {
-    title: 'About The Brilliant Ideas — Digital Agency Team in Nepal',
+    title: 'About The Brilliant Ideas, Digital Agency Team in Nepal',
     description:
       'Our story, our values, and the team of designers, developers, and strategists behind The Brilliant Ideas.',
     url: `${SITE.url}/about`,
@@ -30,14 +30,14 @@ const VALUES = [
     subtitle: 'Reliability',
     image: '/image-story/img5.png',
     description:
-      'The one-horned rhino of Chitwan moves with unstoppable purpose. So do we — deadlines kept, promises delivered, no surprises.',
+      'The one-horned rhino of Chitwan moves with unstoppable purpose. So do we: deadlines kept, promises delivered, no surprises.',
   },
   {
     title: 'Bright as the Laligurans',
     subtitle: 'Creativity',
     image: '/image-story/laligurans-bloom.png',
     description:
-      'In spring, whole hillsides bloom red with rhododendron. Our work is made to stand out the same way — impossible to miss.',
+      'In spring, whole hillsides bloom red with rhododendron. Our work is made to stand out the same way, impossible to miss.',
   },
   {
     title: 'Bold as the Danphe',
@@ -51,7 +51,7 @@ const VALUES = [
     subtitle: 'Integrity',
     image: '/image-story/mountain-path.png',
     description:
-      'The Himalayas do not pretend. We are transparent about scope, cost, and timelines — with our clients and with each other.',
+      'The Himalayas do not pretend. We are transparent about scope, cost, and timelines, with our clients and with each other.',
   },
 ];
 
@@ -83,7 +83,7 @@ export default function AboutPage() {
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">
               The Brilliant Ideas began with a simple belief: world-class digital work can come
-              from anywhere — even from the foothills of the Himalayas. Especially from there.
+              from anywhere, even from the foothills of the Himalayas. Especially from there.
             </p>
           </Reveal>
         </section>
@@ -98,7 +98,7 @@ export default function AboutPage() {
               </h2>
               <div className="mt-6 space-y-4 text-lg leading-relaxed text-ink-soft">
                 <p>
-                  We started in Biratnagar — Hattkhola, Milanchok — and grew a second basecamp in
+                  We started in Biratnagar, in Hattkhola, Milanchok, and grew a second basecamp in
                   Kathmandu. From these two cities we serve clients across Nepal and beyond.
                 </p>
                 <p>
@@ -108,7 +108,7 @@ export default function AboutPage() {
                 </p>
                 <p>
                   Whether you are a startup taking your first step or an established business ready
-                  to scale, we treat your idea like our own — because partnerships, like
+                  to scale, we treat your idea like our own, because partnerships, like
                   friendships forged on a trail, last longest when both sides carry the load.
                 </p>
               </div>
@@ -116,7 +116,7 @@ export default function AboutPage() {
             <Reveal delay={150}>
               <Image
                 src="/image-story/guanyin-hand.png"
-                alt="A serene figure cradled within a hand forming a mudra — a fine ink engraving of stillness and craft"
+                alt="A serene figure cradled within a hand forming a mudra, a fine ink engraving of stillness and craft"
                 width={736}
                 height={1217}
                 className="mx-auto h-auto w-full max-w-[420px]"
@@ -196,7 +196,7 @@ export default function AboutPage() {
               <Reveal delay={120} className="flex justify-center lg:justify-end">
                 <Image
                   src="/image-story/basecamp.png"
-                  alt="A small crew resting at a Himalayan basecamp — tents, a campfire, and prayer flags beneath misty peaks"
+                  alt="A small crew resting at a Himalayan basecamp with tents, a campfire, and prayer flags beneath misty peaks"
                   width={1122}
                   height={1402}
                   className="h-auto w-full max-w-md"

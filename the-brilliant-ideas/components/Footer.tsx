@@ -36,20 +36,21 @@ const SOCIAL = [
   },
 ];
 
-export default function Footer() {
+export default function Footer({ closing = true }: { closing?: boolean }) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative mt-24">
-      {/* ═══ Closing band — a calm close ═══ */}
+    <footer className="relative">
+      {/* ═══ Closing band — a calm close (hidden on pages that already have a CTA) ═══ */}
+      {closing && (
       <div className="bg-paper-warm">
         <div className="container-site flex flex-col items-center py-16 text-center sm:py-20">
           <Image
-            src="/image-story/buddha.png"
+            src="/image-story/img6.png"
             alt="A watercolor Buddha meditating beneath a Bodhi tree"
-            width={738}
-            height={1254}
-            className="h-auto w-auto max-h-[280px] sm:max-h-[340px]"
+            width={1054}
+            height={1492}
+            className="h-auto w-auto max-h-[300px] sm:max-h-[380px]"
             style={{
               WebkitMaskImage:
                 'radial-gradient(ellipse 68% 76% at 50% 47%, black 42%, transparent 88%)',
@@ -60,7 +61,7 @@ export default function Footer() {
             Great work is <span className="italic text-laligurans">calm work.</span>
           </h2>
           <p className="mx-auto mt-4 max-w-md text-lg leading-relaxed text-ink-soft">
-            Whatever you&rsquo;re building, we&rsquo;ll walk it with you — unhurried, considered, and
+            Whatever you&rsquo;re building, we&rsquo;ll walk it with you, unhurried, considered, and
             made to last.
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row">
@@ -76,9 +77,13 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      )}
 
       {/* ═══ Nightfall — the utility footer ═══ */}
-      <Ridge fill="#16222C" className="h-16 sm:h-24" />
+      {/* ridge sits on paper-warm so its "sky" blends with the band above */}
+      <div className="bg-paper-warm">
+        <Ridge fill="#16222C" className="block h-16 sm:h-24" />
+      </div>
       <div className="bg-himal-night text-himal-snow">
         <div className="container-site py-14 sm:py-16">
           {/* brand + social */}
@@ -109,7 +114,7 @@ export default function Footer() {
           <div className="grid gap-10 pt-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
             <div>
               <p className="max-w-sm leading-relaxed text-himal-mist">
-                A digital agency from the land of the Himalayas — building websites, apps, and brands
+                A digital agency from the land of the Himalayas, building websites, apps, and brands
                 that carry your story to the summit.
               </p>
               <PrayerFlagLine className="mt-6 w-52" />
@@ -142,11 +147,6 @@ export default function Footer() {
                 <li>
                   <a href={`mailto:${SITE.email}`} className="transition-colors hover:text-sunrise-bright">
                     {SITE.email}
-                  </a>
-                </li>
-                <li>
-                  <a href={SITE.phoneHref} className="transition-colors hover:text-sunrise-bright">
-                    {SITE.phone}
                   </a>
                 </li>
               </ul>

@@ -11,9 +11,9 @@ import { SITE } from '@/lib/site';
 import { PROJECTS } from '@/lib/projects';
 
 export const metadata: Metadata = {
-  title: 'Our Work — Projects & Case Studies',
+  title: 'Our Work: Projects & Case Studies',
   description:
-    'Explore projects by The Brilliant Ideas: The Brilliant Chess, PixeryHub, JESTHA, NepaliNest, and more — websites, mobile apps, and products built in Nepal.',
+    'Explore projects by The Brilliant Ideas: The Brilliant Chess, PixeryHub, JESTHA, NepaliNest, and more. Websites, mobile apps, and products built in Nepal.',
   alternates: { canonical: `${SITE.url}/work` },
   openGraph: {
     title: 'Our Work | The Brilliant Ideas',
@@ -48,7 +48,7 @@ export default function WorkPage() {
               Every project is a peak we&rsquo;ve climbed
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">
-              Apps, platforms, and products — each one a journey with its own story. Here are some
+              Apps, platforms, and products, each one a journey with its own story. Here are some
               of the summits so far.
             </p>
           </Reveal>
@@ -70,7 +70,7 @@ export default function WorkPage() {
                   <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-paper-warm">
                     <Image
                       src={project.image}
-                      alt={`${project.title} — ${project.tagline}`}
+                      alt={`${project.title}: ${project.tagline}`}
                       fill
                       className="object-contain p-4 transition-transform duration-700 group-hover:scale-105"
                       sizes="(max-width: 1024px) 100vw, 50vw"

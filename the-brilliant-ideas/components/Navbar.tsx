@@ -10,7 +10,6 @@ const LINKS = [
   { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
   { href: '/work', label: 'Work' },
-  { href: '/contact', label: 'Contact' },
 ];
 
 export default function Navbar({ theme = 'light' }: { theme?: 'light' | 'dark' }) {

@@ -9,9 +9,9 @@ import { Ridge, PrayerFlagLine } from '@/components/NepalArt';
 import { SITE, SERVICES } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Services — Web, Apps, Branding & SEO',
+  title: 'Services: Web, Apps, Branding & SEO',
   description:
-    'Web design and development, mobile apps, branding, UI/UX, digital marketing, and custom software — full-service digital agency services from Nepal by The Brilliant Ideas.',
+    'Web design and development, mobile apps, branding, UI/UX, digital marketing, and custom software. Full-service digital agency services from Nepal by The Brilliant Ideas.',
   alternates: { canonical: `${SITE.url}/services` },
   openGraph: {
     title: 'Services | The Brilliant Ideas',
@@ -23,11 +23,11 @@ export const metadata: Metadata = {
 };
 
 const PROCESS = [
-  { step: 'Discovery', text: 'We listen first. Your goals, your users, your market — the map is drawn before the trek begins.' },
+  { step: 'Discovery', text: 'We listen first. Your goals, your users, your market. The map is drawn before the trek begins.' },
   { step: 'Strategy', text: 'We chart the route: scope, milestones, technology choices, and a plan you can hold us to.' },
   { step: 'Design', text: 'Wireframes become interfaces. Every screen is crafted, reviewed, and refined with you.' },
-  { step: 'Development', text: 'Clean, modern code — built for speed, security, and search engines from day one.' },
-  { step: 'Testing', text: 'Every path is walked before launch. Devices, browsers, edge cases — nothing is left to luck.' },
+  { step: 'Development', text: 'Clean, modern code, built for speed, security, and search engines from day one.' },
+  { step: 'Testing', text: 'Every path is walked before launch. Devices, browsers, edge cases. Nothing is left to luck.' },
   { step: 'Launch & Beyond', text: 'We plant the flag together, then stay on as your guide for growth and support.' },
 ];
 
@@ -72,7 +72,7 @@ export default function ServicesPage() {
                   <span className="block italic text-laligurans">flight here.</span>
                 </h1>
                 <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink-soft lg:mx-0">
-                  From the first sketch of a logo to a full software platform — everything your
+                  From the first sketch of a logo to a full software platform. Everything your
                   business needs, under one roof in Nepal.
                 </p>
               </Reveal>
@@ -209,7 +209,7 @@ export default function ServicesPage() {
                 Not sure which trail fits your idea?
               </h2>
               <p className="mx-auto mt-4 max-w-xl text-lg text-ink-soft">
-                Tell us where you want to go — we&rsquo;ll recommend the route, free of charge.
+                Tell us where you want to go, and we&rsquo;ll recommend the route, free of charge.
               </p>
               <Link href="/contact" className="btn-primary mt-8">
                 Talk to Us
@@ -219,7 +219,7 @@ export default function ServicesPage() {
         </section>
       </main>
 
-      <Footer />
+      <Footer closing={false} />
     </>
   );
 }

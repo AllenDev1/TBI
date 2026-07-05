@@ -45,7 +45,7 @@ export default function HomePage() {
               </Reveal>
               <Reveal delay={300}>
                 <p className="mt-7 max-w-md text-lg leading-relaxed text-ink-soft">
-                  Websites, apps, and brands — built with Himalayan patience and care.
+                  Websites, apps, and brands, built with Himalayan patience and care.
                 </p>
               </Reveal>
               <Reveal delay={450}>
@@ -102,9 +102,9 @@ export default function HomePage() {
                 </h2>
               </Reveal>
               <Reveal delay={150}>
-                <ul className="mt-9 flex flex-wrap items-center justify-center gap-x-5 gap-y-2.5 text-sm font-semibold uppercase tracking-[0.22em] text-ink-soft lg:justify-start">
+                <ul className="mt-9 flex flex-nowrap items-center justify-center gap-x-2.5 whitespace-nowrap text-xs font-semibold uppercase tracking-[0.12em] text-ink-soft sm:gap-x-3 sm:text-sm sm:tracking-[0.16em] lg:justify-start">
                   {CRAFTS.map((craft, i) => (
-                    <li key={craft} className="flex items-center gap-5">
+                    <li key={craft} className="flex items-center gap-2.5 sm:gap-3">
                       {i > 0 && <span className="text-laligurans">·</span>}
                       {craft}
                     </li>
@@ -184,7 +184,7 @@ export default function HomePage() {
                       >
                         <Image
                           src={project.image}
-                          alt={`${project.title} — ${project.tagline}`}
+                          alt={`${project.title}: ${project.tagline}`}
                           fill
                           className="object-contain p-6 transition-transform duration-700 group-hover:scale-[1.04] sm:p-10"
                           sizes={i % 3 === 0 ? '100vw' : '(max-width: 640px) 100vw, 50vw'}

@@ -9,14 +9,14 @@ import { Ridge } from '@/components/NepalArt';
 import { SITE } from '@/lib/site';
 
 export const metadata: Metadata = {
-  title: 'Contact Us — Start Your Project',
+  title: 'Contact Us: Start Your Project',
   description:
-    'Get in touch with The Brilliant Ideas — digital agency in Biratnagar and Kathmandu, Nepal. Email info@thebrilliantideas.com or call +977 9814767895 to start your project.',
+    'Get in touch with The Brilliant Ideas, a digital agency in Biratnagar and Kathmandu, Nepal. Email info@thebrilliantideas.com to start your project.',
   alternates: { canonical: `${SITE.url}/contact` },
   openGraph: {
     title: 'Contact The Brilliant Ideas',
     description:
-      'Start your project with The Brilliant Ideas — offices in Biratnagar and Kathmandu, Nepal.',
+      'Start your project with The Brilliant Ideas. Offices in Biratnagar and Kathmandu, Nepal.',
     url: `${SITE.url}/contact`,
     type: 'website',
   },
@@ -40,7 +40,7 @@ const faqSchema = {
       name: 'How quickly do you respond to inquiries?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'We reply to every message within one business day — usually much faster.',
+        text: 'We reply to every message within one business day, usually much faster.',
       },
     },
     {
@@ -56,7 +56,7 @@ const faqSchema = {
       name: 'Do you work with international clients?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes — we work remotely with clients around the world, alongside our clients in Nepal.',
+        text: 'Yes. We work remotely with clients around the world, alongside our clients in Nepal.',
       },
     },
   ],
@@ -79,15 +79,16 @@ export default function ContactPage() {
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">
               Tell us about your idea. Whether it&rsquo;s a rough sketch or a full plan, we&rsquo;ll
-              help you find the path forward — no obligation, no jargon.
+              help you find the path forward, with no obligation and no jargon.
             </p>
           </Reveal>
         </section>
 
         {/* Form + info */}
-        <section className="bg-paper-warm pb-20">
+        <section className="bg-paper-warm pb-24">
           <Ridge fill="#F4EEE3" className="-mt-px h-14 -translate-y-full sm:h-20" />
-          <div className="container-site grid gap-10 pt-14 lg:grid-cols-[1.5fr_1fr]">
+          <div className="container-site grid gap-10 pt-14 lg:grid-cols-[1.55fr_1fr] lg:gap-14">
+            {/* the form */}
             <Reveal>
               <div className="rounded-3xl border border-ink/10 bg-paper p-7 sm:p-10">
                 <h2 className="font-display text-2xl font-bold text-ink">Send us a message</h2>
@@ -98,47 +99,55 @@ export default function ContactPage() {
               </div>
             </Reveal>
 
+            {/* contact details — one calm panel */}
             <Reveal delay={140}>
-              <div className="space-y-5">
+              <div className="lg:sticky lg:top-28">
                 <Image
                   src="/image-story/lantern-doorway.png"
-                  alt="A brass lantern glowing beside an open, carved wooden doorway at dusk — an invitation inward"
+                  alt="A brass lantern glowing beside an open, carved wooden doorway at dusk, an invitation inward"
                   width={1122}
                   height={1402}
-                  className="mx-auto h-auto w-full max-w-[380px]"
+                  className="mx-auto h-auto w-full max-w-[280px] sm:max-w-[320px]"
                 />
-                <div className="rounded-3xl border border-ink/10 bg-paper p-7">
-                  <h2 className="font-display text-lg font-bold text-ink">Reach us directly</h2>
-                  <ul className="mt-4 space-y-3 text-ink-soft">
-                    <li>
-                      <a href={`mailto:${SITE.email}`} className="font-semibold text-sunrise-deep hover:underline">
-                        {SITE.email}
-                      </a>
-                    </li>
-                    <li>
-                      <a href={SITE.phoneHref} className="font-semibold text-sunrise-deep hover:underline">
-                        {SITE.phone}
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+                <div className="mt-6 rounded-3xl border border-ink/10 bg-paper p-8">
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-faint">
+                      Write to us
+                    </p>
+                    <a
+                      href={`mailto:${SITE.email}`}
+                      className="mt-2 inline-block font-display text-xl font-bold text-ink transition-colors hover:text-madder"
+                    >
+                      {SITE.email}
+                    </a>
+                  </div>
 
-                {SITE.offices.map((office) => (
-                  <div key={office.city} className="rounded-3xl border border-ink/10 bg-paper p-7">
-                    <h2 className="font-display text-lg font-bold text-ink">{office.city} Basecamp</h2>
-                    <p className="mt-2 text-ink-soft">
-                      {office.address}, {office.city}, {office.country}
+                  <div className="mt-7 border-t border-ink/10 pt-7">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-faint">
+                      Our basecamps
+                    </p>
+                    <ul className="mt-4 space-y-4">
+                      {SITE.offices.map((office) => (
+                        <li key={office.city}>
+                          <p className="font-display font-bold text-ink">{office.city}</p>
+                          <p className="text-sm leading-relaxed text-ink-soft">
+                            {office.address}, {office.country}
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="mt-7 border-t border-ink/10 pt-7">
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-faint">
+                      Office hours
+                    </p>
+                    <p className="mt-3 text-sm leading-relaxed text-ink-soft">
+                      Sunday to Friday · 10:00&nbsp;AM to 6:00&nbsp;PM (NPT)
+                      <br />
+                      The mountains rest on Saturdays, and so do we.
                     </p>
                   </div>
-                ))}
-
-                <div className="rounded-3xl border border-ink/10 bg-paper p-7">
-                  <h2 className="font-display text-lg font-bold text-ink">Office hours</h2>
-                  <p className="mt-2 text-ink-soft">
-                    Sunday – Friday, 10:00 AM – 6:00 PM (NPT)
-                    <br />
-                    The mountains rest on Saturdays — and so do we.
-                  </p>
                 </div>
               </div>
             </Reveal>
