@@ -66,11 +66,12 @@ export default function HomePage() {
               <ParallaxLayer speed={0.06}>
                 <div className="origin-top animate-pendulum motion-reduce:animate-none">
                   <Image
-                    src="/image-story/image3.png"
+                    src="/image-story/image3.webp"
                     alt="A laligurans branch in bloom with a small wooden pagoda lantern hanging from it"
                     width={1023}
                     height={1537}
                     priority
+                    sizes="(min-width: 1024px) 760px, 60vw"
                     className="h-[52vh] max-h-[440px] w-auto -scale-x-100 sm:h-[62vh] sm:max-h-[560px] lg:h-[104vh] lg:max-h-[1120px]"
                   />
                 </div>
@@ -85,10 +86,11 @@ export default function HomePage() {
             <Reveal className="pointer-events-none flex justify-center lg:absolute lg:inset-y-0 lg:left-0 lg:z-0 lg:items-center lg:justify-start">
               <ParallaxLayer speed={0.03}>
                 <Image
-                  src="/image-story/mountain-path.png"
+                  src="/image-story/mountain-path.webp"
                   alt="A watercolor of a stone Himalayan footpath winding past a small stupa and prayer flags toward a misty snow peak"
                   width={1122}
                   height={1402}
+                  sizes="(min-width: 1024px) 840px, 70vw"
                   className="h-[64vh] max-h-[540px] w-auto sm:h-[80vh] sm:max-h-[780px] lg:h-[98vh] lg:max-h-[1040px]"
                 />
               </ParallaxLayer>
@@ -145,10 +147,11 @@ export default function HomePage() {
             <Reveal delay={100} className="pointer-events-none flex justify-center lg:absolute lg:inset-y-0 lg:right-0 lg:z-0 lg:items-center lg:justify-end">
               <ParallaxLayer speed={0.03}>
                 <Image
-                  src="/image-story/prayer-wheel.png"
+                  src="/image-story/prayer-wheel.webp"
                   alt="A watercolor of a brass Nepali prayer wheel in a carved wooden shrine, strung with weathered prayer flags"
                   width={1122}
                   height={1402}
+                  sizes="(min-width: 1024px) 810px, 70vw"
                   className="h-[60vh] max-h-[520px] w-auto sm:h-[76vh] sm:max-h-[740px] lg:h-[96vh] lg:max-h-[1010px]"
                 />
               </ParallaxLayer>
@@ -256,10 +259,11 @@ export default function HomePage() {
           <div className="container-site text-center">
             <Reveal className="mb-10 flex justify-center sm:mb-12">
               <Image
-                src="/image-story/begin-story.png"
+                src="/image-story/begin-story.webp"
                 alt="A lone trekker beneath a line of prayer flags, watching the sun rise over the Himalaya"
                 width={1122}
                 height={1402}
+                sizes="(min-width: 576px) 576px, 100vw"
                 className="h-auto w-full max-w-xl"
               />
             </Reveal>

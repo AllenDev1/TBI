@@ -79,11 +79,12 @@ export default function ServicesPage() {
             </div>
             <Reveal delay={150} className="flex justify-center lg:justify-end">
               <Image
-                src="/image-story/danphe-flight.png"
+                src="/image-story/danphe-flight.webp"
                 alt="A danphe, the Himalayan monal, in flight with its wings spread"
                 width={1536}
                 height={1024}
                 priority
+                sizes="(min-width: 520px) 520px, 100vw"
                 className="h-auto w-full max-w-[520px]"
               />
             </Reveal>
@@ -167,10 +168,11 @@ export default function ServicesPage() {
                 aria-hidden="true"
               >
                 <Image
-                  src="/image-story/img1.png"
+                  src="/image-story/img1.webp"
                   alt=""
                   width={1023}
                   height={1537}
+                  sizes="(min-width: 768px) 440px, 1px"
                   className="h-full w-full object-cover object-center"
                 />
               </li>

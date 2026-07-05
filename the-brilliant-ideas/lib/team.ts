@@ -16,7 +16,7 @@ export const TEAM: TeamMember[] = [
   {
     name: 'Narayan Dev',
     role: 'Founder / CEO',
-    image: '/team/narayan.jpg',
+    image: '/team/narayan.webp',
     bio: 'Leading our creative vision in brand design and strategy.',
     social: {
       linkedin: 'https://www.linkedin.com/in/narayan-dev',
@@ -28,7 +28,7 @@ export const TEAM: TeamMember[] = [
   {
     name: 'Sarthak Mainali',
     role: 'Executive Director',
-    image: '/team/sarthak.png',
+    image: '/team/sarthak.webp',
     bio: 'Driving strategic initiatives and business development.',
     social: {
       instagram: 'https://www.instagram.com/sarthakmainali/',
@@ -39,7 +39,7 @@ export const TEAM: TeamMember[] = [
   {
     name: 'Bishnu Dev',
     role: 'Tech Lead',
-    image: '/team/bishnu.jpeg',
+    image: '/team/bishnu.webp',
     bio: 'Building robust, scalable solutions with cutting-edge technologies.',
     social: {
       linkedin: 'https://www.linkedin.com/in/bishnu-dev/',
@@ -51,7 +51,7 @@ export const TEAM: TeamMember[] = [
   {
     name: 'Rajiv Sah',
     role: 'Marketing Manager',
-    image: '/team/rajiv.jpg',
+    image: '/team/rajiv.webp',
     bio: 'Driving marketing strategies and brand growth.',
     social: {
       instagram: 'https://www.instagram.com/rajiv.sah.9469/',
@@ -60,7 +60,7 @@ export const TEAM: TeamMember[] = [
   {
     name: 'Yana Chaudhary',
     role: 'Social Media Manager',
-    image: '/team/yana.jpg',
+    image: '/team/yana.webp',
     bio: 'Managing social presence and engaging with our community.',
     social: {
       instagram: 'https://www.instagram.com/that_kid_yana/',
@@ -70,7 +70,7 @@ export const TEAM: TeamMember[] = [
   {
     name: 'Ujjwal Dev',
     role: 'Graphic Designer',
-    image: '/team/ujjwal.jpeg',
+    image: '/team/ujjwal.webp',
     bio: 'Creating stunning visuals and brand identities.',
     social: {
       instagram: 'https://www.instagram.com/ujjwaldev02/',
@@ -81,7 +81,7 @@ export const TEAM: TeamMember[] = [
   {
     name: 'Sukhchandra Sharma',
     role: 'Full Stack Developer',
-    image: '/team/sukhisir.jpg',
+    image: '/team/sukhisir.webp',
     bio: 'Building end-to-end solutions with modern web technologies.',
     social: {
       linkedin: 'https://www.linkedin.com/in/sukhchandra/',
@@ -92,7 +92,7 @@ export const TEAM: TeamMember[] = [
   {
     name: 'Roshan Pokhrel',
     role: 'Frontend Developer',
-    image: '/team/roshan.png',
+    image: '/team/roshan.webp',
     bio: 'Crafting beautiful, user-centric experiences that make an impact.',
     social: {
       linkedin: 'https://www.linkedin.com/in/iamrowshan/',
@@ -103,7 +103,7 @@ export const TEAM: TeamMember[] = [
   {
     name: 'Rupesh Khadka',
     role: 'Frontend Developer',
-    image: '/team/rupesh.jpg',
+    image: '/team/rupesh.webp',
     bio: 'Building engaging user interfaces with modern frontend technologies.',
     social: {
       linkedin: 'https://www.linkedin.com/in/rupesh-khadka-131229234/',
@@ -115,7 +115,7 @@ export const TEAM: TeamMember[] = [
 export const MASCOT: TeamMember = {
   name: 'Scooby',
   role: 'Chief Happiness Officer',
-  image: '/team/scooby.jpg',
+  image: '/team/scooby.webp',
   bio: 'Spreading tail-wagging joy and keeping morale high, one belly rub at a time!',
   social: {
     instagram: 'https://www.instagram.com/scooby_tbi/',

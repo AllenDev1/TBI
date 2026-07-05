@@ -42,7 +42,7 @@ export default function Navbar({ theme = 'light' }: { theme?: 'light' | 'dark' }
         <div className="container-site flex h-16 items-center justify-between sm:h-[72px]">
           <Link href="/" className="flex items-center gap-2.5" aria-label="The Brilliant Ideas — home">
             <Image
-              src={dark ? '/white-logo.png' : '/logo-mark.png'}
+              src={dark ? '/white-logo.webp' : '/logo-mark.webp'}
               alt="The Brilliant Ideas logo"
               width={36}
               height={43}

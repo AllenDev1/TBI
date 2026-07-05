@@ -103,10 +103,11 @@ export default function ContactPage() {
             <Reveal delay={140}>
               <div className="lg:sticky lg:top-28">
                 <Image
-                  src="/image-story/lantern-doorway.png"
+                  src="/image-story/lantern-doorway.webp"
                   alt="A brass lantern glowing beside an open, carved wooden doorway at dusk, an invitation inward"
                   width={1122}
                   height={1402}
+                  sizes="320px"
                   className="mx-auto h-auto w-full max-w-[280px] sm:max-w-[320px]"
                 />
                 <div className="mt-6 rounded-3xl border border-ink/10 bg-paper p-8">

@@ -46,10 +46,11 @@ export default function Footer({ closing = true }: { closing?: boolean }) {
       <div className="bg-paper-warm">
         <div className="container-site flex flex-col items-center py-16 text-center sm:py-20">
           <Image
-            src="/image-story/img6.png"
+            src="/image-story/img6.webp"
             alt="A watercolor Buddha meditating beneath a Bodhi tree"
             width={1054}
             height={1492}
+            sizes="270px"
             className="h-auto w-auto max-h-[300px] sm:max-h-[380px]"
             style={{
               WebkitMaskImage:
@@ -89,7 +90,7 @@ export default function Footer({ closing = true }: { closing?: boolean }) {
           {/* brand + social */}
           <div className="flex flex-col gap-8 border-b border-white/10 pb-10 sm:flex-row sm:items-center sm:justify-between">
             <Link href="/" className="flex items-center gap-3" aria-label="The Brilliant Ideas — home">
-              <Image src="/white-logo.png" alt="The Brilliant Ideas logo" width={44} height={44} />
+              <Image src="/white-logo.webp" alt="The Brilliant Ideas logo" width={44} height={44} />
               <span className="font-display text-xl font-bold text-white">The Brilliant Ideas</span>
             </Link>
             <div className="flex gap-3">

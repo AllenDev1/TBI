@@ -28,28 +28,28 @@ const VALUES = [
   {
     title: 'Steady as the Rhino',
     subtitle: 'Reliability',
-    image: '/image-story/img5.png',
+    image: '/image-story/img5.webp',
     description:
       'The one-horned rhino of Chitwan moves with unstoppable purpose. So do we: deadlines kept, promises delivered, no surprises.',
   },
   {
     title: 'Bright as the Laligurans',
     subtitle: 'Creativity',
-    image: '/image-story/laligurans-bloom.png',
+    image: '/image-story/laligurans-bloom.webp',
     description:
       'In spring, whole hillsides bloom red with rhododendron. Our work is made to stand out the same way, impossible to miss.',
   },
   {
     title: 'Bold as the Danphe',
     subtitle: 'Innovation',
-    image: '/image-story/danphe-nepal.png',
+    image: '/image-story/danphe-nepal.webp',
     description:
       'The Himalayan monal wears every colour without fear. We embrace new technologies and daring ideas just as freely.',
   },
   {
     title: 'Honest as the Mountains',
     subtitle: 'Integrity',
-    image: '/image-story/mountain-path.png',
+    image: '/image-story/mountain-path.webp',
     description:
       'The Himalayas do not pretend. We are transparent about scope, cost, and timelines, with our clients and with each other.',
   },
@@ -115,10 +115,11 @@ export default function AboutPage() {
             </Reveal>
             <Reveal delay={150}>
               <Image
-                src="/image-story/guanyin-hand.png"
+                src="/image-story/guanyin-hand.webp"
                 alt="A serene figure cradled within a hand forming a mudra, a fine ink engraving of stillness and craft"
                 width={736}
                 height={1217}
+                sizes="(min-width: 420px) 420px, 100vw"
                 className="mx-auto h-auto w-full max-w-[420px]"
               />
             </Reveal>
@@ -195,10 +196,11 @@ export default function AboutPage() {
               </Reveal>
               <Reveal delay={120} className="flex justify-center lg:justify-end">
                 <Image
-                  src="/image-story/basecamp.png"
+                  src="/image-story/basecamp.webp"
                   alt="A small crew resting at a Himalayan basecamp with tents, a campfire, and prayer flags beneath misty peaks"
                   width={1122}
                   height={1402}
+                  sizes="(min-width: 448px) 448px, 100vw"
                   className="h-auto w-full max-w-md"
                 />
               </Reveal>

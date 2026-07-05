@@ -196,7 +196,7 @@ export function HeroScene({ className = '' }: { className?: string }) {
     <div className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`} aria-hidden="true">
       {/* real Himalayan alpenglow */}
       <Image
-        src="/hero-himalaya.jpg"
+        src="/hero-himalaya.webp"
         alt=""
         fill
         priority

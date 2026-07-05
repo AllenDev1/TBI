@@ -50,7 +50,11 @@
       "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 --window-size=1440,4200 --screenshot=/private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad/shots/footer5.png http://localhost:3000/contact)",
       "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 --window-size=1440,7200 --screenshot=/private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad/shots/seam-svc.png http://localhost:3000/services)",
       "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 --window-size=1440,2000 --screenshot=/private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad/shots/crafts2.png http://localhost:3000/)",
-      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 --window-size=1440,3200 --screenshot=/private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad/shots/crafts4.png http://localhost:3000/)"
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 --window-size=1440,3200 --screenshot=/private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/c1640f86-3960-4b33-81c2-0bc0d7b813cf/scratchpad/shots/crafts4.png http://localhost:3000/)",
+      "Bash(node /private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/bda487b2-cb95-49d6-84d9-030c2816e148/scratchpad/optimize.mjs)",
+      "Bash(node /private/tmp/claude-501/-Applications-Documents-Documents-Github-TBI/bda487b2-cb95-49d6-84d9-030c2816e148/scratchpad/updaterefs.mjs)",
+      "Bash(read p *)",
+      "Bash([ -f \"public$p\" ])"
     ],
     "deny": [],
     "ask": [],

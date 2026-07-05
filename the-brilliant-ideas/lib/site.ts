@@ -23,7 +23,7 @@ export const SERVICES = [
     title: 'Web Design & Development',
     short: 'Fast, beautiful websites and web apps built with modern tools like Next.js and React.',
     story: 'Every trek needs a trailhead. Your website is where every customer journey begins, and we make sure it is unforgettable.',
-    image: '/image-story/prayer-wheel.png',
+    image: '/image-story/prayer-wheel.webp',
     alt: 'A brass Nepali prayer wheel in a carved shrine, strung with prayer flags',
   },
   {
@@ -31,7 +31,7 @@ export const SERVICES = [
     title: 'Mobile App Development',
     short: 'Native-quality Android and iOS apps, from chess games to social platforms.',
     story: 'Ideas that travel in every pocket, from the Terai plains to the high passes.',
-    image: '/image-story/singing-bowl.png',
+    image: '/image-story/singing-bowl.webp',
     alt: 'A brass singing bowl and mala beads held in cupped hands',
   },
   {
@@ -39,7 +39,7 @@ export const SERVICES = [
     title: 'Branding & Identity',
     short: 'Logos, visual identities, and brand systems that people remember.',
     story: 'Like the laligurans on a spring hillside, a great brand is impossible to miss.',
-    image: '/image-story/laligurans-bloom.png',
+    image: '/image-story/laligurans-bloom.webp',
     alt: 'A single red laligurans (rhododendron) bloom on a bare branch',
   },
   {
@@ -47,7 +47,7 @@ export const SERVICES = [
     title: 'UI/UX Design',
     short: 'Research-driven interfaces that feel effortless to use.',
     story: 'A good path needs no signposts. We design products people navigate by instinct.',
-    image: '/image-story/mountain-path.png',
+    image: '/image-story/mountain-path.webp',
     alt: 'A stone Himalayan footpath winding toward a misty peak',
   },
   {
@@ -55,7 +55,7 @@ export const SERVICES = [
     title: 'Digital Marketing & SEO',
     short: 'Search-first strategy, content, and campaigns that grow your reach.',
     story: 'The best stories deserve to be heard across every valley.',
-    image: '/image-story/danphe-flight.png',
+    image: '/image-story/danphe-flight.webp',
     alt: 'A danphe, the Himalayan monal, in flight with wings spread',
   },
   {
@@ -63,7 +63,7 @@ export const SERVICES = [
     title: 'Custom Software',
     short: 'APIs, dashboards, e-commerce, and business systems built to scale.',
     story: 'Strong foundations, like the mountains themselves, built to stand for ages.',
-    image: '/image-story/temple-lion.png',
+    image: '/image-story/temple-lion.webp',
     alt: 'A carved stone temple corbel, a guardian lion bracket',
   },
 ];

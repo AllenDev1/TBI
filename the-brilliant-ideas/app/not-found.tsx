@@ -10,10 +10,11 @@ export default function NotFound() {
       <Navbar />
       <main className="container-site flex min-h-[70vh] flex-col items-center justify-center pt-28 text-center">
         <Image
-          src="/image-story/img7.png"
+          src="/image-story/img7.webp"
           alt="A snow leopard adorned with Nepali patterns, prowling between a stupa and a pagoda temple"
           width={1086}
           height={1448}
+          sizes="(min-width: 640px) 320px, 256px"
           className="h-auto w-64 sm:w-80"
         />
         <h1 className="mt-8 font-display text-4xl font-black text-ink sm:text-5xl">
