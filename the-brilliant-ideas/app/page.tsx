@@ -31,8 +31,8 @@ export default function HomePage() {
         <p className="sr-only">{SITE.description}</p>
 
         {/* ═══════ HERO — the lantern on the laligurans branch ═══════ */}
-        <section className="relative min-h-[min(92vh,980px)] overflow-hidden">
-          <div className="container-site grid min-h-[min(92vh,980px)] items-center gap-6 pb-16 pt-28 lg:grid-cols-[1.1fr_1fr] lg:gap-10 lg:pt-20">
+        <section className="relative min-h-[min(90vh,920px)] overflow-hidden">
+          <div className="container-site grid min-h-[min(90vh,920px)] items-center gap-6 pb-16 pt-28 lg:grid-cols-[1.1fr_1fr] lg:gap-10 lg:pt-20">
             <div className="order-2 lg:relative lg:z-10 lg:order-1">
               <Reveal>
                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ink-faint">
@@ -76,7 +76,7 @@ export default function HomePage() {
                     height={1537}
                     priority
                     sizes="(min-width: 1024px) 760px, (min-width: 640px) 60vw, 96vw"
-                    className="w-[96vw] max-w-[520px] -scale-x-100 translate-x-2 sm:h-[86vh] sm:max-h-[760px] sm:w-auto sm:max-w-none lg:h-[104vh] lg:max-h-[1120px] lg:translate-x-0"
+                    className="w-[96vw] max-w-[520px] -scale-x-100 translate-x-2 sm:h-[86vh] sm:max-h-[760px] sm:w-auto sm:max-w-none lg:h-[106vh] lg:max-h-[1180px] lg:translate-x-0 xl:max-h-[1300px] 2xl:max-h-[1420px]"
                   />
                 </div>
               </ParallaxLayer>
@@ -85,7 +85,7 @@ export default function HomePage() {
         </section>
 
         {/* ═══════ THE JOURNEY — the silk road ═══════ */}
-        <section className="relative overflow-hidden py-24 sm:py-32 lg:py-0">
+        <section className="relative mx-auto max-w-[1728px] overflow-hidden py-24 sm:py-32 lg:py-0">
           <div className="container-site grid items-center gap-10 lg:min-h-[92vh] lg:grid-cols-2 lg:gap-6">
             <Reveal className="pointer-events-none flex justify-center lg:absolute lg:inset-y-0 lg:left-0 lg:z-0 lg:items-center lg:justify-start">
               <ParallaxLayer speed={0.03}>
@@ -133,7 +133,7 @@ export default function HomePage() {
         </section>
 
         {/* ═══════ THE CRAFT — the temple roof ═══════ */}
-        <section className="relative overflow-hidden py-24 sm:py-32 lg:py-0">
+        <section className="relative mx-auto max-w-[1728px] overflow-hidden py-24 sm:py-32 lg:py-0">
           <div className="container-site grid items-center gap-10 lg:min-h-[92vh] lg:grid-cols-2 lg:gap-6">
             <div className="relative z-10 text-center lg:col-start-1 lg:pr-8 lg:text-left">
               <Reveal>
