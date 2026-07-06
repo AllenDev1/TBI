@@ -30,56 +30,56 @@ export default function HomePage() {
         {/* crawlable summary — the visuals carry the page */}
         <p className="sr-only">{SITE.description}</p>
 
-        {/* ═══════ HERO — the lantern on the laligurans branch ═══════ */}
-        <section className="relative min-h-[min(90vh,920px)] overflow-hidden">
-          <div className="container-site grid min-h-[min(90vh,920px)] items-center gap-6 pb-16 pt-28 lg:grid-cols-[1.1fr_1fr] lg:gap-10 lg:pt-20">
-            <div className="order-2 lg:relative lg:z-10 lg:order-1">
-              <Reveal>
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-ink-faint">
-                  The Brilliant Ideas · Digital Agency · Nepal
-                </p>
-              </Reveal>
-              <Reveal delay={150}>
-                <h1 className="mt-6 font-display text-4xl font-black leading-[1.04] text-ink sm:text-6xl xl:text-7xl">
-                  Brilliant ideas,{' '}
-                  <span className="italic text-laligurans">quietly crafted.</span>
-                </h1>
-              </Reveal>
-              <Reveal delay={300}>
-                <p className="mt-7 max-w-md text-lg leading-relaxed text-ink-soft">
-                  Websites, apps, and brands, built with Himalayan patience and care.
-                </p>
-              </Reveal>
-              <Reveal delay={450}>
-                <div className="mt-9 flex flex-wrap gap-4">
-                  <Link href="/contact" className="btn-primary">
-                    Start a project
-                  </Link>
-                  <Link href="/work" className="btn-outline">
-                    See our work
-                  </Link>
-                </div>
-              </Reveal>
-            </div>
+        {/* ═══════ HERO — the branch descends from the top, over the words ═══════ */}
+        {/* the illustration is anchored to the TOP of the screen, so its top flowers
+            are always visible (never cropped); it's large, a little left of centre,
+            and hangs down over the words that sit in the lower half. */}
+        <section className="relative h-[100svh] overflow-hidden">
+          <div className="pointer-events-none absolute left-1/2 top-0 z-10 -translate-x-[98%]">
+            <ParallaxLayer speed={0.05} className="flex justify-center">
+              <div className="origin-top animate-pendulum motion-reduce:animate-none">
+                <Image
+                  src="/image-story/hero-lantern.webp"
+                  alt="An ink-wash laligurans branch in full bloom with a carved wooden pagoda lantern hanging from it"
+                  width={850}
+                  height={1500}
+                  priority
+                  sizes="(min-width: 1024px) 680px, (min-width: 640px) 560px, 96vw"
+                  className="h-[52vh] max-h-[440px] w-auto sm:h-[62vh] sm:max-h-[640px] lg:h-[70vh] lg:max-h-[800px]"
+                />
+              </div>
+            </ParallaxLayer>
+          </div>
 
-            {/* the lantern hangs from the top of the page and sways —
-                flipped so the branch grows in from, and off, the right edge of the screen */}
-            {/* the branch must grow in from, and off, the right edge at every size —
-                a cut branch floating mid-air breaks the illusion */}
-            <div className="pointer-events-none order-1 -mr-5 -mt-6 flex justify-end sm:-mr-8 lg:absolute lg:inset-y-0 lg:right-0 lg:mr-0 lg:mt-0 lg:items-center">
-              <ParallaxLayer speed={0.06}>
-                <div className="origin-top animate-pendulum motion-reduce:animate-none">
-                  <Image
-                    src="/image-story/image3.webp"
-                    alt="A laligurans branch in bloom with a small wooden pagoda lantern hanging from it"
-                    width={1023}
-                    height={1537}
-                    priority
-                    sizes="(min-width: 1024px) 760px, (min-width: 640px) 60vw, 96vw"
-                    className="w-[96vw] max-w-[520px] -scale-x-100 translate-x-2 sm:h-[86vh] sm:max-h-[760px] sm:w-auto sm:max-w-none lg:h-[106vh] lg:max-h-[1180px] lg:translate-x-0 xl:max-h-[1300px] 2xl:max-h-[1420px]"
-                  />
-                </div>
-              </ParallaxLayer>
+          <div className="container-site relative z-0 flex h-full flex-col items-center justify-end pb-[7vh] text-center sm:pb-[9vh]">
+            <div className="hero-rise">
+              <p className="font-devanagari text-base font-medium text-laligurans sm:text-lg" lang="ne">
+                नमस्ते
+              </p>
+              <p className="mt-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-ink-faint sm:text-xs sm:tracking-[0.3em]">
+                The Brilliant Ideas · Digital Agency · Nepal
+              </p>
+            </div>
+            <div className="hero-rise" style={{ animationDelay: '120ms' }}>
+              <h1 className="mx-auto mt-3 max-w-4xl font-display text-4xl font-black leading-[1.03] text-ink sm:text-6xl lg:text-7xl xl:text-8xl">
+                Brilliant ideas,{' '}
+                <span className="italic text-laligurans">quietly crafted.</span>
+              </h1>
+            </div>
+            <div className="hero-rise" style={{ animationDelay: '240ms' }}>
+              <p className="mx-auto mt-4 max-w-lg text-lg leading-relaxed text-ink-soft sm:text-xl">
+                Websites, apps, and brands, built with Himalayan patience and care.
+              </p>
+            </div>
+            <div className="hero-rise" style={{ animationDelay: '360ms' }}>
+              <div className="mt-6 flex flex-wrap justify-center gap-3 sm:gap-4">
+                <Link href="/contact" className="btn-primary">
+                  Start a project
+                </Link>
+                <Link href="/work" className="btn-outline">
+                  See our work
+                </Link>
+              </div>
             </div>
           </div>
         </section>

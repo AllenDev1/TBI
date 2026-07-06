@@ -105,3 +105,33 @@
     @apply block h-full flex-1;
   }
 }
+
+/* Lantern glow — a warm light that gently breathes, as if lit at dusk */
+@keyframes glow-breathe {
+  0%, 100% { opacity: 0.62; transform: translate(-50%, -50%) scale(1); }
+  50%      { opacity: 1;    transform: translate(-50%, -50%) scale(1.08); }
+}
+
+.animate-glow {
+  animation: glow-breathe 7s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-glow { animation: none; }
+}
+
+/* Hero entrance — pure CSS so above-the-fold text is never gated on a
+   scroll observer; it always finishes fully visible. */
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.hero-rise {
+  animation: hero-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise { animation: none; }
+}
