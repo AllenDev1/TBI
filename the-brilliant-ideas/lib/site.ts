@@ -55,8 +55,8 @@ export const SERVICES = [
     title: 'Digital Marketing & SEO',
     short: 'Search-first strategy, content, and campaigns that grow your reach.',
     story: 'The best stories deserve to be heard across every valley.',
-    image: '/image-story/danphe-flight.webp',
-    alt: 'A danphe, the Himalayan monal, in flight with wings spread',
+    image: '/image-story/img2.webp',
+    alt: 'A bronze temple bell hanging from a carved dragon roof, ringing out over Kathmandu and the peaks beyond',
   },
   {
     slug: 'software-development',

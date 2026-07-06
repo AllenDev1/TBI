@@ -36,7 +36,14 @@ const SOCIAL = [
   },
 ];
 
-export default function Footer({ closing = true }: { closing?: boolean }) {
+export default function Footer({
+  closing = true,
+  sky = 'warm',
+}: {
+  closing?: boolean;
+  /** Colour behind the night ridge — match the page's last section ('warm' = paper-warm, 'paper' = plain paper). */
+  sky?: 'warm' | 'paper';
+}) {
   const year = new Date().getFullYear();
 
   return (
@@ -71,7 +78,7 @@ export default function Footer({ closing = true }: { closing?: boolean }) {
             </Link>
             <a
               href={`mailto:${SITE.email}`}
-              className="font-semibold text-ink-soft transition-colors hover:text-laligurans"
+              className="font-semibold text-ink-soft transition-colors [overflow-wrap:anywhere] hover:text-laligurans"
             >
               {SITE.email}
             </a>
@@ -81,8 +88,8 @@ export default function Footer({ closing = true }: { closing?: boolean }) {
       )}
 
       {/* ═══ Nightfall — the utility footer ═══ */}
-      {/* ridge sits on paper-warm so its "sky" blends with the band above */}
-      <div className="bg-paper-warm">
+      {/* the ridge's "sky" must match whatever the page ends on */}
+      <div className={closing || sky === 'warm' ? 'bg-paper-warm' : 'bg-paper'}>
         <Ridge fill="#16222C" className="block h-16 sm:h-24" />
       </div>
       <div className="bg-himal-night text-himal-snow">
@@ -146,7 +153,7 @@ export default function Footer({ closing = true }: { closing?: boolean }) {
                   </li>
                 ))}
                 <li>
-                  <a href={`mailto:${SITE.email}`} className="transition-colors hover:text-sunrise-bright">
+                  <a href={`mailto:${SITE.email}`} className="transition-colors [overflow-wrap:anywhere] hover:text-sunrise-bright">
                     {SITE.email}
                   </a>
                 </li>

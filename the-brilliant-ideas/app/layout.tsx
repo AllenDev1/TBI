@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Fraunces, Inter } from 'next/font/google';
+import { Fraunces, Inter, Noto_Serif_Devanagari } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
 import SmoothScroll from '@/components/SmoothScroll';
@@ -15,6 +15,15 @@ const fraunces = Fraunces({
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-body',
+  display: 'swap',
+});
+
+// For the small Devanagari accent words (नमस्ते, कथा …) — a serif that
+// sits naturally beside Fraunces.
+const notoDevanagari = Noto_Serif_Devanagari({
+  subsets: ['devanagari'],
+  weight: ['500', '700'],
+  variable: '--font-devanagari',
   display: 'swap',
 });
 
@@ -137,7 +146,7 @@ export default function RootLayout({
         />
         <meta name="google-adsense-account" content="ca-pub-1949655614307812" />
       </head>
-      <body className={`${fraunces.variable} ${inter.variable} font-body`}>
+      <body className={`${fraunces.variable} ${inter.variable} ${notoDevanagari.variable} font-body`}>
         <SmoothScroll />
         {children}
         <ScrollTop />

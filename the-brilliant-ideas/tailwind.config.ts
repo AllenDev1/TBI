@@ -59,6 +59,7 @@ const config: Config = {
       fontFamily: {
         display: ['var(--font-display)', 'Georgia', 'serif'],
         body: ['var(--font-body)', 'system-ui', 'sans-serif'],
+        devanagari: ['var(--font-devanagari)', 'serif'],
       },
       animation: {
         'soar': 'soar 14s ease-in-out infinite',
@@ -68,8 +69,13 @@ const config: Config = {
         'kenburns': 'kenburns 28s ease-in-out infinite alternate',
         'float': 'float 6s ease-in-out infinite',
         'pendulum': 'pendulum 7s ease-in-out infinite',
+        'marquee': 'marquee 28s linear infinite',
       },
       keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
         pendulum: {
           '0%, 100%': { transform: 'rotate(-0.8deg)' },
           '50%': { transform: 'rotate(1deg)' },

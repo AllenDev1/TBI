@@ -147,16 +147,32 @@ export default function ServicesPage() {
         <section className="bg-paper pb-20">
           <Ridge fill="#FBF9F5" className="-mt-px h-14 -translate-y-full sm:h-20" />
           <div className="container-site pt-14">
-            <Reveal className="max-w-2xl">
-              <p className="chapter">How We Work</p>
-              <h2 className="mt-4 font-display text-3xl font-black text-ink sm:text-4xl">
-                The route we take, every time
-              </h2>
-              <p className="mt-4 text-lg leading-relaxed text-ink-soft">
-                Like any good expedition, a project succeeds on preparation. This is the path we
-                walk with every client.
-              </p>
-            </Reveal>
+            <div className="grid items-center gap-8 lg:grid-cols-[1.4fr_1fr]">
+              <Reveal className="max-w-2xl">
+                <p className="chapter">How We Work</p>
+                <h2 className="mt-4 font-display text-3xl font-black text-ink sm:text-4xl">
+                  The route we take, every time
+                </h2>
+                <p className="mt-4 text-lg leading-relaxed text-ink-soft">
+                  Like any good expedition, a project succeeds on preparation. This is the path we
+                  walk with every client.
+                </p>
+              </Reveal>
+              <Reveal delay={150} className="hidden justify-end lg:flex">
+                <Image
+                  src="/image-story/craftsman-hands.webp"
+                  alt="The hands of a Newari woodcarver shaping an intricate lattice panel"
+                  width={1122}
+                  height={1402}
+                  sizes="300px"
+                  className="h-auto w-full max-w-[300px]"
+                  style={{
+                    WebkitMaskImage: 'radial-gradient(ellipse 66% 66% at 50% 50%, black 48%, transparent 84%)',
+                    maskImage: 'radial-gradient(ellipse 66% 66% at 50% 50%, black 48%, transparent 84%)',
+                  }}
+                />
+              </Reveal>
+            </div>
 
             {/* The trek route — the silk trail runs down the centre,
                 the milestones make camp on alternating sides. */}

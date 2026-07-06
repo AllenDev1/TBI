@@ -63,7 +63,7 @@ export default function PrivacyPage() {
             <p className="mt-3">
               You may request access to, correction of, or deletion of your personal data at any
               time by emailing us at{' '}
-              <a href={`mailto:${SITE.email}`} className="font-semibold text-sunrise-deep hover:underline">
+              <a href={`mailto:${SITE.email}`} className="font-semibold text-sunrise-deep [overflow-wrap:anywhere] hover:underline">
                 {SITE.email}
               </a>
               .

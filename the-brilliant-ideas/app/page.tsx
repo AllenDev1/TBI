@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import Reveal from '@/components/Reveal';
 import TiltCard from '@/components/TiltCard';
 import ParallaxLayer from '@/components/ParallaxLayer';
+import ProjectVisual from '@/components/ProjectVisual';
 import { SITE } from '@/lib/site';
 import { PROJECTS } from '@/lib/projects';
 import { TEAM } from '@/lib/team';
@@ -18,7 +19,8 @@ export const metadata: Metadata = {
 const CRAFTS = ['Web', 'Apps', 'Brand', 'UX', 'Growth', 'Software'];
 
 export default function HomePage() {
-  const featured = PROJECTS.slice(0, 4);
+  const [flagship, ...others] = PROJECTS;
+  const featured = others.slice(0, 4);
 
   return (
     <>
@@ -62,7 +64,9 @@ export default function HomePage() {
 
             {/* the lantern hangs from the top of the page and sways —
                 flipped so the branch grows in from, and off, the right edge of the screen */}
-            <div className="pointer-events-none order-1 -mt-6 flex justify-center lg:absolute lg:inset-y-0 lg:right-0 lg:mt-0 lg:items-center lg:justify-end">
+            {/* the branch must grow in from, and off, the right edge at every size —
+                a cut branch floating mid-air breaks the illusion */}
+            <div className="pointer-events-none order-1 -mr-5 -mt-6 flex justify-end sm:-mr-8 lg:absolute lg:inset-y-0 lg:right-0 lg:mr-0 lg:mt-0 lg:items-center">
               <ParallaxLayer speed={0.06}>
                 <div className="origin-top animate-pendulum motion-reduce:animate-none">
                   <Image
@@ -71,8 +75,8 @@ export default function HomePage() {
                     width={1023}
                     height={1537}
                     priority
-                    sizes="(min-width: 1024px) 760px, 60vw"
-                    className="h-[52vh] max-h-[440px] w-auto -scale-x-100 sm:h-[62vh] sm:max-h-[560px] lg:h-[104vh] lg:max-h-[1120px]"
+                    sizes="(min-width: 1024px) 760px, (min-width: 640px) 60vw, 96vw"
+                    className="w-[96vw] max-w-[520px] -scale-x-100 translate-x-2 sm:h-[86vh] sm:max-h-[760px] sm:w-auto sm:max-w-none lg:h-[104vh] lg:max-h-[1120px] lg:translate-x-0"
                   />
                 </div>
               </ParallaxLayer>
@@ -91,7 +95,7 @@ export default function HomePage() {
                   width={1122}
                   height={1402}
                   sizes="(min-width: 1024px) 840px, 70vw"
-                  className="h-[64vh] max-h-[540px] w-auto sm:h-[80vh] sm:max-h-[780px] lg:h-[98vh] lg:max-h-[1040px]"
+                  className="h-auto w-[86vw] max-w-[430px] sm:h-[80vh] sm:max-h-[780px] sm:w-auto sm:max-w-none lg:h-[98vh] lg:max-h-[1040px]"
                 />
               </ParallaxLayer>
             </Reveal>
@@ -104,7 +108,7 @@ export default function HomePage() {
                 </h2>
               </Reveal>
               <Reveal delay={150}>
-                <ul className="mt-9 flex flex-nowrap items-center justify-center gap-x-2.5 whitespace-nowrap text-xs font-semibold uppercase tracking-[0.12em] text-ink-soft sm:gap-x-3 sm:text-sm sm:tracking-[0.16em] lg:justify-start">
+                <ul className="mt-9 flex flex-wrap items-center justify-center gap-x-2.5 gap-y-2 text-xs font-semibold uppercase tracking-[0.12em] text-ink-soft sm:flex-nowrap sm:gap-x-3 sm:whitespace-nowrap sm:text-sm sm:tracking-[0.16em] lg:justify-start">
                   {CRAFTS.map((craft, i) => (
                     <li key={craft} className="flex items-center gap-2.5 sm:gap-3">
                       {i > 0 && <span className="text-laligurans">·</span>}
@@ -152,7 +156,7 @@ export default function HomePage() {
                   width={1122}
                   height={1402}
                   sizes="(min-width: 1024px) 810px, 70vw"
-                  className="h-[60vh] max-h-[520px] w-auto sm:h-[76vh] sm:max-h-[740px] lg:h-[96vh] lg:max-h-[1010px]"
+                  className="h-auto w-[84vw] max-w-[420px] sm:h-[76vh] sm:max-h-[740px] sm:w-auto sm:max-w-none lg:h-[96vh] lg:max-h-[1010px]"
                 />
               </ParallaxLayer>
             </Reveal>
@@ -175,29 +179,107 @@ export default function HomePage() {
               </Link>
             </Reveal>
 
-            <div className="mt-12 grid gap-8 sm:grid-cols-2">
-              {featured.map((project, i) => (
-                <Reveal key={project.slug} delay={(i % 2) * 120} as="article" className={i % 3 === 0 ? 'sm:col-span-2' : ''}>
-                  <TiltCard max={3} scale={1.005}>
-                    <Link href={`/work/${project.slug}`} className="group block">
-                      <div
-                        className={`relative overflow-hidden rounded-3xl bg-paper-warm ${
-                          i % 3 === 0 ? 'aspect-[16/8]' : 'aspect-[4/3]'
-                        }`}
+            {/* flagship — the work we lead with */}
+            <Reveal className="mt-12" as="article">
+              <Link
+                href={`/work/${flagship.slug}`}
+                className="group relative block overflow-hidden rounded-[2rem] transition-shadow duration-300 hover:shadow-[0_28px_70px_rgba(34,48,58,0.25)]"
+                style={{ background: flagship.brand.bg }}
+              >
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute -bottom-[0.16em] right-0 select-none whitespace-nowrap font-display text-[6rem] font-black uppercase leading-none tracking-tight sm:text-[10rem]"
+                  style={{ WebkitTextStroke: `1px ${flagship.brand.fg}`, color: 'transparent', opacity: 0.12 }}
+                >
+                  {flagship.title}
+                </div>
+                <div className="relative grid items-center gap-10 p-7 sm:p-12 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
+                  <div>
+                    <span
+                      className="inline-block rounded-full border px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.18em]"
+                      style={{
+                        borderColor: `${flagship.brand.fg}40`,
+                        color: flagship.brand.fg,
+                        backgroundColor: `${flagship.brand.fg}14`,
+                      }}
+                    >
+                      Flagship product
+                    </span>
+                    {flagship.frameIcon && (
+                      <Image
+                        src={flagship.frameIcon}
+                        alt=""
+                        aria-hidden
+                        width={824}
+                        height={824}
+                        className="mt-7 h-12 w-12 object-contain sm:h-14 sm:w-14"
+                      />
+                    )}
+                    <h3
+                      className="mt-4 font-display text-3xl font-black tracking-tight sm:text-5xl"
+                      style={{ color: flagship.brand.fg }}
+                    >
+                      {flagship.title}
+                    </h3>
+                    <p
+                      className="mt-2 font-display text-lg italic sm:text-xl"
+                      style={{ color: flagship.brand.fg, opacity: 0.85 }}
+                    >
+                      {flagship.tagline}
+                    </p>
+                    <p className="mt-4 max-w-md leading-relaxed" style={{ color: flagship.brand.fg, opacity: 0.75 }}>
+                      {flagship.description}
+                    </p>
+                    <span
+                      className="mt-7 inline-flex items-center gap-2 font-semibold"
+                      style={{ color: flagship.brand.fg }}
+                    >
+                      Read the story
+                      <svg
+                        className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2.5}
+                        viewBox="0 0 24 24"
                       >
-                        <Image
-                          src={project.image}
-                          alt={`${project.title}: ${project.tagline}`}
-                          fill
-                          className="object-contain p-6 transition-transform duration-700 group-hover:scale-[1.04] sm:p-10"
-                          sizes={i % 3 === 0 ? '100vw' : '(max-width: 640px) 100vw, 50vw'}
-                        />
-                      </div>
-                      <div className="mt-4 flex items-baseline justify-between px-1">
-                        <h3 className="font-display text-xl font-bold text-ink transition-colors group-hover:text-laligurans sm:text-2xl">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </span>
+                  </div>
+                  <ProjectVisual project={flagship} className="max-w-[460px]" />
+                </div>
+              </Link>
+            </Reveal>
+
+            {/* the rest of the summits */}
+            <div className="mt-8 grid gap-8 sm:grid-cols-2">
+              {featured.map((project, i) => (
+                <Reveal key={project.slug} delay={(i % 2) * 120} as="article">
+                  <TiltCard max={3} scale={1.005} className="h-full">
+                    <Link
+                      href={`/work/${project.slug}`}
+                      className="group relative flex h-full flex-col overflow-hidden rounded-3xl p-7 transition-shadow duration-300 hover:shadow-[0_24px_60px_rgba(34,48,58,0.22)] sm:p-8"
+                      style={{ background: project.brand.bg }}
+                    >
+                      <div className="flex items-baseline justify-between gap-4">
+                        <h3
+                          className="font-display text-2xl font-bold tracking-tight"
+                          style={{ color: project.brand.fg }}
+                        >
                           {project.title}
                         </h3>
-                        <span className="text-sm font-semibold text-ink-faint">{project.year}</span>
+                        <span className="text-sm font-semibold" style={{ color: project.brand.fg, opacity: 0.55 }}>
+                          {project.year}
+                        </span>
+                      </div>
+                      <p
+                        className="mt-1 font-display italic"
+                        style={{ color: project.brand.fg, opacity: 0.8 }}
+                      >
+                        {project.tagline}
+                      </p>
+                      <div className="mt-8 flex flex-1 items-end">
+                        <ProjectVisual project={project} className="max-w-[380px]" />
                       </div>
                     </Link>
                   </TiltCard>
@@ -278,7 +360,7 @@ export default function HomePage() {
                 <Link href="/contact" className="btn-primary">
                   Start the conversation
                 </Link>
-                <a href={`mailto:${SITE.email}`} className="font-semibold text-ink-soft transition-colors hover:text-laligurans">
+                <a href={`mailto:${SITE.email}`} className="font-semibold text-ink-soft transition-colors [overflow-wrap:anywhere] hover:text-laligurans">
                   {SITE.email}
                 </a>
               </div>
@@ -287,7 +369,7 @@ export default function HomePage() {
         </section>
       </main>
 
-      <Footer />
+      <Footer closing={false} sky="paper" />
     </>
   );
 }

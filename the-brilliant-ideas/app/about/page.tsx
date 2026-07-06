@@ -77,7 +77,12 @@ export default function AboutPage() {
         {/* Header */}
         <section className="container-site pb-16 text-center sm:pb-20">
           <Reveal>
-            <p className="chapter justify-center">Our Story</p>
+            <p className="chapter justify-center">
+              Our Story
+              <span className="font-devanagari text-base normal-case tracking-normal text-ink-faint" lang="ne">
+                · हाम्रो कथा
+              </span>
+            </p>
             <h1 className="mx-auto mt-4 max-w-3xl font-display text-4xl font-black text-ink sm:text-6xl">
               A small team from Nepal with mountain-sized ambition
             </h1>
@@ -300,7 +305,7 @@ export default function AboutPage() {
         </section>
       </main>
 
-      <Footer />
+      <Footer closing={false} />
     </>
   );
 }

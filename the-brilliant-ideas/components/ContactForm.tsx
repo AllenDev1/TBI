@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import axios from 'axios';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api/v1';
@@ -149,11 +150,14 @@ export default function ContactForm() {
   if (isSubmitted) {
     return (
       <div className="rounded-3xl bg-forest-faint p-10 text-center">
-        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-forest text-white">
-          <svg className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-          </svg>
-        </div>
+        <Image
+          src="/image-story/glass-lotus.webp"
+          alt=""
+          width={1024}
+          height={1536}
+          sizes="180px"
+          className="mx-auto h-36 w-auto animate-float motion-reduce:animate-none"
+        />
         <h3 className="mt-5 font-display text-2xl font-bold text-ink">Message received!</h3>
         <p className="mx-auto mt-2 max-w-sm text-ink-soft">
           Your story has begun. We&rsquo;ll get back to you within one business day.
@@ -263,7 +267,18 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <div ref={recaptchaRef} />
+        {/* reCAPTCHA renders a fixed 304px-wide iframe. A bare transform:scale
+            shrinks it visually but still reserves the original 304px in layout,
+            which overflows the card and forces horizontal page scroll on narrow
+            phones. So the wrapper is sized to the SCALED width and clips the
+            reserved leftover — keeping the widget inside the viewport at every
+            width, with no sideways scroll. */}
+        <div className="w-[304px] max-w-full overflow-hidden h-[78px] max-[440px]:h-[72px] max-[390px]:h-[67px] max-[350px]:h-[57px] max-[440px]:w-[280px] max-[390px]:w-[259px] max-[350px]:w-[219px]">
+          <div
+            ref={recaptchaRef}
+            className="origin-top-left max-[440px]:scale-[0.92] max-[390px]:scale-[0.85] max-[350px]:scale-[0.72]"
+          />
+        </div>
         {errors.recaptcha && <p className="mt-1.5 text-sm text-laligurans">{errors.recaptcha}</p>}
       </div>
 

@@ -69,11 +69,14 @@ export default function ContactPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Navbar />
 
-      <main className="pt-28 sm:pt-32">
+      <main className="overflow-x-clip pt-28 sm:pt-32">
         {/* Header */}
         <section className="container-site relative pb-24 text-center sm:pb-28">
           <Reveal>
-            <p className="chapter justify-center">Begin Your Chapter</p>
+            <p className="font-devanagari text-2xl font-medium text-laligurans" lang="ne">
+              नमस्ते
+            </p>
+            <p className="chapter mt-3 justify-center">Begin Your Chapter</p>
             <h1 className="mx-auto mt-4 max-w-3xl font-display text-4xl font-black text-ink sm:text-6xl">
               Every journey starts with hello
             </h1>
@@ -117,7 +120,7 @@ export default function ContactPage() {
                     </p>
                     <a
                       href={`mailto:${SITE.email}`}
-                      className="mt-2 inline-block font-display text-xl font-bold text-ink transition-colors hover:text-madder"
+                      className="mt-2 inline-block font-display text-lg font-bold text-ink transition-colors [overflow-wrap:anywhere] hover:text-madder sm:text-xl"
                     >
                       {SITE.email}
                     </a>
@@ -156,7 +159,7 @@ export default function ContactPage() {
         </section>
       </main>
 
-      <Footer />
+      <Footer closing={false} />
     </>
   );
 }
