@@ -54,13 +54,95 @@
     @apply block h-px w-10 bg-sunrise;
   }
 
-  /* Flat, quiet, tactile — no glow. Fill is reserved for the primary action. */
+  /* ─── Buttons — flat, tactile, carved; one accent, no glow ─── */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-madder px-7 py-3.5 font-body text-base font-semibold text-paper transition-colors duration-300 hover:bg-madder-deep active:scale-[0.98];
+    @apply relative isolate inline-flex items-center justify-center gap-2 overflow-hidden rounded-full bg-madder px-7 py-3.5 font-body text-base font-semibold text-paper transition-[transform,box-shadow,background-color] duration-300 ease-out;
+    box-shadow: 0 1px 2px rgba(139, 32, 56, 0.28);
+  }
+  .btn-primary:hover {
+    @apply -translate-y-0.5 bg-madder-deep;
+    box-shadow: 0 14px 28px -12px rgba(139, 32, 56, 0.6);
+  }
+  .btn-primary:active {
+    @apply translate-y-0 scale-[0.98];
+  }
+  .btn-primary svg {
+    @apply transition-transform duration-300 ease-out;
+  }
+  .btn-primary:hover svg {
+    transform: translateX(3px);
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink/20 bg-transparent px-7 py-3.5 font-body text-base font-semibold text-ink transition-colors duration-300 hover:border-ink active:scale-[0.98];
+    @apply relative isolate inline-flex items-center justify-center gap-2 overflow-hidden rounded-full border border-ink/25 px-7 py-3.5 font-body text-base font-semibold text-ink transition-colors duration-300 ease-out;
+  }
+  /* ink soaks up from the base, like a carved trail marker being inked in */
+  .btn-outline::before {
+    content: '';
+    @apply absolute inset-0 -z-10 bg-ink/[0.06];
+    transform: translateY(101%);
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .btn-outline:hover {
+    @apply border-ink/55;
+  }
+  .btn-outline:hover::before {
+    transform: translateY(0);
+  }
+  .btn-outline svg {
+    @apply transition-transform duration-300 ease-out;
+  }
+  .btn-outline:hover svg {
+    transform: translateX(3px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn-primary,
+    .btn-outline {
+      transition: background-color 0.2s, border-color 0.2s;
+    }
+    .btn-primary:hover,
+    .btn-outline:hover,
+    .btn-primary:hover svg,
+    .btn-outline:hover svg {
+      transform: none;
+    }
+    .btn-outline::before {
+      transition: none;
+    }
+  }
+
+  /* ─── Field-note card — a handmade portfolio sheet: hairline edge, soft
+     paper depth, lifts like turning a journal page on hover ─── */
+  .card-note {
+    @apply relative rounded-2xl border border-ink/10 bg-paper transition-[transform,box-shadow,border-color] duration-300 ease-out;
+    box-shadow: 0 1px 2px rgba(34, 48, 58, 0.04);
+  }
+  .card-note:hover {
+    @apply -translate-y-1 border-ink/20;
+    box-shadow: 0 24px 50px -26px rgba(34, 48, 58, 0.3);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .card-note:hover {
+      transform: none;
+    }
+  }
+
+  /* ─── Form fields — soft, tactile; focus draws a madder trail-line ─── */
+  .input-field {
+    @apply w-full rounded-xl border border-ink/[0.12] bg-white/70 px-4 py-3 text-ink transition-[border-color,box-shadow,background-color] duration-200 placeholder:text-ink-faint;
+  }
+  .input-field:focus {
+    @apply border-madder bg-white outline-none;
+    box-shadow: 0 0 0 3px rgba(166, 43, 68, 0.12);
+  }
+
+  /* ─── Trail divider — a dotted path that connects one section to the next ─── */
+  .trail-divider {
+    @apply mx-auto h-8 w-px;
+    background-image: linear-gradient(to bottom, rgba(139, 137, 127, 0.5) 40%, transparent 0);
+    background-size: 1px 7px;
+    background-repeat: repeat-y;
   }
 
   /* Scroll reveal (driven by components/Reveal.tsx) */
@@ -134,4 +216,18 @@
 
 @media (prefers-reduced-motion: reduce) {
   .hero-rise { animation: none; }
+}
+
+/* Starfield twinkle — the footer's summit night sky (pure CSS, no WebGL) */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50%      { opacity: 1; }
+}
+
+.star {
+  animation: twinkle 4.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .star { animation: none; opacity: 0.65; }
 }

@@ -36,6 +36,16 @@ const SOCIAL = [
   },
 ];
 
+// Deterministic starfield (index-based, so server & client render identically —
+// no hydration mismatch). Biased toward the upper "sky" of the footer.
+const STARS = Array.from({ length: 32 }, (_, i) => ({
+  top: `${4 + ((i * 47) % 42)}%`,
+  left: `${(i * 271) % 97}%`,
+  size: i % 5 === 0 ? 2.5 : i % 3 === 0 ? 1.75 : 1,
+  delay: `${(i % 8) * 0.55}s`,
+  warm: i % 11 === 4, // a couple of distant-lantern amber points
+}));
+
 export default function Footer({
   closing = true,
   sky = 'warm',
@@ -92,12 +102,36 @@ export default function Footer({
       <div className={closing || sky === 'warm' ? 'bg-paper-warm' : 'bg-paper'}>
         <Ridge fill="#16222C" className="block h-16 sm:h-24" />
       </div>
-      <div className="bg-himal-night text-himal-snow">
-        <div className="container-site py-14 sm:py-16">
+      <div className="relative overflow-hidden bg-himal-night text-himal-snow">
+        {/* nightfall at the summit — a quiet starlit sky with a low moon */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          {STARS.map((st, i) => (
+            <span
+              key={i}
+              className="star absolute rounded-full"
+              style={{
+                top: st.top,
+                left: st.left,
+                width: `${st.size}px`,
+                height: `${st.size}px`,
+                animationDelay: st.delay,
+                background: st.warm ? 'rgba(255,196,140,0.95)' : 'rgba(255,255,255,0.9)',
+                boxShadow: st.warm ? '0 0 7px rgba(255,180,120,0.75)' : undefined,
+              }}
+            />
+          ))}
+        </div>
+        <div className="container-site relative z-10 pt-14 sm:pt-16">
           {/* brand + social */}
           <div className="flex flex-col gap-8 border-b border-white/10 pb-10 sm:flex-row sm:items-center sm:justify-between">
-            <Link href="/" className="flex items-center gap-3" aria-label="The Brilliant Ideas — home">
-              <Image src="/white-logo.webp" alt="The Brilliant Ideas logo" width={44} height={44} />
+            <Link href="/" className="group flex items-center gap-3" aria-label="The Brilliant Ideas — home">
+              <span className="relative inline-flex">
+                <span
+                  aria-hidden
+                  className="absolute inset-0 -m-2 rounded-full bg-[radial-gradient(circle,rgba(255,182,122,0.3),transparent_70%)] blur-md"
+                />
+                <Image src="/white-logo.webp" alt="The Brilliant Ideas logo" width={44} height={44} className="relative" />
+              </span>
               <span className="font-display text-xl font-bold text-white">The Brilliant Ideas</span>
             </Link>
             <div className="flex gap-3">
@@ -108,7 +142,7 @@ export default function Footer({
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-himal-mist transition-colors hover:border-sunrise-bright hover:text-sunrise-bright"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-himal-mist transition duration-300 ease-out hover:-translate-y-0.5 hover:border-sunrise-bright hover:text-sunrise-bright motion-reduce:hover:translate-y-0"
                 >
                   <svg className="h-[18px] w-[18px]" fill="currentColor" viewBox="0 0 24 24">
                     <path d={s.path} />
@@ -129,7 +163,10 @@ export default function Footer({
             </div>
 
             <nav aria-label="Footer">
-              <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-himal-mist/70">Explore</h2>
+              <h2 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-himal-mist/70">
+                <span aria-hidden className="h-1 w-1 rounded-full bg-madder-bright" />
+                Explore
+              </h2>
               <ul className="mt-4 space-y-2.5">
                 {NAV.map((link) => (
                   <li key={link.href}>
@@ -145,7 +182,10 @@ export default function Footer({
             </nav>
 
             <div>
-              <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-himal-mist/70">Find Us</h2>
+              <h2 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-himal-mist/70">
+                <span aria-hidden className="h-1 w-1 rounded-full bg-madder-bright" />
+                Find Us
+              </h2>
               <ul className="mt-4 space-y-2.5 text-himal-mist">
                 {SITE.offices.map((office) => (
                   <li key={office.city}>
@@ -162,12 +202,24 @@ export default function Footer({
           </div>
         </div>
 
-        <div className="border-t border-white/10">
-          <div className="container-site flex flex-col items-center justify-between gap-2 py-6 text-sm text-himal-mist sm:flex-row">
-            <p>© {year} The Brilliant Ideas. All rights reserved.</p>
-            <p>Proudly crafted in Nepal 🇳🇵</p>
-          </div>
+        {/* a quiet line before the valley */}
+        <div className="container-site relative z-10 mt-12 flex flex-col items-center justify-between gap-2 border-t border-white/10 pt-6 text-sm text-himal-mist sm:flex-row">
+          <p>© {year} The Brilliant Ideas. All rights reserved.</p>
+          <p>Proudly crafted in Nepal 🇳🇵</p>
         </div>
+
+        {/* the Kathmandu valley at dusk — temples, stupas, the Buddha, the Himalaya —
+            the last chapter of the journey, sitting on the very edge of the page */}
+        <Image
+          src="/image-story/nepal-skyline.webp"
+          alt=""
+          aria-hidden="true"
+          width={2000}
+          height={363}
+          sizes="100vw"
+          loading="lazy"
+          className="relative z-[1] mt-8 w-full select-none sm:mt-10"
+        />
       </div>
     </footer>
   );

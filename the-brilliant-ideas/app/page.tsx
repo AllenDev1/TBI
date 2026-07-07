@@ -10,7 +10,7 @@ import ParallaxLayer from '@/components/ParallaxLayer';
 import ProjectVisual from '@/components/ProjectVisual';
 import { SITE } from '@/lib/site';
 import { PROJECTS } from '@/lib/projects';
-import { TEAM } from '@/lib/team';
+import { TESTIMONIALS } from '@/lib/testimonials';
 
 export const metadata: Metadata = {
   alternates: { canonical: SITE.url },
@@ -35,7 +35,7 @@ export default function HomePage() {
             are always visible (never cropped); it's large, a little left of centre,
             and hangs down over the words that sit in the lower half. */}
         <section className="relative h-[100svh] overflow-hidden">
-          <div className="pointer-events-none absolute left-1/2 top-0 z-10 -translate-x-[98%]">
+          <div className="pointer-events-none absolute left-1/2 top-0 z-0 -translate-x-[85%] sm:-translate-x-[115%] lg:-translate-x-[143%]">
             <ParallaxLayer speed={0.05} className="flex justify-center">
               <div className="origin-top animate-pendulum motion-reduce:animate-none">
                 <Image
@@ -45,13 +45,13 @@ export default function HomePage() {
                   height={1500}
                   priority
                   sizes="(min-width: 1024px) 680px, (min-width: 640px) 560px, 96vw"
-                  className="h-[52vh] max-h-[440px] w-auto sm:h-[62vh] sm:max-h-[640px] lg:h-[70vh] lg:max-h-[800px]"
+                  className="h-[min(52vh,440px)] w-auto sm:h-[min(62vh,640px)] lg:h-[min(70vh,800px)]"
                 />
               </div>
             </ParallaxLayer>
           </div>
 
-          <div className="container-site relative z-0 flex h-full flex-col items-center justify-end pb-[7vh] text-center sm:pb-[9vh]">
+          <div className="container-site relative z-10 flex h-full flex-col items-center justify-end pb-[12vh] text-center sm:pb-[15vh]">
             <div className="hero-rise">
               <p className="font-devanagari text-base font-medium text-laligurans sm:text-lg" lang="ne">
                 नमस्ते
@@ -86,7 +86,7 @@ export default function HomePage() {
 
         {/* ═══════ THE JOURNEY — the silk road ═══════ */}
         <section className="relative mx-auto max-w-[1728px] overflow-hidden py-24 sm:py-32 lg:py-0">
-          <div className="container-site grid items-center gap-10 lg:min-h-[92vh] lg:grid-cols-2 lg:gap-6">
+          <div className="container-site grid items-center gap-10 lg:min-h-[82vh] lg:grid-cols-2 lg:gap-6">
             <Reveal className="pointer-events-none flex justify-center lg:absolute lg:inset-y-0 lg:left-0 lg:z-0 lg:items-center lg:justify-start">
               <ParallaxLayer speed={0.03}>
                 <Image
@@ -134,7 +134,7 @@ export default function HomePage() {
 
         {/* ═══════ THE CRAFT — the temple roof ═══════ */}
         <section className="relative mx-auto max-w-[1728px] overflow-hidden py-24 sm:py-32 lg:py-0">
-          <div className="container-site grid items-center gap-10 lg:min-h-[92vh] lg:grid-cols-2 lg:gap-6">
+          <div className="container-site grid items-center gap-10 lg:min-h-[82vh] lg:grid-cols-2 lg:gap-6">
             <div className="relative z-10 text-center lg:col-start-1 lg:pr-8 lg:text-left">
               <Reveal>
                 <h2 className="font-display text-4xl font-black leading-[1.06] text-ink sm:text-5xl xl:text-6xl">
@@ -164,7 +164,7 @@ export default function HomePage() {
         </section>
 
         {/* ═══════ SELECTED WORK ═══════ */}
-        <section className="py-24 sm:py-32">
+        <section className="py-20 sm:py-28">
           <div className="container-site">
             <Reveal className="flex items-end justify-between">
               <h2 className="font-display text-3xl font-black text-ink sm:text-5xl">Selected work</h2>
@@ -295,58 +295,99 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ═══════ THE CREW ═══════ */}
+        {/* ═══════ WHAT CLIENTS SAY ═══════ */}
         <section className="py-20 sm:py-28">
           <div className="container-site">
-            <Reveal>
-              <h2 className="text-center font-display text-3xl font-black text-ink sm:text-5xl">The basecamp crew</h2>
-            </Reveal>
-            <div className="mt-12 flex snap-x gap-5 overflow-x-auto pb-4 [scrollbar-width:thin] sm:justify-center sm:overflow-visible sm:pb-0">
-              {TEAM.slice(0, 6).map((member, i) => (
-                <Reveal key={member.name} delay={i * 80} className="shrink-0 snap-center">
-                  <TiltCard max={10}>
-                    <div className="group w-36 sm:w-40">
-                      <div className="relative aspect-[3/3.6] overflow-hidden rounded-2xl">
+            <div className="grid items-center gap-6 sm:grid-cols-[auto_1fr] sm:gap-10 lg:gap-16">
+              <Reveal className="flex justify-center sm:justify-start">
+                <Image
+                  src="/image-story/namaste.webp"
+                  alt=""
+                  aria-hidden
+                  width={620}
+                  height={778}
+                  sizes="(min-width: 1024px) 220px, 180px"
+                  loading="lazy"
+                  className="h-44 w-auto sm:h-52 lg:h-60"
+                />
+              </Reveal>
+              <Reveal delay={120} className="text-center sm:text-left">
+                <p className="chapter justify-center sm:justify-start">Kind Words</p>
+                <h2 className="mt-3 font-display text-3xl font-black text-ink sm:text-5xl">
+                  What our clients say
+                </h2>
+                <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-ink-soft sm:mx-0">
+                  The trust that keeps us climbing — a few words from the people we&rsquo;ve built with.
+                </p>
+              </Reveal>
+            </div>
+
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              {TESTIMONIALS.slice(0, 3).map((t, i) => (
+                <Reveal key={i} delay={(i % 3) * 90} className="h-full">
+                  <figure className="card-note flex h-full flex-col bg-paper-warm p-7 text-left sm:p-8">
+                    <span aria-hidden className="font-display text-[3.5rem] font-black leading-[0.4] text-madder/30">
+                      &ldquo;
+                    </span>
+                    <blockquote
+                      lang={t.lang}
+                      className={`mt-4 flex-1 font-display text-xl leading-[1.5] text-ink sm:text-[1.35rem] ${
+                        t.lang ? 'not-italic' : 'italic'
+                      }`}
+                    >
+                      {t.quote}
+                    </blockquote>
+                    <figcaption className="mt-6 flex items-start gap-3.5 border-t border-ink/10 pt-5">
+                      {t.avatar ? (
                         <Image
-                          src={member.image}
-                          alt={`${member.name}, ${member.role} at The Brilliant Ideas`}
-                          fill
-                          className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                          sizes="160px"
+                          src={t.avatar}
+                          alt={t.name}
+                          width={44}
+                          height={44}
+                          className="h-11 w-11 shrink-0 rounded-full object-cover object-top"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-himal-night/70 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                        <p className="absolute bottom-2.5 left-0 right-0 px-2 text-center text-xs font-semibold text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                          {member.role}
-                        </p>
+                      ) : (
+                        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-madder-faint font-display text-lg font-bold text-madder">
+                          {t.name.charAt(0)}
+                        </span>
+                      )}
+                      <div className="min-w-0">
+                        <p className="font-bold leading-tight text-ink">{t.name}</p>
+                        <p className="mt-0.5 text-sm text-ink-faint">{t.role}</p>
+                        {t.rating ? (
+                          <div className="mt-1.5 flex gap-0.5" aria-label={`${t.rating} out of 5 stars`}>
+                            {Array.from({ length: 5 }).map((_, s) => (
+                              <svg
+                                key={s}
+                                viewBox="0 0 20 20"
+                                aria-hidden
+                                className={`h-3.5 w-3.5 ${s < t.rating! ? 'fill-madder' : 'fill-ink/15'}`}
+                              >
+                                <path d="M10 1.6l2.47 5 5.53.8-4 3.9.94 5.5L10 14.2l-4.94 2.6.94-5.5-4-3.9 5.53-.8L10 1.6z" />
+                              </svg>
+                            ))}
+                          </div>
+                        ) : null}
                       </div>
-                      <p className="mt-2.5 text-center text-sm font-bold text-ink">{member.name.split(' ')[0]}</p>
-                    </div>
-                  </TiltCard>
+                    </figcaption>
+                  </figure>
                 </Reveal>
               ))}
             </div>
-            <Reveal className="mt-10 text-center">
-              <Link href="/about" className="inline-flex items-center gap-2 font-semibold text-sunrise-deep hover:underline">
-                Meet everyone
-                <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-            </Reveal>
           </div>
         </section>
 
         {/* ═══════ BEGIN ═══════ */}
-        <section className="py-28 sm:py-40">
+        <section className="pb-24 pt-8 sm:pb-28 sm:pt-12">
           <div className="container-site text-center">
-            <Reveal className="mb-10 flex justify-center sm:mb-12">
+            <Reveal className="mb-8 flex justify-center sm:mb-10">
               <Image
                 src="/image-story/begin-story.webp"
                 alt="A lone trekker beneath a line of prayer flags, watching the sun rise over the Himalaya"
-                width={1122}
-                height={1402}
-                sizes="(min-width: 576px) 576px, 100vw"
-                className="h-auto w-full max-w-xl"
+                width={1090}
+                height={832}
+                sizes="(min-width: 640px) 640px, 100vw"
+                className="h-auto w-full max-w-2xl"
               />
             </Reveal>
             <Reveal>

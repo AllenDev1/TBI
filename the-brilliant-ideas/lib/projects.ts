@@ -11,6 +11,13 @@ export type Project = {
   tags: string[];
   date: string;
   year: number;
+  /** Optional case-study spec — a field-note colophon shown on the card &
+   *  detail page when filled. Left undefined until real copy is supplied
+   *  (never auto-invented, so no fictional metrics ship). */
+  projectType?: string;
+  role?: string;
+  challenge?: string;
+  outcome?: string;
   externalLink?: string;
   appLink?: string;
   /** Apple App Store link */

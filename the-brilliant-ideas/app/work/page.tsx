@@ -80,7 +80,7 @@ export default function WorkPage() {
                 <Reveal key={project.slug} as="article">
                   <Link
                     href={`/work/${project.slug}`}
-                    className="group relative block overflow-hidden rounded-[2rem] transition-shadow duration-300 hover:shadow-[0_28px_70px_rgba(34,48,58,0.25)]"
+                    className="group relative block overflow-hidden rounded-[2rem] transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_34px_80px_-30px_rgba(34,48,58,0.42)] motion-reduce:hover:translate-y-0"
                     style={{ background: bg }}
                   >
                     {/* watermark title bleeding off the tile */}

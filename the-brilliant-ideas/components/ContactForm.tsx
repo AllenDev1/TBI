@@ -169,14 +169,13 @@ export default function ContactForm() {
     );
   }
 
-  const inputClass =
-    'w-full rounded-xl border border-ink/10 bg-white px-4 py-3 text-ink placeholder:text-ink-faint focus:border-sunrise focus:outline-none focus:ring-2 focus:ring-sunrise/20 transition-all';
+  const inputClass = 'input-field';
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="space-y-5">
+    <form onSubmit={handleSubmit} noValidate className="space-y-6">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="mb-1.5 block text-sm font-semibold text-ink">
+          <label htmlFor="name" className="mb-2 block text-xs font-semibold uppercase tracking-[0.12em] text-ink-soft">
             Your Name *
           </label>
           <input
@@ -192,7 +191,7 @@ export default function ContactForm() {
           {errors.name && <p className="mt-1.5 text-sm text-laligurans">{errors.name}</p>}
         </div>
         <div>
-          <label htmlFor="email" className="mb-1.5 block text-sm font-semibold text-ink">
+          <label htmlFor="email" className="mb-2 block text-xs font-semibold uppercase tracking-[0.12em] text-ink-soft">
             Email *
           </label>
           <input
@@ -210,7 +209,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="company" className="mb-1.5 block text-sm font-semibold text-ink">
+        <label htmlFor="company" className="mb-2 block text-xs font-semibold uppercase tracking-[0.12em] text-ink-soft">
           Company / Organization
         </label>
         <input
@@ -227,7 +226,7 @@ export default function ContactForm() {
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="service" className="mb-1.5 block text-sm font-semibold text-ink">
+          <label htmlFor="service" className="mb-2 block text-xs font-semibold uppercase tracking-[0.12em] text-ink-soft">
             Service You Need
           </label>
           <select id="service" name="service" value={formData.service} onChange={handleChange} className={inputClass}>
@@ -238,7 +237,7 @@ export default function ContactForm() {
           </select>
         </div>
         <div>
-          <label htmlFor="budget" className="mb-1.5 block text-sm font-semibold text-ink">
+          <label htmlFor="budget" className="mb-2 block text-xs font-semibold uppercase tracking-[0.12em] text-ink-soft">
             Project Budget
           </label>
           <select id="budget" name="budget" value={formData.budget} onChange={handleChange} className={inputClass}>
@@ -251,7 +250,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="mb-1.5 block text-sm font-semibold text-ink">
+        <label htmlFor="message" className="mb-2 block text-xs font-semibold uppercase tracking-[0.12em] text-ink-soft">
           Tell Us Your Idea *
         </label>
         <textarea

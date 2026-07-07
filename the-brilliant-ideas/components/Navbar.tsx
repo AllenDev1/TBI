@@ -61,14 +61,17 @@ export default function Navbar({ theme = 'light' }: { theme?: 'light' | 'dark' }
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-200 ${
+                    aria-current={active ? 'page' : undefined}
+                    className={`relative px-3 py-2 text-sm font-semibold transition-colors duration-200 after:absolute after:inset-x-3 after:-bottom-0.5 after:h-px after:origin-left after:transition-transform after:duration-300 after:ease-out motion-reduce:after:transition-none ${
+                      dark ? 'after:bg-white/70' : 'after:bg-madder'
+                    } ${active ? 'after:scale-x-100' : 'after:scale-x-0 hover:after:scale-x-100'} ${
                       active
                         ? dark
-                          ? 'bg-white/15 text-white'
-                          : 'bg-sunrise-faint text-sunrise-deep'
+                          ? 'text-white'
+                          : 'text-madder'
                         : dark
                           ? 'text-white/75 hover:text-white'
-                          : 'text-ink-soft hover:text-sunrise-deep'
+                          : 'text-ink-soft hover:text-ink'
                     }`}
                   >
                     {link.label}
@@ -109,10 +112,18 @@ export default function Navbar({ theme = 'light' }: { theme?: 'light' | 'dark' }
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className={`block rounded-xl px-4 py-3 font-semibold ${
-                      pathname === link.href ? 'bg-sunrise-faint text-sunrise-deep' : 'text-ink'
+                    aria-current={pathname === link.href ? 'page' : undefined}
+                    className={`flex items-center gap-3 rounded-xl px-4 py-3 font-semibold transition-colors ${
+                      pathname === link.href
+                        ? 'bg-madder-faint text-madder-deep'
+                        : 'text-ink hover:bg-ink/[0.03]'
                     }`}
                   >
+                    <span
+                      className={`h-1.5 w-1.5 shrink-0 rounded-full transition-colors ${
+                        pathname === link.href ? 'bg-madder' : 'bg-ink/20'
+                      }`}
+                    />
                     {link.label}
                   </Link>
                 </li>
