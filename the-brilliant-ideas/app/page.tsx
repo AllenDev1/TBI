@@ -11,6 +11,7 @@ import ProjectVisual from '@/components/ProjectVisual';
 import { SITE } from '@/lib/site';
 import { PROJECTS } from '@/lib/projects';
 import { TESTIMONIALS } from '@/lib/testimonials';
+import TestimonialCarousel from '@/components/TestimonialCarousel';
 
 export const metadata: Metadata = {
   alternates: { canonical: SITE.url },
@@ -312,82 +313,33 @@ export default function HomePage() {
                 />
               </Reveal>
               <Reveal delay={120} className="text-center sm:text-left">
-                <p className="chapter justify-center sm:justify-start">Kind Words</p>
+                <p className="chapter justify-center sm:justify-start">Voices from the Trail</p>
                 <h2 className="mt-3 font-display text-3xl font-black text-ink sm:text-5xl">
-                  What our clients say
+                  Kind words from fellow travelers
                 </h2>
                 <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-ink-soft sm:mx-0">
-                  The trust that keeps us climbing — a few words from the people we&rsquo;ve built with.
+                  Stories gathered along the way, from the people who walked this journey with us.
                 </p>
               </Reveal>
             </div>
 
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
-              {TESTIMONIALS.slice(0, 3).map((t, i) => (
-                <Reveal key={i} delay={(i % 3) * 90} className="h-full">
-                  <figure className="card-note flex h-full flex-col bg-paper-warm p-7 text-left sm:p-8">
-                    <span aria-hidden className="font-display text-[3.5rem] font-black leading-[0.4] text-madder/30">
-                      &ldquo;
-                    </span>
-                    <blockquote
-                      lang={t.lang}
-                      className={`mt-4 flex-1 font-display text-xl leading-[1.5] text-ink sm:text-[1.35rem] ${
-                        t.lang ? 'not-italic' : 'italic'
-                      }`}
-                    >
-                      {t.quote}
-                    </blockquote>
-                    <figcaption className="mt-6 flex items-start gap-3.5 border-t border-ink/10 pt-5">
-                      {t.avatar ? (
-                        <Image
-                          src={t.avatar}
-                          alt={t.name}
-                          width={44}
-                          height={44}
-                          className="h-11 w-11 shrink-0 rounded-full object-cover object-top"
-                        />
-                      ) : (
-                        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-madder-faint font-display text-lg font-bold text-madder">
-                          {t.name.charAt(0)}
-                        </span>
-                      )}
-                      <div className="min-w-0">
-                        <p className="font-bold leading-tight text-ink">{t.name}</p>
-                        <p className="mt-0.5 text-sm text-ink-faint">{t.role}</p>
-                        {t.rating ? (
-                          <div className="mt-1.5 flex gap-0.5" aria-label={`${t.rating} out of 5 stars`}>
-                            {Array.from({ length: 5 }).map((_, s) => (
-                              <svg
-                                key={s}
-                                viewBox="0 0 20 20"
-                                aria-hidden
-                                className={`h-3.5 w-3.5 ${s < t.rating! ? 'fill-madder' : 'fill-ink/15'}`}
-                              >
-                                <path d="M10 1.6l2.47 5 5.53.8-4 3.9.94 5.5L10 14.2l-4.94 2.6.94-5.5-4-3.9 5.53-.8L10 1.6z" />
-                              </svg>
-                            ))}
-                          </div>
-                        ) : null}
-                      </div>
-                    </figcaption>
-                  </figure>
-                </Reveal>
-              ))}
-            </div>
+            <Reveal className="mt-12">
+              <TestimonialCarousel items={TESTIMONIALS} />
+            </Reveal>
           </div>
         </section>
 
         {/* ═══════ BEGIN ═══════ */}
         <section className="pb-24 pt-8 sm:pb-28 sm:pt-12">
           <div className="container-site text-center">
-            <Reveal className="mb-8 flex justify-center sm:mb-10">
+            <Reveal className="mb-6 flex justify-center sm:mb-8">
               <Image
                 src="/image-story/begin-story.webp"
                 alt="A lone trekker beneath a line of prayer flags, watching the sun rise over the Himalaya"
                 width={1090}
                 height={832}
-                sizes="(min-width: 640px) 640px, 100vw"
-                className="h-auto w-full max-w-2xl"
+                sizes="(min-width: 768px) 768px, 92vw"
+                className="h-auto w-full max-w-3xl"
               />
             </Reveal>
             <Reveal>

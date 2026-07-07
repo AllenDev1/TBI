@@ -208,17 +208,17 @@ export default function Footer({
           <p>Proudly crafted in Nepal 🇳🇵</p>
         </div>
 
-        {/* the Kathmandu valley at dusk — temples, stupas, the Buddha, the Himalaya —
-            the last chapter of the journey, sitting on the very edge of the page */}
+        {/* basecamp at dusk — a single stupa and the Himalaya rising from the mist,
+            the last, quietest scene of the journey, on the very edge of the page */}
         <Image
-          src="/image-story/nepal-skyline.webp"
+          src="/image-story/basecamp-dusk.webp"
           alt=""
           aria-hidden="true"
           width={2000}
-          height={363}
+          height={550}
           sizes="100vw"
           loading="lazy"
-          className="relative z-[1] mt-8 w-full select-none sm:mt-10"
+          className="relative z-[1] mt-10 block w-full select-none sm:mt-14"
         />
       </div>
     </footer>
