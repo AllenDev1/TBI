@@ -137,6 +137,15 @@
     box-shadow: 0 0 0 3px rgba(166, 43, 68, 0.12);
   }
 
+  /* ─── Paper grain — a faint handmade-paper tooth laid over the project cards'
+     brand colour, so the tiles feel printed rather than flat digital ─── */
+  .card-grain {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+    background-size: 140px 140px;
+    opacity: 0.22;
+    mix-blend-mode: soft-light;
+  }
+
   /* ─── Trail divider — a dotted path that connects one section to the next ─── */
   .trail-divider {
     @apply mx-auto h-8 w-px;

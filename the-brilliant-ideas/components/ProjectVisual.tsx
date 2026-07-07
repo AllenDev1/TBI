@@ -25,36 +25,41 @@ export default function ProjectVisual({
       <div
         className={`relative mx-auto flex w-full items-center justify-center py-2 transition-transform duration-500 group-hover:-translate-y-2 ${className}`}
       >
-        <div className="relative z-0 -mr-[7%] w-[36%] shrink-0 -rotate-[9deg] translate-y-5 transition-transform duration-500 group-hover:-rotate-[6deg]">
+        {/* grounding shadow — pools the fan onto the card like objects on a desk */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute bottom-3 left-1/2 z-0 h-10 w-[70%] -translate-x-1/2 rounded-[50%] bg-black/30 blur-2xl transition-all duration-500 group-hover:w-[64%] group-hover:bg-black/40"
+        />
+        <div className="relative z-10 -mr-[11%] w-[35%] shrink-0 -rotate-[10deg] translate-y-6 transition-transform duration-500 group-hover:-rotate-[7deg] group-hover:translate-y-4">
           <Image
             src={shots[0]}
             alt={`${project.title} screen`}
             width={1320}
             height={2868}
             priority={priority}
-            className="w-full rounded-[1.2rem] shadow-[0_18px_44px_rgba(0,0,0,0.35)] ring-1 ring-white/20"
+            className="w-full rounded-[1.2rem] shadow-[0_22px_50px_rgba(0,0,0,0.42)] ring-1 ring-white/15"
             sizes="200px"
           />
         </div>
-        <div className="relative z-10 w-[42%] shrink-0">
+        <div className="relative z-20 w-[46%] shrink-0 transition-transform duration-500 group-hover:-translate-y-1.5">
           <Image
             src={shots[1] ?? shots[0]}
             alt={`${project.title} screen`}
             width={1320}
             height={2868}
             priority={priority}
-            className="w-full rounded-[1.3rem] shadow-[0_26px_64px_rgba(0,0,0,0.45)] ring-1 ring-white/25"
-            sizes="240px"
+            className="w-full rounded-[1.4rem] shadow-[0_36px_78px_rgba(0,0,0,0.55)] ring-1 ring-white/25"
+            sizes="260px"
           />
         </div>
-        <div className="relative z-0 -ml-[7%] w-[36%] shrink-0 rotate-[9deg] translate-y-5 transition-transform duration-500 group-hover:rotate-[6deg]">
+        <div className="relative z-10 -ml-[11%] w-[35%] shrink-0 rotate-[10deg] translate-y-6 transition-transform duration-500 group-hover:rotate-[7deg] group-hover:translate-y-4">
           <Image
             src={shots[2] ?? shots[0]}
             alt={`${project.title} screen`}
             width={1320}
             height={2868}
             priority={priority}
-            className="w-full rounded-[1.2rem] shadow-[0_18px_44px_rgba(0,0,0,0.35)] ring-1 ring-white/20"
+            className="w-full rounded-[1.2rem] shadow-[0_22px_50px_rgba(0,0,0,0.42)] ring-1 ring-white/15"
             sizes="200px"
           />
         </div>
@@ -63,9 +68,14 @@ export default function ProjectVisual({
   }
 
   return (
-    <div className={`mx-auto w-full rotate-1 transition-transform duration-500 group-hover:rotate-0 ${className}`}>
+    <div className={`relative mx-auto w-full rotate-1 transition-transform duration-500 group-hover:rotate-0 ${className}`}>
+      {/* grounding shadow — settles the browser card onto the tile */}
       <div
-        className="rounded-2xl p-2 shadow-[0_26px_64px_rgba(0,0,0,0.4)] ring-1 ring-white/15"
+        aria-hidden
+        className="pointer-events-none absolute -bottom-4 left-1/2 h-10 w-[82%] -translate-x-1/2 rounded-[50%] bg-black/25 blur-2xl transition-all duration-500 group-hover:bg-black/35"
+      />
+      <div
+        className="relative rounded-2xl p-2 shadow-[0_34px_74px_rgba(0,0,0,0.5)] ring-1 ring-white/15"
         style={{ background: `${fg}14` }}
       >
         <div className="flex items-center gap-1.5 px-3 py-2">

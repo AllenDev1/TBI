@@ -6,6 +6,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Reveal from '@/components/Reveal';
 import TiltCard from '@/components/TiltCard';
+import { CardChrome, TrailFlags } from '@/components/ExpeditionCard';
 import ParallaxLayer from '@/components/ParallaxLayer';
 import ProjectVisual from '@/components/ProjectVisual';
 import { SITE } from '@/lib/site';
@@ -184,28 +185,23 @@ export default function HomePage() {
             <Reveal className="mt-12" as="article">
               <Link
                 href={`/work/${flagship.slug}`}
-                className="group relative block overflow-hidden rounded-[2rem] transition-shadow duration-300 hover:shadow-[0_28px_70px_rgba(34,48,58,0.25)]"
-                style={{ background: flagship.brand.bg }}
+                className="group relative block overflow-hidden rounded-[2rem] transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_36px_80px_-32px_rgba(34,48,58,0.4)] motion-reduce:hover:translate-y-0"
+                style={{ background: flagship.brand.bg, boxShadow: '0 18px 50px -30px rgba(34,48,58,0.35)' }}
               >
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute -bottom-[0.16em] right-0 select-none whitespace-nowrap font-display text-[6rem] font-black uppercase leading-none tracking-tight sm:text-[10rem]"
-                  style={{ WebkitTextStroke: `1px ${flagship.brand.fg}`, color: 'transparent', opacity: 0.12 }}
-                >
-                  {flagship.title}
-                </div>
+                <CardChrome
+                  title={flagship.title}
+                  fg={flagship.brand.fg}
+                  watermarkClass="text-[6rem] sm:text-[10rem]"
+                />
                 <div className="relative grid items-center gap-10 p-7 sm:p-12 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
                   <div>
-                    <span
-                      className="inline-block rounded-full border px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.18em]"
-                      style={{
-                        borderColor: `${flagship.brand.fg}40`,
-                        color: flagship.brand.fg,
-                        backgroundColor: `${flagship.brand.fg}14`,
-                      }}
+                    <p
+                      className="text-xs font-semibold uppercase tracking-[0.28em]"
+                      style={{ color: flagship.brand.fg, opacity: 0.62 }}
                     >
-                      Flagship product
-                    </span>
+                      Expedition 01 · {flagship.date}
+                    </p>
+                    <TrailFlags className="mt-3 h-4 w-[68px]" color={flagship.brand.fg} />
                     {flagship.frameIcon && (
                       <Image
                         src={flagship.frameIcon}
@@ -213,17 +209,17 @@ export default function HomePage() {
                         aria-hidden
                         width={824}
                         height={824}
-                        className="mt-7 h-12 w-12 object-contain sm:h-14 sm:w-14"
+                        className="mt-6 h-12 w-12 object-contain sm:h-14 sm:w-14"
                       />
                     )}
                     <h3
-                      className="mt-4 font-display text-3xl font-black tracking-tight sm:text-5xl"
+                      className="mt-5 font-display text-[2rem] font-black leading-[1.0] tracking-tight sm:text-[3.3rem]"
                       style={{ color: flagship.brand.fg }}
                     >
                       {flagship.title}
                     </h3>
                     <p
-                      className="mt-2 font-display text-lg italic sm:text-xl"
+                      className="mt-4 font-display text-lg italic sm:text-xl"
                       style={{ color: flagship.brand.fg, opacity: 0.85 }}
                     >
                       {flagship.tagline}
@@ -235,9 +231,15 @@ export default function HomePage() {
                       className="mt-7 inline-flex items-center gap-2 font-semibold"
                       style={{ color: flagship.brand.fg }}
                     >
-                      Read the story
+                      <span className="relative">
+                        Explore the journey
+                        <span
+                          aria-hidden
+                          className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-current transition-transform duration-300 ease-out group-hover:scale-x-100 motion-reduce:transition-none"
+                        />
+                      </span>
                       <svg
-                        className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5"
+                        className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5 motion-reduce:transition-none"
                         fill="none"
                         stroke="currentColor"
                         strokeWidth={2.5}
@@ -259,29 +261,62 @@ export default function HomePage() {
                   <TiltCard max={3} scale={1.005} className="h-full">
                     <Link
                       href={`/work/${project.slug}`}
-                      className="group relative flex h-full flex-col overflow-hidden rounded-3xl p-7 transition-shadow duration-300 hover:shadow-[0_24px_60px_rgba(34,48,58,0.22)] sm:p-8"
-                      style={{ background: project.brand.bg }}
+                      className="group relative flex h-full flex-col overflow-hidden rounded-3xl p-7 transition-shadow duration-300 hover:shadow-[0_30px_66px_-30px_rgba(34,48,58,0.36)] sm:p-8"
+                      style={{ background: project.brand.bg, boxShadow: '0 14px 40px -28px rgba(34,48,58,0.32)' }}
                     >
-                      <div className="flex items-baseline justify-between gap-4">
-                        <h3
-                          className="font-display text-2xl font-bold tracking-tight"
-                          style={{ color: project.brand.fg }}
+                      <CardChrome
+                        title={project.title}
+                        fg={project.brand.fg}
+                        watermarkClass="text-[4.5rem] sm:text-[6rem]"
+                        frameClass="inset-2.5 rounded-[1.15rem]"
+                      />
+                      <div className="relative flex items-center justify-between gap-4">
+                        <p
+                          className="text-[0.7rem] font-semibold uppercase tracking-[0.24em]"
+                          style={{ color: project.brand.fg, opacity: 0.6 }}
                         >
-                          {project.title}
-                        </h3>
-                        <span className="text-sm font-semibold" style={{ color: project.brand.fg, opacity: 0.55 }}>
+                          Expedition {String(i + 2).padStart(2, '0')}
+                        </p>
+                        <span className="text-sm font-semibold" style={{ color: project.brand.fg, opacity: 0.5 }}>
                           {project.year}
                         </span>
                       </div>
+                      <h3
+                        className="relative mt-3 font-display text-[1.7rem] font-bold leading-[1.02] tracking-tight"
+                        style={{ color: project.brand.fg }}
+                      >
+                        {project.title}
+                      </h3>
                       <p
-                        className="mt-1 font-display italic"
+                        className="relative mt-2 font-display italic"
                         style={{ color: project.brand.fg, opacity: 0.8 }}
                       >
                         {project.tagline}
                       </p>
-                      <div className="mt-8 flex flex-1 items-end">
+                      <div className="relative mt-8 flex flex-1 items-end">
                         <ProjectVisual project={project} className="max-w-[380px]" />
                       </div>
+                      <span
+                        className="relative mt-6 inline-flex items-center gap-1.5 text-sm font-semibold"
+                        style={{ color: project.brand.fg }}
+                      >
+                        <span className="relative">
+                          Explore the journey
+                          <span
+                            aria-hidden
+                            className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-current transition-transform duration-300 ease-out group-hover:scale-x-100 motion-reduce:transition-none"
+                          />
+                        </span>
+                        <svg
+                          className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth={2.5}
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </span>
                     </Link>
                   </TiltCard>
                 </Reveal>

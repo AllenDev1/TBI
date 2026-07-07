@@ -6,6 +6,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Reveal from '@/components/Reveal';
 import ProjectVisual from '@/components/ProjectVisual';
+import { CardChrome, TrailFlags } from '@/components/ExpeditionCard';
 import { Ridge, PrayerFlagLine } from '@/components/NepalArt';
 import { SITE } from '@/lib/site';
 import { PROJECTS } from '@/lib/projects';
@@ -80,17 +81,10 @@ export default function WorkPage() {
                 <Reveal key={project.slug} as="article">
                   <Link
                     href={`/work/${project.slug}`}
-                    className="group relative block overflow-hidden rounded-[2rem] transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_34px_80px_-30px_rgba(34,48,58,0.42)] motion-reduce:hover:translate-y-0"
-                    style={{ background: bg }}
+                    className="group relative block overflow-hidden rounded-[2rem] transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_36px_82px_-34px_rgba(34,48,58,0.38)] motion-reduce:hover:translate-y-0"
+                    style={{ background: bg, boxShadow: '0 18px 52px -32px rgba(34,48,58,0.34)' }}
                   >
-                    {/* watermark title bleeding off the tile */}
-                    <div
-                      aria-hidden
-                      className="pointer-events-none absolute -bottom-[0.16em] right-0 select-none whitespace-nowrap font-display text-[7rem] font-black uppercase leading-none tracking-tight sm:text-[11rem]"
-                      style={{ WebkitTextStroke: `1px ${fg}`, color: 'transparent', opacity: 0.12 }}
-                    >
-                      {project.title}
-                    </div>
+                    <CardChrome title={project.title} fg={fg} watermarkClass="text-[7rem] sm:text-[11rem]" />
 
                     <div
                       className={`relative grid items-center gap-10 p-7 sm:p-12 lg:grid-cols-[1.1fr_1fr] lg:gap-14 ${
@@ -102,8 +96,9 @@ export default function WorkPage() {
                           className="text-xs font-semibold uppercase tracking-[0.28em]"
                           style={{ color: fg, opacity: 0.6 }}
                         >
-                          {String(i + 1).padStart(2, '0')} · {project.date}
+                          Expedition {String(i + 1).padStart(2, '0')} · {project.date}
                         </p>
+                        <TrailFlags className="mt-3 h-4 w-[68px]" color={fg} />
                         {project.frameIcon && (
                           <Image
                             src={project.frameIcon}
@@ -115,12 +110,12 @@ export default function WorkPage() {
                           />
                         )}
                         <h2
-                          className="mt-4 font-display text-3xl font-black tracking-tight sm:text-5xl"
+                          className="mt-4 font-display text-[2rem] font-black leading-[1.0] tracking-tight sm:text-[3.3rem]"
                           style={{ color: fg }}
                         >
                           {project.title}
                         </h2>
-                        <p className="mt-2 font-display text-lg italic sm:text-xl" style={{ color: fg, opacity: 0.85 }}>
+                        <p className="mt-4 font-display text-lg italic sm:text-xl" style={{ color: fg, opacity: 0.85 }}>
                           {project.tagline}
                         </p>
                         <p className="mt-4 max-w-md leading-relaxed" style={{ color: fg, opacity: 0.75 }}>
@@ -141,9 +136,15 @@ export default function WorkPage() {
                           className="mt-7 inline-flex items-center gap-2 font-semibold"
                           style={{ color: fg }}
                         >
-                          Read the story
+                          <span className="relative">
+                            Explore the journey
+                            <span
+                              aria-hidden
+                              className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-current transition-transform duration-300 ease-out group-hover:scale-x-100 motion-reduce:transition-none"
+                            />
+                          </span>
                           <svg
-                            className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5"
+                            className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5 motion-reduce:transition-none"
                             fill="none"
                             stroke="currentColor"
                             strokeWidth={2.5}
