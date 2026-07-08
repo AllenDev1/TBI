@@ -97,7 +97,7 @@ export default function Footer({
       <div className={closing || sky === 'warm' ? 'bg-paper-warm' : 'bg-paper'}>
         <Ridge fill="#16222C" className="block h-16 sm:h-24" />
       </div>
-      <div className="relative overflow-hidden bg-himal-night text-himal-snow">
+      <div className="relative -mt-px overflow-hidden bg-himal-night text-himal-snow">
         {/* nightfall at the summit — a quiet starlit sky with a low moon */}
         <div aria-hidden="true" className="pointer-events-none absolute inset-0">
           {STARS.map((st, i) => (
