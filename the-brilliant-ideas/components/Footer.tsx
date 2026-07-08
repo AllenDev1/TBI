@@ -63,17 +63,12 @@ export default function Footer({
       <div className="bg-paper-warm">
         <div className="container-site flex flex-col items-center py-16 text-center sm:py-20">
           <Image
-            src="/image-story/buddha.webp"
-            alt="A watercolor Buddha meditating beneath a Bodhi tree, the Himalaya rising behind"
-            width={1054}
-            height={1492}
+            src="/image-story/buddha-calm.webp"
+            alt="A watercolour of the Buddha seated in serene meditation, a laligurans bloom at his feet"
+            width={758}
+            height={961}
             sizes="270px"
-            className="h-auto w-auto max-h-[300px] sm:max-h-[380px]"
-            style={{
-              WebkitMaskImage:
-                'radial-gradient(ellipse 68% 76% at 50% 47%, black 42%, transparent 88%)',
-              maskImage: 'radial-gradient(ellipse 68% 76% at 50% 47%, black 42%, transparent 88%)',
-            }}
+            className="h-auto w-auto max-h-[300px] sm:max-h-[360px]"
           />
           <h2 className="mt-8 font-display text-3xl font-black leading-[1.08] text-ink sm:text-4xl">
             Great work is <span className="italic text-laligurans">calm work.</span>
