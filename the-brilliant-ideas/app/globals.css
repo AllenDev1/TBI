@@ -46,12 +46,17 @@
 
   /* Chapter marker — the storytelling section label */
   .chapter {
-    @apply flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.2em] text-sunrise-deep;
+    @apply flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-semibold uppercase tracking-[0.2em] text-sunrise-deep;
   }
 
   .chapter::before {
     content: '';
-    @apply block h-px w-10 bg-sunrise;
+    @apply block h-px w-10 shrink-0 bg-sunrise;
+  }
+
+  /* keep each Nepali accent on one line so it wraps as a unit, not mid-word */
+  .chapter [lang='ne'] {
+    white-space: nowrap;
   }
 
   /* ─── Buttons — flat, tactile, carved; one accent, no glow ─── */

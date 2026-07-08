@@ -46,7 +46,12 @@ export default function WorkPage() {
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_1fr]">
             <div className="text-center lg:text-left">
               <Reveal>
-                <p className="chapter justify-center lg:justify-start">The Expedition Log</p>
+                <p className="chapter justify-center lg:justify-start">
+                  The Expedition Log
+                  <span className="font-devanagari text-base normal-case tracking-normal text-ink-faint" lang="ne">
+                    · अभियान
+                  </span>
+                </p>
                 <h1 className="mx-auto mt-4 max-w-3xl font-display text-4xl font-black text-ink sm:text-6xl lg:mx-0">
                   Every project is a peak
                   <span className="block italic text-laligurans">we&rsquo;ve climbed.</span>
@@ -59,8 +64,8 @@ export default function WorkPage() {
             </div>
             <Reveal delay={150} className="flex justify-center lg:justify-end">
               <Image
-                src="/image-story/img4.webp"
-                alt="A danphe in flight, its wings and tail carrying the stupas, temples, waterfalls, and mountains of Nepal"
+                src="/image-story/summit-flags.webp"
+                alt="A watercolour of a lone climber on a Himalayan summit beneath a line of prayer flags, a stupa, pagoda, and waterfall in the valley below"
                 width={1114}
                 height={1412}
                 priority

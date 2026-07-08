@@ -63,8 +63,8 @@ export default function Footer({
       <div className="bg-paper-warm">
         <div className="container-site flex flex-col items-center py-16 text-center sm:py-20">
           <Image
-            src="/image-story/img6.webp"
-            alt="A watercolor Buddha meditating beneath a Bodhi tree"
+            src="/image-story/buddha.webp"
+            alt="A watercolor Buddha meditating beneath a Bodhi tree, the Himalaya rising behind"
             width={1054}
             height={1492}
             sizes="270px"

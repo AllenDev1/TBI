@@ -69,14 +69,31 @@ export default function ContactPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <Navbar />
 
-      <main className="overflow-x-clip pt-28 sm:pt-32">
+      <main className="relative overflow-x-clip pt-28 sm:pt-32">
+        {/* Nepal skyline — a faint horizon drifting in from the right corner */}
+        <Image
+          src="/image-story/nepal-skyline.webp"
+          alt=""
+          aria-hidden
+          width={2000}
+          height={363}
+          sizes="70vw"
+          priority
+          className="pointer-events-none absolute right-0 top-36 z-0 w-[78vw] max-w-[880px] select-none opacity-[0.09] sm:top-32"
+        />
+
         {/* Header */}
-        <section className="container-site relative pb-24 text-center sm:pb-28">
+        <section className="container-site relative z-10 pb-24 text-center sm:pb-28">
           <Reveal>
             <p className="font-devanagari text-2xl font-medium text-laligurans" lang="ne">
               नमस्ते
             </p>
-            <p className="chapter mt-3 justify-center">Begin Your Chapter</p>
+            <p className="chapter mt-3 justify-center">
+              Begin Your Chapter
+              <span className="font-devanagari text-base normal-case tracking-normal text-ink-faint" lang="ne">
+                · नयाँ अध्याय
+              </span>
+            </p>
             <h1 className="mx-auto mt-4 max-w-3xl font-display text-4xl font-black text-ink sm:text-6xl">
               Every journey starts with hello
             </h1>

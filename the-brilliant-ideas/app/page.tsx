@@ -20,6 +20,34 @@ export const metadata: Metadata = {
 
 const CRAFTS = ['Web', 'Apps', 'Brand', 'UX', 'Growth', 'Software'];
 
+// Nepal told in three acts — plains, heritage, heights — a scroll from the Terai to the roof of the world.
+const NEPAL_SCENES = [
+  {
+    img: 'village-well', w: 1024, h: 1536, tag: 'तराई', region: 'The Terai',
+    head: 'Where our roots run deep',
+    copy: 'We were born in Biratnagar, on the warm plains of the Terai — a land of patient hands and certain seasons. Nothing here is hurried, and nothing worth building ever is.',
+    alt: 'A watercolour of a village hand-pump and clay water pot on the Terai plains',
+  },
+  {
+    img: 'sal-forest-path', w: 1024, h: 1536, tag: 'वन', region: 'The Forests',
+    head: 'Where the trail slows you down',
+    copy: 'Beyond the fields, the sal forests run deep and green. A good path asks for patience and rewards it — the same quiet bargain we make with every project.',
+    alt: 'A watercolour of a sunlit path through a Terai sal forest',
+  },
+  {
+    img: 'janaki-mandir', w: 1024, h: 1536, tag: 'सम्पदा', region: 'The Heritage',
+    head: 'Where craft became devotion',
+    copy: 'In our temple towns, every window is carved by hand and every wall tells a story. We grew up believing ordinary things deserve extraordinary care.',
+    alt: 'A watercolour of the ornate Janaki Mandir temple in Janakpur',
+  },
+  {
+    img: 'red-panda', w: 1536, h: 1024, tag: 'हिमाल', region: 'The Heights',
+    head: 'Where the land touches the sky',
+    copy: 'From the red-panda forests of the east to the highest points on earth, Nepal never stops reaching upward. That restlessness — to climb a little higher — is in everything we make.',
+    alt: 'A watercolour of a red panda asleep on a rhododendron branch',
+  },
+];
+
 export default function HomePage() {
   const [flagship, ...others] = PROJECTS;
   const featured = others.slice(0, 4);
@@ -53,34 +81,36 @@ export default function HomePage() {
             </ParallaxLayer>
           </div>
 
-          <div className="container-site relative z-10 flex h-full flex-col items-center justify-end pb-[12vh] text-center sm:pb-[15vh]">
-            <div className="hero-rise">
-              <p className="font-devanagari text-base font-medium text-laligurans sm:text-lg" lang="ne">
-                नमस्ते
-              </p>
-              <p className="mt-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-ink-faint sm:text-xs sm:tracking-[0.3em]">
-                The Brilliant Ideas · Digital Agency · Nepal
-              </p>
-            </div>
-            <div className="hero-rise" style={{ animationDelay: '120ms' }}>
-              <h1 className="mx-auto mt-3 max-w-4xl font-display text-4xl font-black leading-[1.03] text-ink sm:text-6xl lg:text-7xl xl:text-8xl">
-                Brilliant ideas,{' '}
-                <span className="italic text-laligurans">quietly crafted.</span>
-              </h1>
-            </div>
-            <div className="hero-rise" style={{ animationDelay: '240ms' }}>
-              <p className="mx-auto mt-4 max-w-lg text-lg leading-relaxed text-ink-soft sm:text-xl">
-                Websites, apps, and brands, built with Himalayan patience and care.
-              </p>
-            </div>
-            <div className="hero-rise" style={{ animationDelay: '360ms' }}>
-              <div className="mt-6 flex flex-wrap justify-center gap-3 sm:gap-4">
-                <Link href="/contact" className="btn-primary">
-                  Start a project
-                </Link>
-                <Link href="/work" className="btn-outline">
-                  See our work
-                </Link>
+          <div className="container-site relative z-10 flex h-full flex-col justify-end pb-[12vh] sm:pb-[15vh] lg:justify-center lg:pb-0">
+            <div className="mx-auto w-full max-w-3xl text-center lg:translate-x-20 xl:translate-x-28">
+              <div className="hero-rise">
+                <p className="font-devanagari text-base font-medium text-laligurans sm:text-lg" lang="ne">
+                  नमस्ते
+                </p>
+                <p className="mt-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.28em] text-ink-faint sm:text-xs sm:tracking-[0.3em]">
+                  The Brilliant Ideas · Digital Agency · Nepal
+                </p>
+              </div>
+              <div className="hero-rise" style={{ animationDelay: '120ms' }}>
+                <h1 className="mt-3 font-display text-4xl font-black leading-[1.03] text-ink sm:text-6xl lg:text-7xl xl:text-8xl">
+                  Brilliant ideas,{' '}
+                  <span className="italic text-laligurans">quietly crafted.</span>
+                </h1>
+              </div>
+              <div className="hero-rise" style={{ animationDelay: '240ms' }}>
+                <p className="mx-auto mt-4 max-w-lg text-lg leading-relaxed text-ink-soft sm:text-xl">
+                  Websites, apps, and brands, built with Himalayan patience and care.
+                </p>
+              </div>
+              <div className="hero-rise" style={{ animationDelay: '360ms' }}>
+                <div className="mt-6 flex flex-wrap justify-center gap-3 sm:gap-4">
+                  <Link href="/contact" className="btn-primary">
+                    Start a project
+                  </Link>
+                  <Link href="/work" className="btn-outline">
+                    See our work
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -348,7 +378,12 @@ export default function HomePage() {
                 />
               </Reveal>
               <Reveal delay={120} className="text-center sm:text-left">
-                <p className="chapter justify-center sm:justify-start">Voices from the Trail</p>
+                <p className="chapter justify-center sm:justify-start">
+                  Voices from the Trail
+                  <span className="font-devanagari text-base normal-case tracking-normal text-ink-faint" lang="ne">
+                    · यात्राका स्वर
+                  </span>
+                </p>
                 <h2 className="mt-3 font-display text-3xl font-black text-ink sm:text-5xl">
                   Kind words from fellow travelers
                 </h2>
@@ -362,6 +397,70 @@ export default function HomePage() {
               <TestimonialCarousel items={TESTIMONIALS} />
             </Reveal>
           </div>
+        </section>
+
+        {/* ═══════ FROM EVERY CORNER OF NEPAL — plains to peaks ═══════ */}
+        <section className="overflow-hidden py-20 sm:py-28">
+          <div className="container-site">
+            <Reveal className="mx-auto max-w-2xl text-center">
+              <p className="chapter justify-center">
+                Our Homeland
+                <span className="font-devanagari text-base normal-case tracking-normal text-ink-faint" lang="ne">
+                  · हाम्रो नेपाल
+                </span>
+              </p>
+              <h2 className="mt-3 font-display text-4xl font-black text-ink sm:text-5xl">
+                From the plains to the peaks
+              </h2>
+              <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-ink-soft">
+                Nepal rises from steaming jungle to the roof of the world — and every altitude of it
+                shapes how we work.
+              </p>
+            </Reveal>
+
+            <div className="mt-12 space-y-14 sm:space-y-20">
+              {NEPAL_SCENES.map((scene, i) => {
+                const flip = i % 2 === 1;
+                return (
+                  <Reveal
+                    key={scene.img}
+                    as="article"
+                    className="grid items-center gap-8 sm:grid-cols-2 sm:gap-12"
+                  >
+                    <div className={`flex justify-center ${flip ? 'sm:order-2 sm:justify-start' : 'sm:justify-end'}`}>
+                      <Image
+                        src={`/image-story/${scene.img}.webp`}
+                        alt={scene.alt}
+                        width={scene.w}
+                        height={scene.h}
+                        sizes="(min-width: 1024px) 44vw, 80vw"
+                        loading="lazy"
+                        className="h-auto w-full max-w-[340px] object-contain sm:max-w-[420px] lg:max-w-[480px]"
+                      />
+                    </div>
+                    <div className={`text-center sm:text-left ${flip ? 'sm:order-1 sm:text-right' : ''}`}>
+                      <p className="text-xs font-bold uppercase tracking-[0.2em] text-laligurans">
+                        {scene.region}
+                        <span className="ml-1.5 font-devanagari text-sm normal-case tracking-normal text-ink-faint" lang="ne">
+                          {scene.tag}
+                        </span>
+                      </p>
+                      <h3 className="mt-2 font-display text-2xl font-bold text-ink sm:text-3xl">{scene.head}</h3>
+                      <p className={`mx-auto mt-4 max-w-md leading-relaxed text-ink-soft ${flip ? 'sm:ml-auto sm:mr-0' : 'sm:mx-0'}`}>
+                        {scene.copy}
+                      </p>
+                    </div>
+                  </Reveal>
+                );
+              })}
+            </div>
+          </div>
+
+          <Reveal className="container-site mt-14 text-center sm:mt-20">
+            <p className="mx-auto max-w-xl font-display text-xl italic leading-snug text-ink-soft sm:text-2xl">
+              Every corner of it, in everything we build.
+            </p>
+          </Reveal>
         </section>
 
         {/* ═══════ BEGIN ═══════ */}

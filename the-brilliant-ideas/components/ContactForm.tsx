@@ -149,21 +149,26 @@ export default function ContactForm() {
 
   if (isSubmitted) {
     return (
-      <div className="rounded-3xl bg-forest-faint p-10 text-center">
+      <div className="rounded-3xl border border-ink/5 bg-forest-faint px-8 py-12 text-center sm:px-10 sm:py-14">
         <Image
-          src="/image-story/glass-lotus.webp"
+          src="/image-story/namaste.webp"
           alt=""
-          width={1024}
-          height={1536}
-          sizes="180px"
-          className="mx-auto h-36 w-auto animate-float motion-reduce:animate-none"
+          aria-hidden
+          width={620}
+          height={778}
+          sizes="160px"
+          className="mx-auto h-32 w-auto animate-float motion-reduce:animate-none sm:h-36"
         />
-        <h3 className="mt-5 font-display text-2xl font-bold text-ink">Message received!</h3>
-        <p className="mx-auto mt-2 max-w-sm text-ink-soft">
-          Your story has begun. We&rsquo;ll get back to you within one business day.
+        <p className="mt-5 font-devanagari text-lg font-medium text-laligurans" lang="ne">
+          धन्यवाद
         </p>
-        <button type="button" onClick={() => setIsSubmitted(false)} className="btn-outline mt-6">
-          Send Another Message
+        <h3 className="mt-1 font-display text-2xl font-bold text-ink sm:text-3xl">Message received!</h3>
+        <p className="mx-auto mt-3 max-w-sm leading-relaxed text-ink-soft">
+          Thank you for reaching out. Your story has begun — we&rsquo;ll reply within one business
+          day, usually much sooner.
+        </p>
+        <button type="button" onClick={() => setIsSubmitted(false)} className="btn-outline mt-7">
+          Send another message
         </button>
       </div>
     );

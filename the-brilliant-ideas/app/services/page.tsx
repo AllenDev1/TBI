@@ -66,7 +66,12 @@ export default function ServicesPage() {
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_1fr]">
             <div className="text-center lg:text-left">
               <Reveal>
-                <p className="chapter justify-center lg:justify-start">What We Do</p>
+                <p className="chapter justify-center lg:justify-start">
+                  What We Do
+                  <span className="font-devanagari text-base normal-case tracking-normal text-ink-faint" lang="ne">
+                    · हाम्रो काम
+                  </span>
+                </p>
                 <h1 className="mx-auto mt-4 max-w-3xl font-display text-4xl font-black text-ink sm:text-6xl lg:mx-0">
                   Ideas take
                   <span className="block italic text-laligurans">flight here.</span>
@@ -149,7 +154,12 @@ export default function ServicesPage() {
           <div className="container-site pt-14">
             <div className="grid items-center gap-8 lg:grid-cols-[1.4fr_1fr]">
               <Reveal className="max-w-2xl">
-                <p className="chapter">How We Work</p>
+                <p className="chapter">
+                  How We Work
+                  <span className="font-devanagari text-base normal-case tracking-normal text-ink-faint" lang="ne">
+                    · हाम्रो बाटो
+                  </span>
+                </p>
                 <h2 className="mt-4 font-display text-3xl font-black text-ink sm:text-4xl">
                   The route we take, every time
                 </h2>

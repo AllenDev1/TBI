@@ -311,7 +311,12 @@ export default async function ProjectPage({ params }: Props) {
         <section className="bg-paper py-16 sm:py-24">
           <div className="container-site grid gap-14 lg:grid-cols-[1.55fr_1fr] lg:gap-24">
             <Reveal as="article">
-              <p className="chapter">The Story</p>
+              <p className="chapter">
+                The Story
+                <span className="font-devanagari text-base normal-case tracking-normal text-ink-faint" lang="ne">
+                  · कथा
+                </span>
+              </p>
               <h2 className="mt-5 max-w-2xl font-display text-3xl font-black leading-[1.12] text-ink sm:text-[2.6rem]">
                 {project.description}
               </h2>
@@ -385,7 +390,12 @@ export default async function ProjectPage({ params }: Props) {
           <div className="container-site pt-14">
             <Reveal className="flex items-end justify-between gap-6">
               <div>
-                <p className="chapter">In Pictures</p>
+                <p className="chapter">
+                  In Pictures
+                  <span className="font-devanagari text-base normal-case tracking-normal text-ink-faint" lang="ne">
+                    · तस्बिरहरू
+                  </span>
+                </p>
                 <h2 className="mt-4 font-display text-3xl font-black text-ink sm:text-4xl">From the field</h2>
               </div>
               <p className="font-display text-sm font-bold tracking-[0.2em] text-ink-faint">

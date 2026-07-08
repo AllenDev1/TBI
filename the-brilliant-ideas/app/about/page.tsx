@@ -49,10 +49,20 @@ const VALUES = [
   {
     title: 'Honest as the Mountains',
     subtitle: 'Integrity',
-    image: '/image-story/mountain-path.webp',
+    image: '/image-story/mountain-lake.webp',
     description:
       'The Himalayas do not pretend. We are transparent about scope, cost, and timelines, with our clients and with each other.',
   },
+];
+
+// The craft lineage we come from — each artisan is a principle we build by.
+const MAKERS = [
+  { img: 'newari-woodcarver', n: '01', title: 'The Woodcarver', ne: 'काष्ठकला', copy: 'A single lattice window can take a year, every joint cut by hand. We sweat our details the same way — down to the easing of a button.', w: 1024, h: 1536, alt: 'A watercolour of a Newari woodcarver chiselling an intricate lattice window' },
+  { img: 'potter', n: '02', title: 'The Potter', ne: 'माटोकला', copy: 'Clay finds its form on a wheel that refuses to be hurried. Good software is thrown the same way: centred, tested, and true.', w: 1122, h: 1402, alt: 'A watercolour of a Nepali potter shaping a clay pot on the wheel' },
+  { img: 'loom-weaver', n: '03', title: 'The Weaver', ne: 'बुनाइ', copy: 'A dhaka pattern is counted thread by thread; one wrong colour shows for a lifetime. We hold every interface to that same standard.', w: 1122, h: 1402, alt: 'A watercolour of a Nepali weaver at a wooden loom working a dhaka textile' },
+  { img: 'basket-weaver', n: '04', title: 'The Basketmaker', ne: 'बाँसकला', copy: 'A doko carries a whole harvest because every strand is placed with intent. We build systems to hold real weight, strand by strand.', w: 1122, h: 1402, alt: 'A watercolour of a craftsman weaving a bamboo doko basket' },
+  { img: 'thangka-painter', n: '05', title: 'The Thangka Painter', ne: 'पौभा', copy: 'A thangka is painted grain by grain, sometimes over months, so it can be read for centuries. We design for the long view — built to last, not just to launch.', w: 1122, h: 1402, alt: 'A watercolour of a Nepali thangka painter working on a Buddhist scroll' },
+  { img: 'mithila-artist', n: '06', title: 'The Mithila Painter', ne: 'मिथिला कला', copy: 'For centuries our walls have been painted with bold, fearless lines. We tell your story with the same colour and confidence.', w: 1060, h: 1484, alt: 'A watercolour of a woman painting traditional Mithila folk art' },
 ];
 
 const breadcrumbSchema = {
@@ -131,12 +141,113 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* A nation of makers — the craft heritage we come from */}
+        <section className="bg-paper pb-20">
+          <Ridge fill="#FBF9F5" className="-mt-px h-14 -translate-y-full sm:h-20" />
+          <div className="container-site pt-14">
+            <Reveal className="mx-auto max-w-2xl text-center">
+              <p className="chapter justify-center">
+                Craft In Our Blood
+                <span className="font-devanagari text-base normal-case tracking-normal text-ink-faint" lang="ne">
+                  · हाम्रो सीप
+                </span>
+              </p>
+              <h2 className="mt-4 font-display text-3xl font-black text-ink sm:text-4xl">
+                We come from a nation of makers
+              </h2>
+              <p className="mx-auto mt-4 text-lg leading-relaxed text-ink-soft">
+                Long before anyone here wrote a line of code, our valleys and plains were already
+                shaping wood, clay, and cane by hand. We build software the same way.
+              </p>
+            </Reveal>
+
+            <div className="mt-12 space-y-14 sm:space-y-20">
+              {MAKERS.map((maker, i) => {
+                const flip = i % 2 === 1;
+                return (
+                  <Reveal
+                    key={maker.img}
+                    as="article"
+                    className="grid items-center gap-8 sm:grid-cols-2 sm:gap-12"
+                  >
+                    <div className={`flex justify-center ${flip ? 'sm:order-2 sm:justify-start' : 'sm:justify-end'}`}>
+                      <Image
+                        src={`/image-story/${maker.img}.webp`}
+                        alt={maker.alt}
+                        width={maker.w}
+                        height={maker.h}
+                        sizes="(min-width: 1024px) 44vw, 80vw"
+                        loading="lazy"
+                        className="h-auto w-full max-w-[340px] object-contain sm:max-w-[420px] lg:max-w-[480px]"
+                      />
+                    </div>
+                    <div className={`text-center sm:text-left ${flip ? 'sm:order-1 sm:text-right' : ''}`}>
+                      <p className="text-xs font-bold uppercase tracking-[0.2em] text-laligurans">
+                        {maker.n}
+                        <span className="ml-2 font-devanagari text-sm normal-case tracking-normal text-ink-faint" lang="ne">
+                          {maker.ne}
+                        </span>
+                      </p>
+                      <h3 className="mt-2 font-display text-2xl font-bold text-ink sm:text-3xl">{maker.title}</h3>
+                      <p className={`mx-auto mt-4 max-w-md leading-relaxed text-ink-soft ${flip ? 'sm:ml-auto sm:mr-0' : 'sm:mx-0'}`}>
+                        {maker.copy}
+                      </p>
+                    </div>
+                  </Reveal>
+                );
+              })}
+            </div>
+
+            <Reveal as="article" className="mt-14 grid items-center gap-8 sm:mt-20 sm:grid-cols-2 sm:gap-12">
+              <div className="flex items-end justify-center gap-4 sm:justify-end sm:gap-6">
+                <Image
+                  src="/image-story/bamboo-basket.webp"
+                  alt="A watercolour of a handwoven bamboo basket"
+                  width={1400}
+                  height={934}
+                  sizes="(min-width: 640px) 22vw, 44vw"
+                  loading="lazy"
+                  className="h-auto w-1/2 max-w-[220px] object-contain"
+                />
+                <Image
+                  src="/image-story/terracotta-cloth.webp"
+                  alt="A watercolour of a terracotta water pot beside folded dhaka cloth"
+                  width={1024}
+                  height={1536}
+                  sizes="(min-width: 640px) 20vw, 40vw"
+                  loading="lazy"
+                  className="h-auto w-[44%] max-w-[190px] object-contain"
+                />
+              </div>
+              <div className="text-center sm:text-left">
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-laligurans">Even the everyday</p>
+                <h3 className="mt-2 font-display text-2xl font-bold text-ink sm:text-3xl">Beauty in useful things</h3>
+                <p className="mx-auto mt-4 max-w-md leading-relaxed text-ink-soft sm:mx-0">
+                  Not all craft hangs in a temple. A clay pot, a woven basket — made plainly, made to
+                  last. We give the ordinary screens the same care as the grand ones.
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal className="mx-auto mt-16 max-w-xl text-center sm:mt-20">
+              <p className="font-display text-2xl italic leading-snug text-ink sm:text-3xl">
+                The tools have changed. The patience hasn&rsquo;t.
+              </p>
+            </Reveal>
+          </div>
+        </section>
+
         {/* Values */}
         <section className="bg-paper pb-20">
           <Ridge fill="#FBF9F5" className="-mt-px h-14 -translate-y-full sm:h-20" />
           <div className="container-site pt-14">
             <Reveal className="max-w-2xl">
-              <p className="chapter">What We Live By</p>
+              <p className="chapter">
+                What We Live By
+                <span className="font-devanagari text-base normal-case tracking-normal text-ink-faint" lang="ne">
+                  · हाम्रा मूल्य
+                </span>
+              </p>
               <h2 className="mt-4 font-display text-3xl font-black text-ink sm:text-4xl">
                 Values borrowed from the land itself
               </h2>
@@ -191,7 +302,12 @@ export default function AboutPage() {
           <div className="container-site pt-14">
             <div className="grid items-center gap-8 lg:grid-cols-[1fr_1fr]">
               <Reveal className="max-w-2xl">
-                <p className="chapter">The Basecamp Crew</p>
+                <p className="chapter">
+                  The Basecamp Crew
+                  <span className="font-devanagari text-base normal-case tracking-normal text-ink-faint" lang="ne">
+                    · हाम्रो टोली
+                  </span>
+                </p>
                 <h2 className="mt-4 font-display text-3xl font-black text-ink sm:text-4xl">
                   Meet the team
                 </h2>
