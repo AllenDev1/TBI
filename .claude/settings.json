@@ -30,7 +30,8 @@
       "Bash(cd \"c:\\\\Work\\\\gitHub\\\\tbi\\\\the-brilliant-ideas\" && grep -rn \"mountain-path\" app components lib public/../app 2>/dev/null | grep -v Binary)",
       "Read(//c/Work/gitHub/tbi/the-brilliant-ideas/app/**)",
       "Bash(grep -rn \"image-story/\\\\${\\\\|img: '\\\\|img: \\\\\"\" app components lib)",
-      "Bash(grep -v \"^\\\\s*//\")"
+      "Bash(grep -v \"^\\\\s*//\")",
+      "Bash(npx update-browserslist-db@latest)"
     ]
   }
 }

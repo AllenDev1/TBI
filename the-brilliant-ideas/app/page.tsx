@@ -74,6 +74,7 @@ export default function HomePage() {
                   width={850}
                   height={1500}
                   priority
+                  fetchPriority="high"
                   sizes="(min-width: 1024px) 680px, (min-width: 640px) 560px, 96vw"
                   className="h-[min(52vh,440px)] w-auto sm:h-[min(62vh,640px)] lg:h-[min(70vh,800px)]"
                 />
