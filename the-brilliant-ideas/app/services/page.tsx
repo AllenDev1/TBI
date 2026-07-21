@@ -39,6 +39,7 @@ const servicesSchema = {
     position: i + 1,
     name: service.title,
     description: service.short,
+    url: `${SITE.url}/services/${service.slug}`,
     provider: { '@id': `${SITE.url}/#organization` },
     areaServed: 'Nepal',
   })),
@@ -141,6 +142,13 @@ export default function ServicesPage() {
                     >
                       {service.story}
                     </p>
+                    <Link
+                      href={`/services/${service.slug}`}
+                      className="mt-5 inline-flex items-center gap-1.5 font-semibold text-laligurans transition-colors hover:text-madder"
+                    >
+                      Explore this trail
+                      <span aria-hidden>→</span>
+                    </Link>
                   </div>
                 </Reveal>
               );

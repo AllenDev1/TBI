@@ -195,6 +195,36 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* ═══════ WHAT WE DO — the plain-spoken paragraph ═══════ */}
+        {/* one honest, crawlable section that says in plain words what the
+            storytelling above implies — and hands search engines the trail
+            map to every service page */}
+        <section className="py-16 sm:py-20">
+          <div className="container-site">
+            <Reveal className="mx-auto max-w-3xl text-center">
+              <p className="chapter justify-center">
+                What We Do
+                <span className="font-devanagari text-base normal-case tracking-normal text-ink-faint" lang="ne">
+                  · हाम्रो काम
+                </span>
+              </p>
+              <h2 className="mt-4 font-display text-3xl font-black leading-[1.1] text-ink sm:text-4xl">
+                A full-service digital agency in Nepal
+              </h2>
+              <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
+                From our studios in Biratnagar and Kathmandu, we handle the whole journey:{' '}
+                <Link href="/services/web-design-development" className="font-semibold text-ink underline decoration-laligurans/40 underline-offset-4 transition-colors hover:text-laligurans">web design &amp; development</Link>,{' '}
+                <Link href="/services/mobile-apps" className="font-semibold text-ink underline decoration-laligurans/40 underline-offset-4 transition-colors hover:text-laligurans">mobile app development</Link>,{' '}
+                <Link href="/services/branding-identity" className="font-semibold text-ink underline decoration-laligurans/40 underline-offset-4 transition-colors hover:text-laligurans">branding</Link>,{' '}
+                <Link href="/services/ui-ux-design" className="font-semibold text-ink underline decoration-laligurans/40 underline-offset-4 transition-colors hover:text-laligurans">UI/UX design</Link>,{' '}
+                <Link href="/services/digital-marketing" className="font-semibold text-ink underline decoration-laligurans/40 underline-offset-4 transition-colors hover:text-laligurans">SEO &amp; digital marketing</Link>, and{' '}
+                <Link href="/services/software-development" className="font-semibold text-ink underline decoration-laligurans/40 underline-offset-4 transition-colors hover:text-laligurans">custom software development</Link>
+                . One team, one roof, from first sketch to summit.
+              </p>
+            </Reveal>
+          </div>
+        </section>
+
         {/* ═══════ SELECTED WORK ═══════ */}
         <section className="py-20 sm:py-28">
           <div className="container-site">

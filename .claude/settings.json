@@ -26,7 +26,11 @@
       "PowerShell($edge = \"C:\\\\Program Files \\(x86\\)\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe\"; $out = \"C:\\\\Users\\\\258051~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Work-gitHub-tbi\\\\d7a7693f-0739-4452-9010-290a14df73b3\\\\scratchpad\"; & $edge --headless=new --disable-gpu --window-size=1440,3200 --hide-scrollbars --virtual-time-budget=10000 --screenshot=\"$out\\\\n1-work.png\" http://localhost:3130/work; echo ok)",
       "PowerShell($conns = Get-NetTCPConnection -LocalPort 3130 -State Listen -ErrorAction SilentlyContinue; $conns | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force -Confirm:$false }; echo stopped)",
       "Bash(rm \"public/works/jestha/App Screen 1.png\" \"public/works/jestha/App Screen 1 \\(1\\).png\" \"public/works/jestha/App Screen 2.png\" \"public/works/jestha/App Screen 2 \\(1\\).png\" \"public/works/jestha/App Screen 3.png\" \"public/works/jestha/App Screen 3 \\(1\\).png\" \"public/works/jestha/App Screen 4.png\" \"public/works/jestha/App Screen 5.png\" \"public/works/jestha/App Screen 5 \\(1\\).png\" \"public/works/jestha/App Screen 6.png\" public/works/jestha/logo.png)",
-      "Bash(rm public/works/j1.webp public/works/j2.webp public/works/jestha-m.webp)"
+      "Bash(rm public/works/j1.webp public/works/j2.webp public/works/jestha-m.webp)",
+      "Bash(cd \"c:\\\\Work\\\\gitHub\\\\tbi\\\\the-brilliant-ideas\" && grep -rn \"mountain-path\" app components lib public/../app 2>/dev/null | grep -v Binary)",
+      "Read(//c/Work/gitHub/tbi/the-brilliant-ideas/app/**)",
+      "Bash(grep -rn \"image-story/\\\\${\\\\|img: '\\\\|img: \\\\\"\" app components lib)",
+      "Bash(grep -v \"^\\\\s*//\")"
     ]
   }
 }

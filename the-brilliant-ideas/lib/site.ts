@@ -6,8 +6,8 @@ export const SITE = {
     'The Brilliant Ideas is a digital agency from Nepal building websites, mobile apps, brands, and software products. From Biratnagar and Kathmandu, we turn bold ideas into digital experiences that reach the summit.',
   email: 'info@thebrilliantideas.com',
   offices: [
-    { city: 'Biratnagar', address: 'Hattkhola, Milanchok', country: 'Nepal' },
-    { city: 'Kathmandu', address: 'Battishputtali, Rammandir Marga', country: 'Nepal' },
+    { city: 'Biratnagar', address: 'Hattkhola, Milanchok', country: 'Nepal', lat: 26.4525, lng: 87.2718 },
+    { city: 'Kathmandu', address: 'Battishputtali, Rammandir Marga', country: 'Nepal', lat: 27.7172, lng: 85.324 },
   ],
   social: {
     linkedin: 'https://www.linkedin.com/company/the-brilliant-ideas',

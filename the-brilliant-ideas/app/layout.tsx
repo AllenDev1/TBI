@@ -96,7 +96,10 @@ export const metadata: Metadata = {
 
 const organizationSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
+  // ProfessionalService (a LocalBusiness subtype) alongside Organization gives
+  // Google the local-search signals a plain Organization lacks — geo, areaServed —
+  // which matter for "digital agency Biratnagar / Kathmandu" queries.
+  '@type': ['Organization', 'ProfessionalService'],
   '@id': `${SITE.url}/#organization`,
   name: SITE.name,
   url: SITE.url,
@@ -104,11 +107,24 @@ const organizationSchema = {
   image: `${SITE.url}/og-image.jpg`,
   description: SITE.description,
   email: SITE.email,
+  priceRange: '$$',
+  areaServed: { '@type': 'Country', name: 'Nepal' },
   address: SITE.offices.map((office) => ({
     '@type': 'PostalAddress',
     addressLocality: office.city,
     streetAddress: office.address,
     addressCountry: 'NP',
+  })),
+  location: SITE.offices.map((office) => ({
+    '@type': 'Place',
+    name: `${SITE.name} — ${office.city}`,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: office.city,
+      streetAddress: office.address,
+      addressCountry: 'NP',
+    },
+    geo: { '@type': 'GeoCoordinates', latitude: office.lat, longitude: office.lng },
   })),
   contactPoint: {
     '@type': 'ContactPoint',
@@ -144,7 +160,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
-        <meta name="google-adsense-account" content="ca-pub-1949655614307812" />
       </head>
       <body className={`${fraunces.variable} ${inter.variable} ${notoDevanagari.variable} font-body`}>
         <SmoothScroll />

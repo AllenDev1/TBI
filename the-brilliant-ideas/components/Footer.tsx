@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { SITE } from '@/lib/site';
+import { SITE, SERVICES } from '@/lib/site';
 import { Ridge, PrayerFlagLine } from '@/components/NepalArt';
 
 const NAV = [
@@ -148,7 +148,7 @@ export default function Footer({
           </div>
 
           {/* columns */}
-          <div className="grid gap-10 pt-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
+          <div className="grid gap-10 pt-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_1.1fr_1fr_1fr]">
             <div>
               <p className="max-w-sm leading-relaxed text-himal-mist">
                 A digital agency from the land of the Himalayas, building websites, apps, and brands
@@ -156,6 +156,25 @@ export default function Footer({
               </p>
               <PrayerFlagLine className="mt-6 w-52" />
             </div>
+
+            <nav aria-label="Services">
+              <h2 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-himal-mist/70">
+                <span aria-hidden className="h-1 w-1 rounded-full bg-madder-bright" />
+                Services
+              </h2>
+              <ul className="mt-4 space-y-2.5">
+                {SERVICES.map((service) => (
+                  <li key={service.slug}>
+                    <Link
+                      href={`/services/${service.slug}`}
+                      className="text-himal-snow transition-colors hover:text-sunrise-bright"
+                    >
+                      {service.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
 
             <nav aria-label="Footer">
               <h2 className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-himal-mist/70">
