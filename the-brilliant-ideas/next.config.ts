@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
     inlineCss: true,
   },
   images: {
+    // 60 for the large soft watercolour washes (visually identical, much
+    // smaller), 75 as the default everywhere else
+    qualities: [60, 75],
     remotePatterns: [
       {
         protocol: 'https',

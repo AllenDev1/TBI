@@ -75,7 +75,11 @@ export default function HomePage() {
                   height={1500}
                   priority
                   fetchPriority="high"
-                  sizes="(min-width: 1024px) 680px, (min-width: 640px) 560px, 96vw"
+                  quality={60}
+                  // the classes cap the RENDERED height (52vh/62vh/70vh, w-auto), so
+                  // the true width is ~250-455px, not 96vw; oversized sizes was
+                  // tripling the LCP download on mobile
+                  sizes="(min-width: 1024px) 460px, (min-width: 640px) 370px, 240px"
                   className="h-[min(52vh,440px)] w-auto sm:h-[min(62vh,640px)] lg:h-[min(70vh,800px)]"
                 />
               </div>

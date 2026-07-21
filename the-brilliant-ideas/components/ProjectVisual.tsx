@@ -38,7 +38,7 @@ export default function ProjectVisual({
             height={2868}
             priority={priority}
             className="w-full rounded-[1.2rem] shadow-[0_22px_50px_rgba(0,0,0,0.42)] ring-1 ring-white/15"
-            sizes="200px"
+            sizes="140px"
           />
         </div>
         <div className="relative z-20 w-[46%] shrink-0 transition-transform duration-500 group-hover:-translate-y-1.5">
@@ -49,7 +49,7 @@ export default function ProjectVisual({
             height={2868}
             priority={priority}
             className="w-full rounded-[1.4rem] shadow-[0_36px_78px_rgba(0,0,0,0.55)] ring-1 ring-white/25"
-            sizes="260px"
+            sizes="180px"
           />
         </div>
         <div className="relative z-10 -ml-[11%] w-[35%] shrink-0 rotate-[10deg] translate-y-6 transition-transform duration-500 group-hover:rotate-[7deg] group-hover:translate-y-4">
@@ -60,7 +60,7 @@ export default function ProjectVisual({
             height={2868}
             priority={priority}
             className="w-full rounded-[1.2rem] shadow-[0_22px_50px_rgba(0,0,0,0.42)] ring-1 ring-white/15"
-            sizes="200px"
+            sizes="140px"
           />
         </div>
       </div>

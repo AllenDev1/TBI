@@ -166,9 +166,10 @@ export default function RootLayout({
         {children}
         <ScrollTop />
 
-        {/* Google Analytics */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-BSN1533EQ4" strategy="afterInteractive" />
-        <Script id="ga-init" strategy="afterInteractive">
+        {/* Google Analytics — lazyOnload keeps ~160 KiB of gtag.js off the
+            critical path; pageview still fires once the page is idle */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-BSN1533EQ4" strategy="lazyOnload" />
+        <Script id="ga-init" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -178,7 +179,7 @@ export default function RootLayout({
         </Script>
 
         {/* Microsoft Clarity */}
-        <Script id="ms-clarity" strategy="afterInteractive">
+        <Script id="ms-clarity" strategy="lazyOnload">
           {`
             (function(c,l,a,r,i,t,y){
               c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
