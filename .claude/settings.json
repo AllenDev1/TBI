@@ -31,7 +31,8 @@
       "Read(//c/Work/gitHub/tbi/the-brilliant-ideas/app/**)",
       "Bash(grep -rn \"image-story/\\\\${\\\\|img: '\\\\|img: \\\\\"\" app components lib)",
       "Bash(grep -v \"^\\\\s*//\")",
-      "Bash(npx update-browserslist-db@latest)"
+      "Bash(npx update-browserslist-db@latest)",
+      "Bash(cp \"C:/Users/258051~1/AppData/Local/Temp/claude/c--Work-gitHub-tbi/b8993711-fee3-44a5-9da9-4b7e1fafed5a/scratchpad/hero-lantern-flat.webp\" public/image-story/hero-lantern.webp)"
     ]
   }
 }
